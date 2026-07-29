@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { CompassButton } from "@/components/CompassButton";
+import { StarStamp } from "@/components/StarStamp";
 import { paises } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
 
@@ -59,8 +60,12 @@ function Passaporte() {
                 key={c.paisId}
                 className="flex flex-col gap-5 rounded-md border border-border bg-card p-6 sm:flex-row"
               >
-                <div className="flex h-28 w-28 shrink-0 flex-col items-center justify-center rounded-full border-2 border-dashed border-brass text-center">
-                  <span aria-hidden className="text-2xl">{pais.bandeira}</span>
+                <div className="relative flex h-28 w-28 shrink-0 flex-col items-center justify-center rounded-full border-2 border-dashed border-brass text-center">
+                  <StarStamp
+                    bandeira={pais.bandeira}
+                    tamanho={52}
+                    titulo={`${pais.nome} já explorado`}
+                  />
                   <span className="mt-1 px-2 font-display text-sm leading-tight text-foreground">
                     {pais.nome}
                   </span>
