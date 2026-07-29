@@ -1,9 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { CompassButton } from "@/components/CompassButton";
 import { StarStamp } from "@/components/StarStamp";
 import { paises } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
+import { lerProgressoTudo } from "@/hooks/useExpedicao";
+import type { ProgressoExpedicao } from "@/hooks/useExpedicao";
 
 export const Route = createFileRoute("/passaporte")({
   head: () => ({
