@@ -51,7 +51,7 @@ const ESTACOES: EstacaoInfo[] = [
   {
     id: "transporte",
     icone: "🚂",
-    rotulo: "Transporte do dia",
+    rotulo: "Chegada e transporte",
     dica: "Como nos deslocamos hoje",
   },
   {
@@ -63,13 +63,13 @@ const ESTACOES: EstacaoInfo[] = [
   {
     id: "fauna",
     icone: "🐾",
-    rotulo: "Avistamento da fauna",
+    rotulo: "Encontro na natureza",
     dica: "O animal encontrado no caminho",
   },
   {
     id: "sabor",
     icone: "🍽️",
-    rotulo: "Sabor da terra",
+    rotulo: "Parada para comer",
     dica: "A refeição típica do dia",
   },
 ];
