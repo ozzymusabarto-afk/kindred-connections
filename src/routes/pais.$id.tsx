@@ -1,21 +1,53 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
+import { useEffect, useMemo, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { CompassButton } from "@/components/CompassButton";
 import { ExpedicaoHeader } from "@/components/expedicao/ExpedicaoHeader";
-import { SeletorDias } from "@/components/expedicao/SeletorDias";
-import { RotaDoDia } from "@/components/expedicao/RotaDoDia";
-import type { EstacaoInfo } from "@/components/expedicao/RotaDoDia";
-import { PassoConteudo } from "@/components/expedicao/PassoConteudo";
-import { CadernoObservador } from "@/components/expedicao/CadernoObservador";
+import { TelaChegada } from "@/components/expedicao/TelaChegada";
+import { TelaCheckin } from "@/components/expedicao/TelaCheckin";
+import { TelaTransporte } from "@/components/expedicao/TelaTransporte";
+import { TelaObservacao } from "@/components/expedicao/TelaObservacao";
+import { TelaEncontro } from "@/components/expedicao/TelaEncontro";
+import { TelaCarimbo } from "@/components/expedicao/TelaCarimbo";
 import { getPais } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
 import { useExpedicao } from "@/hooks/useExpedicao";
-import type { EstacaoId } from "@/hooks/useExpedicao";
 import { tocar } from "@/lib/sfx";
 import type { Pais } from "@/data/types";
 
+type TelaId =
+  | "chegada"
+  | "checkin"
+  | "transporte"
+  | "observacao"
+  | "encontro"
+  | "carimbo";
+
+const TELAS: TelaId[] = [
+  "chegada",
+  "checkin",
+  "transporte",
+  "observacao",
+  "encontro",
+  "carimbo",
+];
+
+const TELAS_DO_DIA: TelaId[] = [
+  "transporte",
+  "observacao",
+  "encontro",
+  "carimbo",
+];
+
 export const Route = createFileRoute("/pais/$id")({
+  validateSearch: (search: Record<string, unknown>) => {
+    const tela = String(search.tela ?? "");
+    const dia = Number(search.dia);
+    return {
+      tela: (TELAS as string[]).includes(tela) ? (tela as TelaId) : undefined,
+      dia: Number.isFinite(dia) && dia > 0 ? Math.floor(dia) : undefined,
+    };
+  },
   loader: ({ params }): { pais: Pais } => {
     const pais = getPais(params.id);
     if (!pais) throw notFound();
@@ -44,43 +76,14 @@ export const Route = createFileRoute("/pais/$id")({
       ],
     };
   },
-  component: PainelExpedicao,
+  component: SimuladorViagem,
 });
 
-const ESTACOES: EstacaoInfo[] = [
-  {
-    id: "transporte",
-    icone: "🚂",
-    rotulo: "Chegada e transporte",
-    dica: "Como nos deslocamos hoje",
-  },
-  {
-    id: "observacao",
-    icone: "🔍",
-    rotulo: "Ponto de observação",
-    dica: "Olhe atentamente a paisagem",
-  },
-  {
-    id: "fauna",
-    icone: "🐾",
-    rotulo: "Encontro na natureza",
-    dica: "O animal encontrado no caminho",
-  },
-  {
-    id: "sabor",
-    icone: "🍽️",
-    rotulo: "Parada para comer",
-    dica: "A refeição típica do dia",
-  },
-];
-
-function PainelExpedicao() {
+function SimuladorViagem() {
   const { pais }: { pais: Pais } = Route.useLoaderData();
+  const busca = Route.useSearch();
+  const navigate = useNavigate({ from: "/pais/$id" });
   const dias = pais.roteiro_viagem;
-
-  const [diaAtivo, setDiaAtivo] = useState(dias[0].dia);
-  const [estacao, setEstacao] = useState<EstacaoId>("transporte");
-  const cadernoRef = useRef<HTMLDivElement>(null);
 
   const {
     pronto,
@@ -90,53 +93,72 @@ function PainelExpedicao() {
     salvarRespostas,
     concluirDia,
     diaConcluido,
+    aberturaVista,
+    marcarAbertura,
   } = useExpedicao(pais.id);
   const { salvarNota } = usePassport();
 
+  const diaAtivo = busca.dia ?? dias[0].dia;
   const dia = dias.find((d) => d.dia === diaAtivo) ?? dias[0];
-  const progresso = getDia(diaAtivo);
+  const progresso = getDia(dia.dia);
 
-  // Registra a primeira estação como visitada assim que o progresso carrega.
+  const tela: TelaId =
+    busca.tela ?? (pronto && aberturaVista ? "transporte" : "chegada");
+
+  const [respostas, setRespostas] = useState<Record<string, string>>({});
+
   useEffect(() => {
-    if (pronto) marcarEstacao(diaAtivo, estacao);
-  }, [pronto, diaAtivo, estacao, marcarEstacao]);
+    setRespostas(getDia(dia.dia).respostas ?? {});
+    // Recarrega o caderno ao trocar de dia ou quando o progresso é lido.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dia.dia, pronto]);
 
-  const todasEstacoesVisitadas = useMemo(
-    () => ESTACOES.every((e) => progresso.estacoes.includes(e.id)),
-    [progresso.estacoes],
-  );
+  const ir = (proxima: TelaId, novoDia = dia.dia) => {
+    tocar(proxima === "carimbo" ? "carimbo" : "passo");
+    void navigate({
+      params: { id: pais.id },
+      search: { tela: proxima, dia: novoDia },
+      resetScroll: true,
+    });
+  };
+
+  // Marca a estação equivalente à tela atual como visitada.
+  useEffect(() => {
+    if (!pronto) return;
+    if (tela === "transporte") marcarEstacao(dia.dia, "transporte");
+    if (tela === "observacao") marcarEstacao(dia.dia, "observacao");
+    if (tela === "encontro") {
+      marcarEstacao(dia.dia, "fauna");
+      marcarEstacao(dia.dia, "sabor");
+    }
+  }, [pronto, tela, dia.dia, marcarEstacao]);
 
   const totalConcluidos = dias.filter((d) => diaConcluido(d.dia)).length;
+  const indiceDia = TELAS_DO_DIA.indexOf(tela);
 
-  function selecionarEstacao(id: EstacaoId) {
-    tocar("passo");
-    setEstacao(id);
-    if (window.innerWidth < 1024) {
-      requestAnimationFrame(() =>
-        cadernoRef.current?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        }),
-      );
-    }
+  const proximoDia = useMemo(() => {
+    const seguinte = dias.find((d) => d.dia > dia.dia);
+    return seguinte?.dia;
+  }, [dias, dia.dia]);
+
+  function responder(chave: string, valor: string) {
+    setRespostas((r) => ({ ...r, [chave]: valor }));
   }
 
-  function registrar(respostas: Record<string, string>) {
-    salvarRespostas(diaAtivo, respostas);
-    concluirDia(diaAtivo);
+  function carimbar() {
+    salvarRespostas(dia.dia, respostas);
+    concluirDia(dia.dia);
     tocar("dia");
 
     const restantes = dias.filter(
-      (d) => d.dia !== diaAtivo && !diaConcluido(d.dia),
+      (d) => d.dia !== dia.dia && !diaConcluido(d.dia),
     );
     if (restantes.length === 0) {
       const texto = Object.values(respostas).join("\n\n");
       salvarNota(pais.id, texto.slice(0, 1200));
     }
+    ir("carimbo");
   }
-
-  const indiceAtivo = ESTACOES.findIndex((e) => e.id === estacao);
-  const proxima = ESTACOES[indiceAtivo + 1];
 
   return (
     <div className="min-h-screen">
@@ -148,56 +170,94 @@ function PainelExpedicao() {
       />
 
       <main className="mx-auto max-w-7xl px-5 py-6">
-        <SeletorDias
-          dias={dias}
-          ativo={diaAtivo}
-          concluido={diaConcluido}
-          onSelecionar={(d) => {
-            tocar("passo");
-            setDiaAtivo(d);
-            setEstacao("transporte");
-          }}
-        />
-
-        <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start">
-          <div className="space-y-5">
-            <RotaDoDia
-              estacoes={ESTACOES}
-              ativa={estacao}
-              visitadas={progresso.estacoes}
-              onSelecionar={selecionarEstacao}
-            />
-
-            <PassoConteudo
-              pais={pais}
-              dia={dia}
-              estacao={estacao}
-              indice={indiceAtivo}
-              total={ESTACOES.length}
-              progresso={progresso}
-              onAbrirHotspot={(id) => marcarHotspot(diaAtivo, id)}
-              onProximo={
-                proxima ? () => selecionarEstacao(proxima.id) : undefined
-              }
-            />
-
-            <p className="text-xs text-muted-foreground">
-              Expedição em {pais.nome}: {totalConcluidos} de {dias.length} dias
-              carimbados.
-            </p>
+        {indiceDia >= 0 && (
+          <div className="mb-5">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
+                Dia {dia.dia} de {dias.length} · Passo {indiceDia + 1} de{" "}
+                {TELAS_DO_DIA.length}
+              </p>
+              <p className="text-xs text-muted-foreground">
+                {totalConcluidos} dia(s) carimbado(s) em {pais.nome}
+              </p>
+            </div>
+            <div className="mt-2 flex gap-1.5">
+              {TELAS_DO_DIA.map((t, i) => (
+                <span
+                  key={t}
+                  className={`h-1.5 flex-1 rounded-full transition-colors ${
+                    i <= indiceDia ? "bg-brass" : "bg-border"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
+        )}
 
-          <div ref={cadernoRef} className="lg:sticky lg:top-4">
-            <CadernoObservador
-              pais={pais}
-              dia={dia}
-              estacao={estacao}
-              progresso={progresso}
-              todasEstacoesVisitadas={todasEstacoesVisitadas}
-              onRegistrar={registrar}
-            />
-          </div>
-        </div>
+        {tela === "chegada" && (
+          <TelaChegada
+            pais={pais}
+            onAvancar={() => {
+              marcarAbertura();
+              ir("checkin");
+            }}
+          />
+        )}
+
+        {tela === "checkin" && (
+          <TelaCheckin
+            pais={pais}
+            dia={dia}
+            onAvancar={() => ir("transporte")}
+            onVoltar={() => ir("chegada")}
+          />
+        )}
+
+        {tela === "transporte" && (
+          <TelaTransporte
+            dia={dia}
+            onAvancar={() => ir("observacao")}
+            onVoltar={() => ir("checkin")}
+          />
+        )}
+
+        {tela === "observacao" && (
+          <TelaObservacao
+            dia={dia}
+            progresso={progresso}
+            respostas={respostas}
+            onResponder={responder}
+            onAbrirHotspot={(id) => marcarHotspot(dia.dia, id)}
+            onAvancar={() => {
+              salvarRespostas(dia.dia, respostas);
+              ir("encontro");
+            }}
+            onVoltar={() => ir("transporte")}
+          />
+        )}
+
+        {tela === "encontro" && (
+          <TelaEncontro
+            pais={pais}
+            dia={dia}
+            respostas={respostas}
+            onResponder={responder}
+            onAvancar={carimbar}
+            onVoltar={() => ir("observacao")}
+          />
+        )}
+
+        {tela === "carimbo" && (
+          <TelaCarimbo
+            pais={pais}
+            dia={dia}
+            diasTotal={dias.length}
+            concluidos={totalConcluidos}
+            proximoDia={proximoDia}
+            onProximoDia={(d) => ir("transporte", d)}
+            onRefazer={() => ir("transporte")}
+          />
+        )}
 
         <p className="mt-12 text-sm text-muted-foreground">
           <Link to="/passaporte" className="underline underline-offset-4">
