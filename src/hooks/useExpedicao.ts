@@ -123,3 +123,9 @@ export function respostaValida(texto: string | undefined) {
 }
 
 export const MINIMO_RESPOSTA = MIN_RESPOSTA;
+
+/** Lê todo o progresso salvo (usado no passaporte). */
+export function lerProgressoTudo(): ProgressoExpedicao {
+  if (typeof window === "undefined") return {};
+  return ler();
+}
