@@ -6,13 +6,14 @@ import { ExpedicaoHeader } from "@/components/expedicao/ExpedicaoHeader";
 import { SeletorDias } from "@/components/expedicao/SeletorDias";
 import { RotaDoDia } from "@/components/expedicao/RotaDoDia";
 import type { EstacaoInfo } from "@/components/expedicao/RotaDoDia";
-import { CadernoDeCampo } from "@/components/expedicao/CadernoDeCampo";
+import { PassoConteudo } from "@/components/expedicao/PassoConteudo";
+import { CadernoObservador } from "@/components/expedicao/CadernoObservador";
 import { getPais } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
 import { useExpedicao } from "@/hooks/useExpedicao";
 import type { EstacaoId } from "@/hooks/useExpedicao";
 import { tocar } from "@/lib/sfx";
-import type { ItemNatureza, Pais } from "@/data/types";
+import type { Pais } from "@/data/types";
 
 export const Route = createFileRoute("/pais/$id")({
   loader: ({ params }): { pais: Pais } => {
@@ -79,7 +80,6 @@ function PainelExpedicao() {
 
   const [diaAtivo, setDiaAtivo] = useState(dias[0].dia);
   const [estacao, setEstacao] = useState<EstacaoId>("transporte");
-  const [ficha, setFicha] = useState<ItemNatureza | null>(null);
   const cadernoRef = useRef<HTMLDivElement>(null);
 
   const {
