@@ -135,6 +135,9 @@ function PainelExpedicao() {
     }
   }
 
+  const indiceAtivo = ESTACOES.findIndex((e) => e.id === estacao);
+  const proxima = ESTACOES[indiceAtivo + 1];
+
   return (
     <div className="min-h-screen">
       <SiteHeader />
@@ -165,109 +168,36 @@ function PainelExpedicao() {
               onSelecionar={selecionarEstacao}
             />
 
-            <div className="overflow-hidden rounded-md border border-border bg-card">
-              <img
-                src={dia.imagem_url}
-                alt={dia.titulo}
-                className="h-56 w-full object-cover sm:h-72"
-              />
-              <div className="p-5">
-                <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
-                  Diário de bordo · Dia {dia.dia}
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {pais.resumo_geografico}
-                </p>
-                <p className="mt-4 text-xs text-muted-foreground">
-                  Expedição: {totalConcluidos} de {dias.length} dias concluídos
-                </p>
-              </div>
-            </div>
+            <PassoConteudo
+              pais={pais}
+              dia={dia}
+              estacao={estacao}
+              indice={indiceAtivo}
+              total={ESTACOES.length}
+              progresso={progresso}
+              onAbrirHotspot={(id) => marcarHotspot(diaAtivo, id)}
+              onProximo={
+                proxima ? () => selecionarEstacao(proxima.id) : undefined
+              }
+            />
+
+            <p className="text-xs text-muted-foreground">
+              Expedição em {pais.nome}: {totalConcluidos} de {dias.length} dias
+              carimbados.
+            </p>
           </div>
 
           <div ref={cadernoRef} className="lg:sticky lg:top-4">
-            <CadernoDeCampo
+            <CadernoObservador
               pais={pais}
               dia={dia}
               estacao={estacao}
               progresso={progresso}
               todasEstacoesVisitadas={todasEstacoesVisitadas}
-              onAbrirHotspot={(id) => marcarHotspot(diaAtivo, id)}
               onRegistrar={registrar}
             />
           </div>
         </div>
-
-        <section className="mt-14">
-          <h2 className="font-display text-2xl text-foreground">
-            Arquivo do país
-          </h2>
-          <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            Todo o material coletado nesta expedição: o caderno da natureza e a
-            mesa do viajante.
-          </p>
-
-          <h3 className="mt-8 font-display text-lg text-foreground">
-            Caderno da natureza
-          </h3>
-          <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {pais.fauna_flora.map((item) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => {
-                  tocar("lupa");
-                  setFicha(item);
-                }}
-                className="overflow-hidden rounded-md border border-border bg-card text-left transition-colors hover:border-brass"
-              >
-                <img
-                  src={item.foto_url}
-                  alt={item.nome}
-                  loading="lazy"
-                  className="h-40 w-full object-cover"
-                />
-                <div className="p-4">
-                  <p className="font-display text-base text-foreground">
-                    {item.nome}
-                  </p>
-                  {item.nome_cientifico && (
-                    <p className="mt-1 text-xs italic text-muted-foreground">
-                      {item.nome_cientifico}
-                    </p>
-                  )}
-                </div>
-              </button>
-            ))}
-          </div>
-
-          <h3 className="mt-10 font-display text-lg text-foreground">
-            A mesa do viajante
-          </h3>
-          <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {pais.gastronomia.map((prato) => (
-              <article
-                key={prato.id}
-                className="overflow-hidden rounded-md border border-border bg-card"
-              >
-                <img
-                  src={prato.foto_url}
-                  alt={prato.nome}
-                  loading="lazy"
-                  className="h-40 w-full object-cover"
-                />
-                <div className="p-4">
-                  <p className="font-display text-base text-foreground">
-                    {prato.nome}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {prato.historia}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
 
         <p className="mt-12 text-sm text-muted-foreground">
           <Link to="/passaporte" className="underline underline-offset-4">
@@ -279,63 +209,6 @@ function PainelExpedicao() {
           </Link>
         </p>
       </main>
-
-      {ficha && (
-        <div
-          className="fixed inset-0 z-50 flex items-end justify-center bg-foreground/40 p-0 backdrop-blur-sm sm:items-center sm:p-6"
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setFicha(null)}
-        >
-          <div
-            className="max-h-[88vh] w-full max-w-lg overflow-y-auto rounded-t-md border border-border bg-card sm:rounded-md"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={ficha.foto_url}
-              alt={ficha.nome}
-              className="h-56 w-full object-cover"
-            />
-            <div className="p-6">
-              <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
-                Fichário do explorador
-              </p>
-              <h3 className="mt-2 text-2xl text-foreground">{ficha.nome}</h3>
-              {ficha.nome_cientifico && (
-                <p className="mt-1 text-sm italic text-muted-foreground">
-                  {ficha.nome_cientifico}
-                </p>
-              )}
-              <dl className="mt-5 space-y-4 text-sm leading-relaxed">
-                <div>
-                  <dt className="text-xs uppercase tracking-widest text-muted-foreground">
-                    Curiosidade
-                  </dt>
-                  <dd className="mt-1 text-foreground">{ficha.curiosidade}</dd>
-                </div>
-                <div>
-                  <dt className="text-xs uppercase tracking-widest text-muted-foreground">
-                    Habitat
-                  </dt>
-                  <dd className="mt-1 text-foreground">{ficha.habitat}</dd>
-                </div>
-              </dl>
-              {ficha.som_url && (
-                <audio controls src={ficha.som_url} className="mt-5 w-full">
-                  <track kind="captions" />
-                </audio>
-              )}
-              <button
-                type="button"
-                onClick={() => setFicha(null)}
-                className="mt-6 w-full rounded-full border border-border px-4 py-2 text-sm tracking-wide text-foreground transition-colors hover:bg-accent"
-              >
-                Fechar ficha
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
 
       <CompassButton />
     </div>
