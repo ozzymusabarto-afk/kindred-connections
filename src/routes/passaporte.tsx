@@ -95,10 +95,11 @@ function Passaporte() {
                         >
                           <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
                             Dia {d.dia} ·{" "}
-                            {new Date(pd.concimoEmSafe ?? pd.concluidoEm).toLocaleDateString(
+                            {new Date(pd.concluidoEm).toLocaleDateString(
                               "pt-BR",
                             )}
                           </p>
+
                           <p className="mt-1 font-display text-base text-foreground">
                             {d.titulo.replace(/^Dia\s*\d+:\s*/i, "")}
                           </p>
