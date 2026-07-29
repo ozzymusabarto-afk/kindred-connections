@@ -29,6 +29,10 @@ export const Route = createFileRoute("/passaporte")({
 
 function Passaporte() {
   const { carimbos, pronto } = usePassport();
+  const [progresso, setProgresso] = useState<ProgressoExpedicao>({});
+
+  useEffect(() => setProgresso(lerProgressoTudo()), []);
+
 
   return (
     <div className="min-h-screen">
