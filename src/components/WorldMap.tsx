@@ -39,7 +39,13 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   const visitados = paises.filter((p) => carimbados.includes(p.id)).length;
 
   return (
-    <div className="relative w-full overflow-hidden rounded-xl border border-border">
+    <div
+      className="relative w-full overflow-hidden rounded-xl border border-border"
+      style={{
+        background:
+          "linear-gradient(to bottom, var(--map-ocean), var(--map-ocean-deep))",
+      }}
+    >
       <svg
         viewBox={AMERICAS_VIEWBOX}
         className="h-[62vh] max-h-[720px] min-h-[380px] w-full"
