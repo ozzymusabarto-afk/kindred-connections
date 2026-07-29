@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PassaporteRouteImport } from './routes/passaporte'
 import { Route as CompararRouteImport } from './routes/comparar'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PaisIdRouteImport } from './routes/pais.$id'
 
+const PassaporteRoute = PassaporteRouteImport.update({
+  id: '/passaporte',
+  path: '/passaporte',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CompararRoute = CompararRouteImport.update({
   id: '/comparar',
   path: '/comparar',
@@ -32,35 +38,46 @@ const PaisIdRoute = PaisIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/comparar': typeof CompararRoute
+  '/passaporte': typeof PassaporteRoute
   '/pais/$id': typeof PaisIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/comparar': typeof CompararRoute
+  '/passaporte': typeof PassaporteRoute
   '/pais/$id': typeof PaisIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/comparar': typeof CompararRoute
+  '/passaporte': typeof PassaporteRoute
   '/pais/$id': typeof PaisIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/comparar' | '/pais/$id'
+  fullPaths: '/' | '/comparar' | '/passaporte' | '/pais/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/comparar' | '/pais/$id'
-  id: '__root__' | '/' | '/comparar' | '/pais/$id'
+  to: '/' | '/comparar' | '/passaporte' | '/pais/$id'
+  id: '__root__' | '/' | '/comparar' | '/passaporte' | '/pais/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CompararRoute: typeof CompararRoute
+  PassaporteRoute: typeof PassaporteRoute
   PaisIdRoute: typeof PaisIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/passaporte': {
+      id: '/passaporte'
+      path: '/passaporte'
+      fullPath: '/passaporte'
+      preLoaderRoute: typeof PassaporteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/comparar': {
       id: '/comparar'
       path: '/comparar'
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CompararRoute: CompararRoute,
+  PassaporteRoute: PassaporteRoute,
   PaisIdRoute: PaisIdRoute,
 }
 export const routeTree = rootRouteImport
