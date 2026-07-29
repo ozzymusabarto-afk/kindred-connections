@@ -16,26 +16,26 @@ interface Props {
 
 export function RotaDoDia({ estacoes, ativa, visitadas, onSelecionar }: Props) {
   const total = estacoes.length;
-  const feitas = estacoes.filter((e) => visitadas.includes(e.id)).length;
+  const indiceAtivo = estacoes.findIndex((e) => e.id === ativa);
 
   return (
-    <section className="rounded-md border border-border bg-card p-4 sm:p-5">
+    <section className="rounded-xl border-2 border-border bg-card p-4 shadow-sm sm:p-5">
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3">
         <h2 className="min-w-0 truncate font-display text-lg text-foreground">
-          A rota da viagem
+          A jornada de hoje
         </h2>
-        <span className="shrink-0 rounded-full border border-border px-2.5 py-0.5 text-[11px] uppercase tracking-widest text-muted-foreground">
-          Etapa {Math.max(feitas, 1)} de {total}
+        <span className="shrink-0 rounded-full bg-primary px-3 py-1 text-[11px] uppercase tracking-widest text-primary-foreground">
+          Passo {indiceAtivo + 1} de {total}
         </span>
       </div>
 
       <div className="relative mt-6">
         <div
           aria-hidden
-          className="absolute left-0 right-0 top-6 border-t-2 border-dashed border-border"
+          className="absolute left-0 right-0 top-6 border-t-2 border-dashed border-brass/50"
         />
         <ol className="relative grid grid-cols-4 gap-2">
-          {estacoes.map((e) => {
+          {estacoes.map((e, i) => {
             const selecionada = e.id === ativa;
             const visitada = visitadas.includes(e.id);
             return (
@@ -45,15 +45,26 @@ export function RotaDoDia({ estacoes, ativa, visitadas, onSelecionar }: Props) {
                   onClick={() => onSelecionar(e.id)}
                   aria-pressed={selecionada}
                   title={e.dica}
-                  className={`flex h-12 w-12 items-center justify-center rounded-full border-2 text-xl transition-all ${
+                  className={`relative flex h-12 w-12 items-center justify-center rounded-full border-2 text-xl transition-all ${
                     selecionada
-                      ? "scale-110 border-brass bg-accent shadow-sm"
+                      ? "scale-110 border-brass bg-accent shadow-md"
                       : visitada
-                        ? "border-brass/70 bg-background"
+                        ? "border-primary bg-primary/10"
                         : "border-border bg-background hover:border-brass/60"
                   }`}
                 >
                   <span aria-hidden>{e.icone}</span>
+                  <span
+                    className={`absolute -left-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full text-[10px] font-bold ${
+                      selecionada
+                        ? "bg-brass text-card"
+                        : visitada
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-secondary text-muted-foreground"
+                    }`}
+                  >
+                    {i + 1}
+                  </span>
                 </button>
                 <span
                   className={`mt-2 text-[11px] leading-tight sm:text-xs ${
@@ -63,7 +74,9 @@ export function RotaDoDia({ estacoes, ativa, visitadas, onSelecionar }: Props) {
                   {e.rotulo}
                 </span>
                 {visitada && (
-                  <span className="mt-0.5 text-[10px] text-brass">visitado</span>
+                  <span className="mt-0.5 text-[10px] text-primary">
+                    visitado
+                  </span>
                 )}
               </li>
             );
