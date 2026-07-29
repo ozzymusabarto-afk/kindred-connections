@@ -81,10 +81,41 @@ function Passaporte() {
                   </span>
                 </div>
                 <div className="flex-1">
-                  <h2 className="text-xl text-foreground">Notas do explorador</h2>
-                  <p className="mt-2 whitespace-pre-line text-base leading-relaxed text-muted-foreground">
-                    {c.nota}
-                  </p>
+                  <h2 className="text-xl text-foreground">
+                    Registros da expedição
+                  </h2>
+                  <div className="mt-3 space-y-4">
+                    {pais.roteiro_viagem.map((d) => {
+                      const pd = progresso[pais.id]?.[String(d.dia)];
+                      if (!pd?.concluidoEm) return null;
+                      return (
+                        <div
+                          key={d.dia}
+                          className="rounded-md border border-border bg-background p-4"
+                        >
+                          <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                            Dia {d.dia} ·{" "}
+                            {new Date(pd.concimoEmSafe ?? pd.concluidoEm).toLocaleDateString(
+                              "pt-BR",
+                            )}
+                          </p>
+                          <p className="mt-1 font-display text-base text-foreground">
+                            {d.titulo.replace(/^Dia\s*\d+:\s*/i, "")}
+                          </p>
+                          {(d.perguntas ?? []).map((q) => (
+                            <div key={q.id} className="mt-3">
+                              <p className="text-xs leading-relaxed text-muted-foreground">
+                                {q.texto}
+                              </p>
+                              <p className="mt-1 whitespace-pre-line text-sm leading-relaxed text-foreground">
+                                {pd.respostas?.[q.id]}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    })}
+                  </div>
                   <Link
                     to="/pais/$id"
                     params={{ id: pais.id }}
@@ -96,6 +127,7 @@ function Passaporte() {
               </article>
             );
           })}
+
         </div>
       </main>
 
