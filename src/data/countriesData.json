@@ -1,12 +1,40 @@
 {
   "continentes": [
-    { "id": "america-do-norte", "nome": "América do Norte", "disponivel": true },
-    { "id": "america-central", "nome": "América Central", "disponivel": false },
-    { "id": "america-do-sul", "nome": "América do Sul", "disponivel": false },
-    { "id": "europa", "nome": "Europa", "disponivel": false },
-    { "id": "asia", "nome": "Ásia", "disponivel": false },
-    { "id": "africa", "nome": "África", "disponivel": false },
-    { "id": "oceania", "nome": "Oceania", "disponivel": false }
+    {
+      "id": "america-do-norte",
+      "nome": "América do Norte",
+      "disponivel": true
+    },
+    {
+      "id": "america-central",
+      "nome": "América Central",
+      "disponivel": false
+    },
+    {
+      "id": "america-do-sul",
+      "nome": "América do Sul",
+      "disponivel": false
+    },
+    {
+      "id": "europa",
+      "nome": "Europa",
+      "disponivel": false
+    },
+    {
+      "id": "asia",
+      "nome": "Ásia",
+      "disponivel": false
+    },
+    {
+      "id": "africa",
+      "nome": "África",
+      "disponivel": false
+    },
+    {
+      "id": "oceania",
+      "nome": "Oceania",
+      "disponivel": false
+    }
   ],
   "paises": [
     {
@@ -14,7 +42,10 @@
       "nome": "Canadá",
       "continente": "america-do-norte",
       "bandeira": "🇨🇦",
-      "coordenadas": { "x": 770, "y": 203 },
+      "coordenadas": {
+        "x": 770,
+        "y": 203
+      },
       "imagem_capa": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/1920px-Moraine_Lake_17092005.jpg",
       "resumo_geografico": "Um país imenso marcado pelo frio, pelas florestas e por uma profunda conexão entre o clima rigoroso e a adaptação do seu povo. Do Atlântico ao Pacífico, o território é atravessado por rios largos, lagos gigantes e cadeias de montanhas que guardam geleiras. Onde o inverno dura muitos meses, as cidades aprenderam a viver por dentro: passagens subterrâneas, telhados inclinados para a neve escorrer e janelas grandes para aproveitar cada minuto de luz.",
       "roteiro_viagem": [
@@ -112,14 +143,18 @@
         "agricultura_construcoes": "Cultivo curto e concentrado no verão; colheita de seiva de bordo no fim do inverno. As construções têm telhados inclinados, isolamento grosso e cidades com passagens internas para escapar da neve.",
         "roupas_modo_de_vida": "Roupas em camadas, casacos térmicos e botas impermeáveis. A vida se organiza em torno da luz do dia, que é curta no inverno, e de esportes sobre gelo e neve.",
         "fauna_alimentacao": "Animais de pelagem densa como alce, castor e lobo. A comida é calórica e reconfortante: pratos quentes, tortas de carne e doces à base de bordo."
-      }
+      },
+      "codigo_mapa": "ca"
     },
     {
       "id": "mexico",
       "nome": "México",
       "continente": "america-do-norte",
       "bandeira": "🇲🇽",
-      "coordenadas": { "x": 536, "y": 492 },
+      "coordenadas": {
+        "x": 536,
+        "y": 492
+      },
       "imagem_capa": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Chichen_Itza_Mexico_%28125162459%29.jpeg/1920px-Chichen_Itza_Mexico_%28125162459%29.jpeg",
       "resumo_geografico": "Uma terra vibrante construída sobre lagos e selvas, onde a engenhosidade antiga dos Maias e Astecas se une às tradições vivas. Montanhas altas cercam um planalto central onde o ar é fino e as noites são frescas; mais abaixo, a península de Yucatán é uma placa de calcário sem rios de superfície, com toda a água escondida em galerias subterrâneas. Aqui, a história não está apenas nos museus: está no milho, nos mercados e nas festas.",
       "roteiro_viagem": [
@@ -217,14 +252,18 @@
         "agricultura_construcoes": "Agricultura de milho, feijão e abóbora plantados juntos, além das chinampas flutuantes. As construções usam pedra, adobe e pátios internos que criam sombra e ventilação natural.",
         "roupas_modo_de_vida": "Roupas leves de algodão, bordados coloridos e chapéus contra o sol forte. A vida acontece nas praças, mercados e festas de rua.",
         "fauna_alimentacao": "Fauna tropical de selva e deserto, como macacos-aranha e iguanas. A comida gira em torno do milho, das pimentas e do cacau, com muitos sabores em um mesmo prato."
-      }
+      },
+      "codigo_mapa": "mx"
     },
     {
       "id": "estados-unidos",
       "nome": "Estados Unidos",
       "continente": "america-do-norte",
       "bandeira": "🇺🇸",
-      "coordenadas": { "x": 675, "y": 370 },
+      "coordenadas": {
+        "x": 675,
+        "y": 370
+      },
       "imagem_capa": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Forrest_Gump_Point_Monument_Valley_November_2018_001.jpg/1920px-Forrest_Gump_Point_Monument_Valley_November_2018_001.jpg",
       "resumo_geografico": "Um território vasto e diversificado que vai das cidades verticais aos desertos esculpidos, impulsionado pela inovação e exploração. Entre duas costas oceânicas cabem planícies de trigo, montanhas nevadas, pântanos quentes e cânions vermelhos. Essa variedade explica por que o modo de vida muda tanto de um estado para outro: cada paisagem pede uma solução diferente.",
       "roteiro_viagem": [
@@ -312,7 +351,8 @@
         "agricultura_construcoes": "Grandes lavouras mecanizadas de milho, trigo e soja nas planícies, com irrigação por pivô. As construções vão de arranha-céus de aço e vidro a casas de madeira em subúrbios espalhados.",
         "roupas_modo_de_vida": "Roupas mudam muito de região para região: casacos no norte, roupas leves no sul e no deserto. A vida depende bastante do carro e das grandes distâncias.",
         "fauna_alimentacao": "Fauna de pradaria e floresta temperada, como bisões e águias-carecas. A comida é prática e portátil, feita para o ritmo acelerado do dia a dia."
-      }
+      },
+      "codigo_mapa": "us"
     }
   ]
 }

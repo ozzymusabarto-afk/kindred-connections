@@ -45,6 +45,8 @@ export interface Pais {
   id: string;
   nome: string;
   continente: ContinenteId;
+  /** Código do país no SVG do mapa (ex.: "ca", "mx", "us"). */
+  codigo_mapa: string;
   bandeira: string;
   coordenadas: { x: number; y: number };
   imagem_capa: string;

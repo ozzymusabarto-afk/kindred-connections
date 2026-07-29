@@ -3,6 +3,7 @@ import { useState } from "react";
 import { WorldMap } from "@/components/WorldMap";
 import { CompassButton } from "@/components/CompassButton";
 import { SiteHeader } from "@/components/SiteHeader";
+import { StarStamp } from "@/components/StarStamp";
 import { continentes, getPaisesPorContinente } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
 
@@ -31,6 +32,7 @@ function MapaMundi() {
   const [continenteAtivo, setContinenteAtivo] = useState("america-do-norte");
   const { carimbos } = usePassport();
   const paisesVisiveis = getPaisesPorContinente(continenteAtivo);
+  const visitados = new Set(carimbos.map((c) => c.paisId));
 
   return (
     <div className="min-h-screen">
@@ -96,8 +98,17 @@ function MapaMundi() {
               onClick={() =>
                 navigate({ to: "/pais/$id", params: { id: pais.id } })
               }
-              className="group overflow-hidden rounded-md border border-border bg-card text-left transition-colors hover:border-brass"
+              className="group relative overflow-hidden rounded-md border border-border bg-card text-left transition-colors hover:border-brass"
             >
+              {visitados.has(pais.id) && (
+                <span className="absolute right-3 top-3 z-10 drop-shadow">
+                  <StarStamp
+                    bandeira={pais.bandeira}
+                    tamanho={46}
+                    titulo={`${pais.nome} já explorado`}
+                  />
+                </span>
+              )}
               <img
                 src={pais.imagem_capa}
                 alt={`Paisagem do ${pais.nome}`}
