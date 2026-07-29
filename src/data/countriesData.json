@@ -1,0 +1,318 @@
+{
+  "continentes": [
+    { "id": "america-do-norte", "nome": "América do Norte", "disponivel": true },
+    { "id": "america-central", "nome": "América Central", "disponivel": false },
+    { "id": "america-do-sul", "nome": "América do Sul", "disponivel": false },
+    { "id": "europa", "nome": "Europa", "disponivel": false },
+    { "id": "asia", "nome": "Ásia", "disponivel": false },
+    { "id": "africa", "nome": "África", "disponivel": false },
+    { "id": "oceania", "nome": "Oceania", "disponivel": false }
+  ],
+  "paises": [
+    {
+      "id": "canada",
+      "nome": "Canadá",
+      "continente": "america-do-norte",
+      "bandeira": "🇨🇦",
+      "coordenadas": { "x": 770, "y": 203 },
+      "imagem_capa": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Moraine_Lake_17092005.jpg/1920px-Moraine_Lake_17092005.jpg",
+      "resumo_geografico": "Um país imenso marcado pelo frio, pelas florestas e por uma profunda conexão entre o clima rigoroso e a adaptação do seu povo. Do Atlântico ao Pacífico, o território é atravessado por rios largos, lagos gigantes e cadeias de montanhas que guardam geleiras. Onde o inverno dura muitos meses, as cidades aprenderam a viver por dentro: passagens subterrâneas, telhados inclinados para a neve escorrer e janelas grandes para aproveitar cada minuto de luz.",
+      "roteiro_viagem": [
+        {
+          "dia": 1,
+          "titulo": "Dia 1: A vida em Montreal e o ritmo do St. Lawrence",
+          "descricao": "Observe como uma cidade inteira foi pensada para o frio. Em Montreal, o rio St. Lawrence define o traçado das ruas e, quando a neve chega, a vida continua numa rede de galerias abaixo do chão que ligam lojas, estações e escolas. Repare nas escadas externas de ferro, nos telhados em ângulo e nas janelas duplas: cada detalhe é uma resposta inteligente ao inverno, não um enfeite.",
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Montreal_skyline_winter_2010b.JPG/1920px-Montreal_skyline_winter_2010b.JPG"
+        },
+        {
+          "dia": 2,
+          "titulo": "Dia 2: As Montanhas Rochosas e os lagos esculpidos pelas geleiras",
+          "descricao": "Nas Montanhas Rochosas, a água dos lagos tem um azul-turquesa que parece pintado. O segredo é a farinha de rocha: pó finíssimo produzido pelas geleiras ao raspar as montanhas, que fica suspenso na água e devolve essa cor à luz do sol. Compare a forma dos vales em U com os vales em V dos rios: um é obra do gelo, o outro é obra da água corrente.",
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Moraine_Lake-Banff_NP.JPG/1920px-Moraine_Lake-Banff_NP.JPG"
+        },
+        {
+          "dia": 3,
+          "titulo": "Dia 3: As florestas de bordo e a tradição do cultivo",
+          "descricao": "No outono, as folhas de bordo mudam de cor porque a árvore recolhe a clorofila antes do frio. No fim do inverno, quando os dias esquentam e as noites ainda congelam, a seiva volta a subir pelo tronco: é o momento exato em que as famílias fazem um pequeno furo, coletam a seiva e a fervem por horas até virar xarope. Nada é derrubado — a mesma árvore é visitada por décadas.",
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Autumn_forest_at_Drumbeg_Provincial_Park.jpg/1920px-Autumn_forest_at_Drumbeg_Provincial_Park.jpg"
+        }
+      ],
+      "fauna_flora": [
+        {
+          "id": "castor",
+          "nome": "Castor",
+          "nome_cientifico": "Castor canadensis",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/North_American_beaver_%28Castor_canadensis%29_%2846677957975%29.jpg/1920px-North_American_beaver_%28Castor_canadensis%29_%2846677957975%29.jpg",
+          "som_url": null,
+          "curiosidade": "É o engenheiro dos rios: constrói represas de galhos e lama que criam lagoas inteiras, mudando a paisagem e abrigando peixes, aves e plantas. Seus dentes nunca param de crescer e são naturalmente alaranjados por causa do ferro no esmalte.",
+          "habitat": "Rios, riachos e lagoas de água doce cercados por florestas."
+        },
+        {
+          "id": "esquilo",
+          "nome": "Esquilo",
+          "nome_cientifico": "Sciurus carolinensis",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Grey_squirrel_%28Sciurus_carolinensis%29_02.jpg/1920px-Grey_squirrel_%28Sciurus_carolinensis%29_02.jpg",
+          "som_url": null,
+          "curiosidade": "Esconde sementes em centenas de lugares diferentes para o inverno e esquece de muitas delas. Sem querer, planta árvores novas todos os anos.",
+          "habitat": "Florestas de folhas caducas, bosques e parques urbanos."
+        },
+        {
+          "id": "alce",
+          "nome": "Alce",
+          "nome_cientifico": "Alces alces",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Moose_in_Grand_Teton_National_Park_3_%288007698498%29.jpg/1920px-Moose_in_Grand_Teton_National_Park_3_%288007698498%29.jpg",
+          "som_url": null,
+          "curiosidade": "É o maior cervídeo do mundo e um nadador excelente: mergulha para arrancar plantas do fundo dos lagos. Os machos trocam a galhada todos os anos.",
+          "habitat": "Florestas boreais frias, próximas a pântanos e lagos."
+        },
+        {
+          "id": "lobo",
+          "nome": "Lobo",
+          "nome_cientifico": "Canis lupus",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Loup_gris_%28Canis_lupus_%29.jpg/1920px-Loup_gris_%28Canis_lupus_%29.jpg",
+          "som_url": null,
+          "curiosidade": "O uivo funciona como um mapa sonoro: ajuda a alcateia a se reencontrar e a avisar outros grupos onde termina o seu território. Pode ser ouvido a mais de 10 km de distância.",
+          "habitat": "Florestas, tundras e montanhas de grandes áreas selvagens."
+        }
+      ],
+      "gastronomia": [
+        {
+          "id": "poutine",
+          "nome": "Poutine",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Poutine_coques_frites.jpg/1920px-Poutine_coques_frites.jpg",
+          "adjetivo": "famosa",
+          "historia": "Nasceu nas estradas rurais de Quebec, nos anos 1950: batatas fritas quentes, queijo fresco em grãos e molho por cima. É comida de inverno — energia e calor num prato só."
+        },
+        {
+          "id": "tourtiere",
+          "nome": "Tourtière",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Tourti%C3%A8re_%C3%A0_la_viande.jpg/1920px-Tourti%C3%A8re_%C3%A0_la_viande.jpg",
+          "adjetivo": "deliciosa",
+          "historia": "Torta de carne temperada servida nas noites mais frias do ano, especialmente no Natal. Guardar a carne dentro da massa era um jeito antigo de conservar o alimento e aquecer a família."
+        },
+        {
+          "id": "maple-syrup",
+          "nome": "Maple Syrup",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Maple_syrup.jpg",
+          "adjetivo": "doce",
+          "historia": "São necessários cerca de 40 litros de seiva para produzir 1 litro de xarope. A técnica de furar a árvore e ferver a seiva foi ensinada pelos povos originários muito antes da chegada dos europeus."
+        },
+        {
+          "id": "bagel-montreal",
+          "nome": "Bagel de Montreal",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Montreal_Bagel_by_Fairmount_Bagels.jpg/1920px-Montreal_Bagel_by_Fairmount_Bagels.jpg",
+          "adjetivo": "tradicional",
+          "historia": "Mais fino e levemente adocicado, é fervido em água com mel e assado em forno a lenha. Algumas padarias de Montreal mantêm o mesmo forno aceso há quase cem anos."
+        }
+      ],
+      "comparativo": {
+        "clima_predominante": "Continental frio, com invernos longos e neve",
+        "bioma_principal": "Floresta boreal (taiga) e montanhas geladas",
+        "elemento_marcante": "O gelo que esculpe lagos, vales e o modo de viver",
+        "agricultura_construcoes": "Cultivo curto e concentrado no verão; colheita de seiva de bordo no fim do inverno. As construções têm telhados inclinados, isolamento grosso e cidades com passagens internas para escapar da neve.",
+        "roupas_modo_de_vida": "Roupas em camadas, casacos térmicos e botas impermeáveis. A vida se organiza em torno da luz do dia, que é curta no inverno, e de esportes sobre gelo e neve.",
+        "fauna_alimentacao": "Animais de pelagem densa como alce, castor e lobo. A comida é calórica e reconfortante: pratos quentes, tortas de carne e doces à base de bordo."
+      }
+    },
+    {
+      "id": "mexico",
+      "nome": "México",
+      "continente": "america-do-norte",
+      "bandeira": "🇲🇽",
+      "coordenadas": { "x": 536, "y": 492 },
+      "imagem_capa": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Chichen_Itza_Mexico_%28125162459%29.jpeg/1920px-Chichen_Itza_Mexico_%28125162459%29.jpeg",
+      "resumo_geografico": "Uma terra vibrante construída sobre lagos e selvas, onde a engenhosidade antiga dos Maias e Astecas se une às tradições vivas. Montanhas altas cercam um planalto central onde o ar é fino e as noites são frescas; mais abaixo, a península de Yucatán é uma placa de calcário sem rios de superfície, com toda a água escondida em galerias subterrâneas. Aqui, a história não está apenas nos museus: está no milho, nos mercados e nas festas.",
+      "roteiro_viagem": [
+        {
+          "dia": 1,
+          "titulo": "Dia 1: Cidade do México e as chinampas de Xochimilco",
+          "descricao": "A capital foi erguida sobre um lago. Para cultivar dentro da água, os antigos criaram as chinampas: canteiros retangulares feitos de lama e vegetação, presos ao fundo por raízes de árvores plantadas nas bordas. São hortas que flutuam e produzem o ano inteiro, regadas por baixo. Observe como um problema — pouca terra firme — virou uma das agriculturas mais produtivas do mundo.",
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Trajineras_en_canal_de_Xochimilco_75.jpg/1920px-Trajineras_en_canal_de_Xochimilco_75.jpg"
+        },
+        {
+          "dia": 2,
+          "titulo": "Dia 2: Chichén Itzá e os cenotes, poços sagrados de água pura",
+          "descricao": "A pirâmide de Kukulcán é um calendário de pedra: são 365 degraus somando os quatro lados e, nos equinócios, a sombra desenha uma serpente descendo a escadaria. Ao redor, os cenotes se abrem no chão onde o teto de calcário desabou, revelando a água doce que corre sob a floresta. Sem rios visíveis, foram esses poços que decidiram onde as cidades poderiam existir.",
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Cenote_Ik_Kil%2C_Yucatan%2C_Dec_2011_-_01.jpg/1920px-Cenote_Ik_Kil%2C_Yucatan%2C_Dec_2011_-_01.jpg"
+        },
+        {
+          "dia": 3,
+          "titulo": "Dia 3: A vida real nos mercados e oficinas de Oaxaca",
+          "descricao": "No mercado, tudo tem origem visível: pimentas secas ao sol, milho de várias cores, cestos trançados à mão. Nas oficinas, o barro preto é polido com pedra e a lã é tingida com cochonilha, um pequeno inseto que produz vermelho intenso. Repare que o artesão não copia um molde: cada peça carrega a marca da mão que a fez.",
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Tlacolula_Market_230122_62.jpg/1920px-Tlacolula_Market_230122_62.jpg"
+        }
+      ],
+      "fauna_flora": [
+        {
+          "id": "aguia-real",
+          "nome": "Águia Real",
+          "nome_cientifico": "Aquila chrysaetos",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/015_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_%28Switzerland%29_Photo_by_Giles_Laurent.jpg/1920px-015_Wild_Golden_Eagle_in_flight_at_Pfyn-Finges_%28Switzerland%29_Photo_by_Giles_Laurent.jpg",
+          "som_url": null,
+          "curiosidade": "Está no centro da bandeira mexicana, pousada num cacto devorando uma serpente — a imagem que, segundo a lenda, indicou aos astecas onde fundar sua cidade. Enxerga uma presa a mais de 2 km.",
+          "habitat": "Montanhas, serras e planaltos abertos."
+        },
+        {
+          "id": "macaco-aranha",
+          "nome": "Macaco-Aranha",
+          "nome_cientifico": "Ateles geoffroyi",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Geoffroy%27s_spider_monkey_%28Ateles_geoffroyi_yucatanensis%29_Peten_2.jpg/1920px-Geoffroy%27s_spider_monkey_%28Ateles_geoffroyi_yucatanensis%29_Peten_2.jpg",
+          "som_url": null,
+          "curiosidade": "Usa a cauda como um quinto braço: ela é preênsil e tem a ponta sem pelos, quase como uma mão, para segurar galhos enquanto ele colhe frutas.",
+          "habitat": "Copas altas das florestas tropicais do sul do México."
+        },
+        {
+          "id": "iguana-negra",
+          "nome": "Iguana-Negra",
+          "nome_cientifico": "Ctenosaura similis",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Black_Spiny-tailed_Iguana-27527.jpg/1920px-Black_Spiny-tailed_Iguana-27527.jpg",
+          "som_url": null,
+          "curiosidade": "É um dos lagartos mais rápidos do mundo, capaz de correr a mais de 30 km/h. Passa a manhã imóvel sobre pedras quentes para aquecer o corpo antes de se mover.",
+          "habitat": "Ruínas, rochas e florestas secas costeiras."
+        },
+        {
+          "id": "xoloitzcuintli",
+          "nome": "Xoloitzcuintli",
+          "nome_cientifico": "Canis lupus familiaris",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Xoloitzcuintli_-_GCH_Bayshore_Georgio_Armani_09_%2816397731930%29.jpg",
+          "som_url": null,
+          "curiosidade": "Cão sem pelos com mais de 3.000 anos de história. Para os astecas, acompanhava as pessoas em sua última viagem; sua pele quente era usada para aquecer quem estava doente.",
+          "habitat": "Convive com pessoas, em casas e vilarejos, há milênios."
+        }
+      ],
+      "gastronomia": [
+        {
+          "id": "tacos-al-pastor",
+          "nome": "Tacos al Pastor",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/%28El_Flaco%29_Al_Pastor_Tacos.jpg/1920px-%28El_Flaco%29_Al_Pastor_Tacos.jpg",
+          "adjetivo": "famosos",
+          "historia": "Encontro de dois mundos: imigrantes libaneses trouxeram o espeto vertical, e o México respondeu com carne de porco marinada em pimentas, tortilla de milho, abacaxi e coentro."
+        },
+        {
+          "id": "mole-poblano",
+          "nome": "Mole Poblano",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Mole_Poblano.jpg/1920px-Mole_Poblano.jpg",
+          "adjetivo": "misterioso",
+          "historia": "Um molho que pode reunir mais de trinta ingredientes, entre pimentas, especiarias, sementes e chocolate. Leva horas de preparo e é reservado para os dias mais importantes do ano."
+        },
+        {
+          "id": "pan-de-muerto",
+          "nome": "Pan de Muerto",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Entrega_de_pan_de_muerto_2991_%2846061194481%29.jpg/1920px-Entrega_de_pan_de_muerto_2991_%2846061194481%29.jpg",
+          "adjetivo": "doce",
+          "historia": "Pão perfumado com flor de laranjeira, feito para o Dia dos Mortos. As tiras sobre a massa representam ossos e a bolinha central, uma lágrima: é uma forma alegre de lembrar de quem se ama."
+        },
+        {
+          "id": "chocolate-espumante",
+          "nome": "Chocolate Espumante",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Typical_mexican_drink_%22Hot_chocolate%22.jpg",
+          "adjetivo": "tradicional",
+          "historia": "O cacau nasceu por aqui e era bebido amargo, batido com um molinillo de madeira até criar espuma. A espuma era considerada a melhor parte da bebida."
+        }
+      ],
+      "comparativo": {
+        "clima_predominante": "Tropical e semiárido, com planaltos amenos",
+        "bioma_principal": "Selvas tropicais, desertos e florestas de montanha",
+        "elemento_marcante": "A água escondida sob a pedra e o milho como base da vida",
+        "agricultura_construcoes": "Agricultura de milho, feijão e abóbora plantados juntos, além das chinampas flutuantes. As construções usam pedra, adobe e pátios internos que criam sombra e ventilação natural.",
+        "roupas_modo_de_vida": "Roupas leves de algodão, bordados coloridos e chapéus contra o sol forte. A vida acontece nas praças, mercados e festas de rua.",
+        "fauna_alimentacao": "Fauna tropical de selva e deserto, como macacos-aranha e iguanas. A comida gira em torno do milho, das pimentas e do cacau, com muitos sabores em um mesmo prato."
+      }
+    },
+    {
+      "id": "estados-unidos",
+      "nome": "Estados Unidos",
+      "continente": "america-do-norte",
+      "bandeira": "🇺🇸",
+      "coordenadas": { "x": 675, "y": 370 },
+      "imagem_capa": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Forrest_Gump_Point_Monument_Valley_November_2018_001.jpg/1920px-Forrest_Gump_Point_Monument_Valley_November_2018_001.jpg",
+      "resumo_geografico": "Um território vasto e diversificado que vai das cidades verticais aos desertos esculpidos, impulsionado pela inovação e exploração. Entre duas costas oceânicas cabem planícies de trigo, montanhas nevadas, pântanos quentes e cânions vermelhos. Essa variedade explica por que o modo de vida muda tanto de um estado para outro: cada paisagem pede uma solução diferente.",
+      "roteiro_viagem": [
+        {
+          "dia": 1,
+          "titulo": "Dia 1: A energia de Nova York e o ritmo das cidades verticais",
+          "descricao": "Quando o espaço no chão acaba, a cidade cresce para cima. Nova York foi construída sobre rocha firme, capaz de sustentar torres de aço e vidro. Observe o ritmo: metrôs que substituem carros, escadas de incêndio nas fachadas, parques criados de propósito para dar ar e silêncio no meio do barulho.",
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/New_York_City_at_night_HDR.jpg/1920px-New_York_City_at_night_HDR.jpg"
+        },
+        {
+          "dia": 2,
+          "titulo": "Dia 2: A imensidão do Grand Canyon e a força que esculpe o deserto",
+          "descricao": "O rio Colorado levou milhões de anos para cortar mais de 1,5 km de rocha. Cada faixa colorida da parede é uma camada de tempo: quanto mais fundo você olha, mais antiga é a história. Aqui a paciência da água e o vento fazem o trabalho que nenhuma máquina faria.",
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Grand_Canyon_Hopi_Point_with_rainbow_2013.jpg/1920px-Grand_Canyon_Hopi_Point_with_rainbow_2013.jpg"
+        },
+        {
+          "dia": 3,
+          "titulo": "Dia 3: A ciência no Kennedy Space Center",
+          "descricao": "Foi daqui que missões partiram rumo à Lua e a órbitas distantes. As bases de lançamento ficam na costa para que os foguetes partam sobre o mar, longe das cidades, aproveitando a rotação da Terra como impulso extra. Curiosidade e cálculo, juntos, transformam uma pergunta em viagem.",
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Atlantis_Kennedy_Space_Center_Visitor_Complex_4.jpg/1920px-Atlantis_Kennedy_Space_Center_Visitor_Complex_4.jpg"
+        },
+        {
+          "dia": 4,
+          "titulo": "Dia 4: O coração da história em Washington, D.C.",
+          "descricao": "A cidade foi desenhada antes de existir: avenidas largas, eixos que apontam para monumentos e um grande gramado central rodeado de museus gratuitos. Repare como o espaço público foi planejado para que as pessoas caminhem, encontrem e aprendam ao ar livre.",
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/National_Mall%2C_Washington%2C_D.C._%2820100325-DSC01362%29.jpg/1920px-National_Mall%2C_Washington%2C_D.C._%2820100325-DSC01362%29.jpg"
+        }
+      ],
+      "fauna_flora": [
+        {
+          "id": "aguia-careca",
+          "nome": "Águia-Careca",
+          "nome_cientifico": "Haliaeetus leucocephalus",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Weisskopf_Seeadler_haliaeetus_leucocephalus_8_amk.jpg/1920px-Weisskopf_Seeadler_haliaeetus_leucocephalus_8_amk.jpg",
+          "som_url": null,
+          "curiosidade": "Constrói um dos maiores ninhos do mundo animal: reaproveitado ano após ano, pode pesar quase uma tonelada. Pesca mergulhando as garras na superfície da água.",
+          "habitat": "Perto de grandes lagos, rios e litorais com árvores altas."
+        },
+        {
+          "id": "bisao",
+          "nome": "Bisão",
+          "nome_cientifico": "Bison bison",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/American_bison_in_Yellowstone_National_Park.jpg/1920px-American_bison_in_Yellowstone_National_Park.jpg",
+          "som_url": null,
+          "curiosidade": "Em vez de fugir das nevascas, caminha contra o vento e usa a cabeça enorme como pá para varrer a neve e alcançar o capim enterrado.",
+          "habitat": "Pradarias e vales abertos das Grandes Planícies."
+        },
+        {
+          "id": "esquilo-urbano",
+          "nome": "Esquilo dos parques urbanos",
+          "nome_cientifico": "Sciurus carolinensis",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Squirrel_in_CP_%2840494%29.jpg/1920px-Squirrel_in_CP_%2840494%29.jpg",
+          "som_url": null,
+          "curiosidade": "Aprendeu a viver entre pessoas: reconhece rotas seguras pelos galhos e fios, e memoriza quais bancos de praça costumam ter comida.",
+          "habitat": "Parques, praças e árvores de rua das grandes cidades."
+        }
+      ],
+      "gastronomia": [
+        {
+          "id": "bagel-cream-cheese",
+          "nome": "Bagel com cream cheese",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Toasted_sesame_bagel_with_cream_cheese_-_Massachusetts.jpg/1920px-Toasted_sesame_bagel_with_cream_cheese_-_Massachusetts.jpg",
+          "adjetivo": "clássico",
+          "historia": "Trazido por imigrantes do leste europeu, virou o café da manhã de Nova York. É fervido antes de assar, o que deixa a casca brilhante e o miolo bem macio."
+        },
+        {
+          "id": "pbj",
+          "nome": "PB&J",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Peanut-Butter-Jelly-Sandwich.jpg/1920px-Peanut-Butter-Jelly-Sandwich.jpg",
+          "adjetivo": "prático",
+          "historia": "Pasta de amendoim com geleia entre duas fatias de pão: barato, energético e fácil de guardar na mochila. Virou o lanche escolar mais conhecido do país."
+        },
+        {
+          "id": "torta-de-maca",
+          "nome": "Torta de Maçã",
+          "foto_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Apple_pie_24.jpg/1920px-Apple_pie_24.jpg",
+          "adjetivo": "tradicional",
+          "historia": "Receita levada por famílias europeias que encontraram pomares perfeitos no clima temperado do norte. Assar a torta no outono é um jeito de guardar a colheita para os dias frios."
+        }
+      ],
+      "comparativo": {
+        "clima_predominante": "Muito variado: temperado, desértico e subtropical",
+        "bioma_principal": "Pradarias, desertos, florestas temperadas e pântanos",
+        "elemento_marcante": "A escala — cidades verticais e paisagens gigantes",
+        "agricultura_construcoes": "Grandes lavouras mecanizadas de milho, trigo e soja nas planícies, com irrigação por pivô. As construções vão de arranha-céus de aço e vidro a casas de madeira em subúrbios espalhados.",
+        "roupas_modo_de_vida": "Roupas mudam muito de região para região: casacos no norte, roupas leves no sul e no deserto. A vida depende bastante do carro e das grandes distâncias.",
+        "fauna_alimentacao": "Fauna de pradaria e floresta temperada, como bisões e águias-carecas. A comida é prática e portátil, feita para o ritmo acelerado do dia a dia."
+      }
+    }
+  ]
+}
