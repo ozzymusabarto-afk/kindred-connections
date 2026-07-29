@@ -145,6 +145,8 @@ export function useExpedicao(paisId: string) {
     salvarRespostas,
     concluirDia,
     diaConcluido,
+    aberturaVista,
+    marcarAbertura,
   };
 }
 
