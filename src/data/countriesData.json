@@ -352,12 +352,12 @@
       },
       "codigo_mapa": "ca",
       "chegada": {
-        "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Airplane_vortex_edit.jpg/1920px-Airplane_vortex_edit.jpg",
+        "imagem_url": "/imagens/janela-aviao.jpg",
         "texto": "Lá embaixo aparecem florestas sem fim, lagos azuis e telhados cobertos de neve."
       },
       "base": {
         "nome": "Chalé Bordo Dourado, em Montreal",
-        "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Chalet_in_winter%2C_Quebec.jpg/1920px-Chalet_in_winter%2C_Quebec.jpg",
+        "imagem_url": "/imagens/base-canada.jpg",
         "descricao": "Um chalé de madeira aquecido por lareira, com botas e casacos grossos esperando na entrada. É daqui que a expedição sai todos os dias."
       }
     },
@@ -670,12 +670,12 @@
       },
       "codigo_mapa": "mx",
       "chegada": {
-        "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Airplane_vortex_edit.jpg/1920px-Airplane_vortex_edit.jpg",
+        "imagem_url": "/imagens/janela-aviao.jpg",
         "texto": "Pela janela dá para ver uma cidade enorme dentro de um vale cercado por vulcões."
       },
       "base": {
         "nome": "Casa Talavera, na Cidade do México",
-        "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Casa_de_los_Azulejos_%28Mexico_City%29.jpg/1920px-Casa_de_los_Azulejos_%28Mexico_City%29.jpg",
+        "imagem_url": "/imagens/base-mexico.jpg",
         "descricao": "Uma casa colonial de paredes coloridas e pátio com fonte, cheia de azulejos pintados à mão."
       }
     },
@@ -1033,12 +1033,12 @@
       },
       "codigo_mapa": "us",
       "chegada": {
-        "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Airplane_vortex_edit.jpg/1920px-Airplane_vortex_edit.jpg",
+        "imagem_url": "/imagens/janela-aviao.jpg",
         "texto": "Pela janela surgem arranha-céus, rios largos e estradas que somem no horizonte."
       },
       "base": {
         "nome": "Hotel Liberty, em Nova York",
-        "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Manhattan_at_Dusk_by_slonecker.jpg/1920px-Manhattan_at_Dusk_by_slonecker.jpg",
+        "imagem_url": "/imagens/base-eua.jpg",
         "descricao": "Um hotel antigo perto do parque, com janelas altas de onde se vê a cidade acordando."
       }
     }
