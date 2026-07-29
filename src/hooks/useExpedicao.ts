@@ -34,14 +34,44 @@ function gravar(dados: ProgressoExpedicao) {
   }
 }
 
+const ABERTURA_KEY = "diario-de-bordo:aberturas";
+
+function lerAberturas(): string[] {
+  try {
+    const raw = window.localStorage.getItem(ABERTURA_KEY);
+    const v = raw ? JSON.parse(raw) : [];
+    return Array.isArray(v) ? (v as string[]) : [];
+  } catch {
+    return [];
+  }
+}
+
 export function useExpedicao(paisId: string) {
   const [dados, setDados] = useState<ProgressoExpedicao>({});
   const [pronto, setPronto] = useState(false);
+  const [aberturaVista, setAberturaVista] = useState(false);
 
   useEffect(() => {
     setDados(ler());
+    setAberturaVista(lerAberturas().includes(paisId));
     setPronto(true);
-  }, []);
+  }, [paisId]);
+
+  const marcarAbertura = useCallback(() => {
+    setAberturaVista(true);
+    try {
+      const atuais = lerAberturas();
+      if (!atuais.includes(paisId)) {
+        window.localStorage.setItem(
+          ABERTURA_KEY,
+          JSON.stringify([...atuais, paisId]),
+        );
+      }
+    } catch {
+      /* armazenamento indisponível */
+    }
+  }, [paisId]);
+
 
   const atualizarDia = useCallback(
     (dia: number, fn: (atual: ProgressoDia) => ProgressoDia) => {
