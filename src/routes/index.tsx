@@ -1,24 +1,129 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { useState } from "react";
+import { WorldMap } from "@/components/WorldMap";
+import { CompassButton } from "@/components/CompassButton";
+import { SiteHeader } from "@/components/SiteHeader";
+import { continentes, getPaisesPorContinente } from "@/data/countries";
+import { usePassport } from "@/hooks/usePassport";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Diário de Bordo: Exploradores do Mundo" },
+      {
+        name: "description",
+        content:
+          "Um atlas interativo para crianças explorarem geografia, história, fauna e gastronomia dos países.",
+      },
+      { property: "og:title", content: "Diário de Bordo: Exploradores do Mundo" },
+      {
+        property: "og:description",
+        content:
+          "Viaje pelo mapa, observe paisagens reais, conheça animais e sabores de cada país.",
+      },
+    ],
+  }),
+  component: MapaMundi,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function MapaMundi() {
+  const navigate = useNavigate();
+  const [continenteAtivo, setContinenteAtivo] = useState("america-do-norte");
+  const { carimbos } = usePassport();
+  const paisesVisiveis = getPaisesPorContinente(continenteAtivo);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen">
+      <SiteHeader ativo="mapa" />
+
+      <main className="mx-auto max-w-6xl px-5 py-10">
+        <section className="max-w-2xl">
+          <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
+            Mapa do explorador
+          </p>
+          <h1 className="mt-3 text-4xl leading-tight text-foreground sm:text-5xl">
+            Escolha um país e comece a observar
+          </h1>
+          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+            Cada destino traz um roteiro de dias, um caderno da natureza e uma
+            mesa de sabores. Toque em um marcador do mapa: o avião parte na hora.
+          </p>
+        </section>
+
+        <div className="mt-8 flex flex-wrap gap-2">
+          {continentes.map((c) => {
+            const ativo = c.id === continenteAtivo;
+            return (
+              <button
+                key={c.id}
+                type="button"
+                disabled={!c.disponivel}
+                onClick={() => setContinenteAtivo(c.id)}
+                className={`rounded-full border px-4 py-1.5 text-sm tracking-wide transition-colors ${
+                  ativo
+                    ? "border-primary bg-primary text-primary-foreground"
+                    : c.disponivel
+                      ? "border-border bg-card text-foreground hover:bg-accent"
+                      : "cursor-not-allowed border-dashed border-border text-muted-foreground/60"
+                }`}
+              >
+                {c.nome}
+                {!c.disponivel && (
+                  <span className="ml-2 text-[10px] uppercase tracking-widest">
+                    em breve
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="mt-6">
+          <WorldMap
+            paises={paisesVisiveis}
+            carimbados={carimbos.map((c) => c.paisId)}
+            onSelecionar={(pais) =>
+              navigate({ to: "/pais/$id", params: { id: pais.id } })
+            }
+          />
+        </div>
+
+        <section className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {paisesVisiveis.map((pais) => (
+            <button
+              key={pais.id}
+              type="button"
+              onClick={() =>
+                navigate({ to: "/pais/$id", params: { id: pais.id } })
+              }
+              className="group overflow-hidden rounded-md border border-border bg-card text-left transition-colors hover:border-brass"
+            >
+              <img
+                src={pais.imagem_capa}
+                alt={`Paisagem do ${pais.nome}`}
+                loading="lazy"
+                className="h-40 w-full object-cover"
+              />
+              <div className="p-4">
+                <p className="font-display text-lg text-foreground">
+                  <span aria-hidden className="mr-2">{pais.bandeira}</span>
+                  {pais.nome}
+                </p>
+                <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
+                  {pais.resumo_geografico}
+                </p>
+              </div>
+            </button>
+          ))}
+          {paisesVisiveis.length === 0 && (
+            <p className="text-sm text-muted-foreground">
+              Este continente ainda está sendo mapeado.
+            </p>
+          )}
+        </section>
+      </main>
+
+      <CompassButton />
     </div>
   );
 }
