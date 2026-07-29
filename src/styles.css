@@ -230,3 +230,26 @@
     transform: translateY(0) scale(1) rotate(0deg);
   }
 }
+
+@utility slide-in {
+  animation: slide-in 0.45s cubic-bezier(0.22, 0.9, 0.3, 1) both;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(36px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide-in,
+  .fade-up,
+  .star-drop {
+    animation: none;
+  }
+}
