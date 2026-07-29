@@ -73,17 +73,32 @@
             {
               "id": "q1",
               "tipo": "observacao",
-              "texto": "Olhando as escadas de ferro do lado de fora dos prédios de Montreal, por que você acha que elas foram construídas fora e não dentro das casas, num lugar de inverno tão rigoroso?"
+              "texto": "Olhando as escadas de ferro do lado de fora dos prédios de Montreal, por que você acha que elas foram construídas fora e não dentro das casas, num lugar de inverno tão rigoroso?",
+              "etapa": "observacao"
             },
             {
               "id": "q2",
               "tipo": "observacao",
-              "texto": "Repare nas janelas e nos telhados das casas. Por que a inclinação do telhado é tão importante em um lugar onde neva por 5 meses?"
+              "texto": "Repare nas janelas e nos telhados das casas. Por que a inclinação do telhado é tão importante em um lugar onde neva por 5 meses?",
+              "etapa": "transporte"
             },
             {
               "id": "q3",
               "tipo": "comparacao",
-              "texto": "Como o meio de transporte que usamos hoje se compara ao que você usa na sua cidade?"
+              "texto": "Como o meio de transporte que usamos hoje se compara ao que você usa na sua cidade?",
+              "etapa": "observacao"
+            },
+            {
+              "id": "qf",
+              "tipo": "observacao",
+              "etapa": "fauna",
+              "texto": "O esquilo passou o outono escondendo comida pela neve. Como você acha que ele lembra onde guardou cada pedacinho?"
+            },
+            {
+              "id": "qs",
+              "tipo": "comparacao",
+              "etapa": "sabor",
+              "texto": "A poutine é servida bem quente e cheia de energia. Por que a comida de um lugar muito frio costuma ser assim?"
             }
           ],
           "observacao": {
@@ -138,12 +153,26 @@
             {
               "id": "q1",
               "tipo": "observacao",
-              "texto": "O que você acha que deu a essa água uma cor tão diferente de qualquer rio que você já viu?"
+              "texto": "O que você acha que deu a essa água uma cor tão diferente de qualquer rio que você já viu?",
+              "etapa": "observacao"
             },
             {
               "id": "q2",
               "tipo": "comparacao",
-              "texto": "Como as árvores daqui são diferentes das árvores da sua rua? Por que essa forma ajuda na neve?"
+              "texto": "Como as árvores daqui são diferentes das árvores da sua rua? Por que essa forma ajuda na neve?",
+              "etapa": "transporte"
+            },
+            {
+              "id": "qf",
+              "tipo": "observacao",
+              "etapa": "fauna",
+              "texto": "O alce tem pernas altíssimas e pelo grosso. Como isso ajuda a viver perto das montanhas geladas?"
+            },
+            {
+              "id": "qs",
+              "tipo": "comparacao",
+              "etapa": "sabor",
+              "texto": "A tourtière é uma torta de carne que aguenta horas na mochila. Por que isso é útil para quem trabalha ao ar livre?"
             }
           ],
           "observacao": {
@@ -198,12 +227,26 @@
             {
               "id": "q1",
               "tipo": "observacao",
-              "texto": "Por que você acha que é possível tirar seiva da árvore todo ano sem que ela morra?"
+              "texto": "Por que você acha que é possível tirar seiva da árvore todo ano sem que ela morra?",
+              "etapa": "observacao"
             },
             {
               "id": "q2",
               "tipo": "comparacao",
-              "texto": "O castor constrói represas para viver. Que construções da sua cidade fazem algo parecido com a água?"
+              "texto": "O castor constrói represas para viver. Que construções da sua cidade fazem algo parecido com a água?",
+              "etapa": "transporte"
+            },
+            {
+              "id": "qf",
+              "tipo": "observacao",
+              "etapa": "fauna",
+              "texto": "O castor derruba árvores e represa rios. Você acha que isso atrapalha ou ajuda a floresta? Por quê?"
+            },
+            {
+              "id": "qs",
+              "tipo": "comparacao",
+              "etapa": "sabor",
+              "texto": "A seiva do bordo só vira xarope depois de muito tempo no fogo. Por que você acha que ela precisa ser cozida tanto?"
             }
           ],
           "observacao": {
@@ -315,14 +358,14 @@
         "x": 536,
         "y": 492
       },
-      "imagem_capa": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Chichen_Itza_Mexico_%28125162459%29.jpeg/1920px-Chichen_Itza_Mexico_%28125162459%29.jpeg",
+      "imagem_capa": "/imagens/xochimilco-trajinera.jpg",
       "resumo_geografico": "Uma terra vibrante construída sobre lagos e selvas, onde a engenhosidade antiga dos Maias e Astecas se une às tradições vivas. Montanhas altas cercam um planalto central onde o ar é fino e as noites são frescas; mais abaixo, a península de Yucatán é uma placa de calcário sem rios de superfície, com toda a água escondida em galerias subterrâneas. Aqui, a história não está apenas nos museus: está no milho, nos mercados e nas festas.",
       "roteiro_viagem": [
         {
           "dia": 1,
           "titulo": "Dia 1: Cidade do México e as chinampas de Xochimilco",
           "descricao": "A capital foi erguida sobre um lago. Para cultivar dentro da água, os antigos criaram as chinampas: canteiros retangulares feitos de lama e vegetação, presos ao fundo por raízes de árvores plantadas nas bordas. São hortas que flutuam e produzem o ano inteiro, regadas por baixo. Observe como um problema — pouca terra firme — virou uma das agriculturas mais produtivas do mundo.",
-          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Trajineras_en_canal_de_Xochimilco_75.jpg/1920px-Trajineras_en_canal_de_Xochimilco_75.jpg",
+          "imagem_url": "/imagens/xochimilco-trajinera.jpg",
           "guia_local": "Don Rafael, remador de trajinera",
           "clima_do_dia": "22 °C, sol firme sobre os canais",
           "transporte": {
@@ -342,40 +385,61 @@
             {
               "id": "q1",
               "tipo": "observacao",
-              "texto": "Os antigos astecas não tinham tratores nem grandes campos de terra seca. Como eles resolveram o problema de plantar comida sobre um lago?"
+              "texto": "Os antigos astecas não tinham tratores nem grandes campos de terra seca. Como eles resolveram o problema de plantar comida sobre um lago?",
+              "etapa": "observacao"
             },
             {
               "id": "q2",
               "tipo": "comparacao",
-              "texto": "Andamos de barco para ir de uma horta a outra. Como isso se compara ao caminho que a comida faz até chegar à sua casa?"
+              "texto": "Andamos de barco para ir de uma horta a outra. Como isso se compara ao caminho que a comida faz até chegar à sua casa?",
+              "etapa": "transporte"
+            },
+            {
+              "id": "qf",
+              "tipo": "observacao",
+              "etapa": "fauna",
+              "texto": "A iguana-negra fica parada no sol antes de se mover. O que o sol faz pelo corpo dela que o nosso corpo faz sozinho?"
+            },
+            {
+              "id": "qs",
+              "tipo": "comparacao",
+              "etapa": "sabor",
+              "texto": "Nos tacos al pastor a carne vem com abacaxi. Por que misturar uma fruta doce com comida salgada?"
             }
           ],
           "observacao": {
-            "titulo": "Chinampas: ilhas agrícolas de Xochimilco",
+            "titulo": "Os canais floridos de Xochimilco",
             "hotspots": [
               {
-                "id": "raizes",
+                "id": "arco-flores",
+                "x": 40,
+                "y": 17,
+                "titulo": "O arco de flores",
+                "texto": "Cada trajinera tem um arco cheio de flores de verdade, muitas cultivadas ali mesmo nas chinampas. O nome pintado no arco é o nome do barco, como se fosse o apelido dele."
+              },
+              {
+                "id": "madeira-pintada",
                 "x": 26,
-                "y": 60,
-                "titulo": "Raízes que seguram a terra",
-                "texto": "Os ahuejotes são plantados na borda de cada ilha: as raízes viram uma rede viva que impede a terra de desmanchar na água."
+                "y": 84,
+                "titulo": "A madeira pintada",
+                "texto": "O casco é de madeira pintada com azul, amarelo e vermelho fortes. A tinta protege a madeira da água o ano inteiro e deixa cada barco fácil de reconhecer de longe."
               },
               {
-                "id": "canais",
-                "x": 62,
-                "y": 72,
-                "titulo": "Canais em volta das hortas",
-                "texto": "A água chega sozinha às raízes o ano inteiro — irrigação sem bomba nenhuma."
+                "id": "agua-canal",
+                "x": 80,
+                "y": 78,
+                "titulo": "A água do canal",
+                "texto": "Esse canal é um pedaço do antigo lago onde a cidade nasceu. A água rasa alimenta por baixo as hortas flutuantes, que quase nunca precisam ser regadas."
               },
               {
-                "id": "lodo",
-                "x": 45,
+                "id": "chinampa-verde",
+                "x": 93,
                 "y": 40,
-                "titulo": "Lodo do fundo do lago",
-                "texto": "O barro retirado do fundo é riquíssimo em nutrientes e vira adubo natural."
+                "titulo": "A margem verde da chinampa",
+                "texto": "Aquelas faixas de verde não são terra firme: são canteiros construídos sobre a água, presos ao fundo pelas raízes dos salgueiros plantados nas bordas."
               }
             ],
-            "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Trajineras_en_canal_de_Xochimilco_75.jpg/1920px-Trajineras_en_canal_de_Xochimilco_75.jpg"
+            "imagem_url": "/imagens/xochimilco-trajinera.jpg"
           }
         },
         {
@@ -402,12 +466,26 @@
             {
               "id": "q1",
               "tipo": "observacao",
-              "texto": "Não há rios na superfície dessa região. Onde você acha que essa água toda estava guardada?"
+              "texto": "Não há rios na superfície dessa região. Onde você acha que essa água toda estava guardada?",
+              "etapa": "observacao"
             },
             {
               "id": "q2",
               "tipo": "comparacao",
-              "texto": "De onde vem a água que você bebe em casa? Que caminho ela faz até a torneira?"
+              "texto": "De onde vem a água que você bebe em casa? Que caminho ela faz até a torneira?",
+              "etapa": "transporte"
+            },
+            {
+              "id": "qf",
+              "tipo": "observacao",
+              "etapa": "fauna",
+              "texto": "O macaco-aranha usa a cauda como se fosse uma quinta mão. Que vantagem isso dá para quem vive no alto das árvores?"
+            },
+            {
+              "id": "qs",
+              "tipo": "comparacao",
+              "etapa": "sabor",
+              "texto": "O chocolate daqui é batido até virar espuma e servido sem açúcar. Como isso é diferente do chocolate que você conhece?"
             }
           ],
           "observacao": {
@@ -455,12 +533,26 @@
             {
               "id": "q1",
               "tipo": "observacao",
-              "texto": "Por que você acha que aqui existem tantos tipos diferentes de milho, e não apenas um?"
+              "texto": "Por que você acha que aqui existem tantos tipos diferentes de milho, e não apenas um?",
+              "etapa": "observacao"
             },
             {
               "id": "q2",
               "tipo": "comparacao",
-              "texto": "Como esse mercado é diferente do lugar onde a sua família compra comida?"
+              "texto": "Como esse mercado é diferente do lugar onde a sua família compra comida?",
+              "etapa": "transporte"
+            },
+            {
+              "id": "qf",
+              "tipo": "observacao",
+              "etapa": "fauna",
+              "texto": "O xoloitzcuintli quase não tem pelos e é quentinho ao toque. Em que tipo de clima esse corpo é uma vantagem?"
+            },
+            {
+              "id": "qs",
+              "tipo": "comparacao",
+              "etapa": "sabor",
+              "texto": "O mole poblano leva mais de vinte ingredientes, incluindo chocolate. Por que você acha que uma receita fica tão complicada assim?"
             }
           ],
           "observacao": {
@@ -599,12 +691,26 @@
             {
               "id": "q1",
               "tipo": "observacao",
-              "texto": "Por que você acha que essa cidade cresceu para cima em vez de crescer para os lados?"
+              "texto": "Por que você acha que essa cidade cresceu para cima em vez de crescer para os lados?",
+              "etapa": "observacao"
             },
             {
               "id": "q2",
               "tipo": "comparacao",
-              "texto": "Qual é o prédio mais alto da sua cidade? Por que a sua cidade não é toda feita de arranha-céus?"
+              "texto": "Qual é o prédio mais alto da sua cidade? Por que a sua cidade não é toda feita de arranha-céus?",
+              "etapa": "transporte"
+            },
+            {
+              "id": "qf",
+              "tipo": "observacao",
+              "etapa": "fauna",
+              "texto": "Os esquilos da cidade não fogem das pessoas. O que a vida no meio dos prédios mudou no jeito deles?"
+            },
+            {
+              "id": "qs",
+              "tipo": "comparacao",
+              "etapa": "sabor",
+              "texto": "O bagel com cream cheese é comido andando, a caminho do trabalho. O que isso conta sobre o ritmo dessa cidade?"
             }
           ],
           "observacao": {
@@ -652,12 +758,26 @@
             {
               "id": "q1",
               "tipo": "observacao",
-              "texto": "Olhe para as diferentes cores e linhas nas paredes do Grand Canyon. O que você acha que esculpiu esse buraco gigante na terra ao longo de milhares de anos?"
+              "texto": "Olhe para as diferentes cores e linhas nas paredes do Grand Canyon. O que você acha que esculpiu esse buraco gigante na terra ao longo de milhares de anos?",
+              "etapa": "observacao"
             },
             {
               "id": "q2",
               "tipo": "comparacao",
-              "texto": "Você já viu a água mudar o formato da terra em algum lugar perto de você? Onde?"
+              "texto": "Você já viu a água mudar o formato da terra em algum lugar perto de você? Onde?",
+              "etapa": "transporte"
+            },
+            {
+              "id": "qf",
+              "tipo": "observacao",
+              "etapa": "fauna",
+              "texto": "A águia-careca enxerga um peixe a centenas de metros de altura. Para que serve uma visão tão boa aqui?"
+            },
+            {
+              "id": "qs",
+              "tipo": "comparacao",
+              "etapa": "sabor",
+              "texto": "O sanduíche de pasta de amendoim com geleia não estraga fácil no calor do deserto. Por que isso importa numa expedição?"
             }
           ],
           "observacao": {
@@ -712,12 +832,26 @@
             {
               "id": "q1",
               "tipo": "observacao",
-              "texto": "Por que você acha que quase todo o espaço de um foguete é ocupado por combustível?"
+              "texto": "Por que você acha que quase todo o espaço de um foguete é ocupado por combustível?",
+              "etapa": "observacao"
             },
             {
               "id": "q2",
               "tipo": "comparacao",
-              "texto": "Que perguntas você faria a um astronauta que morou meses fora da Terra?"
+              "texto": "Que perguntas você faria a um astronauta que morou meses fora da Terra?",
+              "etapa": "transporte"
+            },
+            {
+              "id": "qf",
+              "tipo": "observacao",
+              "etapa": "fauna",
+              "texto": "O bisão é enorme e vive em bando na pradaria. Como andar em grupo protege um animal desse tamanho?"
+            },
+            {
+              "id": "qs",
+              "tipo": "comparacao",
+              "etapa": "sabor",
+              "texto": "A torta de maçã é assada e guardada para durar dias. Que outras comidas da sua casa duram por serem assadas?"
             }
           ],
           "observacao": {
@@ -765,12 +899,26 @@
             {
               "id": "q1",
               "tipo": "observacao",
-              "texto": "Por que você acha que essa cidade foi desenhada com um gramado tão grande e aberto no meio?"
+              "texto": "Por que você acha que essa cidade foi desenhada com um gramado tão grande e aberto no meio?",
+              "etapa": "observacao"
             },
             {
               "id": "q2",
               "tipo": "comparacao",
-              "texto": "Se você pudesse criar um museu gratuito na sua cidade, sobre o que ele seria?"
+              "texto": "Se você pudesse criar um museu gratuito na sua cidade, sobre o que ele seria?",
+              "etapa": "transporte"
+            },
+            {
+              "id": "qf",
+              "tipo": "observacao",
+              "etapa": "fauna",
+              "texto": "Nos parques da capital os esquilos vivem entre monumentos. O que eles encontram ali que uma floresta também tem?"
+            },
+            {
+              "id": "qs",
+              "tipo": "comparacao",
+              "etapa": "sabor",
+              "texto": "O sanduíche do piquenique foi feito em casa e comido na grama. O que muda quando a refeição acontece ao ar livre?"
             }
           ],
           "observacao": {

@@ -37,6 +37,8 @@ export interface ReferenciaDoDia {
 export interface PerguntaSocratica {
   id: string;
   tipo: "observacao" | "comparacao";
+  /** Passo da jornada ao qual a pergunta pertence. */
+  etapa?: "transporte" | "observacao" | "fauna" | "sabor";
   texto: string;
 }
 
