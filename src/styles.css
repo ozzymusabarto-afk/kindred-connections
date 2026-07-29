@@ -195,6 +195,20 @@
   }
 }
 
+@utility pulse {
+  animation: pulse-lupa 2s ease-in-out infinite;
+}
+
+@keyframes pulse-lupa {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in oklab, var(--brass) 55%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 10px color-mix(in oklab, var(--brass) 0%, transparent);
+  }
+}
+
 @utility star-drop {
   animation: star-drop 0.7s cubic-bezier(0.34, 1.4, 0.5, 1) both;
 }

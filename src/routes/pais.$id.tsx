@@ -1,9 +1,17 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { CompassButton } from "@/components/CompassButton";
+import { ExpedicaoHeader } from "@/components/expedicao/ExpedicaoHeader";
+import { SeletorDias } from "@/components/expedicao/SeletorDias";
+import { RotaDoDia } from "@/components/expedicao/RotaDoDia";
+import type { EstacaoInfo } from "@/components/expedicao/RotaDoDia";
+import { CadernoDeCampo } from "@/components/expedicao/CadernoDeCampo";
 import { getPais } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
+import { useExpedicao } from "@/hooks/useExpedicao";
+import type { EstacaoId } from "@/hooks/useExpedicao";
+import { tocar } from "@/lib/sfx";
 import type { ItemNatureza, Pais } from "@/data/types";
 
 export const Route = createFileRoute("/pais/$id")({
@@ -35,222 +43,241 @@ export const Route = createFileRoute("/pais/$id")({
       ],
     };
   },
-  component: PaisDashboard,
+  component: PainelExpedicao,
 });
 
-const ABAS = [
-  { id: "diario", nome: "Diário de Bordo" },
-  { id: "natureza", nome: "Caderno da Natureza" },
-  { id: "mesa", nome: "A Mesa do Viajante" },
-] as const;
+const ESTACOES: EstacaoInfo[] = [
+  {
+    id: "transporte",
+    icone: "🚂",
+    rotulo: "Transporte do dia",
+    dica: "Como nos deslocamos hoje",
+  },
+  {
+    id: "observacao",
+    icone: "🔍",
+    rotulo: "Ponto de observação",
+    dica: "Olhe atentamente a paisagem",
+  },
+  {
+    id: "fauna",
+    icone: "🐾",
+    rotulo: "Avistamento da fauna",
+    dica: "O animal encontrado no caminho",
+  },
+  {
+    id: "sabor",
+    icone: "🍽️",
+    rotulo: "Sabor da terra",
+    dica: "A refeição típica do dia",
+  },
+];
 
-function PaisDashboard() {
+function PainelExpedicao() {
   const { pais }: { pais: Pais } = Route.useLoaderData();
-  const [aba, setAba] = useState<(typeof ABAS)[number]["id"]>("diario");
-  const [ficha, setFicha] = useState<ItemNatureza | null>(null);
-  const { getCarimbo, salvarNota, pronto } = usePassport();
-  const carimbo = getCarimbo(pais.id);
-  const [nota, setNota] = useState("");
-  const [salvo, setSalvo] = useState(false);
+  const dias = pais.roteiro_viagem;
 
+  const [diaAtivo, setDiaAtivo] = useState(dias[0].dia);
+  const [estacao, setEstacao] = useState<EstacaoId>("transporte");
+  const [ficha, setFicha] = useState<ItemNatureza | null>(null);
+  const cadernoRef = useRef<HTMLDivElement>(null);
+
+  const {
+    pronto,
+    getDia,
+    marcarEstacao,
+    marcarHotspot,
+    salvarRespostas,
+    concluirDia,
+    diaConcluido,
+  } = useExpedicao(pais.id);
+  const { salvarNota } = usePassport();
+
+  const dia = dias.find((d) => d.dia === diaAtivo) ?? dias[0];
+  const progresso = getDia(diaAtivo);
+
+  // Registra a primeira estação como visitada assim que o progresso carrega.
   useEffect(() => {
-    if (pronto && carimbo) setNota(carimbo.nota);
-  }, [pronto, carimbo]);
+    if (pronto) marcarEstacao(diaAtivo, estacao);
+  }, [pronto, diaAtivo, estacao, marcarEstacao]);
+
+  const todasEstacoesVisitadas = useMemo(
+    () => ESTACOES.every((e) => progresso.estacoes.includes(e.id)),
+    [progresso.estacoes],
+  );
+
+  const totalConcluidos = dias.filter((d) => diaConcluido(d.dia)).length;
+
+  function selecionarEstacao(id: EstacaoId) {
+    tocar("passo");
+    setEstacao(id);
+    if (window.innerWidth < 1024) {
+      requestAnimationFrame(() =>
+        cadernoRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        }),
+      );
+    }
+  }
+
+  function registrar(respostas: Record<string, string>) {
+    salvarRespostas(diaAtivo, respostas);
+    concluirDia(diaAtivo);
+    tocar("dia");
+
+    const restantes = dias.filter(
+      (d) => d.dia !== diaAtivo && !diaConcluido(d.dia),
+    );
+    if (restantes.length === 0) {
+      const texto = Object.values(respostas).join("\n\n");
+      salvarNota(pais.id, texto.slice(0, 1200));
+    }
+  }
 
   return (
     <div className="min-h-screen">
       <SiteHeader />
+      <ExpedicaoHeader
+        pais={pais}
+        guia={dia.guia_local}
+        clima={dia.clima_do_dia}
+      />
 
-      <header className="relative h-[46vh] min-h-[300px] w-full overflow-hidden">
-        <img
-          src={pais.imagem_capa}
-          alt={`Paisagem do ${pais.nome}`}
-          className="absolute inset-0 h-full w-full object-cover"
+      <main className="mx-auto max-w-7xl px-5 py-6">
+        <SeletorDias
+          dias={dias}
+          ativo={diaAtivo}
+          concluido={diaConcluido}
+          onSelecionar={(d) => {
+            tocar("passo");
+            setDiaAtivo(d);
+            setEstacao("transporte");
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/45 to-background/10" />
-        <div className="relative mx-auto flex h-full max-w-6xl flex-col justify-end px-5 pb-8">
-          <Link
-            to="/"
-            className="mb-4 w-fit rounded-full border border-border bg-card/85 px-3 py-1.5 text-xs tracking-wide text-foreground backdrop-blur transition-colors hover:bg-accent"
-          >
-            ← Voltar ao mapa
-          </Link>
-          <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
-            {pais.continente.replace(/-/g, " ")}
-          </p>
-          <h1 className="mt-2 text-4xl text-foreground sm:text-6xl">
-            <span aria-hidden className="mr-3">{pais.bandeira}</span>
-            {pais.nome}
-          </h1>
+
+        <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start">
+          <div className="space-y-5">
+            <RotaDoDia
+              estacoes={ESTACOES}
+              ativa={estacao}
+              visitadas={progresso.estacoes}
+              onSelecionar={selecionarEstacao}
+            />
+
+            <div className="overflow-hidden rounded-md border border-border bg-card">
+              <img
+                src={dia.imagem_url}
+                alt={dia.titulo}
+                className="h-56 w-full object-cover sm:h-72"
+              />
+              <div className="p-5">
+                <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
+                  Diário de bordo · Dia {dia.dia}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {pais.resumo_geografico}
+                </p>
+                <p className="mt-4 text-xs text-muted-foreground">
+                  Expedição: {totalConcluidos} de {dias.length} dias concluídos
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div ref={cadernoRef} className="lg:sticky lg:top-4">
+            <CadernoDeCampo
+              pais={pais}
+              dia={dia}
+              estacao={estacao}
+              progresso={progresso}
+              todasEstacoesVisitadas={todasEstacoesVisitadas}
+              onAbrirHotspot={(id) => marcarHotspot(diaAtivo, id)}
+              onRegistrar={registrar}
+            />
+          </div>
         </div>
-      </header>
 
-      <nav className="sticky top-0 z-30 border-y border-border bg-background/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl gap-1 overflow-x-auto px-5">
-          {ABAS.map((a) => (
-            <button
-              key={a.id}
-              type="button"
-              onClick={() => setAba(a.id)}
-              className={`whitespace-nowrap border-b-2 px-4 py-3.5 text-sm tracking-wide transition-colors ${
-                aba === a.id
-                  ? "border-brass text-foreground"
-                  : "border-transparent text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              {a.nome}
-            </button>
-          ))}
-        </div>
-      </nav>
-
-      <main className="mx-auto max-w-6xl px-5 py-10">
-        {aba === "diario" && (
-          <section className="fade-up">
-            <div className="max-w-3xl">
-              <h2 className="text-2xl text-foreground">Visão geral</h2>
-              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                {pais.resumo_geografico}
-              </p>
-            </div>
-
-            <ol className="mt-10 space-y-10 border-l border-border pl-6 sm:pl-10">
-              {pais.roteiro_viagem.map((dia) => (
-                <li key={dia.dia} className="relative">
-                  <span className="absolute -left-[31px] top-2 flex h-4 w-4 items-center justify-center rounded-full border border-brass bg-background sm:-left-[47px]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-brass" />
-                  </span>
-                  <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
-                    Dia {dia.dia}
-                  </p>
-                  <h3 className="mt-2 text-xl text-foreground">{dia.titulo}</h3>
-                  <img
-                    src={dia.imagem_url}
-                    alt={dia.titulo}
-                    loading="lazy"
-                    className="mt-4 h-72 w-full rounded-md border border-border object-cover"
-                  />
-                  <p className="mt-4 max-w-3xl text-base leading-relaxed text-muted-foreground">
-                    {dia.descricao}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </section>
-        )}
-
-        {aba === "natureza" && (
-          <section className="fade-up">
-            <h2 className="text-2xl text-foreground">Caderno da Natureza</h2>
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              Toque em uma ficha para abrir o fichário do explorador.
-            </p>
-            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {pais.fauna_flora.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => setFicha(item)}
-                  className="overflow-hidden rounded-md border border-border bg-card text-left transition-colors hover:border-brass"
-                >
-                  <img
-                    src={item.foto_url}
-                    alt={item.nome}
-                    loading="lazy"
-                    className="h-52 w-full object-cover"
-                  />
-                  <div className="p-4">
-                    <p className="font-display text-lg text-foreground">
-                      {item.nome}
-                    </p>
-                    {item.nome_cientifico && (
-                      <p className="mt-1 text-xs italic text-muted-foreground">
-                        {item.nome_cientifico}
-                      </p>
-                    )}
-                  </div>
-                </button>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {aba === "mesa" && (
-          <section className="fade-up">
-            <h2 className="text-2xl text-foreground">A Mesa do Viajante</h2>
-            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-              Sabores que contam a história da terra e de quem vive nela.
-            </p>
-            <div className="mt-8 grid gap-6 sm:grid-cols-2">
-              {pais.gastronomia.map((prato) => (
-                <article
-                  key={prato.id}
-                  className="overflow-hidden rounded-md border border-border bg-card"
-                >
-                  <img
-                    src={prato.foto_url}
-                    alt={prato.nome}
-                    loading="lazy"
-                    className="h-56 w-full object-cover"
-                  />
-                  <div className="p-5">
-                    <div className="flex items-baseline justify-between gap-3">
-                      <h3 className="font-display text-lg text-foreground">
-                        {prato.nome}
-                      </h3>
-                      <span className="rounded-full border border-border px-2.5 py-0.5 text-[11px] uppercase tracking-widest text-muted-foreground">
-                        {prato.adjetivo}
-                      </span>
-                    </div>
-                    <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      {prato.historia}
-                    </p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </section>
-        )}
-
-        <section className="mt-16 rounded-md border border-border bg-card p-6 sm:p-8">
-          <h2 className="text-2xl text-foreground">Notas do Explorador</h2>
+        <section className="mt-14">
+          <h2 className="font-display text-2xl text-foreground">
+            Arquivo do país
+          </h2>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            Escreva duas ou três frases sobre o que mais chamou sua atenção em{" "}
-            {pais.nome}. Ao salvar, você recebe o carimbo deste país no
-            passaporte.
+            Todo o material coletado nesta expedição: o caderno da natureza e a
+            mesa do viajante.
           </p>
-          <textarea
-            value={nota}
-            onChange={(e) => {
-              setNota(e.target.value);
-              setSalvo(false);
-            }}
-            rows={4}
-            placeholder="O que eu observei..."
-            className="mt-4 w-full rounded-md border border-input bg-background p-3 text-base leading-relaxed text-foreground outline-none focus:border-brass"
-          />
-          <div className="mt-4 flex flex-wrap items-center gap-4">
-            <button
-              type="button"
-              disabled={nota.trim().length < 3}
-              onClick={() => {
-                salvarNota(pais.id, nota.trim());
-                setSalvo(true);
-              }}
-              className="rounded-full bg-primary px-5 py-2 text-sm tracking-wide text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-40"
-            >
-              Salvar e carimbar passaporte
-            </button>
-            {(salvo || carimbo) && (
-              <span className="text-sm text-muted-foreground">
-                {salvo ? "Carimbo registrado." : "Este país já está carimbado."}{" "}
-                <Link to="/passaporte" className="underline underline-offset-4">
-                  Ver passaporte
-                </Link>
-              </span>
-            )}
+
+          <h3 className="mt-8 font-display text-lg text-foreground">
+            Caderno da natureza
+          </h3>
+          <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {pais.fauna_flora.map((item) => (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => {
+                  tocar("lupa");
+                  setFicha(item);
+                }}
+                className="overflow-hidden rounded-md border border-border bg-card text-left transition-colors hover:border-brass"
+              >
+                <img
+                  src={item.foto_url}
+                  alt={item.nome}
+                  loading="lazy"
+                  className="h-40 w-full object-cover"
+                />
+                <div className="p-4">
+                  <p className="font-display text-base text-foreground">
+                    {item.nome}
+                  </p>
+                  {item.nome_cientifico && (
+                    <p className="mt-1 text-xs italic text-muted-foreground">
+                      {item.nome_cientifico}
+                    </p>
+                  )}
+                </div>
+              </button>
+            ))}
+          </div>
+
+          <h3 className="mt-10 font-display text-lg text-foreground">
+            A mesa do viajante
+          </h3>
+          <div className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {pais.gastronomia.map((prato) => (
+              <article
+                key={prato.id}
+                className="overflow-hidden rounded-md border border-border bg-card"
+              >
+                <img
+                  src={prato.foto_url}
+                  alt={prato.nome}
+                  loading="lazy"
+                  className="h-40 w-full object-cover"
+                />
+                <div className="p-4">
+                  <p className="font-display text-base text-foreground">
+                    {prato.nome}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    {prato.historia}
+                  </p>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
+
+        <p className="mt-12 text-sm text-muted-foreground">
+          <Link to="/passaporte" className="underline underline-offset-4">
+            Ver passaporte
+          </Link>{" "}
+          ·{" "}
+          <Link to="/comparar" className="underline underline-offset-4">
+            Comparar países
+          </Link>
+        </p>
       </main>
 
       {ficha && (

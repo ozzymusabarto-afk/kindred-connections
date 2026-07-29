@@ -7,11 +7,51 @@ export type ContinenteId =
   | "africa"
   | "oceania";
 
+export interface Transporte {
+  nome: string;
+  icone: string;
+  descricao: string;
+}
+
+export interface Hotspot {
+  id: string;
+  /** Posição horizontal em % sobre a imagem. */
+  x: number;
+  /** Posição vertical em % sobre a imagem. */
+  y: number;
+  titulo: string;
+  texto: string;
+}
+
+export interface PontoObservacao {
+  titulo: string;
+  imagem_url: string;
+  hotspots: Hotspot[];
+}
+
+export interface ReferenciaDoDia {
+  id: string;
+  contexto: string;
+}
+
+export interface PerguntaSocratica {
+  id: string;
+  tipo: "observacao" | "comparacao";
+  texto: string;
+}
+
 export interface DiaRoteiro {
   dia: number;
   titulo: string;
   descricao: string;
   imagem_url: string;
+  guia_local?: string;
+  clima_do_dia?: string;
+  transporte?: Transporte;
+  observacao?: PontoObservacao;
+  fauna_do_dia?: ReferenciaDoDia;
+  sabor_do_dia?: ReferenciaDoDia;
+  perguntas?: PerguntaSocratica[];
 }
 
 export interface ItemNatureza {

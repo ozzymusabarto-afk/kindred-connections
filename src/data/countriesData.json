@@ -53,19 +53,179 @@
           "dia": 1,
           "titulo": "Dia 1: A vida em Montreal e o ritmo do St. Lawrence",
           "descricao": "Observe como uma cidade inteira foi pensada para o frio. Em Montreal, o rio St. Lawrence define o traçado das ruas e, quando a neve chega, a vida continua numa rede de galerias abaixo do chão que ligam lojas, estações e escolas. Repare nas escadas externas de ferro, nos telhados em ângulo e nas janelas duplas: cada detalhe é uma resposta inteligente ao inverno, não um enfeite.",
-          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Montreal_skyline_winter_2010b.JPG/1920px-Montreal_skyline_winter_2010b.JPG"
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Montreal_skyline_winter_2010b.JPG/1920px-Montreal_skyline_winter_2010b.JPG",
+          "guia_local": "Élise, guia de inverno em Montreal",
+          "clima_do_dia": "-6 °C, neve leve e céu claro",
+          "transporte": {
+            "nome": "Trem urbano e caminhada",
+            "icone": "🚂",
+            "descricao": "Pegamos o trem urbano até o centro e seguimos a pé pelas calçadas cobertas de neve. Parte do trajeto acontece embaixo da terra, na rede de galerias que liga estações, lojas e escolas sem enfrentar o vento gelado."
+          },
+          "fauna_do_dia": {
+            "id": "esquilo",
+            "contexto": "Um esquilo vermelho cruza o parque coberto de neve carregando comida escondida desde o outono."
+          },
+          "sabor_do_dia": {
+            "id": "poutine",
+            "contexto": "No café da manhã, bagel de Montreal saído do forno a lenha; no almoço, poutine bem quente para enfrentar o frio."
+          },
+          "perguntas": [
+            {
+              "id": "q1",
+              "tipo": "observacao",
+              "texto": "Olhando as escadas de ferro do lado de fora dos prédios de Montreal, por que você acha que elas foram construídas fora e não dentro das casas, num lugar de inverno tão rigoroso?"
+            },
+            {
+              "id": "q2",
+              "tipo": "observacao",
+              "texto": "Repare nas janelas e nos telhados das casas. Por que a inclinação do telhado é tão importante em um lugar onde neva por 5 meses?"
+            },
+            {
+              "id": "q3",
+              "tipo": "comparacao",
+              "texto": "Como o meio de transporte que usamos hoje se compara ao que você usa na sua cidade?"
+            }
+          ],
+          "observacao": {
+            "titulo": "Arquitetura do inverno em Montreal",
+            "hotspots": [
+              {
+                "id": "escadas",
+                "x": 22,
+                "y": 62,
+                "titulo": "Escadas externas de ferro",
+                "texto": "As escadas ficam do lado de fora dos prédios. Assim, o espaço interno inteiro sobra para morar — e cada família tem sua própria porta na rua."
+              },
+              {
+                "id": "telhados",
+                "x": 54,
+                "y": 26,
+                "titulo": "Telhados inclinados",
+                "texto": "A inclinação faz a neve escorregar antes de virar um peso enorme sobre a casa. Telhado plano em Montreal seria um problema sério em janeiro."
+              },
+              {
+                "id": "subterraneo",
+                "x": 78,
+                "y": 74,
+                "titulo": "Passagens subterrâneas",
+                "texto": "São mais de 30 km de corredores embaixo do centro da cidade: a vida continua acontecendo mesmo com -20 °C lá fora."
+              }
+            ],
+            "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Montreal_skyline_winter_2010b.JPG/1920px-Montreal_skyline_winter_2010b.JPG"
+          }
         },
         {
           "dia": 2,
           "titulo": "Dia 2: As Montanhas Rochosas e os lagos esculpidos pelas geleiras",
           "descricao": "Nas Montanhas Rochosas, a água dos lagos tem um azul-turquesa que parece pintado. O segredo é a farinha de rocha: pó finíssimo produzido pelas geleiras ao raspar as montanhas, que fica suspenso na água e devolve essa cor à luz do sol. Compare a forma dos vales em U com os vales em V dos rios: um é obra do gelo, o outro é obra da água corrente.",
-          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Moraine_Lake-Banff_NP.JPG/1920px-Moraine_Lake-Banff_NP.JPG"
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Moraine_Lake-Banff_NP.JPG/1920px-Moraine_Lake-Banff_NP.JPG",
+          "guia_local": "Marc, guarda-parque das Rochosas",
+          "clima_do_dia": "3 °C, vento frio vindo das geleiras",
+          "transporte": {
+            "nome": "Van de montanha e trilha a pé",
+            "icone": "🚐",
+            "descricao": "Subimos de van pela estrada que corta o vale e terminamos a pé numa trilha de pedras soltas até a beira do lago."
+          },
+          "fauna_do_dia": {
+            "id": "alce",
+            "contexto": "Um alce enorme atravessa devagar a beira do lago, sem se importar com a gente."
+          },
+          "sabor_do_dia": {
+            "id": "tourtiere",
+            "contexto": "Na cabana da trilha, tourtière quentinha — a torta salgada que aquece quem trabalha ao ar livre."
+          },
+          "perguntas": [
+            {
+              "id": "q1",
+              "tipo": "observacao",
+              "texto": "O que você acha que deu a essa água uma cor tão diferente de qualquer rio que você já viu?"
+            },
+            {
+              "id": "q2",
+              "tipo": "comparacao",
+              "texto": "Como as árvores daqui são diferentes das árvores da sua rua? Por que essa forma ajuda na neve?"
+            }
+          ],
+          "observacao": {
+            "titulo": "Lagos glaciais das Montanhas Rochosas",
+            "hotspots": [
+              {
+                "id": "agua",
+                "x": 40,
+                "y": 70,
+                "titulo": "A água azul-turquesa",
+                "texto": "A cor vem de um pó de rocha finíssimo que a geleira produz ao raspar a montanha. Ele fica suspenso na água e reflete o azul."
+              },
+              {
+                "id": "picos",
+                "x": 60,
+                "y": 24,
+                "titulo": "Picos pontiagudos",
+                "texto": "O gelo esculpiu as montanhas como um formão, deixando cumes afiados e vales em formato de U."
+              },
+              {
+                "id": "floresta",
+                "x": 18,
+                "y": 52,
+                "titulo": "Floresta de coníferas",
+                "texto": "Árvores em forma de cone deixam a neve escorregar dos galhos sem quebrá-los."
+              }
+            ],
+            "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Moraine_Lake-Banff_NP.JPG/1920px-Moraine_Lake-Banff_NP.JPG"
+          }
         },
         {
           "dia": 3,
           "titulo": "Dia 3: As florestas de bordo e a tradição do cultivo",
           "descricao": "No outono, as folhas de bordo mudam de cor porque a árvore recolhe a clorofila antes do frio. No fim do inverno, quando os dias esquentam e as noites ainda congelam, a seiva volta a subir pelo tronco: é o momento exato em que as famílias fazem um pequeno furo, coletam a seiva e a fervem por horas até virar xarope. Nada é derrubado — a mesma árvore é visitada por décadas.",
-          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Autumn_forest_at_Drumbeg_Provincial_Park.jpg/1920px-Autumn_forest_at_Drumbeg_Provincial_Park.jpg"
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Autumn_forest_at_Drumbeg_Provincial_Park.jpg/1920px-Autumn_forest_at_Drumbeg_Provincial_Park.jpg",
+          "guia_local": "Louise, produtora de xarope de bordo",
+          "clima_do_dia": "9 °C, outono dourado",
+          "transporte": {
+            "nome": "Carroça e caminhada na floresta",
+            "icone": "🐴",
+            "descricao": "Uma carroça leva os baldes entre as árvores; o resto do caminho é a pé, pisando em folhas secas."
+          },
+          "fauna_do_dia": {
+            "id": "castor",
+            "contexto": "No riacho, um castor derruba galhos e constrói uma represa que muda a floresta inteira."
+          },
+          "sabor_do_dia": {
+            "id": "maple-syrup",
+            "contexto": "Panquecas com xarope de bordo colhido ali mesmo, ainda morno."
+          },
+          "perguntas": [
+            {
+              "id": "q1",
+              "tipo": "observacao",
+              "texto": "Por que você acha que é possível tirar seiva da árvore todo ano sem que ela morra?"
+            },
+            {
+              "id": "q2",
+              "tipo": "comparacao",
+              "texto": "O castor constrói represas para viver. Que construções da sua cidade fazem algo parecido com a água?"
+            }
+          ],
+          "observacao": {
+            "titulo": "Floresta de bordo e a colheita da seiva",
+            "hotspots": [
+              {
+                "id": "tubos",
+                "x": 30,
+                "y": 58,
+                "titulo": "Tubinhos nos troncos",
+                "texto": "Um furo pequeno e raso deixa a seiva escorrer sem machucar a árvore, que continua viva por décadas."
+              },
+              {
+                "id": "folhas",
+                "x": 66,
+                "y": 32,
+                "titulo": "Folhas vermelhas",
+                "texto": "No outono a árvore para de produzir clorofila e as cores escondidas aparecem."
+              }
+            ],
+            "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Autumn_forest_at_Drumbeg_Provincial_Park.jpg/1920px-Autumn_forest_at_Drumbeg_Provincial_Park.jpg"
+          }
         }
       ],
       "fauna_flora": [
@@ -162,19 +322,167 @@
           "dia": 1,
           "titulo": "Dia 1: Cidade do México e as chinampas de Xochimilco",
           "descricao": "A capital foi erguida sobre um lago. Para cultivar dentro da água, os antigos criaram as chinampas: canteiros retangulares feitos de lama e vegetação, presos ao fundo por raízes de árvores plantadas nas bordas. São hortas que flutuam e produzem o ano inteiro, regadas por baixo. Observe como um problema — pouca terra firme — virou uma das agriculturas mais produtivas do mundo.",
-          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Trajineras_en_canal_de_Xochimilco_75.jpg/1920px-Trajineras_en_canal_de_Xochimilco_75.jpg"
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Trajineras_en_canal_de_Xochimilco_75.jpg/1920px-Trajineras_en_canal_de_Xochimilco_75.jpg",
+          "guia_local": "Don Rafael, remador de trajinera",
+          "clima_do_dia": "22 °C, sol firme sobre os canais",
+          "transporte": {
+            "nome": "Trajinera de madeira",
+            "icone": "🛶",
+            "descricao": "Uma trajinera colorida, empurrada por uma vara comprida, desliza pelos canais entre as hortas flutuantes."
+          },
+          "fauna_do_dia": {
+            "id": "iguana-negra",
+            "contexto": "Uma iguana-negra toma sol imóvel nas pedras quentes da beira do canal."
+          },
+          "sabor_do_dia": {
+            "id": "tacos-al-pastor",
+            "contexto": "Tacos al pastor preparados na beira do canal, com abacaxi cortado direto do espeto."
+          },
+          "perguntas": [
+            {
+              "id": "q1",
+              "tipo": "observacao",
+              "texto": "Os antigos astecas não tinham tratores nem grandes campos de terra seca. Como eles resolveram o problema de plantar comida sobre um lago?"
+            },
+            {
+              "id": "q2",
+              "tipo": "comparacao",
+              "texto": "Andamos de barco para ir de uma horta a outra. Como isso se compara ao caminho que a comida faz até chegar à sua casa?"
+            }
+          ],
+          "observacao": {
+            "titulo": "Chinampas: ilhas agrícolas de Xochimilco",
+            "hotspots": [
+              {
+                "id": "raizes",
+                "x": 26,
+                "y": 60,
+                "titulo": "Raízes que seguram a terra",
+                "texto": "Os ahuejotes são plantados na borda de cada ilha: as raízes viram uma rede viva que impede a terra de desmanchar na água."
+              },
+              {
+                "id": "canais",
+                "x": 62,
+                "y": 72,
+                "titulo": "Canais em volta das hortas",
+                "texto": "A água chega sozinha às raízes o ano inteiro — irrigação sem bomba nenhuma."
+              },
+              {
+                "id": "lodo",
+                "x": 45,
+                "y": 40,
+                "titulo": "Lodo do fundo do lago",
+                "texto": "O barro retirado do fundo é riquíssimo em nutrientes e vira adubo natural."
+              }
+            ],
+            "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Trajineras_en_canal_de_Xochimilco_75.jpg/1920px-Trajineras_en_canal_de_Xochimilco_75.jpg"
+          }
         },
         {
           "dia": 2,
           "titulo": "Dia 2: Chichén Itzá e os cenotes, poços sagrados de água pura",
           "descricao": "A pirâmide de Kukulcán é um calendário de pedra: são 365 degraus somando os quatro lados e, nos equinócios, a sombra desenha uma serpente descendo a escadaria. Ao redor, os cenotes se abrem no chão onde o teto de calcário desabou, revelando a água doce que corre sob a floresta. Sem rios visíveis, foram esses poços que decidiram onde as cidades poderiam existir.",
-          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Cenote_Ik_Kil%2C_Yucatan%2C_Dec_2011_-_01.jpg/1920px-Cenote_Ik_Kil%2C_Yucatan%2C_Dec_2011_-_01.jpg"
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Cenote_Ik_Kil%2C_Yucatan%2C_Dec_2011_-_01.jpg/1920px-Cenote_Ik_Kil%2C_Yucatan%2C_Dec_2011_-_01.jpg",
+          "guia_local": "Ixchel, arqueóloga maia",
+          "clima_do_dia": "31 °C, calor úmido da selva",
+          "transporte": {
+            "nome": "Bicicleta e trilha na selva",
+            "icone": "🚲",
+            "descricao": "Pedalamos por uma estrada de terra entre árvores altas até o poço sagrado escondido na mata."
+          },
+          "fauna_do_dia": {
+            "id": "macaco-aranha",
+            "contexto": "Macacos-aranha gritam nas copas e atravessam a trilha pendurados pela cauda."
+          },
+          "sabor_do_dia": {
+            "id": "chocolate-espumante",
+            "contexto": "Chocolate espumante batido na hora, como faziam os maias — sem açúcar, com muita espuma."
+          },
+          "perguntas": [
+            {
+              "id": "q1",
+              "tipo": "observacao",
+              "texto": "Não há rios na superfície dessa região. Onde você acha que essa água toda estava guardada?"
+            },
+            {
+              "id": "q2",
+              "tipo": "comparacao",
+              "texto": "De onde vem a água que você bebe em casa? Que caminho ela faz até a torneira?"
+            }
+          ],
+          "observacao": {
+            "titulo": "Cenotes: a água escondida sob a pedra",
+            "hotspots": [
+              {
+                "id": "raizes",
+                "x": 34,
+                "y": 22,
+                "titulo": "Raízes penduradas",
+                "texto": "As árvores da borda descem raízes de dezenas de metros até alcançar a água lá embaixo."
+              },
+              {
+                "id": "agua",
+                "x": 55,
+                "y": 72,
+                "titulo": "Água transparente",
+                "texto": "A água é filtrada lentamente pela rocha calcária, e por isso chega tão limpa."
+              }
+            ],
+            "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Cenote_Ik_Kil%2C_Yucatan%2C_Dec_2011_-_01.jpg/1920px-Cenote_Ik_Kil%2C_Yucatan%2C_Dec_2011_-_01.jpg"
+          }
         },
         {
           "dia": 3,
           "titulo": "Dia 3: A vida real nos mercados e oficinas de Oaxaca",
           "descricao": "No mercado, tudo tem origem visível: pimentas secas ao sol, milho de várias cores, cestos trançados à mão. Nas oficinas, o barro preto é polido com pedra e a lã é tingida com cochonilha, um pequeno inseto que produz vermelho intenso. Repare que o artesão não copia um molde: cada peça carrega a marca da mão que a fez.",
-          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Tlacolula_Market_230122_62.jpg/1920px-Tlacolula_Market_230122_62.jpg"
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Tlacolula_Market_230122_62.jpg/1920px-Tlacolula_Market_230122_62.jpg",
+          "guia_local": "Doña Marta, tecelã de Oaxaca",
+          "clima_do_dia": "26 °C, manhã seca de mercado",
+          "transporte": {
+            "nome": "Ônibus colorido e caminhada no mercado",
+            "icone": "🚌",
+            "descricao": "Um ônibus local nos deixa na praça e seguimos a pé entre bancas, cheiros e conversas."
+          },
+          "fauna_do_dia": {
+            "id": "xoloitzcuintli",
+            "contexto": "Um xoloitzcuintli sem pelos dorme na sombra da banca — raça criada há mais de 3 mil anos."
+          },
+          "sabor_do_dia": {
+            "id": "mole-poblano",
+            "contexto": "Mole poblano com mais de vinte ingredientes moídos na pedra, incluindo chocolate."
+          },
+          "perguntas": [
+            {
+              "id": "q1",
+              "tipo": "observacao",
+              "texto": "Por que você acha que aqui existem tantos tipos diferentes de milho, e não apenas um?"
+            },
+            {
+              "id": "q2",
+              "tipo": "comparacao",
+              "texto": "Como esse mercado é diferente do lugar onde a sua família compra comida?"
+            }
+          ],
+          "observacao": {
+            "titulo": "Mercado e oficinas de artesãos",
+            "hotspots": [
+              {
+                "id": "tapetes",
+                "x": 28,
+                "y": 50,
+                "titulo": "Tapetes tingidos à mão",
+                "texto": "As cores saem de insetos, flores e minerais — nada de tinta industrial."
+              },
+              {
+                "id": "milho",
+                "x": 66,
+                "y": 60,
+                "titulo": "Montes de milho",
+                "texto": "Dezenas de variedades de milho, cada uma para um prato diferente."
+              }
+            ],
+            "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Tlacolula_Market_230122_62.jpg/1920px-Tlacolula_Market_230122_62.jpg"
+          }
         }
       ],
       "fauna_flora": [
@@ -271,25 +579,220 @@
           "dia": 1,
           "titulo": "Dia 1: A energia de Nova York e o ritmo das cidades verticais",
           "descricao": "Quando o espaço no chão acaba, a cidade cresce para cima. Nova York foi construída sobre rocha firme, capaz de sustentar torres de aço e vidro. Observe o ritmo: metrôs que substituem carros, escadas de incêndio nas fachadas, parques criados de propósito para dar ar e silêncio no meio do barulho.",
-          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/New_York_City_at_night_HDR.jpg/1920px-New_York_City_at_night_HDR.jpg"
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/New_York_City_at_night_HDR.jpg/1920px-New_York_City_at_night_HDR.jpg",
+          "guia_local": "James, historiador urbano",
+          "clima_do_dia": "14 °C, noite iluminada",
+          "transporte": {
+            "nome": "Metrô e travessia de balsa",
+            "icone": "🚇",
+            "descricao": "Descemos ao metrô lotado e depois cruzamos a água de balsa para ver a cidade inteira de longe."
+          },
+          "fauna_do_dia": {
+            "id": "esquilo-urbano",
+            "contexto": "Nos parques, esquilos aprenderam a viver entre pessoas e pedem comida sem medo."
+          },
+          "sabor_do_dia": {
+            "id": "bagel-cream-cheese",
+            "contexto": "Bagel com cream cheese comprado numa banca de esquina, como fazem os nova-iorquinos."
+          },
+          "perguntas": [
+            {
+              "id": "q1",
+              "tipo": "observacao",
+              "texto": "Por que você acha que essa cidade cresceu para cima em vez de crescer para os lados?"
+            },
+            {
+              "id": "q2",
+              "tipo": "comparacao",
+              "texto": "Qual é o prédio mais alto da sua cidade? Por que a sua cidade não é toda feita de arranha-céus?"
+            }
+          ],
+          "observacao": {
+            "titulo": "A cidade que cresceu para cima",
+            "hotspots": [
+              {
+                "id": "altura",
+                "x": 50,
+                "y": 30,
+                "titulo": "Arranha-céus",
+                "texto": "Como a ilha é pequena e a rocha embaixo é firme, a única direção possível para crescer era para cima."
+              },
+              {
+                "id": "grade",
+                "x": 30,
+                "y": 66,
+                "titulo": "Ruas em quadrícula",
+                "texto": "O traçado em grade foi desenhado antes das casas existirem, para facilitar orientar-se."
+              }
+            ],
+            "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/New_York_City_at_night_HDR.jpg/1920px-New_York_City_at_night_HDR.jpg"
+          }
         },
         {
           "dia": 2,
           "titulo": "Dia 2: A imensidão do Grand Canyon e a força que esculpe o deserto",
           "descricao": "O rio Colorado levou milhões de anos para cortar mais de 1,5 km de rocha. Cada faixa colorida da parede é uma camada de tempo: quanto mais fundo você olha, mais antiga é a história. Aqui a paciência da água e o vento fazem o trabalho que nenhuma máquina faria.",
-          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Grand_Canyon_Hopi_Point_with_rainbow_2013.jpg/1920px-Grand_Canyon_Hopi_Point_with_rainbow_2013.jpg"
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Grand_Canyon_Hopi_Point_with_rainbow_2013.jpg/1920px-Grand_Canyon_Hopi_Point_with_rainbow_2013.jpg",
+          "guia_local": "Sarah, geóloga do parque",
+          "clima_do_dia": "18 °C, ar seco e chuva ao longe",
+          "transporte": {
+            "nome": "Veículo 4x4 de expedição",
+            "icone": "🚙",
+            "descricao": "Um 4x4 de expedição encara a estrada de terra até a borda do canyon, levantando poeira vermelha."
+          },
+          "fauna_do_dia": {
+            "id": "aguia-careca",
+            "contexto": "Uma águia-careca sobrevoa as rochas aproveitando o ar quente que sobe do canyon."
+          },
+          "sabor_do_dia": {
+            "id": "pbj",
+            "contexto": "Na parada da expedição, sanduíche PB&J e torta de maçã — comida simples de quem anda o dia todo."
+          },
+          "perguntas": [
+            {
+              "id": "q1",
+              "tipo": "observacao",
+              "texto": "Olhe para as diferentes cores e linhas nas paredes do Grand Canyon. O que você acha que esculpiu esse buraco gigante na terra ao longo de milhares de anos?"
+            },
+            {
+              "id": "q2",
+              "tipo": "comparacao",
+              "texto": "Você já viu a água mudar o formato da terra em algum lugar perto de você? Onde?"
+            }
+          ],
+          "observacao": {
+            "titulo": "As camadas de rocha do Grand Canyon",
+            "hotspots": [
+              {
+                "id": "camadas",
+                "x": 32,
+                "y": 42,
+                "titulo": "Linhas de cores diferentes",
+                "texto": "Cada faixa é um período da história da Terra. As de baixo têm quase 2 bilhões de anos."
+              },
+              {
+                "id": "rio",
+                "x": 58,
+                "y": 78,
+                "titulo": "O rio Colorado no fundo",
+                "texto": "O rio corta a rocha há milhões de anos, carregando areia que funciona como lixa."
+              },
+              {
+                "id": "chuva",
+                "x": 76,
+                "y": 26,
+                "titulo": "Chuva ao longe",
+                "texto": "No deserto a chuva é rara e violenta: em minutos, arranca pedra e terra do paredão."
+              }
+            ],
+            "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Grand_Canyon_Hopi_Point_with_rainbow_2013.jpg/1920px-Grand_Canyon_Hopi_Point_with_rainbow_2013.jpg"
+          }
         },
         {
           "dia": 3,
           "titulo": "Dia 3: A ciência no Kennedy Space Center",
           "descricao": "Foi daqui que missões partiram rumo à Lua e a órbitas distantes. As bases de lançamento ficam na costa para que os foguetes partam sobre o mar, longe das cidades, aproveitando a rotação da Terra como impulso extra. Curiosidade e cálculo, juntos, transformam uma pergunta em viagem.",
-          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Atlantis_Kennedy_Space_Center_Visitor_Complex_4.jpg/1920px-Atlantis_Kennedy_Space_Center_Visitor_Complex_4.jpg"
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Atlantis_Kennedy_Space_Center_Visitor_Complex_4.jpg/1920px-Atlantis_Kennedy_Space_Center_Visitor_Complex_4.jpg",
+          "guia_local": "Dr. Alan, engenheiro aeroespacial",
+          "clima_do_dia": "28 °C, úmido e ensolarado",
+          "transporte": {
+            "nome": "Ônibus da base espacial",
+            "icone": "🚌",
+            "descricao": "Um ônibus da base leva os visitantes entre hangares gigantes e plataformas de lançamento."
+          },
+          "fauna_do_dia": {
+            "id": "bisao",
+            "contexto": "Nas reservas do país, o bisão voltou a existir depois de quase desaparecer."
+          },
+          "sabor_do_dia": {
+            "id": "torta-de-maca",
+            "contexto": "Torta de maçã na cantina da base — a sobremesa mais tradicional do país."
+          },
+          "perguntas": [
+            {
+              "id": "q1",
+              "tipo": "observacao",
+              "texto": "Por que você acha que quase todo o espaço de um foguete é ocupado por combustível?"
+            },
+            {
+              "id": "q2",
+              "tipo": "comparacao",
+              "texto": "Que perguntas você faria a um astronauta que morou meses fora da Terra?"
+            }
+          ],
+          "observacao": {
+            "titulo": "O centro espacial e as máquinas de voar",
+            "hotspots": [
+              {
+                "id": "foguete",
+                "x": 45,
+                "y": 40,
+                "titulo": "O tamanho do foguete",
+                "texto": "Quase todo o foguete é combustível: sobra pouquíssimo espaço para as pessoas."
+              },
+              {
+                "id": "protecao",
+                "x": 70,
+                "y": 58,
+                "titulo": "Escudo térmico",
+                "texto": "As placas escuras protegem a nave do calor extremo da volta à atmosfera."
+              }
+            ],
+            "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Atlantis_Kennedy_Space_Center_Visitor_Complex_4.jpg/1920px-Atlantis_Kennedy_Space_Center_Visitor_Complex_4.jpg"
+          }
         },
         {
           "dia": 4,
           "titulo": "Dia 4: O coração da história em Washington, D.C.",
           "descricao": "A cidade foi desenhada antes de existir: avenidas largas, eixos que apontam para monumentos e um grande gramado central rodeado de museus gratuitos. Repare como o espaço público foi planejado para que as pessoas caminhem, encontrem e aprendam ao ar livre.",
-          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/National_Mall%2C_Washington%2C_D.C._%2820100325-DSC01362%29.jpg/1920px-National_Mall%2C_Washington%2C_D.C._%2820100325-DSC01362%29.jpg"
+          "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/National_Mall%2C_Washington%2C_D.C._%2820100325-DSC01362%29.jpg/1920px-National_Mall%2C_Washington%2C_D.C._%2820100325-DSC01362%29.jpg",
+          "guia_local": "Nina, educadora de museu",
+          "clima_do_dia": "20 °C, primavera com cerejeiras",
+          "transporte": {
+            "nome": "Bicicleta compartilhada",
+            "icone": "🚲",
+            "descricao": "Bicicletas compartilhadas levam a gente de museu em museu ao longo do grande gramado central."
+          },
+          "fauna_do_dia": {
+            "id": "esquilo-urbano",
+            "contexto": "Esquilos disputam espaço com visitantes debaixo das cerejeiras floridas."
+          },
+          "sabor_do_dia": {
+            "id": "pbj",
+            "contexto": "Piquenique no gramado com sanduíche PB&J, como fazem as escolas em visita."
+          },
+          "perguntas": [
+            {
+              "id": "q1",
+              "tipo": "observacao",
+              "texto": "Por que você acha que essa cidade foi desenhada com um gramado tão grande e aberto no meio?"
+            },
+            {
+              "id": "q2",
+              "tipo": "comparacao",
+              "texto": "Se você pudesse criar um museu gratuito na sua cidade, sobre o que ele seria?"
+            }
+          ],
+          "observacao": {
+            "titulo": "O National Mall e a cidade planejada",
+            "hotspots": [
+              {
+                "id": "eixo",
+                "x": 50,
+                "y": 52,
+                "titulo": "Um grande eixo aberto",
+                "texto": "O gramado foi desenhado para alinhar monumentos e permitir que multidões se reúnam."
+              },
+              {
+                "id": "museus",
+                "x": 24,
+                "y": 64,
+                "titulo": "Museus gratuitos",
+                "texto": "Quase todos os museus daqui não cobram entrada: a ideia é que o conhecimento seja de todos."
+              }
+            ],
+            "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/National_Mall%2C_Washington%2C_D.C._%2820100325-DSC01362%29.jpg/1920px-National_Mall%2C_Washington%2C_D.C._%2820100325-DSC01362%29.jpg"
+          }
         }
       ],
       "fauna_flora": [
