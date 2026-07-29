@@ -127,7 +127,8 @@
               }
             ],
             "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Montreal_skyline_winter_2010b.JPG/1920px-Montreal_skyline_winter_2010b.JPG"
-          }
+          },
+          "guia_nome": "Élise"
         },
         {
           "dia": 2,
@@ -201,7 +202,8 @@
               }
             ],
             "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Moraine_Lake-Banff_NP.JPG/1920px-Moraine_Lake-Banff_NP.JPG"
-          }
+          },
+          "guia_nome": "Marc"
         },
         {
           "dia": 3,
@@ -268,7 +270,8 @@
               }
             ],
             "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Autumn_forest_at_Drumbeg_Provincial_Park.jpg/1920px-Autumn_forest_at_Drumbeg_Provincial_Park.jpg"
-          }
+          },
+          "guia_nome": "Louise"
         }
       ],
       "fauna_flora": [
@@ -347,7 +350,16 @@
         "roupas_modo_de_vida": "Roupas em camadas, casacos térmicos e botas impermeáveis. A vida se organiza em torno da luz do dia, que é curta no inverno, e de esportes sobre gelo e neve.",
         "fauna_alimentacao": "Animais de pelagem densa como alce, castor e lobo. A comida é calórica e reconfortante: pratos quentes, tortas de carne e doces à base de bordo."
       },
-      "codigo_mapa": "ca"
+      "codigo_mapa": "ca",
+      "chegada": {
+        "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Airplane_vortex_edit.jpg/1920px-Airplane_vortex_edit.jpg",
+        "texto": "Lá embaixo aparecem florestas sem fim, lagos azuis e telhados cobertos de neve."
+      },
+      "base": {
+        "nome": "Chalé Bordo Dourado, em Montreal",
+        "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Chalet_in_winter%2C_Quebec.jpg/1920px-Chalet_in_winter%2C_Quebec.jpg",
+        "descricao": "Um chalé de madeira aquecido por lareira, com botas e casacos grossos esperando na entrada. É daqui que a expedição sai todos os dias."
+      }
     },
     {
       "id": "mexico",
@@ -440,7 +452,8 @@
               }
             ],
             "imagem_url": "/imagens/xochimilco-trajinera.jpg"
-          }
+          },
+          "guia_nome": "Don Rafael"
         },
         {
           "dia": 2,
@@ -507,7 +520,8 @@
               }
             ],
             "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Cenote_Ik_Kil%2C_Yucatan%2C_Dec_2011_-_01.jpg/1920px-Cenote_Ik_Kil%2C_Yucatan%2C_Dec_2011_-_01.jpg"
-          }
+          },
+          "guia_nome": "Ixchel"
         },
         {
           "dia": 3,
@@ -574,7 +588,8 @@
               }
             ],
             "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Tlacolula_Market_230122_62.jpg/1920px-Tlacolula_Market_230122_62.jpg"
-          }
+          },
+          "guia_nome": "Doña Marta"
         }
       ],
       "fauna_flora": [
@@ -653,7 +668,16 @@
         "roupas_modo_de_vida": "Roupas leves de algodão, bordados coloridos e chapéus contra o sol forte. A vida acontece nas praças, mercados e festas de rua.",
         "fauna_alimentacao": "Fauna tropical de selva e deserto, como macacos-aranha e iguanas. A comida gira em torno do milho, das pimentas e do cacau, com muitos sabores em um mesmo prato."
       },
-      "codigo_mapa": "mx"
+      "codigo_mapa": "mx",
+      "chegada": {
+        "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Airplane_vortex_edit.jpg/1920px-Airplane_vortex_edit.jpg",
+        "texto": "Pela janela dá para ver uma cidade enorme dentro de um vale cercado por vulcões."
+      },
+      "base": {
+        "nome": "Casa Talavera, na Cidade do México",
+        "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Casa_de_los_Azulejos_%28Mexico_City%29.jpg/1920px-Casa_de_los_Azulejos_%28Mexico_City%29.jpg",
+        "descricao": "Uma casa colonial de paredes coloridas e pátio com fonte, cheia de azulejos pintados à mão."
+      }
     },
     {
       "id": "estados-unidos",
@@ -732,7 +756,8 @@
               }
             ],
             "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/New_York_City_at_night_HDR.jpg/1920px-New_York_City_at_night_HDR.jpg"
-          }
+          },
+          "guia_nome": "James"
         },
         {
           "dia": 2,
@@ -806,7 +831,8 @@
               }
             ],
             "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Grand_Canyon_Hopi_Point_with_rainbow_2013.jpg/1920px-Grand_Canyon_Hopi_Point_with_rainbow_2013.jpg"
-          }
+          },
+          "guia_nome": "Sarah"
         },
         {
           "dia": 3,
@@ -873,7 +899,8 @@
               }
             ],
             "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Atlantis_Kennedy_Space_Center_Visitor_Complex_4.jpg/1920px-Atlantis_Kennedy_Space_Center_Visitor_Complex_4.jpg"
-          }
+          },
+          "guia_nome": "Dr. Alan"
         },
         {
           "dia": 4,
@@ -940,7 +967,8 @@
               }
             ],
             "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/National_Mall%2C_Washington%2C_D.C._%2820100325-DSC01362%29.jpg/1920px-National_Mall%2C_Washington%2C_D.C._%2820100325-DSC01362%29.jpg"
-          }
+          },
+          "guia_nome": "Nina"
         }
       ],
       "fauna_flora": [
@@ -1003,7 +1031,16 @@
         "roupas_modo_de_vida": "Roupas mudam muito de região para região: casacos no norte, roupas leves no sul e no deserto. A vida depende bastante do carro e das grandes distâncias.",
         "fauna_alimentacao": "Fauna de pradaria e floresta temperada, como bisões e águias-carecas. A comida é prática e portátil, feita para o ritmo acelerado do dia a dia."
       },
-      "codigo_mapa": "us"
+      "codigo_mapa": "us",
+      "chegada": {
+        "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Airplane_vortex_edit.jpg/1920px-Airplane_vortex_edit.jpg",
+        "texto": "Pela janela surgem arranha-céus, rios largos e estradas que somem no horizonte."
+      },
+      "base": {
+        "nome": "Hotel Liberty, em Nova York",
+        "imagem_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Manhattan_at_Dusk_by_slonecker.jpg/1920px-Manhattan_at_Dusk_by_slonecker.jpg",
+        "descricao": "Um hotel antigo perto do parque, com janelas altas de onde se vê a cidade acordando."
+      }
     }
   ]
 }
