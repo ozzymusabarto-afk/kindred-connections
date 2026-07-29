@@ -42,12 +42,24 @@ export interface PerguntaSocratica {
   texto: string;
 }
 
+export interface Chegada {
+  imagem_url: string;
+  texto: string;
+}
+
+export interface BaseHospedagem {
+  nome: string;
+  imagem_url: string;
+  descricao: string;
+}
+
 export interface DiaRoteiro {
   dia: number;
   titulo: string;
   descricao: string;
   imagem_url: string;
   guia_local?: string;
+  guia_nome?: string;
   clima_do_dia?: string;
   transporte?: Transporte;
   observacao?: PontoObservacao;
