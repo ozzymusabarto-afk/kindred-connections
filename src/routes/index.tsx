@@ -102,7 +102,7 @@ function MapaMundi() {
             paises={paisesVisiveis}
             carimbados={carimbos.map((c) => c.paisId)}
             onSelecionar={(pais) =>
-              navigate({ to: "/pais/$id", params: { id: pais.id }, search: {} })
+              navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
             }
           />
         </div>
@@ -113,7 +113,7 @@ function MapaMundi() {
               key={pais.id}
               type="button"
               onClick={() =>
-                navigate({ to: "/pais/$id", params: { id: pais.id }, search: {} })
+                navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
               }
               className="group relative overflow-hidden rounded-md border border-border bg-card text-left transition-colors hover:border-brass"
             >

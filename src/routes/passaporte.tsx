@@ -136,7 +136,7 @@ function Passaporte() {
                   <Link
                     to="/pais/$id"
                     params={{ id: pais.id }}
-                    search={{}}
+                    search={{ tela: undefined, dia: undefined }}
                     className="mt-4 inline-block text-sm underline underline-offset-4"
                   >
                     Revisitar {pais.nome}
