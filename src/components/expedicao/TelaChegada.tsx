@@ -32,6 +32,8 @@ export function TelaChegada({ pais, onAvancar }: Props) {
       }
       acao={{ rotulo: "Desembarcar no aeroporto ➔", onClick: onAvancar }}
     >
+      <BotaoSom som={chegada?.som} rotulo="Ouça o pouso do avião" />
+
       {chegada?.fala_piloto_original && (
         <div className="space-y-2 rounded-xl border-2 border-dashed border-brass/60 bg-background p-4">
           <p className="text-[11px] uppercase tracking-[0.24em] text-brass">
