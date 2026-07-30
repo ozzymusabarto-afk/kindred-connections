@@ -74,8 +74,11 @@ export function PaginaFotos({
                     </span>
                   </div>
                   <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground/70">
-                    Figurinha do dia {foto.dia} — ainda não colecionada
+                    {foto.dia === 0
+                      ? "Figurinha da chegada — ainda não colecionada"
+                      : `Figurinha do dia ${foto.dia} — ainda não colecionada`}
                   </p>
+
                 </div>
               )}
             </li>
