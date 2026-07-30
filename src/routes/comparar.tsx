@@ -36,12 +36,26 @@ const LINHAS: { titulo: string; campo: keyof Pais["comparativo"] }[] = [
   { titulo: "Fauna e alimentação", campo: "fauna_alimentacao" },
 ];
 
+/** Anotações que a criança escreveu para um país, na ordem dos dias. */
+function anotacoesDoPais(progresso: ProgressoExpedicao, paisId: string) {
+  const pais = progresso[paisId];
+  if (!pais) return [];
+  return Object.entries(pais.respostas ?? {})
+    .filter(([, texto]) => typeof texto === "string" && texto.trim().length > 0)
+    .slice(0, 4)
+    .map(([chave, texto]) => ({ chave, texto: texto as string }));
+}
+
 function Comparar() {
   const [esquerdaId, setEsquerdaId] = useState(paises[0]?.id ?? "");
   const [direitaId, setDireitaId] = useState(paises[1]?.id ?? "");
+  const [progresso, setProgresso] = useState<ProgressoExpedicao>({});
+
+  useEffect(() => setProgresso(lerProgressoTudo()), []);
 
   const esquerda = paises.find((p) => p.id === esquerdaId);
   const direita = paises.find((p) => p.id === direitaId);
+
 
   return (
     <div className="min-h-screen">
