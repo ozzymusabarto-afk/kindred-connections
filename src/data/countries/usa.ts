@@ -333,7 +333,7 @@ export const estadosUnidos: Pais = {
         credito: "Wikimedia Commons",
       },
       observacao: {
-        titulo: "O Vale do Silício e a exploração espacial",
+        titulo: "O laboratório onde nascem os robôs de Marte (JPL)",
         imagem_url: "/__l5e/assets-v1/b362a85d-3541-46e9-9061-3d59b860a378/rep-observacao-california.jpg",
         credito: "Rover Curiosity na sala limpa do JPL, Pasadena — NASA/JPL (domínio público)",
         hotspots: [
