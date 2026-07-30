@@ -338,28 +338,28 @@ export const estadosUnidos: Pais = {
         credito: "Rover Curiosity na sala limpa do JPL, Pasadena — NASA/JPL (domínio público)",
         hotspots: [
           {
-            id: "rover",
-            x: 62,
-            y: 62,
-            titulo: "Um robô rover",
+            id: "mastro",
+            x: 48,
+            y: 24,
+            titulo: "A cabeça com câmeras",
             texto:
-              "Rovers como este são construídos aqui para andar sobre o solo de Marte, a milhões de quilômetros de distância.",
+              "No alto do mastro ficam as câmeras e um laser: são os “olhos” do robô, que fotografam e analisam as rochas de Marte.",
           },
           {
-            id: "foguete",
-            x: 12,
-            y: 30,
-            titulo: "Modelos de foguetes",
+            id: "rodas",
+            x: 34,
+            y: 72,
+            titulo: "As seis rodas de alumínio",
             texto:
-              "Cada estágio do foguete se solta durante a subida para deixar a nave mais leve e chegar ao espaço.",
+              "Cada roda tem seu próprio motor e ranhuras fundas para não atolar na areia marciana nem escorregar nas pedras.",
           },
           {
-            id: "telas",
-            x: 40,
-            y: 44,
-            titulo: "Telas de pesquisa",
+            id: "sala-limpa",
+            x: 84,
+            y: 34,
+            titulo: "A sala limpa do laboratório",
             texto:
-              "Nesta região nasceram os microchips e a internet moderna: matemática, física e programação viram invenções.",
+              "Tudo aqui é montado num ambiente sem poeira e sem micróbios, para que nenhuma bactéria da Terra pegue carona até Marte.",
           },
         ],
         galeria: [
