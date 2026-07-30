@@ -22,6 +22,61 @@ const VISTA_MUNDO: Vista = { x: 0, y: 0, w: W, h: H };
 const ZOOM_MAX = 24;
 const ESTRELA = "50,3 61,35 95,35 68,56 78,90 50,70 22,90 32,56 5,35 39,35";
 
+/** Capitais cujo nome em português difere do nome original do mapa. */
+const CAPITAIS_PT: Record<string, string> = {
+  "Mexico City": "Cidade do México",
+  "Washington, D.C.": "Washington",
+  "Washington D.C.": "Washington",
+  Brasilia: "Brasília",
+  Bogota: "Bogotá",
+  Asuncion: "Assunção",
+  Panama: "Cidade do Panamá",
+  "Panama City": "Cidade do Panamá",
+  "San Jose": "São José",
+  "San Salvador": "San Salvador",
+  Havana: "Havana",
+  Lisbon: "Lisboa",
+  Rome: "Roma",
+  Athens: "Atenas",
+  Bern: "Berna",
+  Vienna: "Viena",
+  Brussels: "Bruxelas",
+  Copenhagen: "Copenhague",
+  Moscow: "Moscou",
+  Warsaw: "Varsóvia",
+  Prague: "Praga",
+  Bucharest: "Bucareste",
+  Stockholm: "Estocolmo",
+  Helsinki: "Helsinque",
+  Dublin: "Dublin",
+  London: "Londres",
+  Paris: "Paris",
+  Berlin: "Berlim",
+  Madrid: "Madri",
+  Cairo: "Cairo",
+  Algiers: "Argel",
+  Tunis: "Túnis",
+  Rabat: "Rabate",
+  Nairobi: "Nairóbi",
+  "Addis Ababa": "Adis Abeba",
+  Khartoum: "Cartum",
+  Beijing: "Pequim",
+  Tokyo: "Tóquio",
+  Seoul: "Seul",
+  "New Delhi": "Nova Délhi",
+  Bangkok: "Bangcoc",
+  Jakarta: "Jacarta",
+  Damascus: "Damasco",
+  Baghdad: "Bagdá",
+  Tehran: "Teerã",
+  Riyadh: "Riade",
+  Ankara: "Ancara",
+  Canberra: "Camberra",
+  Wellington: "Wellington",
+};
+
+
+
 /** Mantém a vista dentro do mundo e com zoom válido. */
 function limitar(v: Vista): Vista {
   const w = Math.min(W, Math.max(W / ZOOM_MAX, v.w));
@@ -80,6 +135,12 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
     setVista(enquadrar(pinos.map((p) => p.ponto)));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chaveFoco]);
+
+  /** Países que já têm cartão clicável não repetem o rótulo do mapa. */
+  const comPino = useMemo(
+    () => new Set(paises.map((p) => p.codigo_mapa)),
+    [paises],
+  );
 
   const escala = W / vista.w;
   const px = (base: number) => (base * vista.w) / W;
@@ -168,11 +229,14 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           />
         ))}
 
-        {/* Nomes de países e capitais, revelados conforme o zoom. */}
+        {/* Nomes de países com a capital logo abaixo. */}
         {WORLD_COUNTRIES.map((c) => {
+          if (comPino.has(c.id)) return null;
           const mostraNome = escala >= c.rank * 0.55;
           if (!mostraNome) return null;
-          const mostraCapital = Boolean(c.capital) && escala >= 3.2;
+          const capital = c.capital
+            ? (CAPITAIS_PT[c.capital.nome] ?? c.capital.nome)
+            : null;
           return (
             <g key={`rot-${c.id}`} pointerEvents="none">
               <text
@@ -188,38 +252,40 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               >
                 {c.nome}
               </text>
-              {mostraCapital && c.capital && (
-                <g>
-                  <circle
-                    cx={c.capital.x}
-                    cy={c.capital.y}
-                    r={px(2.4)}
-                    fill="#1f2b1c"
-                    stroke="#ffffff"
-                    strokeWidth={px(1)}
-                  />
-                  <text
-                    x={c.capital.x}
-                    y={c.capital.y - px(5)}
-                    textAnchor="middle"
-                    fontSize={px(8)}
-                    fill="#26332a"
-                    stroke="#ffffff"
-                    strokeWidth={px(2)}
-                    paintOrder="stroke"
-                    style={{ fontFamily: "var(--font-sans)" }}
-                  >
-                    ★ {c.capital.nome}
-                  </text>
-                </g>
+              {capital && (
+                <text
+                  x={c.centro.x}
+                  y={c.centro.y + px(10)}
+                  textAnchor="middle"
+                  fontSize={px(8)}
+                  fill="#3c4a3e"
+                  stroke="#ffffff"
+                  strokeWidth={px(2.2)}
+                  paintOrder="stroke"
+                  style={{ fontFamily: "var(--font-sans)", fontStyle: "italic" }}
+                >
+                  ★ {capital}
+                </text>
+              )}
+              {c.capital && escala >= 3.2 && (
+                <circle
+                  cx={c.capital.x}
+                  cy={c.capital.y}
+                  r={px(2.4)}
+                  fill="#1f2b1c"
+                  stroke="#ffffff"
+                  strokeWidth={px(1)}
+                />
               )}
             </g>
           );
         })}
 
+
         {pinos.map(({ pais, ponto }) => {
           const carimbado = carimbados.includes(pais.id);
           const t = px(1);
+          const largura = Math.max(pais.nome.length, (pais.capital ?? "").length) * 8.2 + 26;
           return (
             <g
               key={pais.id}
@@ -233,19 +299,44 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
                 if (e.key === "Enter" || e.key === " ") viajar(pais, ponto);
               }}
             >
-              <circle
-                r="30"
-                fill="#ffffff"
-                fillOpacity="0.45"
-                className="origin-center transition-transform duration-300 group-hover:scale-125"
-              />
-              <circle r="19" fill="var(--card)" stroke="#ffffff" strokeWidth="4" />
-              <text textAnchor="middle" dominantBaseline="central" fontSize="24" y="1">
-                {pais.bandeira}
-              </text>
+              <g className="origin-center transition-transform duration-300 group-hover:scale-110">
+                <rect
+                  x={-largura / 2}
+                  y={pais.capital ? -30 : -21}
+                  width={largura}
+                  height={pais.capital ? 50 : 32}
+                  rx="16"
+                  fill="var(--card)"
+                  stroke="var(--brass)"
+                  strokeWidth="2.5"
+                />
+                <text
+                  y={pais.capital ? -10 : 1}
+                  textAnchor="middle"
+                  fontSize="20"
+                  fill="var(--foreground)"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {pais.nome}
+                </text>
+                {pais.capital && (
+                  <text
+                    y="10"
+                    textAnchor="middle"
+                    fontSize="13"
+                    fill="var(--muted-foreground)"
+                    style={{ fontFamily: "var(--font-sans)", fontStyle: "italic" }}
+                  >
+                    ★ {pais.capital}
+                  </text>
+                )}
+              </g>
 
               {carimbado && (
-                <g transform="translate(14 -30) scale(0.38)" className="star-drop">
+                <g
+                  transform={`translate(${largura / 2 - 4} ${pais.capital ? -38 : -29}) scale(0.4)`}
+                  className="star-drop"
+                >
                   <polygon
                     points={ESTRELA}
                     fill="var(--map-star)"
@@ -255,31 +346,10 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
                   />
                 </g>
               )}
-
-              <g transform="translate(0 -42)">
-                <rect
-                  x={-(pais.nome.length * 7.6) / 2 - 9}
-                  y="-22"
-                  width={pais.nome.length * 7.6 + 18}
-                  height="28"
-                  rx="14"
-                  fill="var(--card)"
-                  stroke="var(--brass)"
-                  strokeWidth="2"
-                />
-                <text
-                  y="-3"
-                  textAnchor="middle"
-                  fontSize="19"
-                  fill="var(--foreground)"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  {pais.nome}
-                </text>
-              </g>
             </g>
           );
         })}
+
 
         <g
           transform={`translate(${aviao.x} ${aviao.y}) rotate(${angulo}) scale(${px(1)})`}

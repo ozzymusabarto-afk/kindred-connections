@@ -42,6 +42,8 @@
       "nome": "Canadá",
       "continente": "america-do-norte",
       "bandeira": "🇨🇦",
+      "bandeira_url": "/__l5e/assets-v1/b161b340-948a-4ca5-9284-d5ed693dabc1/bandeira-ca.png",
+      "capital": "Ottawa",
       "coordenadas": {
         "x": 770,
         "y": 203
@@ -366,6 +368,8 @@
       "nome": "México",
       "continente": "america-do-norte",
       "bandeira": "🇲🇽",
+      "bandeira_url": "/__l5e/assets-v1/46337909-c962-4d4c-8186-9d9a34808fa6/bandeira-mx.png",
+      "capital": "Cidade do México",
       "coordenadas": {
         "x": 536,
         "y": 492
