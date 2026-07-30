@@ -435,7 +435,38 @@ export const estadosUnidos: Pais = {
         texto_guia:
           "Nosso prato de hoje é o Chili com Carne acompanhado de cornbread, o pão de milho dourado. É uma comida forte, bem temperada e quente, perfeita para o deserto que esfria rapidamente assim que o sol se põe.",
       },
+      notas_brasil: {
+        transporte: {
+          texto:
+            "Nos EUA quase todo passeio longo é feito de carro por estradas retas e vazias. No Brasil, entre cidades do interior, muita gente viaja de ônibus rodoviário — e no Norte a estrada principal é o próprio rio, percorrido de barco.",
+        },
+        observacao: {
+          texto:
+            "O Grand Canyon foi escavado pelo rio Colorado em rocha seca. No Brasil temos algo parecido nos Cânions do Itaimbezinho e do Fortaleza, no Rio Grande do Sul — só que lá as paredes vivem cobertas de mata e cachoeiras, porque chove muito mais.",
+        },
+        fauna: {
+          texto:
+            "O condor-da-califórnia planeja sobre o deserto usando o ar quente que sobe das rochas. No Brasil, o urubu-rei faz exatamente o mesmo truque no cerrado: sobe em círculos sem bater asas.",
+        },
+        sabor: {
+          texto:
+            "O chili é um cozido apimentado de feijão e carne, servido bem quente — a mesma ideia da nossa feijoada ou do baião de dois: um prato de energia para depois de um dia inteiro fora de casa.",
+        },
+      },
+      desafio: {
+        pergunta:
+          "Você observou as camadas coloridas nas paredes do cânion. O que elas mostram?",
+        opcoes: [
+          "Alguém pintou as rochas para os turistas",
+          "Cada faixa é uma camada de rocha de uma época diferente, empilhada ao longo de milhões de anos",
+          "São sombras das nuvens",
+        ],
+        correta: 1,
+        explicacao:
+          "Cada faixa é um tipo de rocha formado numa era diferente. O rio Colorado cortou tudo isso como uma faca num bolo de camadas, deixando a história da Terra à vista.",
+      },
     },
+
 
     {
       dia: 3,
