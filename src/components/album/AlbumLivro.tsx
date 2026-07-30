@@ -57,10 +57,7 @@ export function AlbumLivro({ folhas }: Props) {
   return (
     <div className="mx-auto w-full max-w-5xl">
       <div className="album-palco relative rounded-3xl border-2 border-border bg-card shadow-xl">
-        <span
-          aria-hidden
-          className="pointer-events-none absolute inset-y-6 left-1/2 hidden w-px -translate-x-1/2 bg-border/70 lg:block"
-        />
+
         <div
           key={folha.id}
           className={`album-folha min-h-[32rem] ${
