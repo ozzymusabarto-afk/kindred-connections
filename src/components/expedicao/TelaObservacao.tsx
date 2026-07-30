@@ -1,3 +1,4 @@
+import { GaleriaObservacao } from "./GaleriaObservacao";
 import { ImagemHotspots } from "./ImagemHotspots";
 import { PerguntaSocraticaCampo } from "./PerguntaSocratica";
 import { TelaJornada } from "./TelaJornada";
@@ -37,11 +38,21 @@ export function TelaObservacao({
       titulo={dia.observacao?.titulo ?? dia.titulo}
       midia={
         dia.observacao ? (
-          <ImagemHotspots
-            observacao={dia.observacao}
-            vistos={progresso.hotspots}
-            onAbrir={onAbrirHotspot}
-          />
+          <div>
+            <ImagemHotspots
+              observacao={dia.observacao}
+              vistos={progresso.hotspots}
+              onAbrir={onAbrirHotspot}
+            />
+            {dia.observacao.galeria && dia.observacao.galeria.length > 0 && (
+              <div className="px-4 pb-4">
+                <GaleriaObservacao
+                  fotos={dia.observacao.galeria}
+                  local={dia.observacao.titulo}
+                />
+              </div>
+            )}
+          </div>
         ) : undefined
       }
       imagem={dia.imagem_url}
