@@ -82,10 +82,10 @@ export const estadosUnidos: Pais = {
     imagem_url: "/__l5e/assets-v1/abb8ecf9-d56c-4e95-aaae-9f4eb00bd801/rep-base-eua.jpg",
     credito: "Saguão do Waldorf Astoria, Nova York (Wikimedia Commons)",
     som: {
-      url: "/__l5e/assets-v1/b258c296-ab8d-4933-8a8d-dfba24668432/usa-som-padaria.mp3",
+      url: "/__l5e/assets-v1/e7de99c4-bb1d-4626-b02c-e4716b4cafd6/usa-som-saguao.mp3",
       legenda:
-        "Burburinho real de pessoas conversando num saguão movimentado, como na recepção do hotel",
-      credito: "Wikimedia Commons · domínio público",
+        "Gravação real do saguão de um grande hotel: passos no piso, malas rolando e conversas baixinhas na recepção",
+      credito: "radio aporee ::: maps — Internet Archive · domínio público",
     },
     descricao:
       "“Welcome to New York! Eu me chamo Sarah e vou acompanhar cada passo da sua jornada pelos Estados Unidos. Os EUA são um país continental imenso: 50 estados, desertos alaranjados no Arizona, vulcões no Havaí, montanhas nevadas no Alasca e florestas densas. Hoje nossa base é este hotel no coração de uma das maiores cidades do mundo. Dê uma olhada no termômetro do saguão: lá fora faz 12 °C. No Brasil, com essa temperatura, a gente já busca o casaco pesado, não é? Aqui as pessoas já estão acostumadas e caminham rápido pelas calçadas. Coloque seu agasalho: nosso primeiro transporte já está na porta!”",
@@ -138,6 +138,13 @@ export const estadosUnidos: Pais = {
         imagem_url:
           "/__l5e/assets-v1/132b5e70-2b4f-493b-85b2-79c49849a11a/new-york-yellow-cab-ford-crown-victoria-1020716.jpg",
         credito: "Wikimedia Commons",
+        som: {
+          url: "/__l5e/assets-v1/1250e12d-35e1-46e5-824e-e08141ac918a/usa-som-taxi.mp3",
+          legenda:
+            "Gravação real feita na 7ª Avenida, em Nova York: motores, buzinas dos táxis e o vozerio da multidão",
+          credito: "radio aporee ::: maps — Internet Archive · domínio público",
+        },
+
         galeria: [
           {
             id: "taxi-times",
@@ -330,6 +337,13 @@ export const estadosUnidos: Pais = {
           "Para rodar pelas estradas de terra e pedras do Arizona, nosso transporte tem tração nas quatro rodas e pneus altos reforçados. No solo arenoso e irregular do deserto, um carro comum ficaria atolado facilmente. A engenharia dos transportes precisa sempre se adaptar ao terreno da geografia local!",
         imagem_url: "/__l5e/assets-v1/bc2eae83-010f-48ad-90e6-0f3e57eee93a/rep-transporte-arizona.jpg",
         credito: "Jeep no deserto do Arizona — BLM (domínio público)",
+        som: {
+          url: "/__l5e/assets-v1/def20d3e-b2ce-48a8-81d9-3c10e60675be/usa-som-terra.mp3",
+          legenda:
+            "Gravação real de um veículo passando numa estrada de terra e cascalho — o mesmo chiado que os pneus da nossa caminhonete fazem no deserto",
+          credito: "radio aporee ::: maps — Internet Archive · CC BY-SA 3.0",
+        },
+
         galeria: [
           {
             id: "suv-estrada",
@@ -352,7 +366,7 @@ export const estadosUnidos: Pais = {
         som: {
           url: "/__l5e/assets-v1/fdf8ffd2-21f2-416c-8ea3-7475b7bb1932/usa-som-vento.mp3",
           legenda:
-            "Vento soprando ao ar livre, como na borda do cânion — é essa corrente de ar que o condor usa para planar",
+            "Vento soprando ao ar livre, como na borda do cânion — é essa corrente de ar que a águia usa para planar",
           credito: "Gravity Sound — Wikimedia Commons · CC BY 4.0",
         },
         imagem_url:
@@ -434,7 +448,7 @@ export const estadosUnidos: Pais = {
           tipo: "observacao",
           etapa: "fauna",
           texto:
-            "O condor quase não bate as asas: ele sobe usando colunas de ar quente. Que outras coisas você conhece que sobem sozinhas quando o ar esquenta?",
+            "A águia quase não bate as asas: ela sobe usando colunas de ar quente. Que outras coisas você conhece que sobem sozinhas quando o ar esquenta?",
         },
         {
           id: "d2-sabor",
@@ -445,12 +459,13 @@ export const estadosUnidos: Pais = {
         },
       ],
       fauna_do_dia: {
-        id: "condor-da-california",
+        id: "aguia-de-cabeca-branca",
         contexto:
-          "Olhe para o céu, bem acima dos paredões: está vendo aquela sombra enorme cruzando o cânion?",
+          "Olhe para o céu, bem acima dos paredões: está vendo aquela ave de cabeça branca cruzando o cânion?",
         texto_guia:
-          "É uma das maiores aves do planeta: com as asas abertas mede mais de 3 metros de ponta a ponta. Repare que ele quase não bate as asas — simplesmente plana. A natureza ensinou essa ave a ser uma pilota perfeita de planador!",
+          "É a águia-de-cabeça-branca, o símbolo dos Estados Unidos — ela está no selo do país e nas moedas. Repare que ela quase não bate as asas: simplesmente plana em círculos, subindo com o ar quente. E enxerga tão bem que localiza um peixe na água a mais de um quilômetro de distância!",
       },
+
       sabor_do_dia: {
         id: "chili-com-carne",
         contexto:
@@ -469,7 +484,7 @@ export const estadosUnidos: Pais = {
         },
         fauna: {
           texto:
-            "O condor-da-califórnia planeja sobre o deserto usando o ar quente que sobe das rochas. No Brasil, o urubu-rei faz exatamente o mesmo truque no cerrado: sobe em círculos sem bater asas.",
+            "A águia-de-cabeça-branca é o símbolo dos Estados Unidos e plana sobre o cânion usando o ar quente que sobe das rochas. No Brasil, o nosso grande símbolo do céu é o gavião-real (harpia), a águia mais forte das Américas, que vive no alto das árvores da Amazônia.",
         },
         sabor: {
           texto:
@@ -517,6 +532,13 @@ export const estadosUnidos: Pais = {
         imagem_url:
           "/__l5e/assets-v1/44cd7787-1f9c-4895-98ae-9749462d61bc/san-francisco-cable-car-55-dllu.jpg",
         credito: "Wikimedia Commons",
+        som: {
+          url: "/__l5e/assets-v1/1180a46d-6387-4e85-9119-108a3455c7ca/usa-som-cablecar.mp3",
+          legenda:
+            "Gravação real dentro de um cable car em movimento em São Francisco: o cabo rangendo, o sino e a voz do condutor",
+          credito: "radio aporee ::: maps — Internet Archive · CC BY-NC 3.0",
+        },
+
         galeria: [
           {
             id: "cable-ladeira",
@@ -727,46 +749,49 @@ export const estadosUnidos: Pais = {
       ],
     },
     {
-      id: "condor-da-california",
-      nome: "Condor-da-Califórnia",
-      nome_cientifico: "Gymnogyps californianus",
+      id: "aguia-de-cabeca-branca",
+      nome: "Águia-de-Cabeça-Branca",
+      nome_cientifico: "Haliaeetus leucocephalus",
       foto_url:
-        "/__l5e/assets-v1/ca925c66-5f34-4757-b165-2e36717edae6/grand-canyon-national-park-california-condor-87-3462-5735691.jpg",
-      credito: "Wikimedia Commons",
+        "/__l5e/assets-v1/305448aa-354f-4789-ab25-8300c26b7b28/usa-aguia-voo.jpg",
+      credito: "U.S. Fish and Wildlife Service — domínio público",
       som_url: null,
       som: {
-        url: "/__l5e/assets-v1/de2eb5f8-aa82-467a-aa92-46910385fb97/usa-som-corvo.mp3",
+        url: "/__l5e/assets-v1/62389578-5c76-47a0-b324-6b5256795a48/usa-som-aguia.mp3",
         legenda:
-          "Não existe gravação livre da voz do condor: aqui você ouve o corvo-comum, ave que divide os mesmos cânions com ele",
-        credito: "NPS / David Restivo — Wikimedia Commons · domínio público",
+          "A voz real da águia-de-cabeça-branca, gravada em campo no Parque Nacional de Yellowstone",
+        credito:
+          "Yellowstone Sound Library / National Park Service · domínio público",
       },
       curiosidade:
-        "Com mais de 3 metros de envergadura, usa as correntes térmicas — colunas de ar quente que sobem do chão aquecido do deserto — para ganhar centenas de metros de altura sem gastar quase nenhuma energia.",
-      habitat: "Paredões rochosos e cânions do sudoeste americano.",
+        "É o símbolo dos Estados Unidos: aparece no selo do país, nas moedas e nos documentos oficiais. Com cerca de 2 metros de envergadura, ela plana em círculos usando as correntes de ar quente e enxerga um peixe na água a mais de 1 km de distância.",
+      habitat:
+        "Perto de rios, lagos e costas de todo o território americano, sempre com árvores altas para o ninho.",
       galeria: [
         {
-          id: "condor-jovem",
+          id: "aguia-pesca",
           imagem_url:
-            "/__l5e/assets-v1/0847a001-3d22-4bbb-b082-d0a1d7fc227e/usa-condor-jovem.jpg",
-          credito: "Grand Canyon National Park / CC BY 2.0",
-          legenda: "Condor jovem no Grand Canyon",
+            "/__l5e/assets-v1/70e40700-592c-4ddd-b9e3-3494970ec9cc/usa-aguia-pesca.jpg",
+          credito: "NPS / Jacob W. Frank — domínio público",
+          legenda: "Pescando com as garras no lago",
         },
         {
-          id: "condor-marca",
+          id: "aguia-ninho",
           imagem_url:
-            "/__l5e/assets-v1/3d6b5acb-d991-4d1c-8756-7f9a0307aba8/usa-condor-marca.jpg",
-          credito: "USFWS Pacific Southwest Region / domínio público",
-          legenda: "A marca numerada na asa",
+            "/__l5e/assets-v1/41f7368d-ad1c-4819-b887-eb10acd5bead/usa-aguia-ninho.jpg",
+          credito: "USFWS / Jeremy N. Moore — domínio público",
+          legenda: "No ninho gigante, com o filhote",
         },
         {
-          id: "condor-perto",
+          id: "aguia-retrato",
           imagem_url:
-            "/__l5e/assets-v1/ac83880c-e664-491a-8da6-1a440a53b9fc/usa-condor-perto.jpg",
-          credito: "USFWS Pacific Southwest Region / domínio público",
-          legenda: "De perto: a cabeça sem penas",
+            "/__l5e/assets-v1/d9775c91-35ea-4b00-8ef4-6c1f70e8369b/usa-aguia-retrato.jpg",
+          credito: "USFWS Midwest Region / CC BY 2.0",
+          legenda: "De perto: o bico amarelo e o olhar",
         },
       ],
     },
+
     {
       id: "nutria-marinha",
       nome: "Nutria-Marinha",
@@ -939,7 +964,7 @@ export const estadosUnidos: Pais = {
     roupas_modo_de_vida:
       "As quatro estações são bem marcadas: casacos e cachecóis no outono e inverno do nordeste, roupas leves e chapéu no deserto e agasalho contra a névoa fria em São Francisco.",
     fauna_alimentacao:
-      "Esquilos nos parques urbanos, condores planando nos cânions e nutrias-marinhas no Pacífico. A comida vai do lanche rápido de rua ao ensopado forte do deserto e à torta doce da colheita.",
+      "Esquilos nos parques urbanos, águias-de-cabeça-branca planando nos cânions e nutrias-marinhas no Pacífico. A comida vai do lanche rápido de rua ao ensopado forte do deserto e à torta doce da colheita.",
   },
 };
 
