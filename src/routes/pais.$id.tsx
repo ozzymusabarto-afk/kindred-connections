@@ -10,6 +10,7 @@ import { TelaObservacao } from "@/components/expedicao/TelaObservacao";
 import { TelaFauna } from "@/components/expedicao/TelaFauna";
 import { TelaSabor } from "@/components/expedicao/TelaSabor";
 import { TelaCarimbo } from "@/components/expedicao/TelaCarimbo";
+import { TelaDespedida } from "@/components/expedicao/TelaDespedida";
 import { getPais } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
 import { useExpedicao } from "@/hooks/useExpedicao";
