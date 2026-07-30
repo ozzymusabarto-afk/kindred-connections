@@ -7,7 +7,8 @@ import { TelaChegada } from "@/components/expedicao/TelaChegada";
 import { TelaCheckin } from "@/components/expedicao/TelaCheckin";
 import { TelaTransporte } from "@/components/expedicao/TelaTransporte";
 import { TelaObservacao } from "@/components/expedicao/TelaObservacao";
-import { TelaEncontro } from "@/components/expedicao/TelaEncontro";
+import { TelaFauna } from "@/components/expedicao/TelaFauna";
+import { TelaSabor } from "@/components/expedicao/TelaSabor";
 import { TelaCarimbo } from "@/components/expedicao/TelaCarimbo";
 import { getPais } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
@@ -20,7 +21,8 @@ type TelaId =
   | "checkin"
   | "transporte"
   | "observacao"
-  | "encontro"
+  | "fauna"
+  | "sabor"
   | "carimbo";
 
 const TELAS: TelaId[] = [
@@ -28,14 +30,16 @@ const TELAS: TelaId[] = [
   "checkin",
   "transporte",
   "observacao",
-  "encontro",
+  "fauna",
+  "sabor",
   "carimbo",
 ];
 
 const TELAS_DO_DIA: TelaId[] = [
   "transporte",
   "observacao",
-  "encontro",
+  "fauna",
+  "sabor",
   "carimbo",
 ];
 
@@ -127,10 +131,8 @@ function SimuladorViagem() {
     if (!pronto) return;
     if (tela === "transporte") marcarEstacao(dia.dia, "transporte");
     if (tela === "observacao") marcarEstacao(dia.dia, "observacao");
-    if (tela === "encontro") {
-      marcarEstacao(dia.dia, "fauna");
-      marcarEstacao(dia.dia, "sabor");
-    }
+    if (tela === "fauna") marcarEstacao(dia.dia, "fauna");
+    if (tela === "sabor") marcarEstacao(dia.dia, "sabor");
   }, [pronto, tela, dia.dia, marcarEstacao]);
 
   const totalConcluidos = dias.filter((d) => diaConcluido(d.dia)).length;
@@ -230,20 +232,34 @@ function SimuladorViagem() {
             onAbrirHotspot={(id) => marcarHotspot(dia.dia, id)}
             onAvancar={() => {
               salvarRespostas(dia.dia, respostas);
-              ir("encontro");
+              ir("fauna");
             }}
             onVoltar={() => ir("transporte")}
           />
         )}
 
-        {tela === "encontro" && (
-          <TelaEncontro
+        {tela === "fauna" && (
+          <TelaFauna
+            pais={pais}
+            dia={dia}
+            respostas={respostas}
+            onResponder={responder}
+            onAvancar={() => {
+              salvarRespostas(dia.dia, respostas);
+              ir("sabor");
+            }}
+            onVoltar={() => ir("observacao")}
+          />
+        )}
+
+        {tela === "sabor" && (
+          <TelaSabor
             pais={pais}
             dia={dia}
             respostas={respostas}
             onResponder={responder}
             onAvancar={carimbar}
-            onVoltar={() => ir("observacao")}
+            onVoltar={() => ir("fauna")}
           />
         )}
 
