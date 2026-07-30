@@ -1,3 +1,4 @@
+import { BotaoSom } from "./BotaoSom";
 import { TelaJornada } from "./TelaJornada";
 import { GaleriaObservacao } from "./GaleriaObservacao";
 import { useExplorador, vocativo } from "@/hooks/useExplorador";
