@@ -349,6 +349,12 @@ export const estadosUnidos: Pais = {
       },
       observacao: {
         titulo: "O Grand Canyon",
+        som: {
+          url: "/__l5e/assets-v1/fdf8ffd2-21f2-416c-8ea3-7475b7bb1932/usa-som-vento.mp3",
+          legenda:
+            "Vento soprando ao ar livre, como na borda do cânion — é essa corrente de ar que o condor usa para planar",
+          credito: "Gravity Sound — Wikimedia Commons · CC BY 4.0",
+        },
         imagem_url:
           "/__l5e/assets-v1/b3acabd4-e1ab-4379-94bf-1f4cb0e96b42/grand-canyon-view-with-colorado-river.jpg",
         credito: "Wikimedia Commons",
