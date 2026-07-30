@@ -118,20 +118,24 @@ function MapaMundi() {
                   />
                 </span>
               )}
-              <div className="flex h-40 w-full items-center justify-center bg-accent/60 p-6">
+              <div className="h-44 w-full overflow-hidden bg-accent/60">
                 {pais.bandeira_url ? (
                   <img
                     src={pais.bandeira_url}
                     alt={`Bandeira do ${pais.nome}`}
                     loading="lazy"
-                    className="max-h-full max-w-full rounded-md border border-border object-contain shadow-md transition-transform duration-300 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 ) : (
-                  <span aria-hidden className="text-6xl">
+                  <span
+                    aria-hidden
+                    className="flex h-full w-full items-center justify-center text-6xl"
+                  >
                     {pais.bandeira}
                   </span>
                 )}
               </div>
+
               <div className="p-4">
                 <p className="font-display text-lg text-foreground">
                   {pais.nome}
