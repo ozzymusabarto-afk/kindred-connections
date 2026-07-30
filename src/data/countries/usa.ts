@@ -734,6 +734,12 @@ export const estadosUnidos: Pais = {
         "/__l5e/assets-v1/ca925c66-5f34-4757-b165-2e36717edae6/grand-canyon-national-park-california-condor-87-3462-5735691.jpg",
       credito: "Wikimedia Commons",
       som_url: null,
+      som: {
+        url: "/__l5e/assets-v1/de2eb5f8-aa82-467a-aa92-46910385fb97/usa-som-corvo.mp3",
+        legenda:
+          "Não existe gravação livre da voz do condor: aqui você ouve o corvo-comum, ave que divide os mesmos cânions com ele",
+        credito: "NPS / David Restivo — Wikimedia Commons · domínio público",
+      },
       curiosidade:
         "Com mais de 3 metros de envergadura, usa as correntes térmicas — colunas de ar quente que sobem do chão aquecido do deserto — para ganhar centenas de metros de altura sem gastar quase nenhuma energia.",
       habitat: "Paredões rochosos e cânions do sudoeste americano.",
