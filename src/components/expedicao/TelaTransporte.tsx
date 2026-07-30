@@ -19,10 +19,20 @@ export function TelaTransporte({ dia, onAvancar, onVoltar }: Props) {
       titulo={transporte?.nome ?? "O transporte do dia"}
       imagem={transporte?.imagem_url ?? dia.imagem_url}
       alt={transporte?.nome ?? dia.titulo}
+      abaixoDaMidia={
+        transporte?.galeria && transporte.galeria.length > 0 ? (
+          <GaleriaObservacao
+            fotos={transporte.galeria}
+            local={transporte.nome}
+            titulo="Outros ângulos do transporte"
+          />
+        ) : undefined
+      }
       acao={{
         rotulo: "Chegar ao ponto de observação ➔",
         onClick: onAvancar,
       }}
+
       aoVoltar={onVoltar}
     >
       {dia.abertura && (
