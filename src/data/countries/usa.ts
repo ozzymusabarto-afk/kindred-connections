@@ -45,8 +45,7 @@ export const estadosUnidos: Pais = {
   roteiro_viagem: [
     {
       dia: 1,
-      titulo:
-        "Dia 1: Os arranha-céus, o ritmo da metrópole e a natureza urbana",
+      titulo: "Dia 1: Os arranha-céus, o ritmo da metrópole e a natureza urbana",
       descricao:
         "Nova York vista de dentro: as avenidas em grelha, o táxi amarelo e um parque gigante criado de propósito no meio do concreto.",
       imagem_url:
@@ -125,8 +124,7 @@ export const estadosUnidos: Pais = {
       ],
       fauna_do_dia: {
         id: "esquilo-cinzento",
-        contexto:
-          "Fique bem quietinho… veja quem surgiu ali no pé daquele carvalho!",
+        contexto: "Fique bem quietinho… veja quem surgiu ali no pé daquele carvalho!",
         texto_guia:
           "Nas florestas brasileiras, ver um animal selvagem de perto exige muita paciência e silêncio. Mas aqui nos parques urbanos dos EUA esses pequenos acrobatas aprenderam a conviver lado a lado com os humanos. Repare como ele usa as patas da frente como pequenas “mãos” para segurar uma noz.",
       },
@@ -187,8 +185,7 @@ export const estadosUnidos: Pais = {
             x: 78,
             y: 30,
             titulo: "A borda do abismo",
-            texto:
-              "São mais de 1.600 metros de profundidade e 446 quilômetros de extensão.",
+            texto: "São mais de 1.600 metros de profundidade e 446 quilômetros de extensão.",
           },
         ],
       },
@@ -408,10 +405,8 @@ export const estadosUnidos: Pais = {
   comparativo: {
     clima_predominante:
       "Muito variado: temperado no leste, desértico no sudoeste e frio-úmido na costa do Pacífico",
-    bioma_principal:
-      "Florestas temperadas, desertos e a costa fria do Pacífico",
-    elemento_marcante:
-      "A escala — cidades verticais, cânions gigantes e centros de tecnologia",
+    bioma_principal: "Florestas temperadas, desertos e a costa fria do Pacífico",
+    elemento_marcante: "A escala — cidades verticais, cânions gigantes e centros de tecnologia",
     agricultura_construcoes:
       "Grandes lavouras mecanizadas nas planícies, pomares de maçã no norte e cidades verticais de aço e vidro. Nas regiões áridas, tudo depende da irrigação e de veículos preparados para o terreno.",
     roupas_modo_de_vida:

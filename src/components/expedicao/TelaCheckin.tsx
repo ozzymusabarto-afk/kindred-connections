@@ -36,13 +36,10 @@ export function TelaCheckin({ pais, dia, onAvancar, onVoltar }: Props) {
         </p>
         <p className="mt-2 text-base leading-relaxed text-foreground">
           “Olá, explorador! Sou {guia}. Hoje vamos usar{" "}
-          {dia.transporte?.nome ?? "nosso transporte do dia"} para ir até{" "}
-          {destino}.”
+          {dia.transporte?.nome ?? "nosso transporte do dia"} para ir até {destino}.”
         </p>
         {dia.clima_do_dia && (
-          <p className="mt-2 text-xs text-muted-foreground">
-            Previsão de hoje: {dia.clima_do_dia}
-          </p>
+          <p className="mt-2 text-xs text-muted-foreground">Previsão de hoje: {dia.clima_do_dia}</p>
         )}
       </div>
     </TelaJornada>

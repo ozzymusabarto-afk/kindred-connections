@@ -48,12 +48,8 @@ export function TelaJornada({
 
       <div className="flex flex-col gap-4 rounded-2xl border-2 border-border bg-card p-5 shadow-lg sm:p-6 lg:sticky lg:top-4">
         <div>
-          <p className="text-[11px] uppercase tracking-[0.24em] text-brass">
-            {etiqueta}
-          </p>
-          <h2 className="mt-1 font-display text-2xl leading-tight text-foreground">
-            {titulo}
-          </h2>
+          <p className="text-[11px] uppercase tracking-[0.24em] text-brass">{etiqueta}</p>
+          <h2 className="mt-1 font-display text-2xl leading-tight text-foreground">{titulo}</h2>
         </div>
 
         <div className="space-y-4">{children}</div>
@@ -68,9 +64,7 @@ export function TelaJornada({
             {acao.rotulo}
           </button>
 
-          {acao.dica && (
-            <p className="text-xs text-muted-foreground">{acao.dica}</p>
-          )}
+          {acao.dica && <p className="text-xs text-muted-foreground">{acao.dica}</p>}
           {aoVoltar && (
             <button
               type="button"
