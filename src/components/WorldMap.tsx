@@ -281,6 +281,53 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           );
         })}
 
+        {/* Rotas de voo saindo do Brasil, país de origem dos exploradores. */}
+        {ORIGEM_BRASIL &&
+          pinos.map(({ pais, ponto }) => {
+            const meioX = (ORIGEM_BRASIL.x + ponto.x) / 2;
+            const meioY = (ORIGEM_BRASIL.y + ponto.y) / 2 - 70;
+            return (
+              <path
+                key={`rota-${pais.id}`}
+                d={`M${ORIGEM_BRASIL.x} ${ORIGEM_BRASIL.y} Q${meioX} ${meioY} ${ponto.x} ${ponto.y}`}
+                fill="none"
+                stroke="#b9822f"
+                strokeOpacity={carimbados.includes(pais.id) ? 0.75 : 0.35}
+                strokeWidth={px(1.6)}
+                strokeDasharray={`${px(6)} ${px(5)}`}
+                strokeLinecap="round"
+                pointerEvents="none"
+              />
+            );
+          })}
+
+        {/* Marcador da casa dos exploradores. */}
+        {ORIGEM_BRASIL && (
+          <g pointerEvents="none">
+            <circle
+              cx={ORIGEM_BRASIL.x}
+              cy={ORIGEM_BRASIL.y}
+              r={px(4)}
+              fill="#1f7a3d"
+              stroke="#ffffff"
+              strokeWidth={px(1.6)}
+            />
+            <text
+              x={ORIGEM_BRASIL.x}
+              y={ORIGEM_BRASIL.y - px(8)}
+              textAnchor="middle"
+              fontSize={px(9)}
+              fill="#1f2b1c"
+              stroke="#ffffff"
+              strokeWidth={px(2.4)}
+              paintOrder="stroke"
+              style={{ fontFamily: "var(--font-sans)", fontWeight: 700 }}
+            >
+              🏠 Nossa casa
+            </text>
+          </g>
+        )}
+
 
         {pinos.map(({ pais, ponto }) => {
           const carimbado = carimbados.includes(pais.id);
