@@ -1,6 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { StarStamp } from "@/components/StarStamp";
+import { DesafioObservacao } from "./DesafioObservacao";
+import { useExplorador } from "@/hooks/useExplorador";
 import type { DiaRoteiro, Pais } from "@/data/types";
+
 
 interface Props {
   pais: Pais;
