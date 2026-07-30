@@ -91,6 +91,32 @@ export const estadosUnidos: Pais = {
               "No século 19 a cidade crescia rápido demais. Os urbanistas reservaram este retângulo verde para que as pessoas tivessem onde respirar.",
           },
         ],
+        galeria: [
+          {
+            id: "cp-aerea",
+            imagem_url:
+              "/imagens/galeria-centralpark-aerea.jpg",
+            legenda: "Vista de cima: o parque entre os prédios",
+          },
+          {
+            id: "cp-caminho",
+            imagem_url:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Walk_through_Central_Park._NYC.jpg/1280px-Walk_through_Central_Park._NYC.jpg",
+            legenda: "Caminhos do parque no outono",
+          },
+          {
+            id: "cp-ponte",
+            imagem_url:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Bow_Bridge_over_the_Lake%2C_Central_Park%2C_Manhattan%2C_New_York.jpg/1280px-Bow_Bridge_over_the_Lake%2C_Central_Park%2C_Manhattan%2C_New_York.jpg",
+            legenda: "Outro ângulo do lago, na ponte Bow",
+          },
+          {
+            id: "cp-folhas",
+            imagem_url:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Central_Park_During_Peak_Fall_Foliage.jpg/1280px-Central_Park_During_Peak_Fall_Foliage.jpg",
+            legenda: "Folhas douradas no auge do outono",
+          },
+        ],
       },
       perguntas: [
         {
@@ -186,6 +212,32 @@ export const estadosUnidos: Pais = {
             y: 30,
             titulo: "A borda do abismo",
             texto: "São mais de 1.600 metros de profundidade e 446 quilômetros de extensão.",
+          },
+        ],
+        galeria: [
+          {
+            id: "gc-aerea",
+            imagem_url:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Grand_Canyon_%28Arizona%2C_USA%29%2C_Luftaufnahme_--_2012_--_5963.jpg/1280px-Grand_Canyon_%28Arizona%2C_USA%29%2C_Luftaufnahme_--_2012_--_5963.jpg",
+            legenda: "Vista de cima: o cânion sem fim",
+          },
+          {
+            id: "gc-borda",
+            imagem_url:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Grand_Canyon_%28Arizona%2C_USA%29%2C_South_Rim_nahe_Tusayan_--_2012_--_5892.jpg/1280px-Grand_Canyon_%28Arizona%2C_USA%29%2C_South_Rim_nahe_Tusayan_--_2012_--_5892.jpg",
+            legenda: "A trilha da borda sul",
+          },
+          {
+            id: "gc-camadas",
+            imagem_url:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Colorado_Canyon%2C_Arizona_%284904885912%29.jpg/1280px-Colorado_Canyon%2C_Arizona_%284904885912%29.jpg",
+            legenda: "As camadas de rocha bem de perto",
+          },
+          {
+            id: "gc-por-do-sol",
+            imagem_url:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/USA_09847_Grand_Canyon_Luca_Galuzzi_2007.jpg/1280px-USA_09847_Grand_Canyon_Luca_Galuzzi_2007.jpg",
+            legenda: "O cânion ao pôr do sol",
           },
         ],
       },
@@ -286,6 +338,32 @@ export const estadosUnidos: Pais = {
             titulo: "Telas de pesquisa",
             texto:
               "Nesta região nasceram os microchips e a internet moderna: matemática, física e programação viram invenções.",
+          },
+        ],
+        galeria: [
+          {
+            id: "ca-aerea",
+            imagem_url:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aerial_view_of_Silicon_Valley.jpg/1280px-Aerial_view_of_Silicon_Valley.jpg",
+            legenda: "Vista de cima: o Vale do Silício e a baía",
+          },
+          {
+            id: "ca-rover",
+            imagem_url:
+              "/imagens/galeria-rover.jpg",
+            legenda: "Réplica de um robô rover de Marte",
+          },
+          {
+            id: "ca-controle",
+            imagem_url:
+              "/imagens/galeria-controle.jpg",
+            legenda: "A sala de controle das missões",
+          },
+          {
+            id: "ca-antena",
+            imagem_url:
+              "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Goldstone_DSN_antenna.jpg/1280px-Goldstone_DSN_antenna.jpg",
+            legenda: "Antena gigante que escuta as sondas",
           },
         ],
       },
