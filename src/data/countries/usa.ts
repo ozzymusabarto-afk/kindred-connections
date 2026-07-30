@@ -153,7 +153,7 @@ export const estadosUnidos: Pais = {
           "Bom dia, explorador! Hoje mudamos completamente de cenário: voamos de Nova York para o sudoeste do país, no estado do Arizona. Saímos de uma cidade fria e cheia de prédios para um dos desertos mais impressionantes do planeta. Ajuste os óculos de sol e prepare-se para ver o que a água e o vento fazem com a rocha ao longo de milhões de anos!",
       },
       transporte: {
-        nome: "A caminhonete 4x4 de expedição",
+        nome: "caminhonete 4x4 de expedição",
         icone: "🛻",
         descricao:
           "Para rodar pelas estradas de terra e pedras do Arizona, nosso transporte tem tração nas quatro rodas e pneus altos reforçados. No solo arenoso e irregular do deserto, um carro comum ficaria atolado facilmente. A engenharia dos transportes precisa sempre se adaptar ao terreno da geografia local!",
@@ -252,7 +252,7 @@ export const estadosUnidos: Pais = {
           "Bem-vindo ao nosso terceiro dia de expedição! Cruzamos o mapa em direção ao oeste até chegar à costa do Oceano Pacífico, na Califórnia. Diferente do Atlântico que banha o Brasil, as águas daqui são alimentadas por correntes geladas vindas do norte. É por isso que São Francisco é famosa pelas névoas marinhas densas e pelas colinas inclinadas!",
       },
       transporte: {
-        nome: "O Cable Car de São Francisco",
+        nome: "Cable Car de São Francisco",
         icone: "🚃",
         descricao:
           "Como a cidade é cheia de morros íngremes, os carros de tração animal não conseguiam subir sem escorregar. Foi assim que, em 1873, inventaram o cable car. Ele não tem motor: sob os trilhos passa um cabo de aço gigante que se move sem parar debaixo da terra, e o condutor usa uma alavanca de ferro para “agarrar” esse cabo e ser puxado morro acima. Suba e segure-se firme no balaústre!",
