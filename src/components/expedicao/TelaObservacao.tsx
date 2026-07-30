@@ -1,3 +1,4 @@
+import { GaleriaObservacao } from "./GaleriaObservacao";
 import { ImagemHotspots } from "./ImagemHotspots";
 import { PerguntaSocraticaCampo } from "./PerguntaSocratica";
 import { TelaJornada } from "./TelaJornada";
