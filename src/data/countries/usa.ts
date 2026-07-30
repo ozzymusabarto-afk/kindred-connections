@@ -802,9 +802,11 @@ export const estadosUnidos: Pais = {
       credito: "Wikimedia Commons",
       som_url: null,
       som: {
-        url: "/__l5e/assets-v1/4934d935-a107-4cf6-97c1-811f9f86e563/usa-som-lontra.mp3",
-        legenda: "Gravação real da voz de uma nutria-marinha",
-        credito: "Rosa, aquário da Califórnia — Wikimedia Commons · CC BY 4.0",
+        url: "/__l5e/assets-v1/a7518b97-b274-47a8-b0b7-b0e945d5c127/usa-som-lontra-v2.mp3",
+        legenda:
+          "Os chiados agudos reais de uma lontra chamando na água — gravação de campo de lontra-do-rio, prima próxima da nutria-marinha, que usa a mesma voz esganiçada",
+        credito:
+          "Sound Gallery / National Park Service · domínio público",
       },
       curiosidade:
         "Pega uma pedra plana, coloca sobre a barriga enquanto flutua de costas e usa a pedra como bigorna para quebrar conchas de ouriços e mariscos. É um dos raríssimos animais que usam ferramentas de verdade.",
