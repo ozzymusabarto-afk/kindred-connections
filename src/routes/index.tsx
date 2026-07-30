@@ -109,17 +109,29 @@ function MapaMundi() {
                   />
                 </span>
               )}
-              <img
-                src={pais.imagem_capa}
-                alt={`Paisagem do ${pais.nome}`}
-                loading="lazy"
-                className="h-40 w-full object-cover"
-              />
+              <div className="flex h-40 w-full items-center justify-center bg-accent/60 p-6">
+                {pais.bandeira_url ? (
+                  <img
+                    src={pais.bandeira_url}
+                    alt={`Bandeira do ${pais.nome}`}
+                    loading="lazy"
+                    className="max-h-full max-w-full rounded-md border border-border object-contain shadow-md transition-transform duration-300 group-hover:scale-105"
+                  />
+                ) : (
+                  <span aria-hidden className="text-6xl">
+                    {pais.bandeira}
+                  </span>
+                )}
+              </div>
               <div className="p-4">
                 <p className="font-display text-lg text-foreground">
-                  <span aria-hidden className="mr-2">{pais.bandeira}</span>
                   {pais.nome}
                 </p>
+                {pais.capital && (
+                  <p className="mt-0.5 text-xs italic tracking-wide text-muted-foreground">
+                    ★ Capital: {pais.capital}
+                  </p>
+                )}
                 <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
                   {pais.resumo_geografico}
                 </p>
