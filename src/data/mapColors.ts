@@ -20,8 +20,3 @@ const DESTAQUES: Record<string, string> = {
 export function corDoMapa(codigo: string, indice: number): string {
   return DESTAQUES[codigo] ?? PALETA[(indice - 1 + PALETA.length) % PALETA.length];
 }
-
-/** Compatibilidade com o mapa antigo das Américas. */
-export function corDoPais(codigo: string): string {
-  return DESTAQUES[codigo] ?? PALETA[codigo.charCodeAt(0) % PALETA.length];
-}
