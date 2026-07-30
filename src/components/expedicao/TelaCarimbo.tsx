@@ -65,6 +65,14 @@ export function TelaCarimbo({
           >
             Começar o Dia {proximoDia} ➔
           </button>
+        ) : onEncerrar ? (
+          <button
+            type="button"
+            onClick={onEncerrar}
+            className="w-full rounded-full border-2 border-brass bg-brass px-5 py-4 font-display text-base tracking-wide text-card shadow-md transition-transform hover:scale-[1.02]"
+          >
+            Embarcar no voo de volta ao Brasil ➔
+          </button>
         ) : (
           <Link
             to="/passaporte"
