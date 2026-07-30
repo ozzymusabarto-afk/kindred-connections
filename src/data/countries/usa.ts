@@ -256,7 +256,38 @@ export const estadosUnidos: Pais = {
         texto_guia:
           "O bagel parece uma rosquinha, mas não é doce: é um pão denso, aerado, de casquinha crocante, coberto de gergelim ou papoula e recheado com cream cheese. Vamos dar uma mordida e sentir esse contraste de texturas?",
       },
+      notas_brasil: {
+        transporte: {
+          texto:
+            "O metrô de Nova York funciona 24 horas por dia, todos os dias do ano. No Brasil, o metrô de São Paulo fecha por volta da meia-noite para manutenção dos trilhos — por isso lá as estações precisam de trilhos duplicados em muitos trechos.",
+        },
+        observacao: {
+          texto:
+            "O Central Park tem 3,4 km² no meio dos arranha-céus. O Parque Ibirapuera, em São Paulo, tem cerca de 1,5 km² — menos da metade — e também nasceu da mesma ideia: guardar um pedaço de natureza dentro da cidade.",
+        },
+        fauna: {
+          texto:
+            "O esquilo-cinzento faz nos parques de Nova York o mesmo papel que o sagui-de-tufos-brancos faz nas praças brasileiras: um mamífero pequeno e ágil que aprendeu a viver junto das pessoas.",
+        },
+        sabor: {
+          texto:
+            "O bagel é o pão de esquina de Nova York, comprado a caminho do trabalho — igualzinho ao nosso pão na chapa ou ao pão de queijo da padaria de manhã.",
+        },
+      },
+      desafio: {
+        pergunta:
+          "Você observou o Central Park do alto. Por que aquele retângulo verde tem exatamente esse formato tão reto?",
+        opcoes: [
+          "Porque é um lago natural que secou",
+          "Porque a cidade foi desenhada em quadras e o parque foi reservado dentro desse desenho",
+          "Porque os prédios ao redor caíram",
+        ],
+        correta: 1,
+        explicacao:
+          "Nova York foi planejada em uma grade de quadras retas antes de crescer. O parque foi reservado dentro dessa grade, e por isso tem bordas retas — diferente dos parques brasileiros, que muitas vezes seguem o curso de rios e morros.",
+      },
     },
+
 
     {
       dia: 2,
