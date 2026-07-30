@@ -43,9 +43,13 @@ function AlbumPage() {
   }, []);
 
   const paisesComConteudo = useMemo(
-    () => paises.filter((p) => p.roteiro_viagem.length > 0),
+    () =>
+      paises
+        .filter((p) => p.roteiro_viagem.length > 0)
+        .sort((a, b) => coletarFotos(b).length - coletarFotos(a).length),
     [],
   );
+
 
   const [paisId, setPaisId] = useState(
     () => paisesComConteudo[0]?.id ?? paises[0]?.id,
