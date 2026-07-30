@@ -27,6 +27,15 @@ export function TelaFauna({ pais, dia, respostas, onResponder, onAvancar, onVolt
       titulo={animal?.nome ?? "Um encontro na natureza"}
       imagem={animal?.foto_url ?? dia.imagem_url}
       alt={animal?.nome ?? "Animal avistado no caminho"}
+      abaixoDaMidia={
+        animal?.galeria && animal.galeria.length > 0 ? (
+          <GaleriaObservacao
+            fotos={animal.galeria}
+            local={animal.nome}
+            titulo="Mais sobre este animal"
+          />
+        ) : undefined
+      }
       acao={{
         rotulo: "Seguir para a parada da refeição ➔",
         onClick: onAvancar,
