@@ -12,14 +12,7 @@ interface Props {
   onVoltar?: () => void;
 }
 
-export function TelaFauna({
-  pais,
-  dia,
-  respostas,
-  onResponder,
-  onAvancar,
-  onVoltar,
-}: Props) {
+export function TelaFauna({ pais, dia, respostas, onResponder, onAvancar, onVoltar }: Props) {
   const animal = pais.fauna_flora.find((f) => f.id === dia.fauna_do_dia?.id);
   const perguntas = (dia.perguntas ?? []).filter((p) => p.etapa === "fauna");
   const chave = (p: { id: string }) => `fauna:${p.id}`;
@@ -49,16 +42,17 @@ export function TelaFauna({
         </span>
         {dia.fauna_do_dia?.contexto ?? "Olhe quem apareceu no caminho!"}
       </p>
+      {dia.fauna_do_dia?.texto_guia && (
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          {dia.fauna_do_dia.texto_guia}
+        </p>
+      )}
       {animal && (
         <>
           {animal.nome_cientifico && (
-            <p className="text-xs italic text-muted-foreground">
-              {animal.nome_cientifico}
-            </p>
+            <p className="text-xs italic text-muted-foreground">{animal.nome_cientifico}</p>
           )}
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            {animal.curiosidade}
-          </p>
+          <p className="text-sm leading-relaxed text-muted-foreground">{animal.curiosidade}</p>
           <p className="text-sm leading-relaxed text-muted-foreground">
             <strong className="font-normal text-foreground">Habitat: </strong>
             {animal.habitat}
@@ -72,9 +66,7 @@ export function TelaFauna({
       )}
 
       <div className="space-y-4 rounded-xl border-2 border-dashed border-brass/60 bg-background p-4">
-        <p className="text-[11px] uppercase tracking-[0.24em] text-brass">
-          Caderno do explorador
-        </p>
+        <p className="text-[11px] uppercase tracking-[0.24em] text-brass">Caderno do explorador</p>
         {perguntas.length === 0 ? (
           <p className="text-sm text-muted-foreground">
             Observe com calma e siga para a próxima parada.

@@ -12,9 +12,7 @@ export function PerguntaSocraticaCampo({ pergunta, valor, onChange }: Props) {
   return (
     <div className="rounded-md border border-border bg-background p-4">
       <p className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">
-        {pergunta.tipo === "comparacao"
-          ? "Pergunta de comparação"
-          : "Pergunta de observação"}
+        {pergunta.tipo === "comparacao" ? "Pergunta de comparação" : "Pergunta de observação"}
       </p>
       <p className="mt-2 font-display text-base leading-relaxed text-foreground">
         {pergunta.texto}

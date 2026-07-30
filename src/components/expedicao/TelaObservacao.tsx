@@ -26,11 +26,8 @@ export function TelaObservacao({
   onAvancar,
   onVoltar,
 }: Props) {
-  const perguntas = (dia.perguntas ?? []).filter((p) =>
-    ETAPAS_AQUI.has(p.etapa ?? "observacao"),
-  );
-  const chave = (p: { id: string; etapa?: string }) =>
-    `${p.etapa ?? "observacao"}:${p.id}`;
+  const perguntas = (dia.perguntas ?? []).filter((p) => ETAPAS_AQUI.has(p.etapa ?? "observacao"));
+  const chave = (p: { id: string; etapa?: string }) => `${p.etapa ?? "observacao"}:${p.id}`;
   const faltando = perguntas.filter((p) => !respostaValida(respostas[chave(p)]));
 
   return (
@@ -60,14 +57,10 @@ export function TelaObservacao({
       }}
       aoVoltar={onVoltar}
     >
-      <p className="text-sm leading-relaxed text-muted-foreground">
-        {dia.descricao}
-      </p>
+      <p className="text-sm leading-relaxed text-muted-foreground">{dia.descricao}</p>
 
       <div className="rounded-xl border-2 border-dashed border-border bg-background p-4">
-        <p className="text-[11px] uppercase tracking-[0.24em] text-brass">
-          Caderno do explorador
-        </p>
+        <p className="text-[11px] uppercase tracking-[0.24em] text-brass">Caderno do explorador</p>
         <div className="mt-3 space-y-4">
           {perguntas.length === 0 ? (
             <p className="text-sm text-muted-foreground">

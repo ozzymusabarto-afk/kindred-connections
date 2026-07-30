@@ -51,17 +51,11 @@ export function ImagemHotspots({ observacao, vistos, onAbrir }: Props) {
         <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
           Ponto de observação
         </p>
-        <p className="mt-1 font-display text-lg text-foreground">
-          {observacao.titulo}
-        </p>
+        <p className="mt-1 font-display text-lg text-foreground">{observacao.titulo}</p>
         {hotspot ? (
           <div className="fade-up mt-3 rounded-md border border-brass/50 bg-accent/50 p-3">
-            <p className="font-display text-sm text-foreground">
-              {hotspot.titulo}
-            </p>
-            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-              {hotspot.texto}
-            </p>
+            <p className="font-display text-sm text-foreground">{hotspot.titulo}</p>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{hotspot.texto}</p>
           </div>
         ) : (
           <p className="mt-2 text-sm text-muted-foreground">

@@ -27,11 +27,7 @@ export function TelaCarimbo({
       className="slide-in mx-auto max-w-2xl rounded-2xl border-2 border-dashed border-brass bg-card p-6 text-center shadow-lg sm:p-10"
     >
       <div className="star-drop flex justify-center">
-        <StarStamp
-          bandeira={pais.bandeira}
-          tamanho={96}
-          titulo={`Dia ${dia.dia} carimbado`}
-        />
+        <StarStamp bandeira={pais.bandeira} tamanho={96} titulo={`Dia ${dia.dia} carimbado`} />
       </div>
       <p className="mt-5 text-[11px] uppercase tracking-[0.24em] text-brass">
         Passaporte carimbado
@@ -40,8 +36,8 @@ export function TelaCarimbo({
         Dia {dia.dia} em {pais.nome} concluído!
       </h2>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-        Suas observações ficaram guardadas no caderno do explorador. Você já
-        carimbou {concluidos} de {diasTotal} dias desta expedição.
+        Suas observações ficaram guardadas no caderno do explorador. Você já carimbou {concluidos}{" "}
+        de {diasTotal} dias desta expedição.
       </p>
 
       <div className="mt-7 flex flex-col gap-3">
@@ -68,10 +64,7 @@ export function TelaCarimbo({
         >
           ← Rever este dia
         </button>
-        <Link
-          to="/"
-          className="text-xs text-muted-foreground underline underline-offset-4"
-        >
+        <Link to="/" className="text-xs text-muted-foreground underline underline-offset-4">
           Voltar ao mapa mundi
         </Link>
       </div>

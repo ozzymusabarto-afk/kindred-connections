@@ -11,6 +11,7 @@ export interface Transporte {
   nome: string;
   icone: string;
   descricao: string;
+  imagem_url?: string;
 }
 
 export interface Hotspot {
@@ -32,6 +33,8 @@ export interface PontoObservacao {
 export interface ReferenciaDoDia {
   id: string;
   contexto: string;
+  /** Fala mais longa do guia local nesta parada. */
+  texto_guia?: string;
 }
 
 export interface PerguntaSocratica {
@@ -43,6 +46,19 @@ export interface PerguntaSocratica {
 }
 
 export interface Chegada {
+  imagem_url: string;
+  texto: string;
+  /** Fala do comandante no idioma local. */
+  fala_piloto_original?: string;
+  /** Tradução da fala do comandante. */
+  fala_piloto_traducao?: string;
+  idioma?: string;
+  fuso_horario?: string;
+  temperatura?: string;
+}
+
+/** Texto de deslocamento exibido na abertura de um dia. */
+export interface AberturaDoDia {
   imagem_url: string;
   texto: string;
 }
@@ -61,6 +77,7 @@ export interface DiaRoteiro {
   guia_local?: string;
   guia_nome?: string;
   clima_do_dia?: string;
+  abertura?: AberturaDoDia;
   transporte?: Transporte;
   observacao?: PontoObservacao;
   fauna_do_dia?: ReferenciaDoDia;

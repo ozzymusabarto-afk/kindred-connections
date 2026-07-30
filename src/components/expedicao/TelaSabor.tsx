@@ -12,14 +12,7 @@ interface Props {
   onVoltar?: () => void;
 }
 
-export function TelaSabor({
-  pais,
-  dia,
-  respostas,
-  onResponder,
-  onAvancar,
-  onVoltar,
-}: Props) {
+export function TelaSabor({ pais, dia, respostas, onResponder, onAvancar, onVoltar }: Props) {
   const prato = pais.gastronomia.find((g) => g.id === dia.sabor_do_dia?.id);
   const perguntas = (dia.perguntas ?? []).filter((p) => p.etapa === "sabor");
   const chave = (p: { id: string }) => `sabor:${p.id}`;
@@ -49,21 +42,20 @@ export function TelaSabor({
         </span>
         {dia.sabor_do_dia?.contexto ?? "Hora de sentar e provar a comida daqui."}
       </p>
+      {dia.sabor_do_dia?.texto_guia && (
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          {dia.sabor_do_dia.texto_guia}
+        </p>
+      )}
       {prato?.adjetivo && (
         <span className="inline-block rounded-full bg-emerald px-3 py-1 text-[11px] uppercase tracking-widest text-card">
           {prato.adjetivo}
         </span>
       )}
-      {prato && (
-        <p className="text-sm leading-relaxed text-muted-foreground">
-          {prato.historia}
-        </p>
-      )}
+      {prato && <p className="text-sm leading-relaxed text-muted-foreground">{prato.historia}</p>}
 
       <div className="space-y-4 rounded-xl border-2 border-dashed border-brass/60 bg-background p-4">
-        <p className="text-[11px] uppercase tracking-[0.24em] text-brass">
-          Caderno do explorador
-        </p>
+        <p className="text-[11px] uppercase tracking-[0.24em] text-brass">Caderno do explorador</p>
         {perguntas.length === 0 ? (
           <p className="text-sm text-muted-foreground">
             Aproveite a parada e siga para o carimbo do dia.
