@@ -38,13 +38,18 @@ const LINHAS: { titulo: string; campo: keyof Pais["comparativo"] }[] = [
 
 /** Anotações que a criança escreveu para um país, na ordem dos dias. */
 function anotacoesDoPais(progresso: ProgressoExpedicao, paisId: string) {
-  const pais = progresso[paisId];
-  if (!pais) return [];
-  return Object.entries(pais.respostas ?? {})
-    .filter(([, texto]) => typeof texto === "string" && texto.trim().length > 0)
-    .slice(0, 4)
-    .map(([chave, texto]) => ({ chave, texto: texto as string }));
+  const dias = progresso[paisId];
+  if (!dias) return [];
+  return Object.entries(dias)
+    .sort(([a], [b]) => Number(a) - Number(b))
+    .flatMap(([dia, p]) =>
+      Object.entries(p.respostas ?? {})
+        .filter(([, texto]) => typeof texto === "string" && texto.trim().length > 0)
+        .map(([chave, texto]) => ({ chave: `${dia}:${chave}`, dia, texto })),
+    )
+    .slice(0, 4);
 }
+
 
 function Comparar() {
   const [esquerdaId, setEsquerdaId] = useState(paises[0]?.id ?? "");
