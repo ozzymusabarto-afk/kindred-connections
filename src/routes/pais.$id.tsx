@@ -24,7 +24,8 @@ type TelaId =
   | "observacao"
   | "fauna"
   | "sabor"
-  | "carimbo";
+  | "carimbo"
+  | "despedida";
 
 const TELAS: TelaId[] = [
   "chegada",
@@ -34,6 +35,7 @@ const TELAS: TelaId[] = [
   "fauna",
   "sabor",
   "carimbo",
+  "despedida",
 ];
 
 const TELAS_DO_DIA: TelaId[] = [
