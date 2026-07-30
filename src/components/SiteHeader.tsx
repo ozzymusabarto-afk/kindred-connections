@@ -31,9 +31,13 @@ export function SiteHeader({ ativo }: SiteHeaderProps) {
           <Link to="/comparar" className={link("comparar")}>
             Comparar
           </Link>
+          <Link to="/album" className={link("album")}>
+            Álbum
+          </Link>
           <Link to="/passaporte" className={link("passaporte")}>
             Passaporte
           </Link>
+
         </nav>
       </div>
     </header>
