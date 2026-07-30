@@ -172,9 +172,10 @@ export const estadosUnidos: Pais = {
       observacao: {
         titulo: "O Central Park",
         som: {
-          url: "/__l5e/assets-v1/b41dcd77-b706-4b5d-9334-868e7e303076/usa-som-parque.mp3",
-          legenda: "Brisa leve e pássaros cantando, como no parque em dia de outono",
-          credito: "Wikimedia Commons · domínio público",
+          url: "/__l5e/assets-v1/367197cb-668f-42c3-8a04-52a880357101/usa-som-parque-v2.mp3",
+          legenda:
+            "Canto real do cardeal-do-norte, o pássaro vermelho que vive nos parques do leste dos Estados Unidos",
+          credito: "xeno-canto — Wikimedia Commons · CC BY-SA 4.0",
         },
 
         imagem_url:
@@ -338,10 +339,10 @@ export const estadosUnidos: Pais = {
         imagem_url: "/__l5e/assets-v1/bc2eae83-010f-48ad-90e6-0f3e57eee93a/rep-transporte-arizona.jpg",
         credito: "Jeep no deserto do Arizona — BLM (domínio público)",
         som: {
-          url: "/__l5e/assets-v1/def20d3e-b2ce-48a8-81d9-3c10e60675be/usa-som-terra.mp3",
+          url: "/__l5e/assets-v1/c2c305ef-c358-4b88-9ece-29d7ef2cf4ac/usa-som-terra-v2.mp3",
           legenda:
-            "Gravação real de um veículo passando numa estrada de terra e cascalho — o mesmo chiado que os pneus da nossa caminhonete fazem no deserto",
-          credito: "radio aporee ::: maps — Internet Archive · CC BY-SA 3.0",
+            "Gravação real de dentro de um 4x4 subindo uma estrada de terra: o motor forçando e o cascalho batendo embaixo do carro",
+          credito: "radio aporee ::: maps — Internet Archive · domínio público",
         },
 
         galeria: [
@@ -364,10 +365,10 @@ export const estadosUnidos: Pais = {
       observacao: {
         titulo: "O Grand Canyon",
         som: {
-          url: "/__l5e/assets-v1/fdf8ffd2-21f2-416c-8ea3-7475b7bb1932/usa-som-vento.mp3",
+          url: "/__l5e/assets-v1/2f888934-8b44-4635-93e0-7c706569232c/usa-som-vento-v2.mp3",
           legenda:
-            "Vento soprando ao ar livre, como na borda do cânion — é essa corrente de ar que a águia usa para planar",
-          credito: "Gravity Sound — Wikimedia Commons · CC BY 4.0",
+            "Vento real gravado no deserto do Arizona, em Black Canyon City — é essa corrente de ar que a águia usa para planar",
+          credito: "radio aporee ::: maps — Internet Archive · domínio público",
         },
         imagem_url:
           "/__l5e/assets-v1/b3acabd4-e1ab-4379-94bf-1f4cb0e96b42/grand-canyon-view-with-colorado-river.jpg",
@@ -757,9 +758,9 @@ export const estadosUnidos: Pais = {
       credito: "U.S. Fish and Wildlife Service — domínio público",
       som_url: null,
       som: {
-        url: "/__l5e/assets-v1/62389578-5c76-47a0-b324-6b5256795a48/usa-som-aguia.mp3",
+        url: "/__l5e/assets-v1/ce2efdc1-9f70-48de-b76e-db5993f1da60/usa-som-aguia-v2.mp3",
         legenda:
-          "A voz real da águia-de-cabeça-branca, gravada em campo no Parque Nacional de Yellowstone",
+          "O grito real da águia-de-cabeça-branca, bem nítido — gravado em campo no Parque Nacional de Yellowstone",
         credito:
           "Yellowstone Sound Library / National Park Service · domínio público",
       },
@@ -844,7 +845,8 @@ export const estadosUnidos: Pais = {
       adjetivo: "clássico",
       som: {
         url: "/__l5e/assets-v1/b258c296-ab8d-4933-8a8d-dfba24668432/usa-som-padaria.mp3",
-        legenda: "Burburinho real de pessoas conversando dentro de um salão movimentado",
+        legenda:
+          "Burburinho real de pessoas conversando e pedindo no balcão de um salão movimentado",
         credito: "Wikimedia Commons · domínio público",
       },
       historia:
@@ -921,9 +923,10 @@ export const estadosUnidos: Pais = {
       credito: "Wikimedia Commons",
       adjetivo: "tradicional",
       som: {
-        url: "/__l5e/assets-v1/b41dcd77-b706-4b5d-9334-868e7e303076/usa-som-parque.mp3",
-        legenda: "Brisa e pássaros, como num pomar de maçãs ao ar livre",
-        credito: "Wikimedia Commons · domínio público",
+        url: "/__l5e/assets-v1/30d4df61-915b-4000-a2e8-666647c5dd03/usa-som-pomar-v2.mp3",
+        legenda:
+          "Gravação real de um campo aberto na Pensilvânia em outubro: folhas secas ao vento e pássaros ao longe",
+        credito: "radio aporee ::: maps — Internet Archive · CC BY-NC-SA 3.0",
       },
       historia:
         "Massa crocante e dourada recheada com maçãs frescas, canela e noz-moscada, servida quentinha com uma bola de sorvete de baunilha. A maçã é uma das frutas mais cultivadas nas regiões frias e temperadas do norte dos EUA, e assar a torta é um jeito de celebrar a colheita.",
