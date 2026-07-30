@@ -1,5 +1,6 @@
 import { TelaJornada } from "./TelaJornada";
 import { GaleriaObservacao } from "./GaleriaObservacao";
+import { useExplorador, vocativo } from "@/hooks/useExplorador";
 import type { Pais } from "@/data/types";
 
 interface Props {
@@ -9,6 +10,9 @@ interface Props {
 
 export function TelaChegada({ pais, onAvancar }: Props) {
   const chegada = pais.chegada;
+  const { nome } = useExplorador();
+  const tratamento = vocativo(nome);
+
   return (
     <TelaJornada
       chave="chegada"
@@ -27,7 +31,6 @@ export function TelaChegada({ pais, onAvancar }: Props) {
       }
       acao={{ rotulo: "Desembarcar no aeroporto ➔", onClick: onAvancar }}
     >
-
       {chegada?.fala_piloto_original && (
         <div className="space-y-2 rounded-xl border-2 border-dashed border-brass/60 bg-background p-4">
           <p className="text-[11px] uppercase tracking-[0.24em] text-brass">
@@ -48,12 +51,20 @@ export function TelaChegada({ pais, onAvancar }: Props) {
           </ul>
         </div>
       )}
+
+      {nome && (
+        <p className="text-sm leading-relaxed text-brass">
+          “Passageiro {nome}, prepare o seu caderno de bordo: a aterrissagem
+          começou.”
+        </p>
+      )}
+
       <p className="text-base leading-relaxed text-foreground">
         <span aria-hidden className="mr-2 text-2xl">
           ✈️
         </span>
         {chegada?.texto ??
-          "Olhe pela janela: a paisagem lá embaixo já conta as primeiras pistas sobre este país."}
+          `Olhe pela janela, ${tratamento}: a paisagem lá embaixo já conta as primeiras pistas sobre este país.`}
       </p>
       <p className="text-sm leading-relaxed text-muted-foreground">{pais.resumo_geografico}</p>
       <p className="text-sm text-muted-foreground">

@@ -1,5 +1,6 @@
 import { TelaJornada } from "./TelaJornada";
 import { GaleriaObservacao } from "./GaleriaObservacao";
+import { useExplorador, vocativo } from "@/hooks/useExplorador";
 import type { DiaRoteiro, Pais } from "@/data/types";
 
 interface Props {
@@ -13,6 +14,8 @@ export function TelaCheckin({ pais, dia, onAvancar, onVoltar }: Props) {
   const base = pais.base;
   const guia = dia.guia_nome ?? dia.guia_local ?? "seu guia local";
   const destino = dia.observacao?.titulo ?? dia.titulo;
+  const { nome } = useExplorador();
+  const tratamento = vocativo(nome);
 
   return (
     <TelaJornada
@@ -36,7 +39,6 @@ export function TelaCheckin({ pais, dia, onAvancar, onVoltar }: Props) {
       }}
       aoVoltar={onVoltar}
     >
-
       <p className="text-sm leading-relaxed text-muted-foreground">
         {base?.descricao ??
           "Deixamos as malas na base da expedição e saímos para o primeiro passeio."}
@@ -46,7 +48,7 @@ export function TelaCheckin({ pais, dia, onAvancar, onVoltar }: Props) {
           Encontro com o guia
         </p>
         <p className="mt-2 text-base leading-relaxed text-foreground">
-          “Olá, explorador! Sou {guia}. Hoje vamos usar{" "}
+          “Olá, {tratamento}! Sou {guia}. Hoje vamos usar{" "}
           {dia.transporte?.nome ?? "nosso transporte do dia"} para ir até {destino}.”
         </p>
         {dia.clima_do_dia && (

@@ -1,6 +1,8 @@
 import { GaleriaObservacao } from "./GaleriaObservacao";
+import { NotaComparativaBrasil } from "./NotaComparativaBrasil";
 import { TelaJornada } from "./TelaJornada";
 import type { DiaRoteiro } from "@/data/types";
+
 
 interface Props {
   dia: DiaRoteiro;
@@ -56,6 +58,8 @@ export function TelaTransporte({ dia, onAvancar, onVoltar }: Props) {
       {transporte?.descricao && (
         <p className="text-sm leading-relaxed text-muted-foreground">{transporte.descricao}</p>
       )}
+      <NotaComparativaBrasil nota={dia.notas_brasil?.transporte} />
+
     </TelaJornada>
   );
 }

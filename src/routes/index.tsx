@@ -4,8 +4,10 @@ import { WorldMap } from "@/components/WorldMap";
 import { CompassButton } from "@/components/CompassButton";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StarStamp } from "@/components/StarStamp";
+import { FichaExplorador } from "@/components/FichaExplorador";
 import { continentes, getPaisesPorContinente } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -59,6 +61,12 @@ function MapaMundi() {
             Escolha seu destino e vamos partir!
           </p>
         </section>
+
+        <section className="mt-8 max-w-2xl">
+          <FichaExplorador />
+        </section>
+
+
 
 
         <div className="mt-8 flex flex-wrap gap-2">
