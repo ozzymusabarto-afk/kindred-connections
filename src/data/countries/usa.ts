@@ -18,12 +18,14 @@ export const estadosUnidos: Pais = {
   bandeira: "🇺🇸",
   coordenadas: { x: 675, y: 370 },
   imagem_capa:
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Grand_Canyon_View_with_Colorado_River.jpg/1920px-Grand_Canyon_View_with_Colorado_River.jpg",
+    "/__l5e/assets-v1/b3acabd4-e1ab-4379-94bf-1f4cb0e96b42/grand-canyon-view-with-colorado-river.jpg",
+  credito: "Wikimedia Commons",
   resumo_geografico:
     "Um país continental de 50 estados e paisagens completamente diferentes: metrópoles verticais no leste, desertos alaranjados no Arizona, montanhas nevadas no Alasca, vulcões no Havaí e a costa fria do Pacífico no oeste. Aqui as quatro estações são muito marcadas — o inverno traz neve de verdade, o outono pinta as árvores de vermelho e dourado e a primavera floresce com força. Essa variedade explica por que o modo de vida muda tanto de um estado para outro.",
 
   chegada: {
-    imagem_url: "/imagens/janela-eua.jpg",
+    imagem_url: "/__l5e/assets-v1/d9bb1353-a182-4899-8a75-12f45419da9e/rep-janela-eua.jpg",
+    credito: "Manhattan vista do avião — panoramio (CC BY 3.0)",
     idioma: "Inglês",
     fuso_horario: "15h00 no horário local — 1 hora a menos que Brasília",
     temperatura: "12 °C, brisa fresca de outono",
@@ -37,7 +39,8 @@ export const estadosUnidos: Pais = {
 
   base: {
     nome: "Hotel boutique no coração de Nova York",
-    imagem_url: "/imagens/base-eua.jpg",
+    imagem_url: "/__l5e/assets-v1/abb8ecf9-d56c-4e95-aaae-9f4eb00bd801/rep-base-eua.jpg",
+    credito: "Saguão do Waldorf Astoria, Nova York (Wikimedia Commons)",
     descricao:
       "“Welcome to New York! Eu me chamo Sarah e vou acompanhar cada passo da sua jornada pelos Estados Unidos. Os EUA são um país continental imenso: 50 estados, desertos alaranjados no Arizona, vulcões no Havaí, montanhas nevadas no Alasca e florestas densas. Hoje nossa base é este hotel no coração de uma das maiores cidades do mundo. Dê uma olhada no termômetro do saguão: lá fora faz 12 °C. No Brasil, com essa temperatura, a gente já busca o casaco pesado, não é? Aqui as pessoas já estão acostumadas e caminham rápido pelas calçadas. Coloque seu agasalho: nosso primeiro transporte já está na porta!”",
   },
@@ -49,7 +52,8 @@ export const estadosUnidos: Pais = {
       descricao:
         "Nova York vista de dentro: as avenidas em grelha, o táxi amarelo e um parque gigante criado de propósito no meio do concreto.",
       imagem_url:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/New_York_Yellow_cab_Ford_Crown_Victoria_1020716.jpg/1920px-New_York_Yellow_cab_Ford_Crown_Victoria_1020716.jpg",
+        "/__l5e/assets-v1/132b5e70-2b4f-493b-85b2-79c49849a11a/new-york-yellow-cab-ford-crown-victoria-1020716.jpg",
+      credito: "Wikimedia Commons",
       guia_nome: "Sarah",
       guia_local: "Sarah, guia de expedição em Nova York",
       clima_do_dia: "12 °C, outono seco e ensolarado",
@@ -59,12 +63,14 @@ export const estadosUnidos: Pais = {
         descricao:
           "Sabe aquele carro que a gente vê em tantos filmes? Aí está ele! Existem mais de 13 mil táxis amarelos rodando por essas ruas todos os dias. Numa cidade onde estacionar é caro e difícil, o transporte público e os táxis são a verdadeira artéria que faz a população se mover. Entre e acomode-se: vamos cruzar avenidas retas e organizadas em formato de grelha até a nossa primeira parada de observação.",
         imagem_url:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/New_York_Yellow_cab_Ford_Crown_Victoria_1020716.jpg/1920px-New_York_Yellow_cab_Ford_Crown_Victoria_1020716.jpg",
+          "/__l5e/assets-v1/132b5e70-2b4f-493b-85b2-79c49849a11a/new-york-yellow-cab-ford-crown-victoria-1020716.jpg",
+        credito: "Wikimedia Commons",
       },
       observacao: {
         titulo: "O Central Park",
         imagem_url:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/The_Lake_in_Central_Park_in_autumn_10.jpg/1920px-The_Lake_in_Central_Park_in_autumn_10.jpg",
+          "/__l5e/assets-v1/4c7d8f83-36ef-4636-b10e-c774de123856/the-lake-in-central-park-in-autumn-10.jpg",
+        credito: "Wikimedia Commons",
         hotspots: [
           {
             id: "folhas",
@@ -95,25 +101,29 @@ export const estadosUnidos: Pais = {
           {
             id: "cp-aerea",
             imagem_url:
-              "/imagens/galeria-centralpark-aerea.jpg",
+              "/__l5e/assets-v1/afbe2ab2-731d-4b30-86a6-fa42e75c4856/rep-galeria-centralpark-aerea.jpg",
+            credito: "Central Park visto de cima — Carol M. Highsmith / Library of Congress (domínio público)",
             legenda: "Vista de cima: o parque entre os prédios",
           },
           {
             id: "cp-caminho",
             imagem_url:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Walk_through_Central_Park._NYC.jpg/1280px-Walk_through_Central_Park._NYC.jpg",
+              "/__l5e/assets-v1/9cccc836-0ec2-4d50-b8a2-9743b4b4ba8a/walk-through-central-park-nyc.jpg",
+            credito: "Wikimedia Commons",
             legenda: "Caminhos do parque no outono",
           },
           {
             id: "cp-ponte",
             imagem_url:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Bow_Bridge_over_the_Lake%2C_Central_Park%2C_Manhattan%2C_New_York.jpg/1280px-Bow_Bridge_over_the_Lake%2C_Central_Park%2C_Manhattan%2C_New_York.jpg",
+              "/__l5e/assets-v1/fa78983f-e760-4665-a965-a62775671ea7/bow-bridge-over-the-lake-central-park-manhattan-new-york.jpg",
+            credito: "Wikimedia Commons",
             legenda: "Outro ângulo do lago, na ponte Bow",
           },
           {
             id: "cp-folhas",
             imagem_url:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Central_Park_During_Peak_Fall_Foliage.jpg/1280px-Central_Park_During_Peak_Fall_Foliage.jpg",
+              "/__l5e/assets-v1/a075e0d7-e25a-4fbd-b00a-538dfbbaffe0/central-park-during-peak-fall-foliage.jpg",
+            credito: "Wikimedia Commons",
             legenda: "Folhas douradas no auge do outono",
           },
         ],
@@ -168,13 +178,15 @@ export const estadosUnidos: Pais = {
       titulo: "Dia 2: A força do tempo, os cânions e a natureza do deserto",
       descricao:
         "Do concreto de Nova York ao deserto do Arizona: terra vermelha, ar seco e um abismo escavado gota a gota pela água.",
-      imagem_url: "/imagens/transporte-arizona.jpg",
+      imagem_url: "/__l5e/assets-v1/bc2eae83-010f-48ad-90e6-0f3e57eee93a/rep-transporte-arizona.jpg",
+      credito: "Jeep no deserto do Arizona — BLM (domínio público)",
       guia_nome: "Sarah",
       guia_local: "Sarah, guia de expedição no Arizona",
       clima_do_dia: "Ar muito seco, sol forte e noites frias no deserto",
       abertura: {
         imagem_url:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/The_Road_to_Monument_Valley_%2852031457443%29.jpg/1920px-The_Road_to_Monument_Valley_%2852031457443%29.jpg",
+          "/__l5e/assets-v1/407fc659-ee36-499b-8561-ac6ebf2e4d83/the-road-to-monument-valley-52031457443.jpg",
+        credito: "Wikimedia Commons",
         texto:
           "Bom dia, explorador! Hoje mudamos completamente de cenário: voamos de Nova York para o sudoeste do país, no estado do Arizona. Saímos de uma cidade fria e cheia de prédios para um dos desertos mais impressionantes do planeta. Ajuste os óculos de sol e prepare-se para ver o que a água e o vento fazem com a rocha ao longo de milhões de anos!",
       },
@@ -183,12 +195,14 @@ export const estadosUnidos: Pais = {
         icone: "🛻",
         descricao:
           "Para rodar pelas estradas de terra e pedras do Arizona, nosso transporte tem tração nas quatro rodas e pneus altos reforçados. No solo arenoso e irregular do deserto, um carro comum ficaria atolado facilmente. A engenharia dos transportes precisa sempre se adaptar ao terreno da geografia local!",
-        imagem_url: "/imagens/transporte-arizona.jpg",
+        imagem_url: "/__l5e/assets-v1/bc2eae83-010f-48ad-90e6-0f3e57eee93a/rep-transporte-arizona.jpg",
+        credito: "Jeep no deserto do Arizona — BLM (domínio público)",
       },
       observacao: {
         titulo: "O Grand Canyon",
         imagem_url:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Grand_Canyon_View_with_Colorado_River.jpg/1920px-Grand_Canyon_View_with_Colorado_River.jpg",
+          "/__l5e/assets-v1/b3acabd4-e1ab-4379-94bf-1f4cb0e96b42/grand-canyon-view-with-colorado-river.jpg",
+        credito: "Wikimedia Commons",
         hotspots: [
           {
             id: "camadas",
@@ -218,25 +232,29 @@ export const estadosUnidos: Pais = {
           {
             id: "gc-aerea",
             imagem_url:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Grand_Canyon_%28Arizona%2C_USA%29%2C_Luftaufnahme_--_2012_--_5963.jpg/1280px-Grand_Canyon_%28Arizona%2C_USA%29%2C_Luftaufnahme_--_2012_--_5963.jpg",
+              "/__l5e/assets-v1/09f17fc2-85f5-42dd-9d68-f59085e37631/grand-canyon-arizona-usa-luftaufnahme-2012-5963.jpg",
+            credito: "Wikimedia Commons",
             legenda: "Vista de cima: o cânion sem fim",
           },
           {
             id: "gc-borda",
             imagem_url:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Grand_Canyon_%28Arizona%2C_USA%29%2C_South_Rim_nahe_Tusayan_--_2012_--_5892.jpg/1280px-Grand_Canyon_%28Arizona%2C_USA%29%2C_South_Rim_nahe_Tusayan_--_2012_--_5892.jpg",
+              "/__l5e/assets-v1/900c6eeb-618d-4327-b9a9-d6dcfd55b418/grand-canyon-arizona-usa-south-rim-nahe-tusayan-2012-5892.jpg",
+            credito: "Wikimedia Commons",
             legenda: "A trilha da borda sul",
           },
           {
             id: "gc-camadas",
             imagem_url:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Colorado_Canyon%2C_Arizona_%284904885912%29.jpg/1280px-Colorado_Canyon%2C_Arizona_%284904885912%29.jpg",
+              "/__l5e/assets-v1/6554b747-b13d-4a3b-904b-4aa5f4d6b571/colorado-canyon-arizona-4904885912.jpg",
+            credito: "Wikimedia Commons",
             legenda: "As camadas de rocha bem de perto",
           },
           {
             id: "gc-por-do-sol",
             imagem_url:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/USA_09847_Grand_Canyon_Luca_Galuzzi_2007.jpg/1280px-USA_09847_Grand_Canyon_Luca_Galuzzi_2007.jpg",
+              "/__l5e/assets-v1/29b35079-437a-4a16-af2d-a9db0e986b19/usa-09847-grand-canyon-luca-galuzzi-2007.jpg",
+            credito: "Wikimedia Commons",
             legenda: "O cânion ao pôr do sol",
           },
         ],
@@ -293,13 +311,15 @@ export const estadosUnidos: Pais = {
       descricao:
         "Na costa oeste: névoa fria, colinas íngremes, bondes puxados por cabo e os laboratórios que criaram robôs para explorar Marte.",
       imagem_url:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/San_Francisco_Cable_Car_55_dllu.jpg/1920px-San_Francisco_Cable_Car_55_dllu.jpg",
+        "/__l5e/assets-v1/44cd7787-1f9c-4895-98ae-9749462d61bc/san-francisco-cable-car-55-dllu.jpg",
+      credito: "Wikimedia Commons",
       guia_nome: "Sarah",
       guia_local: "Sarah, guia de expedição na Califórnia",
       clima_do_dia: "Névoa marinha fria pela manhã, sol dourado à tarde",
       abertura: {
         imagem_url:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Golden_Gate_Bridge_in_light_morning_fog.jpg/1920px-Golden_Gate_Bridge_in_light_morning_fog.jpg",
+          "/__l5e/assets-v1/0b26672f-b6df-4cbc-8603-7a417dd611b2/golden-gate-bridge-in-light-morning-fog.jpg",
+        credito: "Wikimedia Commons",
         texto:
           "Bem-vindo ao nosso terceiro dia de expedição! Cruzamos o mapa em direção ao oeste até chegar à costa do Oceano Pacífico, na Califórnia. Diferente do Atlântico que banha o Brasil, as águas daqui são alimentadas por correntes geladas vindas do norte. É por isso que São Francisco é famosa pelas névoas marinhas densas e pelas colinas inclinadas!",
       },
@@ -309,11 +329,13 @@ export const estadosUnidos: Pais = {
         descricao:
           "Como a cidade é cheia de morros íngremes, os carros de tração animal não conseguiam subir sem escorregar. Foi assim que, em 1873, inventaram o cable car. Ele não tem motor: sob os trilhos passa um cabo de aço gigante que se move sem parar debaixo da terra, e o condutor usa uma alavanca de ferro para “agarrar” esse cabo e ser puxado morro acima. Suba e segure-se firme no balaústre!",
         imagem_url:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/San_Francisco_Cable_Car_55_dllu.jpg/1920px-San_Francisco_Cable_Car_55_dllu.jpg",
+          "/__l5e/assets-v1/44cd7787-1f9c-4895-98ae-9749462d61bc/san-francisco-cable-car-55-dllu.jpg",
+        credito: "Wikimedia Commons",
       },
       observacao: {
         titulo: "O Vale do Silício e a exploração espacial",
-        imagem_url: "/imagens/observacao-california.jpg",
+        imagem_url: "/__l5e/assets-v1/b362a85d-3541-46e9-9061-3d59b860a378/rep-observacao-california.jpg",
+        credito: "Rover Curiosity na sala limpa do JPL, Pasadena — NASA/JPL (domínio público)",
         hotspots: [
           {
             id: "rover",
@@ -344,25 +366,29 @@ export const estadosUnidos: Pais = {
           {
             id: "ca-aerea",
             imagem_url:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aerial_view_of_Silicon_Valley.jpg/1280px-Aerial_view_of_Silicon_Valley.jpg",
+              "/__l5e/assets-v1/03bf244d-22fb-4c71-93ae-9383841f1c93/aerial-view-of-silicon-valley.jpg",
+            credito: "Wikimedia Commons",
             legenda: "Vista de cima: o Vale do Silício e a baía",
           },
           {
             id: "ca-rover",
             imagem_url:
-              "/imagens/galeria-rover.jpg",
+              "/__l5e/assets-v1/e00b5804-afde-441f-8547-471c86924d15/rep-galeria-rover.jpg",
+            credito: "Réplica em tamanho real do rover Curiosity (CC BY-SA 4.0)",
             legenda: "Réplica de um robô rover de Marte",
           },
           {
             id: "ca-controle",
             imagem_url:
-              "/imagens/galeria-controle.jpg",
+              "/__l5e/assets-v1/f6fc2626-5657-4103-be09-0224bb6dce3d/rep-galeria-controle.jpg",
+            credito: "Sala de operações de voo do JPL — NASA/JPL (domínio público)",
             legenda: "A sala de controle das missões",
           },
           {
             id: "ca-antena",
             imagem_url:
-              "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Goldstone_DSN_antenna.jpg/1280px-Goldstone_DSN_antenna.jpg",
+              "/__l5e/assets-v1/77433c5f-f727-423d-8386-d1ede694cfae/goldstone-dsn-antenna.jpg",
+            credito: "Wikimedia Commons",
             legenda: "Antena gigante que escuta as sondas",
           },
         ],
@@ -420,7 +446,8 @@ export const estadosUnidos: Pais = {
       nome: "Esquilo-Cinzento-Americano",
       nome_cientifico: "Sciurus carolinensis",
       foto_url:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sciurus_carolinensis_eating_nuts.jpg/1920px-Sciurus_carolinensis_eating_nuts.jpg",
+        "/__l5e/assets-v1/44072460-3174-4e38-af33-e3876bf8043c/sciurus-carolinensis-eating-nuts.jpg",
+      credito: "Wikimedia Commons",
       som_url: null,
       curiosidade:
         "No outono ele trabalha sem parar: enterra centenas de sementes e nozes pelo chão do parque para ter o que comer quando a neve cobrir tudo. E esquece onde guardou quase metade delas! Essas nozes esquecidas germinam e viram novas árvores — eles são os grandes reflorestadores naturais da América do Norte.",
@@ -431,7 +458,8 @@ export const estadosUnidos: Pais = {
       nome: "Condor-da-Califórnia",
       nome_cientifico: "Gymnogyps californianus",
       foto_url:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Grand_Canyon_National_Park_California_Condor_87_3462_%285735691958%29.jpg/1920px-Grand_Canyon_National_Park_California_Condor_87_3462_%285735691958%29.jpg",
+        "/__l5e/assets-v1/ca925c66-5f34-4757-b165-2e36717edae6/grand-canyon-national-park-california-condor-87-3462-5735691.jpg",
+      credito: "Wikimedia Commons",
       som_url: null,
       curiosidade:
         "Com mais de 3 metros de envergadura, usa as correntes térmicas — colunas de ar quente que sobem do chão aquecido do deserto — para ganhar centenas de metros de altura sem gastar quase nenhuma energia.",
@@ -442,7 +470,8 @@ export const estadosUnidos: Pais = {
       nome: "Nutria-Marinha",
       nome_cientifico: "Enhydra lutris",
       foto_url:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Wild_Sea_Otter_%2817348235490%29.jpg/1920px-Wild_Sea_Otter_%2817348235490%29.jpg",
+        "/__l5e/assets-v1/2a250c30-da71-4c4a-b265-f67e551c2e1a/wild-sea-otter-17348235490.jpg",
+      credito: "Wikimedia Commons",
       som_url: null,
       curiosidade:
         "Pega uma pedra plana, coloca sobre a barriga enquanto flutua de costas e usa a pedra como bigorna para quebrar conchas de ouriços e mariscos. É um dos raríssimos animais que usam ferramentas de verdade.",
@@ -455,7 +484,8 @@ export const estadosUnidos: Pais = {
       id: "bagel-cream-cheese",
       nome: "Bagel com cream cheese",
       foto_url:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Toasted_sesame_bagel_with_cream_cheese_-_Massachusetts.jpg/1920px-Toasted_sesame_bagel_with_cream_cheese_-_Massachusetts.jpg",
+        "/__l5e/assets-v1/6a82083c-2cc3-45da-8d77-7b78ed520412/toasted-sesame-bagel-with-cream-cheese-massachusetts.jpg",
+      credito: "Wikimedia Commons",
       adjetivo: "clássico",
       historia:
         "Foi trazido para os Estados Unidos por imigrantes judeus vindos da Europa Oriental no século 19. Eles trouxeram as receitas de família na bagagem, e o bagel virou o símbolo do café da manhã rápido de quem vive na correria da cidade. É fervido antes de assar, o que deixa a casca brilhante e o miolo macio.",
@@ -464,7 +494,8 @@ export const estadosUnidos: Pais = {
       id: "chili-com-carne",
       nome: "Chili com Carne e pão de milho",
       foto_url:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Chili_con_carne_%287556966148%29.jpg/1920px-Chili_con_carne_%287556966148%29.jpg",
+        "/__l5e/assets-v1/9a1d018a-d539-4fa8-a797-1c1c25de7774/chili-con-carne-7556966148.jpg",
+      credito: "Wikimedia Commons",
       adjetivo: "reconfortante",
       historia:
         "Ensopado de carne moída, feijões vermelhos, tomates e pimentas suaves, cozido lentamente em panelas de ferro e servido com cornbread. Nasceu da fusão entre a culinária dos povos nativos, os colonizadores espanhóis e os pioneiros que cruzavam o deserto.",
@@ -473,7 +504,8 @@ export const estadosUnidos: Pais = {
       id: "torta-de-maca",
       nome: "Torta de Maçã (Apple Pie)",
       foto_url:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Mmm..._apple_pie_ala_mode.jpg/1920px-Mmm..._apple_pie_ala_mode.jpg",
+        "/__l5e/assets-v1/3370ea3c-a3ce-4f57-9ee3-eedd674e5ce5/mmm-apple-pie-ala-mode.jpg",
+      credito: "Wikimedia Commons",
       adjetivo: "tradicional",
       historia:
         "Massa crocante e dourada recheada com maçãs frescas, canela e noz-moscada, servida quentinha com uma bola de sorvete de baunilha. A maçã é uma das frutas mais cultivadas nas regiões frias e temperadas do norte dos EUA, e assar a torta é um jeito de celebrar a colheita.",
