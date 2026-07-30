@@ -125,7 +125,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
       <svg
         ref={svgRef}
         viewBox={`${vista.x} ${vista.y} ${vista.w} ${vista.h}`}
-        className="h-[64vh] max-h-[760px] min-h-[380px] w-full cursor-grab touch-none active:cursor-grabbing"
+        className="aspect-[2/1] w-full cursor-grab touch-none active:cursor-grabbing"
         role="img"
         aria-label="Mapa mundi colorido com nomes de países e capitais"
         onWheel={(e) => {
