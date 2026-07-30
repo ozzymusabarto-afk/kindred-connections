@@ -24,8 +24,8 @@ export function TelaCarimbo({
   onProximoDia,
   onRefazer,
 }: Props) {
-  return (
   const { nome } = useExplorador();
+
 
   return (
     <section
