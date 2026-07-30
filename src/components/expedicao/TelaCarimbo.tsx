@@ -13,6 +13,8 @@ interface Props {
   proximoDia?: number;
   onProximoDia: (dia: number) => void;
   onRefazer: () => void;
+  /** Chamado quando todos os dias foram carimbados (voo de volta). */
+  onEncerrar?: () => void;
 }
 
 export function TelaCarimbo({
