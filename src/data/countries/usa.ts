@@ -27,8 +27,9 @@ export const estadosUnidos: Pais = {
     "Um país continental de 50 estados e paisagens completamente diferentes: metrópoles verticais no leste, desertos alaranjados no Arizona, montanhas nevadas no Alasca, vulcões no Havaí e a costa fria do Pacífico no oeste. Aqui as quatro estações são muito marcadas — o inverno traz neve de verdade, o outono pinta as árvores de vermelho e dourado e a primavera floresce com força. Essa variedade explica por que o modo de vida muda tanto de um estado para outro.",
 
   chegada: {
-    imagem_url: "/__l5e/assets-v1/d9bb1353-a182-4899-8a75-12f45419da9e/rep-janela-eua.jpg",
-    credito: "Manhattan vista do avião — panoramio (CC BY 3.0)",
+    imagem_url: "/__l5e/assets-v1/9f0d4526-6b9c-4e8e-b124-91e0901e4b3c/usa-chegada-janela.jpg",
+    credito:
+      "Recriação da vista da janela do avião sobre Manhattan em tarde de outono (ilustração fiel à paisagem real)",
     idioma: "Inglês",
     fuso_horario: "15h00 no horário local — 1 hora a menos que Brasília",
     temperatura: "12 °C, brisa fresca de outono",
@@ -37,7 +38,37 @@ export const estadosUnidos: Pais = {
     fala_piloto_traducao:
       "Boa tarde, senhoras e senhores passageiros! Aqui quem fala é o capitão. Iniciamos nossa descida final para o Aeroporto Internacional JFK, em Nova York. A temperatura atual é de 12 °C, com uma brisa fresca de outono. O fuso horário local marca 15h00 — exatamente 1 hora a menos em relação ao horário de Brasília. Sejam muito bem-vindos aos Estados Unidos!",
     texto:
-      "Aperte bem o cinto, explorador! Olhe só pela nossa janela circular… Lá embaixo, cercada pelas águas do Rio Hudson e do Oceano Atlântico, está a ilha de Manhattan. Você consegue ver como os prédios parecem torres gigantes de vidro e aço espetadas no chão? Diferente do clima tropical do Brasil, aqui o ar está geladinho e seco. O idioma oficial é o inglês — você acabou de ouvir o piloto falar! Vamos desembarcar, pegar as malas e começar nossa investigação por essa metrópole que nunca dorme.",
+      "Aperte bem o cinto, explorador! Olhe só pela nossa janela… Lá embaixo, cercada pelas águas do Rio Hudson e do Oceano Atlântico, está a ilha de Manhattan. Você consegue ver como os prédios parecem torres gigantes de vidro e aço espetadas no chão? E aquele retângulo alaranjado no meio da cidade é o Central Park, com as árvores pintadas de vermelho e dourado pelo outono. Diferente do clima tropical do Brasil, aqui o ar está geladinho e seco. O idioma oficial é o inglês — você acabou de ouvir o piloto falar! Vamos desembarcar, pegar as malas e começar nossa investigação por essa metrópole que nunca dorme.",
+    galeria: [
+      {
+        id: "us-chegada-g1",
+        imagem_url:
+          "/__l5e/assets-v1/c8e30a00-b270-4580-8a27-90dcc62ebfca/usa-chegada-avion-manhattan.jpg",
+        legenda: "Manhattan fotografada de dentro de um voo que chega a Nova York",
+        credito: "panoramio (CC BY 3.0) — Wikimedia Commons",
+      },
+      {
+        id: "us-chegada-g2",
+        imagem_url:
+          "/__l5e/assets-v1/5f43d081-0c48-4e1a-ba4c-5b0daa8de515/usa-chegada-manhattan-alto.jpg",
+        legenda: "A ponta da ilha vista do alto: prédios cercados por água por todos os lados",
+        credito: "Wikimedia Commons (CC BY-SA 2.0)",
+      },
+      {
+        id: "us-chegada-g3",
+        imagem_url:
+          "/__l5e/assets-v1/6a5a26da-224d-42cc-9199-8b1f171ff28e/usa-chegada-jfk-terminal.jpg",
+        legenda: "Dentro do Terminal 4 do aeroporto JFK, onde desembarcamos",
+        credito: "Wikimedia Commons (CC BY 2.0)",
+      },
+      {
+        id: "us-chegada-g4",
+        imagem_url:
+          "/__l5e/assets-v1/23caacea-48d0-4e94-b9e5-fe6a556b8230/usa-chegada-jfk-twa.jpg",
+        legenda: "O saguão curvo do antigo terminal TWA, um clássico do JFK",
+        credito: "Wikimedia Commons (CC BY-SA 4.0)",
+      },
+    ],
   },
 
   base: {
@@ -46,7 +77,34 @@ export const estadosUnidos: Pais = {
     credito: "Saguão do Waldorf Astoria, Nova York (Wikimedia Commons)",
     descricao:
       "“Welcome to New York! Eu me chamo Sarah e vou acompanhar cada passo da sua jornada pelos Estados Unidos. Os EUA são um país continental imenso: 50 estados, desertos alaranjados no Arizona, vulcões no Havaí, montanhas nevadas no Alasca e florestas densas. Hoje nossa base é este hotel no coração de uma das maiores cidades do mundo. Dê uma olhada no termômetro do saguão: lá fora faz 12 °C. No Brasil, com essa temperatura, a gente já busca o casaco pesado, não é? Aqui as pessoas já estão acostumadas e caminham rápido pelas calçadas. Coloque seu agasalho: nosso primeiro transporte já está na porta!”",
+    galeria: [
+      {
+        id: "us-base-g1",
+        imagem_url: "/__l5e/assets-v1/daca442e-dddd-4e17-8f8c-1433c46d76ed/usa-hotel-fachada.jpg",
+        legenda: "A fachada e a marquise da entrada do hotel, na Park Avenue",
+        credito: "Wikimedia Commons (CC BY-SA 3.0)",
+      },
+      {
+        id: "us-base-g2",
+        imagem_url: "/__l5e/assets-v1/b1bbf58f-6366-40bf-8d48-93e7ffee3ebd/usa-hotel-predio.jpg",
+        legenda: "Visto da rua, o hotel é um prédio altíssimo entre outros arranha-céus",
+        credito: "Wikimedia Commons (CC BY 2.0)",
+      },
+      {
+        id: "us-base-g3",
+        imagem_url: "/__l5e/assets-v1/6bdeeeca-02e9-4997-9704-733827d4c815/usa-hotel-balcao.jpg",
+        legenda: "O balcão da recepção: é aqui que fazemos o check-in e pegamos a chave",
+        credito: "Wikimedia Commons (CC BY-SA 4.0)",
+      },
+      {
+        id: "us-base-g4",
+        imagem_url: "/__l5e/assets-v1/a1415771-f365-4caf-97b7-bb4724c33f49/usa-hotel-quarto.jpg",
+        legenda: "O quarto onde deixamos as malas antes de sair para o primeiro passeio",
+        credito: "Wikimedia Commons (CC BY-SA 4.0)",
+      },
+    ],
   },
+
 
   roteiro_viagem: [
     {
