@@ -5,6 +5,8 @@ import { CompassButton } from "@/components/CompassButton";
 import { StarStamp } from "@/components/StarStamp";
 import { paises } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
+import { useExplorador } from "@/hooks/useExplorador";
+
 import { lerProgressoTudo } from "@/hooks/useExpedicao";
 import type { ProgressoExpedicao } from "@/hooks/useExpedicao";
 
