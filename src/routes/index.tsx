@@ -41,16 +41,25 @@ function MapaMundi() {
       <main className="mx-auto max-w-6xl px-5 py-10">
         <section className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
-            Mapa do explorador
+            Diário de bordo do explorador
           </p>
           <h1 className="mt-3 text-4xl leading-tight text-foreground sm:text-5xl">
-            Escolha um país e comece a observar
+            Embarque numa viagem ao redor do mundo
           </h1>
+          <p className="mt-3 font-display text-xl leading-snug text-brass">
+            Explore lugares desconhecidos e conheça um pouco de cada país.
+          </p>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Cada destino traz um roteiro de dias, um caderno da natureza e uma
-            mesa de sabores. Toque em um marcador do mapa: o avião parte na hora.
+            Seja um explorador do mundo: observe paisagens de verdade, encontre animais
+            incríveis, prove delícias culinárias da região e embarque em aventuras
+            inesquecíveis.
+          </p>
+          <p className="mt-5 inline-flex items-center gap-2 rounded-full border-2 border-brass/60 bg-card px-4 py-2 font-display text-base text-foreground shadow-sm">
+            <span aria-hidden>🧭</span>
+            Escolha seu destino e vamos partir!
           </p>
         </section>
+
 
         <div className="mt-8 flex flex-wrap gap-2">
           {continentes.map((c) => {
