@@ -64,6 +64,24 @@ export interface PerguntaSocratica {
   texto: string;
 }
 
+/** Nota curta que ancora o novo no que a criança já conhece do Brasil. */
+export interface NotaBrasil {
+  /** Título curto, ex.: "Você sabia?". */
+  titulo?: string;
+  texto: string;
+}
+
+/** Mini-desafio de observação ao final do dia (sem pontuação competitiva). */
+export interface DesafioDoDia {
+  pergunta: string;
+  opcoes: string[];
+  /** Índice da opção correta em `opcoes`. */
+  correta: number;
+  /** Explicação exibida após a resposta, certa ou errada. */
+  explicacao: string;
+}
+
+
 export interface Chegada {
   imagem_url: string;
   texto: string;
@@ -113,9 +131,16 @@ export interface DiaRoteiro {
   fauna_do_dia?: ReferenciaDoDia;
   sabor_do_dia?: ReferenciaDoDia;
   perguntas?: PerguntaSocratica[];
+  /** Notas "Você sabia?" comparando com o Brasil, por etapa da jornada. */
+  notas_brasil?: Partial<
+    Record<"transporte" | "observacao" | "fauna" | "sabor", NotaBrasil>
+  >;
+  /** Mini-desafio de observação exibido no carimbo do dia. */
+  desafio?: DesafioDoDia;
   /** Crédito de autoria e licença da imagem. */
   credito?: string;
 }
+
 
 export interface ItemNatureza {
   id: string;

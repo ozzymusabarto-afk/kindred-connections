@@ -1,7 +1,9 @@
 import { GaleriaObservacao } from "./GaleriaObservacao";
 import { ImagemHotspots } from "./ImagemHotspots";
+import { NotaComparativaBrasil } from "./NotaComparativaBrasil";
 import { PerguntaSocraticaCampo } from "./PerguntaSocratica";
 import { TelaJornada } from "./TelaJornada";
+
 import { respostaValida } from "@/hooks/useExpedicao";
 import type { ProgressoDia } from "@/hooks/useExpedicao";
 import type { DiaRoteiro } from "@/data/types";
@@ -65,6 +67,9 @@ export function TelaObservacao({
       aoVoltar={onVoltar}
     >
       <p className="text-sm leading-relaxed text-muted-foreground">{dia.descricao}</p>
+
+      <NotaComparativaBrasil nota={dia.notas_brasil?.observacao} />
+
 
       <div className="rounded-xl border-2 border-dashed border-border bg-background p-4">
         <p className="text-[11px] uppercase tracking-[0.24em] text-brass">Caderno do explorador</p>

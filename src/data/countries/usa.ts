@@ -256,7 +256,38 @@ export const estadosUnidos: Pais = {
         texto_guia:
           "O bagel parece uma rosquinha, mas não é doce: é um pão denso, aerado, de casquinha crocante, coberto de gergelim ou papoula e recheado com cream cheese. Vamos dar uma mordida e sentir esse contraste de texturas?",
       },
+      notas_brasil: {
+        transporte: {
+          texto:
+            "O metrô de Nova York funciona 24 horas por dia, todos os dias do ano. No Brasil, o metrô de São Paulo fecha por volta da meia-noite para manutenção dos trilhos — por isso lá as estações precisam de trilhos duplicados em muitos trechos.",
+        },
+        observacao: {
+          texto:
+            "O Central Park tem 3,4 km² no meio dos arranha-céus. O Parque Ibirapuera, em São Paulo, tem cerca de 1,5 km² — menos da metade — e também nasceu da mesma ideia: guardar um pedaço de natureza dentro da cidade.",
+        },
+        fauna: {
+          texto:
+            "O esquilo-cinzento faz nos parques de Nova York o mesmo papel que o sagui-de-tufos-brancos faz nas praças brasileiras: um mamífero pequeno e ágil que aprendeu a viver junto das pessoas.",
+        },
+        sabor: {
+          texto:
+            "O bagel é o pão de esquina de Nova York, comprado a caminho do trabalho — igualzinho ao nosso pão na chapa ou ao pão de queijo da padaria de manhã.",
+        },
+      },
+      desafio: {
+        pergunta:
+          "Você observou o Central Park do alto. Por que aquele retângulo verde tem exatamente esse formato tão reto?",
+        opcoes: [
+          "Porque é um lago natural que secou",
+          "Porque a cidade foi desenhada em quadras e o parque foi reservado dentro desse desenho",
+          "Porque os prédios ao redor caíram",
+        ],
+        correta: 1,
+        explicacao:
+          "Nova York foi planejada em uma grade de quadras retas antes de crescer. O parque foi reservado dentro dessa grade, e por isso tem bordas retas — diferente dos parques brasileiros, que muitas vezes seguem o curso de rios e morros.",
+      },
     },
+
 
     {
       dia: 2,
@@ -404,7 +435,38 @@ export const estadosUnidos: Pais = {
         texto_guia:
           "Nosso prato de hoje é o Chili com Carne acompanhado de cornbread, o pão de milho dourado. É uma comida forte, bem temperada e quente, perfeita para o deserto que esfria rapidamente assim que o sol se põe.",
       },
+      notas_brasil: {
+        transporte: {
+          texto:
+            "Nos EUA quase todo passeio longo é feito de carro por estradas retas e vazias. No Brasil, entre cidades do interior, muita gente viaja de ônibus rodoviário — e no Norte a estrada principal é o próprio rio, percorrido de barco.",
+        },
+        observacao: {
+          texto:
+            "O Grand Canyon foi escavado pelo rio Colorado em rocha seca. No Brasil temos algo parecido nos Cânions do Itaimbezinho e do Fortaleza, no Rio Grande do Sul — só que lá as paredes vivem cobertas de mata e cachoeiras, porque chove muito mais.",
+        },
+        fauna: {
+          texto:
+            "O condor-da-califórnia planeja sobre o deserto usando o ar quente que sobe das rochas. No Brasil, o urubu-rei faz exatamente o mesmo truque no cerrado: sobe em círculos sem bater asas.",
+        },
+        sabor: {
+          texto:
+            "O chili é um cozido apimentado de feijão e carne, servido bem quente — a mesma ideia da nossa feijoada ou do baião de dois: um prato de energia para depois de um dia inteiro fora de casa.",
+        },
+      },
+      desafio: {
+        pergunta:
+          "Você observou as camadas coloridas nas paredes do cânion. O que elas mostram?",
+        opcoes: [
+          "Alguém pintou as rochas para os turistas",
+          "Cada faixa é uma camada de rocha de uma época diferente, empilhada ao longo de milhões de anos",
+          "São sombras das nuvens",
+        ],
+        correta: 1,
+        explicacao:
+          "Cada faixa é um tipo de rocha formado numa era diferente. O rio Colorado cortou tudo isso como uma faca num bolo de camadas, deixando a história da Terra à vista.",
+      },
     },
+
 
     {
       dia: 3,
@@ -561,7 +623,38 @@ export const estadosUnidos: Pais = {
         texto_guia:
           "Parabéns pela sua dedicação! Você investigou a metrópole, o deserto, os cânions e a tecnologia do Pacífico. Seu passaporte oficial acaba de receber o carimbo de ouro dos Estados Unidos!",
       },
+      notas_brasil: {
+        transporte: {
+          texto:
+            "São Francisco ainda usa bondes que sobem ladeiras puxados por cabos de aço. No Brasil temos o bondinho de Santa Teresa, no Rio de Janeiro, que faz a mesma coisa: vencer a ladeira sem depender de pneus.",
+        },
+        observacao: {
+          texto:
+            "A névoa fria que cobre a ponte Golden Gate nasce do encontro do ar quente com um mar muito frio. No litoral de Santa Catarina acontece algo parecido em dias de vento sul — só que o mar brasileiro nunca chega a ser tão gelado.",
+        },
+        fauna: {
+          texto:
+            "A nútria-marinha vive nas algas do Pacífico. No litoral brasileiro, quem cumpre o papel de mamífero das águas costeiras é o boto-cinza, que aparece em baías como a de Cananéia e a Babitonga.",
+        },
+        sabor: {
+          texto:
+            "A torta de maçã é o doce símbolo dos EUA, feita com a fruta que cresce bem no clima frio. No Brasil, o doce que aparece em toda festa de família é a torta de banana ou o bolo de milho — cada país usa a fruta que sua terra dá.",
+        },
+      },
+      desafio: {
+        pergunta:
+          "Você observou a nútria-marinha flutuando de barriga para cima dentro das algas. Para que serve essa floresta de algas para ela?",
+        opcoes: [
+          "Só para enfeitar o mar",
+          "Serve de âncora e de esconderijo: ela se enrola nas algas para não ser levada pela correnteza enquanto dorme",
+          "Ela come as algas no lugar de peixes",
+        ],
+        correta: 1,
+        explicacao:
+          "A nútria se enrola nas algas como um cinto de segurança para não ser arrastada pela corrente enquanto descansa — e ainda usa a barriga como mesinha para quebrar conchas com uma pedra.",
+      },
     },
+
   ],
 
   fauna_flora: [

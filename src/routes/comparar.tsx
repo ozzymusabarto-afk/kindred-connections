@@ -1,8 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { paises } from "@/data/countries";
+import { lerProgressoTudo } from "@/hooks/useExpedicao";
+import type { ProgressoExpedicao } from "@/hooks/useExpedicao";
 import type { Pais } from "@/data/types";
+
 
 export const Route = createFileRoute("/comparar")({
   head: () => ({
@@ -33,12 +36,31 @@ const LINHAS: { titulo: string; campo: keyof Pais["comparativo"] }[] = [
   { titulo: "Fauna e alimentação", campo: "fauna_alimentacao" },
 ];
 
+/** Anotações que a criança escreveu para um país, na ordem dos dias. */
+function anotacoesDoPais(progresso: ProgressoExpedicao, paisId: string) {
+  const dias = progresso[paisId];
+  if (!dias) return [];
+  return Object.entries(dias)
+    .sort(([a], [b]) => Number(a) - Number(b))
+    .flatMap(([dia, p]) =>
+      Object.entries(p.respostas ?? {})
+        .filter(([, texto]) => typeof texto === "string" && texto.trim().length > 0)
+        .map(([chave, texto]) => ({ chave: `${dia}:${chave}`, dia, texto })),
+    )
+    .slice(0, 4);
+}
+
+
 function Comparar() {
   const [esquerdaId, setEsquerdaId] = useState(paises[0]?.id ?? "");
   const [direitaId, setDireitaId] = useState(paises[1]?.id ?? "");
+  const [progresso, setProgresso] = useState<ProgressoExpedicao>({});
+
+  useEffect(() => setProgresso(lerProgressoTudo()), []);
 
   const esquerda = paises.find((p) => p.id === esquerdaId);
   const direita = paises.find((p) => p.id === direitaId);
+
 
   return (
     <div className="min-h-screen">
@@ -120,8 +142,44 @@ function Comparar() {
                     </div>
                   </div>
                 ))}
+
+                <div className="border-t-2 border-dashed border-brass">
+                  <dt className="bg-accent/60 px-4 py-2 text-xs uppercase tracking-[0.24em] text-accent-foreground">
+                    O que você mesmo observou
+                  </dt>
+                  <div className="grid grid-cols-2">
+                    {[esquerda, direita].map((p) => {
+                      const notas = anotacoesDoPais(progresso, p.id);
+                      return (
+                        <dd
+                          key={p.id}
+                          className="space-y-3 border-r border-border px-4 py-4 last:border-r-0"
+                        >
+                          {notas.length === 0 ? (
+                            <p className="text-sm italic leading-relaxed text-muted-foreground">
+                              Você ainda não escreveu observações sobre {p.nome}.
+                            </p>
+                          ) : (
+                            notas.map((n) => (
+                              <p
+                                key={n.chave}
+                                className="rounded-lg bg-secondary/60 px-3 py-2 text-sm leading-relaxed text-foreground"
+                              >
+                                <span className="mr-1.5 text-[10px] uppercase tracking-widest text-brass">
+                                  Dia {n.dia}
+                                </span>
+                                “{n.texto}”
+                              </p>
+                            ))
+                          )}
+                        </dd>
+                      );
+                    })}
+                  </div>
+                </div>
               </dl>
             )}
+
           </section>
         )}
       </main>

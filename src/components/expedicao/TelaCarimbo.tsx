@@ -1,6 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { StarStamp } from "@/components/StarStamp";
+import { DesafioObservacao } from "./DesafioObservacao";
+import { useExplorador } from "@/hooks/useExplorador";
 import type { DiaRoteiro, Pais } from "@/data/types";
+
 
 interface Props {
   pais: Pais;
@@ -21,6 +24,9 @@ export function TelaCarimbo({
   onProximoDia,
   onRefazer,
 }: Props) {
+  const { nome } = useExplorador();
+
+
   return (
     <section
       key={`carimbo-${dia.dia}`}
@@ -33,15 +39,22 @@ export function TelaCarimbo({
         Passaporte carimbado
       </p>
       <h2 className="mt-1 font-display text-2xl text-foreground">
-        Dia {dia.dia} em {pais.nome} concluído!
+        Dia {dia.dia} em {pais.nome} concluído{nome ? `, ${nome}` : ""}!
       </h2>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         Suas observações ficaram guardadas no caderno do explorador. Você já carimbou {concluidos}{" "}
         de {diasTotal} dias desta expedição.
       </p>
 
+      {dia.desafio && (
+        <div className="mt-7">
+          <DesafioObservacao desafio={dia.desafio} />
+        </div>
+      )}
+
       <div className="mt-7 flex flex-col gap-3">
         {proximoDia ? (
+
           <button
             type="button"
             onClick={() => onProximoDia(proximoDia)}

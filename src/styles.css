@@ -331,3 +331,24 @@
     transform: scale(1);
   }
 }
+
+/* Diário imprimível: mantém apenas o conteúdo do passaporte na folha. */
+@media print {
+  header,
+  nav,
+  footer,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #1a1a1a;
+  }
+
+  article {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border-color: #b9a072 !important;
+  }
+}
