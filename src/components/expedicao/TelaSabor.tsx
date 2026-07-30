@@ -27,6 +27,15 @@ export function TelaSabor({ pais, dia, respostas, onResponder, onAvancar, onVolt
       titulo={prato?.nome ?? "A refeição do dia"}
       imagem={prato?.foto_url ?? dia.imagem_url}
       alt={prato?.nome ?? "Comida típica do dia"}
+      abaixoDaMidia={
+        prato?.galeria && prato.galeria.length > 0 ? (
+          <GaleriaObservacao
+            fotos={prato.galeria}
+            local={prato.nome}
+            titulo="Onde se come e outras opções"
+          />
+        ) : undefined
+      }
       acao={{
         rotulo: `Carimbar passaporte do Dia ${dia.dia} ➔`,
         onClick: onAvancar,
@@ -63,13 +72,6 @@ export function TelaSabor({ pais, dia, respostas, onResponder, onAvancar, onVolt
           <strong className="font-normal text-brass">O mais pedido aqui: </strong>
           {prato.destaque}
         </p>
-      )}
-      {prato?.galeria && prato.galeria.length > 0 && (
-        <GaleriaObservacao
-          fotos={prato.galeria}
-          local={prato.nome}
-          titulo="Onde se come e outras opções"
-        />
       )}
 
 
