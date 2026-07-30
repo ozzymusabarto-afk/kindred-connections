@@ -1,4 +1,5 @@
 import { TelaJornada } from "./TelaJornada";
+import { GaleriaObservacao } from "./GaleriaObservacao";
 import type { DiaRoteiro, Pais } from "@/data/types";
 
 interface Props {
@@ -20,12 +21,22 @@ export function TelaCheckin({ pais, dia, onAvancar, onVoltar }: Props) {
       titulo={base?.nome ?? `Nossa base no ${pais.nome}`}
       imagem={base?.imagem_url ?? pais.imagem_capa}
       alt={base?.nome ?? `Hospedagem no ${pais.nome}`}
+      abaixoDaMidia={
+        base?.galeria?.length ? (
+          <GaleriaObservacao
+            fotos={base.galeria}
+            local={pais.nome}
+            titulo="Conhecendo nossa base"
+          />
+        ) : undefined
+      }
       acao={{
         rotulo: `Iniciar viagem do Dia ${dia.dia} ➔`,
         onClick: onAvancar,
       }}
       aoVoltar={onVoltar}
     >
+
       <p className="text-sm leading-relaxed text-muted-foreground">
         {base?.descricao ??
           "Deixamos as malas na base da expedição e saímos para o primeiro passeio."}
