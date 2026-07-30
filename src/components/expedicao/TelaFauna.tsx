@@ -76,8 +76,7 @@ export function TelaFauna({ pais, dia, respostas, onResponder, onAvancar, onVolt
         </>
       )}
 
-        </>
-      )}
+
 
 
       <div className="space-y-4 rounded-xl border-2 border-dashed border-brass/60 bg-background p-4">
