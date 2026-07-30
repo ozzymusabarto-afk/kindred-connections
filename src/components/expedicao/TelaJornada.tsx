@@ -29,6 +29,7 @@ export function TelaJornada({
   imagem,
   alt,
   midia,
+  abaixoDaMidia,
   children,
   acao,
   aoVoltar,
@@ -46,7 +47,9 @@ export function TelaJornada({
             className="h-64 w-full object-cover sm:h-[22rem] lg:h-[30rem]"
           />
         )}
+        {abaixoDaMidia && <div className="px-4 pb-4">{abaixoDaMidia}</div>}
       </div>
+
 
       <div className="flex flex-col gap-4 rounded-2xl border-2 border-border bg-card p-5 shadow-lg sm:p-6 lg:sticky lg:top-4">
         <div>
