@@ -21,13 +21,13 @@ const PROPORCAO = H / W;
 const VISTA_MUNDO: Vista = { x: 0, y: 0, w: W, h: H };
 const ZOOM_MAX = 24;
 const ESTRELA = "50,3 61,35 95,35 68,56 78,90 50,70 22,90 32,56 5,35 39,35";
+const DURACAO_VOO = 1500;
 
-/** Capitais cujo nome em português difere do nome original do mapa. */
 /** Ponto de partida de toda expedição: o Brasil, casa dos exploradores. */
 const ORIGEM_BRASIL = WORLD_COUNTRIES.find((c) => c.id === "br")?.capital ?? null;
 
+/** Capitais cujo nome em português difere do nome original do mapa. */
 const CAPITAIS_PT: Record<string, string> = {
-
   "Mexico City": "Cidade do México",
   "Washington, D.C.": "Washington",
   "Washington D.C.": "Washington",
@@ -79,7 +79,19 @@ const CAPITAIS_PT: Record<string, string> = {
   Wellington: "Wellington",
 };
 
+/** Nuvenzinhas decorativas — o único toque ilustrado do projeto, só no mapa. */
+const NUVENS = [
+  { x: 0.16, y: 0.2, e: 1 },
+  { x: 0.52, y: 0.14, e: 0.8 },
+  { x: 0.78, y: 0.3, e: 1.1 },
+  { x: 0.34, y: 0.82, e: 0.9 },
+  { x: 0.68, y: 0.76, e: 0.75 },
+];
 
+function prefereMenosMovimento() {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia?.("(prefers-reduced-motion: reduce)").matches ?? false;
+}
 
 /** Mantém a vista dentro do mundo e com zoom válido. */
 function limitar(v: Vista): Vista {
@@ -114,12 +126,73 @@ function enquadrar(pontos: { x: number; y: number }[]): Vista {
   });
 }
 
+/** Curva de voo entre dois pontos do mapa. */
+function rotaDeVoo(
+  de: { x: number; y: number },
+  para: { x: number; y: number },
+): string {
+  const meioX = (de.x + para.x) / 2;
+  const meioY = (de.y + para.y) / 2 - 70;
+  return `M${de.x} ${de.y} Q${meioX} ${meioY} ${para.x} ${para.y}`;
+}
+
+/** Aviãozinho lúdico, colorido e vibrante — visto de cima. */
+function Aviaozinho() {
+  return (
+    <g>
+      <ellipse cx="0" cy="0" rx="26" ry="7.5" fill="#e63946" stroke="#ffffff" strokeWidth="2.4" />
+      <path
+        d="M-4,-2 L2,-24 L10,-24 L8,-2 Z"
+        fill="#ffb703"
+        stroke="#ffffff"
+        strokeWidth="2.2"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M-4,2 L2,24 L10,24 L8,2 Z"
+        fill="#ffb703"
+        stroke="#ffffff"
+        strokeWidth="2.2"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M-20,-1.5 L-26,-11 L-21,-11 L-16,-1.5 Z"
+        fill="#f77f00"
+        stroke="#ffffff"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M-20,1.5 L-26,11 L-21,11 L-16,1.5 Z"
+        fill="#f77f00"
+        stroke="#ffffff"
+        strokeWidth="1.8"
+        strokeLinejoin="round"
+      />
+      <circle cx="16" cy="0" r="4.2" fill="#8ecae6" stroke="#ffffff" strokeWidth="1.6" />
+      <circle cx="4" cy="0" r="2.4" fill="#8ecae6" />
+      <circle cx="-4" cy="0" r="2.4" fill="#8ecae6" />
+    </g>
+  );
+}
+
+function Nuvem({ x, y, escala }: { x: number; y: number; escala: number }) {
+  return (
+    <g transform={`translate(${x} ${y}) scale(${escala})`} opacity="0.55" pointerEvents="none">
+      <circle cx="0" cy="0" r="16" fill="#ffffff" />
+      <circle cx="16" cy="4" r="12" fill="#ffffff" />
+      <circle cx="-16" cy="5" r="11" fill="#ffffff" />
+      <rect x="-18" y="2" width="36" height="12" rx="6" fill="#ffffff" />
+    </g>
+  );
+}
+
 export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const [vista, setVista] = useState<Vista>(VISTA_MUNDO);
-  const [aviao, setAviao] = useState({ x: W * 0.32, y: H * 0.62 });
-  const [angulo, setAngulo] = useState(-45);
-  const [emVoo, setEmVoo] = useState(false);
+  const [pousado, setPousado] = useState(ORIGEM_BRASIL ?? { x: W * 0.32, y: H * 0.62 });
+  const [voo, setVoo] = useState<{ d: string; destino: { x: number; y: number } } | null>(null);
+  const [emFoco, setEmFoco] = useState<string | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const arrasto = useRef<{ x: number; y: number; vista: Vista } | null>(null);
 
@@ -140,7 +213,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chaveFoco]);
 
-  /** Países que já têm cartão clicável não repetem o rótulo do mapa. */
+  /** Países que já têm pino clicável não repetem o rótulo do mapa. */
   const comPino = useMemo(
     () => new Set(paises.map((p) => p.codigo_mapa)),
     [paises],
@@ -173,14 +246,19 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   }
 
   function viajar(pais: Pais, destino: { x: number; y: number }) {
-    if (emVoo) return;
-    setAngulo((Math.atan2(destino.y - aviao.y, destino.x - aviao.x) * 180) / Math.PI);
-    setAviao(destino);
-    setEmVoo(true);
-    timer.current = setTimeout(() => {
-      setEmVoo(false);
+    if (voo) return;
+    const partida = pousado;
+    if (prefereMenosMovimento()) {
+      setPousado(destino);
       onSelecionar(pais);
-    }, 1150);
+      return;
+    }
+    setVoo({ d: rotaDeVoo(partida, destino), destino });
+    timer.current = setTimeout(() => {
+      setPousado(destino);
+      setVoo(null);
+      onSelecionar(pais);
+    }, DURACAO_VOO);
   }
 
   const visitados = paises.filter((p) => carimbados.includes(p.id)).length;
@@ -217,9 +295,18 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
             <stop offset="0%" stopColor="var(--map-ocean)" />
             <stop offset="100%" stopColor="var(--map-ocean-deep)" />
           </linearGradient>
+          {pinos.map(({ pais }) => (
+            <clipPath key={`clip-${pais.id}`} id={`clip-${pais.id}`}>
+              <circle cx="0" cy="0" r="15" />
+            </clipPath>
+          ))}
         </defs>
 
         <rect x="0" y="0" width={W} height={H} fill="url(#oceano)" />
+
+        {NUVENS.map((n, i) => (
+          <Nuvem key={`nuvem-${i}`} x={W * n.x} y={H * n.y} escala={px(n.e)} />
+        ))}
 
         {WORLD_COUNTRIES.map((c) => (
           <path
@@ -247,24 +334,25 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
                 x={c.centro.x}
                 y={c.centro.y}
                 textAnchor="middle"
-                fontSize={px(11)}
-                fill="#1f2b1c"
+                fontSize={px(10)}
+                fill="#33422f"
+                fillOpacity="0.9"
                 stroke="#ffffff"
-                strokeWidth={px(2.6)}
+                strokeWidth={px(2.4)}
                 paintOrder="stroke"
-                style={{ fontFamily: "var(--font-sans)", fontWeight: 700 }}
+                style={{ fontFamily: "var(--font-sans)", fontWeight: 600 }}
               >
                 {c.nome}
               </text>
-              {capital && (
+              {capital && escala >= 2 && (
                 <text
                   x={c.centro.x}
-                  y={c.centro.y + px(10)}
+                  y={c.centro.y + px(9)}
                   textAnchor="middle"
-                  fontSize={px(8)}
-                  fill="#3c4a3e"
+                  fontSize={px(7.5)}
+                  fill="#55654f"
                   stroke="#ffffff"
-                  strokeWidth={px(2.2)}
+                  strokeWidth={px(2)}
                   paintOrder="stroke"
                   style={{ fontFamily: "var(--font-sans)", fontStyle: "italic" }}
                 >
@@ -285,25 +373,39 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           );
         })}
 
-        {/* Rotas de voo saindo do Brasil, país de origem dos exploradores. */}
+        {/* Rotas: só a do país em foco, do voo em curso e as já carimbadas. */}
         {ORIGEM_BRASIL &&
           pinos.map(({ pais, ponto }) => {
-            const meioX = (ORIGEM_BRASIL.x + ponto.x) / 2;
-            const meioY = (ORIGEM_BRASIL.y + ponto.y) / 2 - 70;
+            const carimbado = carimbados.includes(pais.id);
+            const ativo = emFoco === pais.id;
+            if (!carimbado && !ativo) return null;
             return (
               <path
                 key={`rota-${pais.id}`}
-                d={`M${ORIGEM_BRASIL.x} ${ORIGEM_BRASIL.y} Q${meioX} ${meioY} ${ponto.x} ${ponto.y}`}
+                d={rotaDeVoo(ORIGEM_BRASIL, ponto)}
                 fill="none"
                 stroke="#b9822f"
-                strokeOpacity={carimbados.includes(pais.id) ? 0.75 : 0.35}
-                strokeWidth={px(1.6)}
+                strokeOpacity={ativo ? 0.8 : 0.45}
+                strokeWidth={px(1.5)}
                 strokeDasharray={`${px(6)} ${px(5)}`}
                 strokeLinecap="round"
                 pointerEvents="none"
               />
             );
           })}
+
+        {voo && (
+          <path
+            d={voo.d}
+            fill="none"
+            stroke="#e63946"
+            strokeOpacity="0.5"
+            strokeWidth={px(2)}
+            strokeDasharray={`${px(7)} ${px(6)}`}
+            strokeLinecap="round"
+            pointerEvents="none"
+          />
+        )}
 
         {/* Marcador da casa dos exploradores. */}
         {ORIGEM_BRASIL && (
@@ -332,17 +434,21 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           </g>
         )}
 
-
+        {/* Pinos compactos dos países visitáveis. */}
         {pinos.map(({ pais, ponto }) => {
           const carimbado = carimbados.includes(pais.id);
-          const t = px(1);
-          const largura = Math.max(pais.nome.length, (pais.capital ?? "").length) * 8.2 + 26;
+          const ativo = emFoco === pais.id;
+          const mostraNome = ativo || escala >= 2.4;
           return (
             <g
               key={pais.id}
-              transform={`translate(${ponto.x} ${ponto.y}) scale(${t})`}
+              transform={`translate(${ponto.x} ${ponto.y}) scale(${px(1)})`}
               className="group cursor-pointer"
               onClick={() => viajar(pais, ponto)}
+              onPointerEnter={() => setEmFoco(pais.id)}
+              onPointerLeave={() => setEmFoco((a) => (a === pais.id ? null : a))}
+              onFocus={() => setEmFoco(pais.id)}
+              onBlur={() => setEmFoco((a) => (a === pais.id ? null : a))}
               role="button"
               tabIndex={0}
               aria-label={`Explorar ${pais.nome}${carimbado ? " (já explorado)" : ""}`}
@@ -350,71 +456,96 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
                 if (e.key === "Enter" || e.key === " ") viajar(pais, ponto);
               }}
             >
-              <g className="origin-center transition-transform duration-300 group-hover:scale-110">
-                <rect
-                  x={-largura / 2}
-                  y={pais.capital ? -30 : -21}
-                  width={largura}
-                  height={pais.capital ? 50 : 32}
-                  rx="16"
-                  fill="var(--card)"
-                  stroke="var(--brass)"
-                  strokeWidth="2.5"
-                />
-                <text
-                  y={pais.capital ? -10 : 1}
-                  textAnchor="middle"
-                  fontSize="20"
-                  fill="var(--foreground)"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  {pais.nome}
-                </text>
-                {pais.capital && (
-                  <text
-                    y="10"
-                    textAnchor="middle"
-                    fontSize="13"
-                    fill="var(--muted-foreground)"
-                    style={{ fontFamily: "var(--font-sans)", fontStyle: "italic" }}
-                  >
-                    ★ {pais.capital}
+              <circle r="30" fill="transparent" />
+              <g className="origin-center transition-transform duration-300 group-hover:scale-125">
+                <circle r="17" fill="var(--card)" stroke="var(--brass)" strokeWidth="3" />
+                {pais.bandeira_url ? (
+                  <image
+                    href={pais.bandeira_url}
+                    x="-15"
+                    y="-15"
+                    width="30"
+                    height="30"
+                    preserveAspectRatio="xMidYMid slice"
+                    clipPath={`url(#clip-${pais.id})`}
+                  />
+                ) : (
+                  <text y="6" textAnchor="middle" fontSize="18">
+                    {pais.bandeira}
                   </text>
+                )}
+                {carimbado && (
+                  <g transform="translate(11 -13) scale(0.22)" className="star-drop">
+                    <polygon
+                      points={ESTRELA}
+                      fill="var(--map-star)"
+                      stroke="#ffffff"
+                      strokeWidth="8"
+                      strokeLinejoin="round"
+                    />
+                  </g>
                 )}
               </g>
 
-              {carimbado && (
-                <g
-                  transform={`translate(${largura / 2 - 4} ${pais.capital ? -38 : -29}) scale(0.4)`}
-                  className="star-drop"
-                >
-                  <polygon
-                    points={ESTRELA}
-                    fill="var(--map-star)"
-                    stroke="#ffffff"
-                    strokeWidth="7"
-                    strokeLinejoin="round"
-                  />
+              {mostraNome && (
+                <g pointerEvents="none">
+                  <text
+                    y="34"
+                    textAnchor="middle"
+                    fontSize="15"
+                    fill="var(--foreground)"
+                    stroke="var(--card)"
+                    strokeWidth="3"
+                    paintOrder="stroke"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    {pais.nome}
+                  </text>
+                  {pais.capital && (
+                    <text
+                      y="48"
+                      textAnchor="middle"
+                      fontSize="11"
+                      fill="var(--muted-foreground)"
+                      stroke="var(--card)"
+                      strokeWidth="3.5"
+                      paintOrder="stroke"
+                      style={{ fontFamily: "var(--font-sans)", fontStyle: "italic" }}
+                    >
+                      ★ {pais.capital}
+                    </text>
+                  )}
                 </g>
               )}
             </g>
           );
         })}
 
-
-        <g
-          transform={`translate(${aviao.x} ${aviao.y}) rotate(${angulo}) scale(${px(1)})`}
-          style={{ transition: "transform 1100ms cubic-bezier(0.45,0,0.2,1)" }}
-          pointerEvents="none"
-        >
-          <path
-            d="M-22,0 L14,-11 L14,-3 L26,0 L14,3 L14,11 Z"
-            fill="var(--card)"
-            stroke="var(--foreground)"
-            strokeOpacity="0.45"
-            strokeWidth="2"
-          />
-        </g>
+        {/* Aviãozinho: pousado no último destino ou em pleno voo. */}
+        {voo ? (
+          <g key={voo.d} pointerEvents="none">
+            <animateMotion
+              dur={`${DURACAO_VOO}ms`}
+              fill="freeze"
+              rotate="auto"
+              path={voo.d}
+              calcMode="spline"
+              keyPoints="0;1"
+              keyTimes="0;1"
+              keySplines="0.4 0 0.3 1"
+            />
+            <g transform={`scale(${px(0.85)})`}>
+              <Aviaozinho />
+            </g>
+          </g>
+        ) : (
+          <g
+            transform={`translate(${pousado.x} ${pousado.y}) rotate(-20) scale(${px(0.85)})`}
+            pointerEvents="none"
+          >
+            <Aviaozinho />
+          </g>
+        )}
       </svg>
 
       <div className="absolute right-3 top-3 flex flex-col gap-2">
@@ -434,8 +565,8 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
 
       <p className="absolute bottom-3 left-3 rounded-full bg-card/95 px-3.5 py-1.5 text-xs tracking-wide text-foreground shadow-sm">
         {visitados} de {paises.length}{" "}
-        {paises.length === 1 ? "país explorado" : "países explorados"} · arraste
-        para mover e use + para ler as capitais
+        {paises.length === 1 ? "país explorado" : "países explorados"} · toque numa
+        bandeirinha e o aviãozinho decola do Brasil
       </p>
     </div>
   );

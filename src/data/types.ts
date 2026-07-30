@@ -7,6 +7,15 @@ export type ContinenteId =
   | "africa"
   | "oceania";
 
+/** Som ambiente real de uma etapa da expedição. */
+export interface SomAmbiente {
+  url: string;
+  /** Descrição curta do que se ouve. */
+  legenda: string;
+  /** Crédito de autoria e licença do áudio. */
+  credito?: string;
+}
+
 export interface Transporte {
   nome: string;
   icone: string;
@@ -16,6 +25,8 @@ export interface Transporte {
   credito?: string;
   /** Miniaturas com outros ângulos do transporte. */
   galeria?: FotoGaleria[];
+  /** Som real ouvido a bordo. */
+  som?: SomAmbiente;
 }
 
 
@@ -47,6 +58,8 @@ export interface PontoObservacao {
   galeria?: FotoGaleria[];
   /** Crédito de autoria e licença da imagem. */
   credito?: string;
+  /** Som real do ambiente deste ponto de observação. */
+  som?: SomAmbiente;
 }
 
 export interface ReferenciaDoDia {
@@ -96,6 +109,8 @@ export interface Chegada {
   credito?: string;
   /** Miniaturas com outras fotos reais da chegada. */
   galeria?: FotoGaleria[];
+  /** Som real ouvido na chegada. */
+  som?: SomAmbiente;
 }
 
 /** Texto de deslocamento exibido na abertura de um dia. */
@@ -114,6 +129,8 @@ export interface BaseHospedagem {
   credito?: string;
   /** Miniaturas com outras fotos reais da base. */
   galeria?: FotoGaleria[];
+  /** Som real do ambiente da base. */
+  som?: SomAmbiente;
 }
 
 
@@ -154,6 +171,8 @@ export interface ItemNatureza {
   credito?: string;
   /** Miniaturas com outras fotos reais do animal. */
   galeria?: FotoGaleria[];
+  /** Gravação real da voz do animal. */
+  som?: SomAmbiente;
 }
 
 export interface ItemGastronomia {
@@ -168,6 +187,8 @@ export interface ItemGastronomia {
   destaque?: string;
   /** Miniaturas com o lugar onde se come e outras opções. */
   galeria?: FotoGaleria[];
+  /** Som real do lugar onde se come (burburinho, pratos). */
+  som?: SomAmbiente;
 }
 
 export interface Comparativo {

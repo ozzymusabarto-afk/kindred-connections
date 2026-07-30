@@ -1,3 +1,4 @@
+import { BotaoSom } from "./BotaoSom";
 import { GaleriaObservacao } from "./GaleriaObservacao";
 import { ImagemHotspots } from "./ImagemHotspots";
 import { NotaComparativaBrasil } from "./NotaComparativaBrasil";
@@ -67,6 +68,8 @@ export function TelaObservacao({
       aoVoltar={onVoltar}
     >
       <p className="text-sm leading-relaxed text-muted-foreground">{dia.descricao}</p>
+
+      <BotaoSom som={dia.observacao?.som} rotulo="Ouça este lugar" />
 
       <NotaComparativaBrasil nota={dia.notas_brasil?.observacao} />
 

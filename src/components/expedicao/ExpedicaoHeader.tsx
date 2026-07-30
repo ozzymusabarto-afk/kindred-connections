@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { pararAmbiente } from "@/lib/ambiente";
 import { definirSom, somLigado } from "@/lib/sfx";
 import type { Pais } from "@/data/types";
 
@@ -47,6 +48,7 @@ export function ExpedicaoHeader({ pais, guia, clima }: Props) {
             onClick={() => {
               definirSom(!som);
               setSom(!som);
+              if (som) pararAmbiente();
             }}
             aria-pressed={som}
             className="shrink-0 rounded-full border border-border bg-background px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-accent"

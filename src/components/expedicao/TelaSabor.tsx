@@ -1,3 +1,4 @@
+import { BotaoSom } from "./BotaoSom";
 import { GaleriaObservacao } from "./GaleriaObservacao";
 import { NotaComparativaBrasil } from "./NotaComparativaBrasil";
 import { PerguntaSocraticaCampo } from "./PerguntaSocratica";
@@ -75,6 +76,8 @@ export function TelaSabor({ pais, dia, respostas, onResponder, onAvancar, onVolt
           {prato.destaque}
         </p>
       )}
+
+      <BotaoSom som={prato?.som} rotulo="Ouça o movimento do lugar" />
 
       <NotaComparativaBrasil nota={dia.notas_brasil?.sabor} />
 

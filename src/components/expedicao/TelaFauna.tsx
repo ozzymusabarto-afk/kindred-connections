@@ -1,3 +1,4 @@
+import { BotaoSom } from "./BotaoSom";
 import { GaleriaObservacao } from "./GaleriaObservacao";
 import { NotaComparativaBrasil } from "./NotaComparativaBrasil";
 import { PerguntaSocraticaCampo } from "./PerguntaSocratica";
@@ -70,11 +71,7 @@ export function TelaFauna({ pais, dia, respostas, onResponder, onAvancar, onVolt
             <strong className="font-normal text-foreground">Habitat: </strong>
             {animal.habitat}
           </p>
-          {animal.som_url && (
-            <audio controls src={animal.som_url} className="w-full">
-              <track kind="captions" />
-            </audio>
-          )}
+          <BotaoSom som={animal.som} rotulo={`Ouça ${animal.nome.toLowerCase()}`} />
         </>
       )}
 
