@@ -25,6 +25,9 @@ export function TelaCarimbo({
   onRefazer,
 }: Props) {
   return (
+  const { nome } = useExplorador();
+
+  return (
     <section
       key={`carimbo-${dia.dia}`}
       className="slide-in mx-auto max-w-2xl rounded-2xl border-2 border-dashed border-brass bg-card p-6 text-center shadow-lg sm:p-10"
@@ -36,15 +39,22 @@ export function TelaCarimbo({
         Passaporte carimbado
       </p>
       <h2 className="mt-1 font-display text-2xl text-foreground">
-        Dia {dia.dia} em {pais.nome} concluído!
+        Dia {dia.dia} em {pais.nome} concluído{nome ? `, ${nome}` : ""}!
       </h2>
       <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
         Suas observações ficaram guardadas no caderno do explorador. Você já carimbou {concluidos}{" "}
         de {diasTotal} dias desta expedição.
       </p>
 
+      {dia.desafio && (
+        <div className="mt-7">
+          <DesafioObservacao desafio={dia.desafio} />
+        </div>
+      )}
+
       <div className="mt-7 flex flex-col gap-3">
         {proximoDia ? (
+
           <button
             type="button"
             onClick={() => onProximoDia(proximoDia)}
