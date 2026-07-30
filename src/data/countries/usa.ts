@@ -152,6 +152,11 @@ export const estadosUnidos: Pais = {
       },
       observacao: {
         titulo: "O Central Park",
+        som: {
+          url: "/__l5e/assets-v1/b41dcd77-b706-4b5d-9334-868e7e303076/usa-som-parque.mp3",
+          legenda: "Brisa leve e pássaros cantando, como no parque em dia de outono",
+          credito: "Wikimedia Commons · domínio público",
+        },
 
         imagem_url:
           "/__l5e/assets-v1/4c7d8f83-36ef-4636-b10e-c774de123856/the-lake-in-central-park-in-autumn-10.jpg",
@@ -520,6 +525,11 @@ export const estadosUnidos: Pais = {
       },
       observacao: {
         titulo: "O laboratório onde nascem os robôs de Marte (JPL)",
+        som: {
+          url: "/__l5e/assets-v1/a7797c55-a4c5-4d28-8b2d-8c2a58b9cec2/usa-som-ondas.mp3",
+          legenda: "Ondas do Oceano Pacífico batendo na costa rochosa da Califórnia",
+          credito: "Wikimedia Commons · CC BY 3.0",
+        },
         imagem_url: "/__l5e/assets-v1/b362a85d-3541-46e9-9061-3d59b860a378/rep-observacao-california.jpg",
         credito: "Rover Curiosity na sala limpa do JPL, Pasadena — NASA/JPL (domínio público)",
         hotspots: [
@@ -666,6 +676,11 @@ export const estadosUnidos: Pais = {
         "/__l5e/assets-v1/44072460-3174-4e38-af33-e3876bf8043c/sciurus-carolinensis-eating-nuts.jpg",
       credito: "Wikimedia Commons",
       som_url: null,
+      som: {
+        url: "/__l5e/assets-v1/c102484d-9069-4d52-a600-da16295e0059/usa-som-esquilo.mp3",
+        legenda: "Gravação real do chamado do esquilo-cinzento-americano",
+        credito: "Wikimedia Commons · CC BY-SA 4.0",
+      },
       curiosidade:
         "No outono ele trabalha sem parar: enterra centenas de sementes e nozes pelo chão do parque para ter o que comer quando a neve cobrir tudo. E esquece onde guardou quase metade delas! Essas nozes esquecidas germinam e viram novas árvores — eles são os grandes reflorestadores naturais da América do Norte.",
       habitat: "Parques, praças e árvores de rua das grandes cidades.",
@@ -736,6 +751,11 @@ export const estadosUnidos: Pais = {
         "/__l5e/assets-v1/2a250c30-da71-4c4a-b265-f67e551c2e1a/wild-sea-otter-17348235490.jpg",
       credito: "Wikimedia Commons",
       som_url: null,
+      som: {
+        url: "/__l5e/assets-v1/4934d935-a107-4cf6-97c1-811f9f86e563/usa-som-lontra.mp3",
+        legenda: "Gravação real da voz de uma nutria-marinha",
+        credito: "Rosa, aquário da Califórnia — Wikimedia Commons · CC BY 4.0",
+      },
       curiosidade:
         "Pega uma pedra plana, coloca sobre a barriga enquanto flutua de costas e usa a pedra como bigorna para quebrar conchas de ouriços e mariscos. É um dos raríssimos animais que usam ferramentas de verdade.",
       habitat: "Florestas de algas (kelp) na costa fria do Pacífico.",
@@ -773,6 +793,11 @@ export const estadosUnidos: Pais = {
         "/__l5e/assets-v1/6a82083c-2cc3-45da-8d77-7b78ed520412/toasted-sesame-bagel-with-cream-cheese-massachusetts.jpg",
       credito: "Wikimedia Commons",
       adjetivo: "clássico",
+      som: {
+        url: "/__l5e/assets-v1/b258c296-ab8d-4933-8a8d-dfba24668432/usa-som-padaria.mp3",
+        legenda: "Burburinho real de pessoas conversando dentro de um salão movimentado",
+        credito: "Wikimedia Commons · domínio público",
+      },
       historia:
         "Foi trazido para os Estados Unidos por imigrantes judeus vindos da Europa Oriental no século 19. Eles trouxeram as receitas de família na bagagem, e o bagel virou o símbolo do café da manhã rápido de quem vive na correria da cidade. É fervido antes de assar, o que deixa a casca brilhante e o miolo macio.",
       destaque: "Nas padarias de Nova York, o pedido nº 1 é o everything bagel com cream cheese, comido em pé no balcão antes do trabalho.",
@@ -807,6 +832,11 @@ export const estadosUnidos: Pais = {
         "/__l5e/assets-v1/9a1d018a-d539-4fa8-a797-1c1c25de7774/chili-con-carne-7556966148.jpg",
       credito: "Wikimedia Commons",
       adjetivo: "reconfortante",
+      som: {
+        url: "/__l5e/assets-v1/a2244262-f4ce-42c8-aa12-4742ea7a440b/usa-som-diner.mp3",
+        legenda: "Burburinho real de um restaurante cheio: conversas, pratos e talheres",
+        credito: "Wikimedia Commons · domínio público",
+      },
       historia:
         "Ensopado de carne moída, feijões vermelhos, tomates e pimentas suaves, cozido lentamente em panelas de ferro e servido com cornbread. Nasceu da fusão entre a culinária dos povos nativos, os colonizadores espanhóis e os pioneiros que cruzavam o deserto.",
       destaque: "No sudoeste, o prato mais pedido é o chili servido com uma fatia de cornbread quentinho ao lado.",
@@ -841,6 +871,11 @@ export const estadosUnidos: Pais = {
         "/__l5e/assets-v1/3370ea3c-a3ce-4f57-9ee3-eedd674e5ce5/mmm-apple-pie-ala-mode.jpg",
       credito: "Wikimedia Commons",
       adjetivo: "tradicional",
+      som: {
+        url: "/__l5e/assets-v1/b41dcd77-b706-4b5d-9334-868e7e303076/usa-som-parque.mp3",
+        legenda: "Brisa e pássaros, como num pomar de maçãs ao ar livre",
+        credito: "Wikimedia Commons · domínio público",
+      },
       historia:
         "Massa crocante e dourada recheada com maçãs frescas, canela e noz-moscada, servida quentinha com uma bola de sorvete de baunilha. A maçã é uma das frutas mais cultivadas nas regiões frias e temperadas do norte dos EUA, e assar a torta é um jeito de celebrar a colheita.",
       destaque: "A versão mais pedida é a à la mode: fatia quente com uma bola de sorvete de baunilha derretendo por cima.",
