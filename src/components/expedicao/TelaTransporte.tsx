@@ -56,13 +56,6 @@ export function TelaTransporte({ dia, onAvancar, onVoltar }: Props) {
       {transporte?.descricao && (
         <p className="text-sm leading-relaxed text-muted-foreground">{transporte.descricao}</p>
       )}
-      {transporte?.galeria && transporte.galeria.length > 0 && (
-        <GaleriaObservacao
-          fotos={transporte.galeria}
-          local={transporte.nome}
-          titulo="Outros ângulos do transporte"
-        />
-      )}
     </TelaJornada>
   );
 }
