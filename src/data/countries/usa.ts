@@ -16,6 +16,9 @@ export const estadosUnidos: Pais = {
   continente: "america-do-norte",
   codigo_mapa: "us",
   bandeira: "🇺🇸",
+  bandeira_url:
+    "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-us.png",
+  capital: "Washington, D.C.",
   coordenadas: { x: 675, y: 370 },
   imagem_capa:
     "/__l5e/assets-v1/b3acabd4-e1ab-4379-94bf-1f4cb0e96b42/grand-canyon-view-with-colorado-river.jpg",
