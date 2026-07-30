@@ -38,11 +38,19 @@ export function TelaObservacao({
       titulo={dia.observacao?.titulo ?? dia.titulo}
       midia={
         dia.observacao ? (
-          <ImagemHotspots
-            observacao={dia.observacao}
-            vistos={progresso.hotspots}
-            onAbrir={onAbrirHotspot}
-          />
+          <div>
+            <ImagemHotspots
+              observacao={dia.observacao}
+              vistos={progresso.hotspots}
+              onAbrir={onAbrirHotspot}
+            />
+            {dia.observacao.galeria && dia.observacao.galeria.length > 0 && (
+              <GaleriaObservacao
+                fotos={dia.observacao.galeria}
+                local={dia.observacao.titulo}
+              />
+            )}
+          </div>
         ) : undefined
       }
       imagem={dia.imagem_url}
