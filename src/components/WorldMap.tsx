@@ -456,6 +456,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
                 if (e.key === "Enter" || e.key === " ") viajar(pais, ponto);
               }}
             >
+              <circle r="30" fill="transparent" />
               <g className="origin-center transition-transform duration-300 group-hover:scale-125">
                 <circle r="17" fill="var(--card)" stroke="var(--brass)" strokeWidth="3" />
                 {pais.bandeira_url ? (
@@ -494,7 +495,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
                     fontSize="15"
                     fill="var(--foreground)"
                     stroke="var(--card)"
-                    strokeWidth="4"
+                    strokeWidth="3"
                     paintOrder="stroke"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
@@ -533,13 +534,13 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               keyTimes="0;1"
               keySplines="0.4 0 0.3 1"
             />
-            <g transform={`scale(${px(1)})`}>
+            <g transform={`scale(${px(0.85)})`}>
               <Aviaozinho />
             </g>
           </g>
         ) : (
           <g
-            transform={`translate(${pousado.x} ${pousado.y}) rotate(-20) scale(${px(1)})`}
+            transform={`translate(${pousado.x} ${pousado.y}) rotate(-20) scale(${px(0.85)})`}
             pointerEvents="none"
           >
             <Aviaozinho />
