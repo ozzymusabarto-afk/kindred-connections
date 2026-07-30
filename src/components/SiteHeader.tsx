@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 
 interface SiteHeaderProps {
-  ativo?: "mapa" | "passaporte" | "comparar";
+  ativo?: "mapa" | "passaporte" | "comparar" | "album";
 }
+
 
 export function SiteHeader({ ativo }: SiteHeaderProps) {
   const link = (chave: string) =>

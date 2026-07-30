@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PassaporteRouteImport } from './routes/passaporte'
 import { Route as CompararRouteImport } from './routes/comparar'
+import { Route as AlbumRouteImport } from './routes/album'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PaisIdRouteImport } from './routes/pais.$id'
 
@@ -22,6 +23,11 @@ const PassaporteRoute = PassaporteRouteImport.update({
 const CompararRoute = CompararRouteImport.update({
   id: '/comparar',
   path: '/comparar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlbumRoute = AlbumRouteImport.update({
+  id: '/album',
+  path: '/album',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -37,12 +43,14 @@ const PaisIdRoute = PaisIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/album': typeof AlbumRoute
   '/comparar': typeof CompararRoute
   '/passaporte': typeof PassaporteRoute
   '/pais/$id': typeof PaisIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/album': typeof AlbumRoute
   '/comparar': typeof CompararRoute
   '/passaporte': typeof PassaporteRoute
   '/pais/$id': typeof PaisIdRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/album': typeof AlbumRoute
   '/comparar': typeof CompararRoute
   '/passaporte': typeof PassaporteRoute
   '/pais/$id': typeof PaisIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/comparar' | '/passaporte' | '/pais/$id'
+  fullPaths: '/' | '/album' | '/comparar' | '/passaporte' | '/pais/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/comparar' | '/passaporte' | '/pais/$id'
-  id: '__root__' | '/' | '/comparar' | '/passaporte' | '/pais/$id'
+  to: '/' | '/album' | '/comparar' | '/passaporte' | '/pais/$id'
+  id: '__root__' | '/' | '/album' | '/comparar' | '/passaporte' | '/pais/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlbumRoute: typeof AlbumRoute
   CompararRoute: typeof CompararRoute
   PassaporteRoute: typeof PassaporteRoute
   PaisIdRoute: typeof PaisIdRoute
@@ -85,6 +95,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CompararRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/album': {
+      id: '/album'
+      path: '/album'
+      fullPath: '/album'
+      preLoaderRoute: typeof AlbumRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlbumRoute: AlbumRoute,
   CompararRoute: CompararRoute,
   PassaporteRoute: PassaporteRoute,
   PaisIdRoute: PaisIdRoute,
