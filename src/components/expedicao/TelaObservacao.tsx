@@ -45,10 +45,12 @@ export function TelaObservacao({
               onAbrir={onAbrirHotspot}
             />
             {dia.observacao.galeria && dia.observacao.galeria.length > 0 && (
-              <GaleriaObservacao
-                fotos={dia.observacao.galeria}
-                local={dia.observacao.titulo}
-              />
+              <div className="px-4 pb-4">
+                <GaleriaObservacao
+                  fotos={dia.observacao.galeria}
+                  local={dia.observacao.titulo}
+                />
+              </div>
             )}
           </div>
         ) : undefined
