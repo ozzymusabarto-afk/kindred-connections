@@ -23,7 +23,11 @@ const ZOOM_MAX = 24;
 const ESTRELA = "50,3 61,35 95,35 68,56 78,90 50,70 22,90 32,56 5,35 39,35";
 
 /** Capitais cujo nome em português difere do nome original do mapa. */
+/** Ponto de partida de toda expedição: o Brasil, casa dos exploradores. */
+const ORIGEM_BRASIL = WORLD_COUNTRIES.find((c) => c.id === "br")?.capital ?? null;
+
 const CAPITAIS_PT: Record<string, string> = {
+
   "Mexico City": "Cidade do México",
   "Washington, D.C.": "Washington",
   "Washington D.C.": "Washington",
