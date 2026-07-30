@@ -623,7 +623,38 @@ export const estadosUnidos: Pais = {
         texto_guia:
           "Parabéns pela sua dedicação! Você investigou a metrópole, o deserto, os cânions e a tecnologia do Pacífico. Seu passaporte oficial acaba de receber o carimbo de ouro dos Estados Unidos!",
       },
+      notas_brasil: {
+        transporte: {
+          texto:
+            "São Francisco ainda usa bondes que sobem ladeiras puxados por cabos de aço. No Brasil temos o bondinho de Santa Teresa, no Rio de Janeiro, que faz a mesma coisa: vencer a ladeira sem depender de pneus.",
+        },
+        observacao: {
+          texto:
+            "A névoa fria que cobre a ponte Golden Gate nasce do encontro do ar quente com um mar muito frio. No litoral de Santa Catarina acontece algo parecido em dias de vento sul — só que o mar brasileiro nunca chega a ser tão gelado.",
+        },
+        fauna: {
+          texto:
+            "A nútria-marinha vive nas algas do Pacífico. No litoral brasileiro, quem cumpre o papel de mamífero das águas costeiras é o boto-cinza, que aparece em baías como a de Cananéia e a Babitonga.",
+        },
+        sabor: {
+          texto:
+            "A torta de maçã é o doce símbolo dos EUA, feita com a fruta que cresce bem no clima frio. No Brasil, o doce que aparece em toda festa de família é a torta de banana ou o bolo de milho — cada país usa a fruta que sua terra dá.",
+        },
+      },
+      desafio: {
+        pergunta:
+          "Você observou a nútria-marinha flutuando de barriga para cima dentro das algas. Para que serve essa floresta de algas para ela?",
+        opcoes: [
+          "Só para enfeitar o mar",
+          "Serve de âncora e de esconderijo: ela se enrola nas algas para não ser levada pela correnteza enquanto dorme",
+          "Ela come as algas no lugar de peixes",
+        ],
+        correta: 1,
+        explicacao:
+          "A nútria se enrola nas algas como um cinto de segurança para não ser arrastada pela corrente enquanto descansa — e ainda usa a barriga como mesinha para quebrar conchas com uma pedra.",
+      },
     },
+
   ],
 
   fauna_flora: [
