@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { pararAmbiente } from "@/lib/ambiente";
 import { definirSom, somLigado } from "@/lib/sfx";
 import type { Pais } from "@/data/types";
 
