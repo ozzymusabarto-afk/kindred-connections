@@ -22,6 +22,61 @@ const VISTA_MUNDO: Vista = { x: 0, y: 0, w: W, h: H };
 const ZOOM_MAX = 24;
 const ESTRELA = "50,3 61,35 95,35 68,56 78,90 50,70 22,90 32,56 5,35 39,35";
 
+/** Capitais cujo nome em português difere do nome original do mapa. */
+const CAPITAIS_PT: Record<string, string> = {
+  "Mexico City": "Cidade do México",
+  "Washington, D.C.": "Washington",
+  "Washington D.C.": "Washington",
+  Brasilia: "Brasília",
+  Bogota: "Bogotá",
+  Asuncion: "Assunção",
+  Panama: "Cidade do Panamá",
+  "Panama City": "Cidade do Panamá",
+  "San Jose": "São José",
+  "San Salvador": "San Salvador",
+  Havana: "Havana",
+  Lisbon: "Lisboa",
+  Rome: "Roma",
+  Athens: "Atenas",
+  Bern: "Berna",
+  Vienna: "Viena",
+  Brussels: "Bruxelas",
+  Copenhagen: "Copenhague",
+  Moscow: "Moscou",
+  Warsaw: "Varsóvia",
+  Prague: "Praga",
+  Bucharest: "Bucareste",
+  Stockholm: "Estocolmo",
+  Helsinki: "Helsinque",
+  Dublin: "Dublin",
+  London: "Londres",
+  Paris: "Paris",
+  Berlin: "Berlim",
+  Madrid: "Madri",
+  Cairo: "Cairo",
+  Algiers: "Argel",
+  Tunis: "Túnis",
+  Rabat: "Rabate",
+  Nairobi: "Nairóbi",
+  "Addis Ababa": "Adis Abeba",
+  Khartoum: "Cartum",
+  Beijing: "Pequim",
+  Tokyo: "Tóquio",
+  Seoul: "Seul",
+  "New Delhi": "Nova Délhi",
+  Bangkok: "Bangcoc",
+  Jakarta: "Jacarta",
+  Damascus: "Damasco",
+  Baghdad: "Bagdá",
+  Tehran: "Teerã",
+  Riyadh: "Riade",
+  Ankara: "Ancara",
+  Canberra: "Camberra",
+  Wellington: "Wellington",
+};
+
+
+
 /** Mantém a vista dentro do mundo e com zoom válido. */
 function limitar(v: Vista): Vista {
   const w = Math.min(W, Math.max(W / ZOOM_MAX, v.w));
