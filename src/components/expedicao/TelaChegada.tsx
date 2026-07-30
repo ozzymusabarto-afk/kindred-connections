@@ -1,4 +1,5 @@
 import { TelaJornada } from "./TelaJornada";
+import { GaleriaObservacao } from "./GaleriaObservacao";
 import type { Pais } from "@/data/types";
 
 interface Props {
@@ -15,8 +16,18 @@ export function TelaChegada({ pais, onAvancar }: Props) {
       titulo={`Apertando os cintos! Estamos pousando no ${pais.nome}…`}
       imagem={chegada?.imagem_url ?? pais.imagem_capa}
       alt={`Vista da janela do avião chegando ao ${pais.nome}`}
+      abaixoDaMidia={
+        chegada?.galeria?.length ? (
+          <GaleriaObservacao
+            fotos={chegada.galeria}
+            local={pais.nome}
+            titulo="Outras vistas da nossa chegada"
+          />
+        ) : undefined
+      }
       acao={{ rotulo: "Desembarcar no aeroporto ➔", onClick: onAvancar }}
     >
+
       {chegada?.fala_piloto_original && (
         <div className="space-y-2 rounded-xl border-2 border-dashed border-brass/60 bg-background p-4">
           <p className="text-[11px] uppercase tracking-[0.24em] text-brass">
