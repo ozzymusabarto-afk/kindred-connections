@@ -275,7 +275,12 @@ function SimuladorViagem() {
             proximoDia={proximoDia}
             onProximoDia={(d) => ir("transporte", d)}
             onRefazer={() => ir("transporte")}
+            onEncerrar={() => ir("despedida")}
           />
+        )}
+
+        {tela === "despedida" && (
+          <TelaDespedida pais={pais} onVoltar={() => ir("carimbo")} />
         )}
 
         <p className="mt-12 text-sm text-muted-foreground">
