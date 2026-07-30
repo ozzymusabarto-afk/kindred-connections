@@ -288,10 +288,15 @@ function SimuladorViagem() {
             Ver passaporte
           </Link>{" "}
           ·{" "}
+          <Link to="/album" className="underline underline-offset-4">
+            Álbum do explorador
+          </Link>{" "}
+          ·{" "}
           <Link to="/comparar" className="underline underline-offset-4">
             Comparar países
           </Link>
         </p>
+
       </main>
 
       <CompassButton />
