@@ -25,6 +25,7 @@ export function TelaCarimbo({
   proximoDia,
   onProximoDia,
   onRefazer,
+  onEncerrar,
 }: Props) {
   const { nome } = useExplorador();
 
