@@ -13,7 +13,12 @@ interface Props {
 export function BotaoSom({ som, rotulo = "Ouça este lugar" }: Props) {
   const [tocando, setTocando] = useState<string | null>(null);
 
-  useEffect(() => assinarAmbiente(setTocando), []);
+  useEffect(() => {
+    const cancelar = assinarAmbiente(setTocando);
+    return () => {
+      cancelar();
+    };
+  }, []);
   useEffect(() => () => pararAmbiente(), [som?.url]);
 
   if (!som) return null;
