@@ -1,3 +1,4 @@
+import { BotaoSom } from "./BotaoSom";
 import { TelaJornada } from "./TelaJornada";
 import { GaleriaObservacao } from "./GaleriaObservacao";
 import { useExplorador, vocativo } from "@/hooks/useExplorador";
@@ -43,6 +44,7 @@ export function TelaCheckin({ pais, dia, onAvancar, onVoltar }: Props) {
         {base?.descricao ??
           "Deixamos as malas na base da expedição e saímos para o primeiro passeio."}
       </p>
+      <BotaoSom som={base?.som} rotulo="Ouça o saguão do hotel" />
       <div className="rounded-xl border-2 border-dashed border-brass bg-accent/50 p-4">
         <p className="text-[11px] uppercase tracking-[0.24em] text-accent-foreground">
           Encontro com o guia

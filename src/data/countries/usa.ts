@@ -30,6 +30,12 @@ export const estadosUnidos: Pais = {
     imagem_url: "/__l5e/assets-v1/9f0d4526-6b9c-4e8e-b124-91e0901e4b3c/usa-chegada-janela.jpg",
     credito:
       "Recriação da vista da janela do avião sobre Manhattan em tarde de outono (ilustração fiel à paisagem real)",
+    som: {
+      url: "/__l5e/assets-v1/9afe377d-cb48-4411-9a63-1faf031180a1/usa-som-pouso.mp3",
+      legenda:
+        "Gravação real feita dentro de um avião durante a descida e o pouso: o ronco dos motores e o barulho do ar",
+      credito: "Wilfredor — Wikimedia Commons · CC0",
+    },
     idioma: "Inglês",
     fuso_horario: "15h00 no horário local — 1 hora a menos que Brasília",
     temperatura: "12 °C, brisa fresca de outono",
@@ -75,6 +81,12 @@ export const estadosUnidos: Pais = {
     nome: "Hotel boutique no coração de Nova York",
     imagem_url: "/__l5e/assets-v1/abb8ecf9-d56c-4e95-aaae-9f4eb00bd801/rep-base-eua.jpg",
     credito: "Saguão do Waldorf Astoria, Nova York (Wikimedia Commons)",
+    som: {
+      url: "/__l5e/assets-v1/b258c296-ab8d-4933-8a8d-dfba24668432/usa-som-padaria.mp3",
+      legenda:
+        "Burburinho real de pessoas conversando num saguão movimentado, como na recepção do hotel",
+      credito: "Wikimedia Commons · domínio público",
+    },
     descricao:
       "“Welcome to New York! Eu me chamo Sarah e vou acompanhar cada passo da sua jornada pelos Estados Unidos. Os EUA são um país continental imenso: 50 estados, desertos alaranjados no Arizona, vulcões no Havaí, montanhas nevadas no Alasca e florestas densas. Hoje nossa base é este hotel no coração de uma das maiores cidades do mundo. Dê uma olhada no termômetro do saguão: lá fora faz 12 °C. No Brasil, com essa temperatura, a gente já busca o casaco pesado, não é? Aqui as pessoas já estão acostumadas e caminham rápido pelas calçadas. Coloque seu agasalho: nosso primeiro transporte já está na porta!”",
     galeria: [
@@ -337,6 +349,12 @@ export const estadosUnidos: Pais = {
       },
       observacao: {
         titulo: "O Grand Canyon",
+        som: {
+          url: "/__l5e/assets-v1/fdf8ffd2-21f2-416c-8ea3-7475b7bb1932/usa-som-vento.mp3",
+          legenda:
+            "Vento soprando ao ar livre, como na borda do cânion — é essa corrente de ar que o condor usa para planar",
+          credito: "Gravity Sound — Wikimedia Commons · CC BY 4.0",
+        },
         imagem_url:
           "/__l5e/assets-v1/b3acabd4-e1ab-4379-94bf-1f4cb0e96b42/grand-canyon-view-with-colorado-river.jpg",
         credito: "Wikimedia Commons",
@@ -716,6 +734,12 @@ export const estadosUnidos: Pais = {
         "/__l5e/assets-v1/ca925c66-5f34-4757-b165-2e36717edae6/grand-canyon-national-park-california-condor-87-3462-5735691.jpg",
       credito: "Wikimedia Commons",
       som_url: null,
+      som: {
+        url: "/__l5e/assets-v1/de2eb5f8-aa82-467a-aa92-46910385fb97/usa-som-corvo.mp3",
+        legenda:
+          "Não existe gravação livre da voz do condor: aqui você ouve o corvo-comum, ave que divide os mesmos cânions com ele",
+        credito: "NPS / David Restivo — Wikimedia Commons · domínio público",
+      },
       curiosidade:
         "Com mais de 3 metros de envergadura, usa as correntes térmicas — colunas de ar quente que sobem do chão aquecido do deserto — para ganhar centenas de metros de altura sem gastar quase nenhuma energia.",
       habitat: "Paredões rochosos e cânions do sudoeste americano.",
