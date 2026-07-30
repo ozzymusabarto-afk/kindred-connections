@@ -65,9 +65,33 @@ export const estadosUnidos: Pais = {
         imagem_url:
           "/__l5e/assets-v1/132b5e70-2b4f-493b-85b2-79c49849a11a/new-york-yellow-cab-ford-crown-victoria-1020716.jpg",
         credito: "Wikimedia Commons",
+        galeria: [
+          {
+            id: "taxi-times",
+            imagem_url:
+              "/__l5e/assets-v1/0a1213fb-7b9d-462c-99bf-4c7bd07af507/usa-taxi-times.jpg",
+            credito: "Marc Lautenbacher / CC BY-SA 4.0",
+            legenda: "Táxi cruzando a Times Square",
+          },
+          {
+            id: "taxi-fila",
+            imagem_url:
+              "/__l5e/assets-v1/2965242d-ac09-4cfd-9f2c-0ec5ae93b982/usa-taxi-fila.jpg",
+            credito: "Matt Kieffer / CC BY-SA 2.0",
+            legenda: "Vários táxis na mesma avenida",
+          },
+          {
+            id: "taxi-neve",
+            imagem_url:
+              "/__l5e/assets-v1/998e2943-3675-4752-9636-58c19a0fa923/usa-taxi-neve.jpg",
+            credito: "Tomás Fano / CC BY-SA 2.0",
+            legenda: "O mesmo táxi no inverno com neve",
+          },
+        ],
       },
       observacao: {
         titulo: "O Central Park",
+
         imagem_url:
           "/__l5e/assets-v1/4c7d8f83-36ef-4636-b10e-c774de123856/the-lake-in-central-park-in-autumn-10.jpg",
         credito: "Wikimedia Commons",
@@ -197,6 +221,22 @@ export const estadosUnidos: Pais = {
           "Para rodar pelas estradas de terra e pedras do Arizona, nosso transporte tem tração nas quatro rodas e pneus altos reforçados. No solo arenoso e irregular do deserto, um carro comum ficaria atolado facilmente. A engenharia dos transportes precisa sempre se adaptar ao terreno da geografia local!",
         imagem_url: "/__l5e/assets-v1/bc2eae83-010f-48ad-90e6-0f3e57eee93a/rep-transporte-arizona.jpg",
         credito: "Jeep no deserto do Arizona — BLM (domínio público)",
+        galeria: [
+          {
+            id: "suv-estrada",
+            imagem_url:
+              "/__l5e/assets-v1/2e00b9f1-79da-4914-9c96-eb78fad78c9f/usa-suv-estrada.jpg",
+            credito: "mypubliclands / domínio público",
+            legenda: "Estrada de terra entre os cactos",
+          },
+          {
+            id: "suv-mirante",
+            imagem_url:
+              "/__l5e/assets-v1/30b3e03c-5fb5-4843-875a-eaa18e922cfb/usa-suv-mirante.jpg",
+            credito: "Fabio Achilli / CC BY 2.0",
+            legenda: "O mirante onde o carro para",
+          },
+        ],
       },
       observacao: {
         titulo: "O Grand Canyon",
@@ -331,6 +371,29 @@ export const estadosUnidos: Pais = {
         imagem_url:
           "/__l5e/assets-v1/44cd7787-1f9c-4895-98ae-9749462d61bc/san-francisco-cable-car-55-dllu.jpg",
         credito: "Wikimedia Commons",
+        galeria: [
+          {
+            id: "cable-ladeira",
+            imagem_url:
+              "/__l5e/assets-v1/5c9916ed-85a3-4dab-b9e8-75c85a7e5395/usa-cable-ladeira.jpg",
+            credito: "Frank Schulenburg / CC BY-SA 4.0",
+            legenda: "Subindo uma ladeira bem íngreme",
+          },
+          {
+            id: "cable-giratorio",
+            imagem_url:
+              "/__l5e/assets-v1/c6c1f3af-327d-4b1d-83ed-b8ecdecf0b0f/usa-cable-giratorio.jpg",
+            credito: "Dietmar Rabich / CC BY-SA 4.0",
+            legenda: "O giratório que vira o bonde",
+          },
+          {
+            id: "cable-baia",
+            imagem_url:
+              "/__l5e/assets-v1/6cfd76aa-6e1c-4d83-b4d1-803533a28d09/usa-cable-baia.jpg",
+            credito: "Thomas Wolf / CC BY-SA 3.0",
+            legenda: "Vista para a baía e Alcatraz",
+          },
+        ],
       },
       observacao: {
         titulo: "O laboratório onde nascem os robôs de Marte (JPL)",
@@ -452,6 +515,29 @@ export const estadosUnidos: Pais = {
       curiosidade:
         "No outono ele trabalha sem parar: enterra centenas de sementes e nozes pelo chão do parque para ter o que comer quando a neve cobrir tudo. E esquece onde guardou quase metade delas! Essas nozes esquecidas germinam e viram novas árvores — eles são os grandes reflorestadores naturais da América do Norte.",
       habitat: "Parques, praças e árvores de rua das grandes cidades.",
+      galeria: [
+        {
+          id: "esq-bolota",
+          imagem_url:
+            "/__l5e/assets-v1/70b11e4b-e4c1-494e-ba8b-74e0ff2dd977/usa-esq-bolota.jpg",
+          credito: "Rhododendrites / CC BY-SA 4.0",
+          legenda: "Carregando uma noz na boca",
+        },
+        {
+          id: "esq-parque",
+          imagem_url:
+            "/__l5e/assets-v1/1bdda48d-b9f5-417f-8e35-440f59b2d970/usa-esq-parque.jpg",
+          credito: "JoeInQueens / CC BY 2.0",
+          legenda: "Num parque de Nova York",
+        },
+        {
+          id: "esq-ninho",
+          imagem_url:
+            "/__l5e/assets-v1/06a70938-3bd3-49c2-8d7b-dce2c2bf2269/usa-esq-ninho.jpg",
+          credito: "Rhododendrites / CC BY-SA 4.0",
+          legenda: "Subindo o tronco no outono",
+        },
+      ],
     },
     {
       id: "condor-da-california",
@@ -464,6 +550,29 @@ export const estadosUnidos: Pais = {
       curiosidade:
         "Com mais de 3 metros de envergadura, usa as correntes térmicas — colunas de ar quente que sobem do chão aquecido do deserto — para ganhar centenas de metros de altura sem gastar quase nenhuma energia.",
       habitat: "Paredões rochosos e cânions do sudoeste americano.",
+      galeria: [
+        {
+          id: "condor-jovem",
+          imagem_url:
+            "/__l5e/assets-v1/0847a001-3d22-4bbb-b082-d0a1d7fc227e/usa-condor-jovem.jpg",
+          credito: "Grand Canyon National Park / CC BY 2.0",
+          legenda: "Condor jovem no Grand Canyon",
+        },
+        {
+          id: "condor-marca",
+          imagem_url:
+            "/__l5e/assets-v1/3d6b5acb-d991-4d1c-8756-7f9a0307aba8/usa-condor-marca.jpg",
+          credito: "USFWS Pacific Southwest Region / domínio público",
+          legenda: "A marca numerada na asa",
+        },
+        {
+          id: "condor-perto",
+          imagem_url:
+            "/__l5e/assets-v1/ac83880c-e664-491a-8da6-1a440a53b9fc/usa-condor-perto.jpg",
+          credito: "USFWS Pacific Southwest Region / domínio público",
+          legenda: "De perto: a cabeça sem penas",
+        },
+      ],
     },
     {
       id: "nutria-marinha",
@@ -476,6 +585,29 @@ export const estadosUnidos: Pais = {
       curiosidade:
         "Pega uma pedra plana, coloca sobre a barriga enquanto flutua de costas e usa a pedra como bigorna para quebrar conchas de ouriços e mariscos. É um dos raríssimos animais que usam ferramentas de verdade.",
       habitat: "Florestas de algas (kelp) na costa fria do Pacífico.",
+      galeria: [
+        {
+          id: "nutria-comendo",
+          imagem_url:
+            "/__l5e/assets-v1/9188a314-1fc7-4897-9586-276a2bd20bdf/usa-nutria-comendo.jpg",
+          credito: "Mike Baird / CC BY 2.0",
+          legenda: "Boiando de barriga para cima",
+        },
+        {
+          id: "nutria-grupo",
+          imagem_url:
+            "/__l5e/assets-v1/f50bc8f2-bfb1-443c-930e-e54e1093ed27/usa-nutria-grupo.jpg",
+          credito: "Mike Baird / CC BY 2.0",
+          legenda: "Grupo enrolado nas algas",
+        },
+        {
+          id: "nutria-patas",
+          imagem_url:
+            "/__l5e/assets-v1/0329f92b-8cbb-4c69-9178-53b45cb61933/usa-nutria-patas.jpg",
+          credito: "Mike Baird / CC BY 2.0",
+          legenda: "De perto: as patinhas peludas",
+        },
+      ],
     },
   ],
 
@@ -489,6 +621,30 @@ export const estadosUnidos: Pais = {
       adjetivo: "clássico",
       historia:
         "Foi trazido para os Estados Unidos por imigrantes judeus vindos da Europa Oriental no século 19. Eles trouxeram as receitas de família na bagagem, e o bagel virou o símbolo do café da manhã rápido de quem vive na correria da cidade. É fervido antes de assar, o que deixa a casca brilhante e o miolo macio.",
+      destaque: "Nas padarias de Nova York, o pedido nº 1 é o everything bagel com cream cheese, comido em pé no balcão antes do trabalho.",
+      galeria: [
+        {
+          id: "bagel-balcao",
+          imagem_url:
+            "/__l5e/assets-v1/2ee72f10-6680-4b4d-a468-218cb5f1bc73/usa-bagel-balcao.jpg",
+          credito: "OathOn / CC BY-SA 4.0",
+          legenda: "O balcão da padaria",
+        },
+        {
+          id: "bagel-fachada",
+          imagem_url:
+            "/__l5e/assets-v1/81cdcba5-9a73-40ae-8bce-a6c01ce66e34/usa-bagel-fachada.jpg",
+          credito: "Mdineenwob / domínio público",
+          legenda: "Fachada de uma bagel shop",
+        },
+        {
+          id: "bagel-salmao",
+          imagem_url:
+            "/__l5e/assets-v1/5caf47b3-30e8-48f3-a89d-3563bc23f0d1/usa-bagel-salmao.jpg",
+          credito: "Pug50 / CC BY 2.0",
+          legenda: "Outra opção: bagel com salmão",
+        },
+      ],
     },
     {
       id: "chili-com-carne",
@@ -499,6 +655,30 @@ export const estadosUnidos: Pais = {
       adjetivo: "reconfortante",
       historia:
         "Ensopado de carne moída, feijões vermelhos, tomates e pimentas suaves, cozido lentamente em panelas de ferro e servido com cornbread. Nasceu da fusão entre a culinária dos povos nativos, os colonizadores espanhóis e os pioneiros que cruzavam o deserto.",
+      destaque: "No sudoeste, o prato mais pedido é o chili servido com uma fatia de cornbread quentinho ao lado.",
+      galeria: [
+        {
+          id: "chili-panela",
+          imagem_url:
+            "/__l5e/assets-v1/c0ca2ca7-e9fd-4a48-aa70-195ef8d1465b/usa-chili-panela.jpg",
+          credito: "Punkgobliner / CC BY-SA 4.0",
+          legenda: "A panela grande no fogo",
+        },
+        {
+          id: "chili-cornbread",
+          imagem_url:
+            "/__l5e/assets-v1/07e1ef05-ebc4-49df-94a9-fd229ac10141/usa-chili-cornbread.jpg",
+          credito: "Alabama Extension / CC0",
+          legenda: "Cornbread na frigideira de ferro",
+        },
+        {
+          id: "chili-diner",
+          imagem_url:
+            "/__l5e/assets-v1/15af4019-2768-4a9f-9771-671df7ff26c2/usa-chili-diner.jpg",
+          credito: "Paul Lowry / CC BY 2.0",
+          legenda: "O salão de um diner americano",
+        },
+      ],
     },
     {
       id: "torta-de-maca",
@@ -509,6 +689,30 @@ export const estadosUnidos: Pais = {
       adjetivo: "tradicional",
       historia:
         "Massa crocante e dourada recheada com maçãs frescas, canela e noz-moscada, servida quentinha com uma bola de sorvete de baunilha. A maçã é uma das frutas mais cultivadas nas regiões frias e temperadas do norte dos EUA, e assar a torta é um jeito de celebrar a colheita.",
+      destaque: "A versão mais pedida é a à la mode: fatia quente com uma bola de sorvete de baunilha derretendo por cima.",
+      galeria: [
+        {
+          id: "pie-inteira",
+          imagem_url:
+            "/__l5e/assets-v1/5988bff5-2487-447e-ba1b-eaef37ac89ef/usa-pie-inteira.jpg",
+          credito: "Jonathunder / GFDL 1.2",
+          legenda: "A torta inteira antes de fatiar",
+        },
+        {
+          id: "pie-trancada",
+          imagem_url:
+            "/__l5e/assets-v1/d2a69823-bb34-4fec-b968-95f82c9c48af/usa-pie-trancada.jpg",
+          credito: "The-Wuje / CC BY-SA 4.0",
+          legenda: "Massa trançada, um clássico",
+        },
+        {
+          id: "pie-pomar",
+          imagem_url:
+            "/__l5e/assets-v1/7da08271-2c64-4a2e-8bdd-2a032207e54c/usa-pie-pomar.jpg",
+          credito: "inkknife_2000 / CC BY-SA 2.0",
+          legenda: "O pomar de maçãs na colheita",
+        },
+      ],
     },
   ],
 
