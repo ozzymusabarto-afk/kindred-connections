@@ -1,7 +1,9 @@
+import { GaleriaObservacao } from "./GaleriaObservacao";
 import { PerguntaSocraticaCampo } from "./PerguntaSocratica";
 import { TelaJornada } from "./TelaJornada";
 import { respostaValida } from "@/hooks/useExpedicao";
 import type { DiaRoteiro, Pais } from "@/data/types";
+
 
 interface Props {
   pais: Pais;
@@ -62,8 +64,16 @@ export function TelaFauna({ pais, dia, respostas, onResponder, onAvancar, onVolt
               <track kind="captions" />
             </audio>
           )}
+          {animal.galeria && animal.galeria.length > 0 && (
+            <GaleriaObservacao
+              fotos={animal.galeria}
+              local={animal.nome}
+              titulo="Mais sobre este animal"
+            />
+          )}
         </>
       )}
+
 
       <div className="space-y-4 rounded-xl border-2 border-dashed border-brass/60 bg-background p-4">
         <p className="text-[11px] uppercase tracking-[0.24em] text-brass">Caderno do explorador</p>

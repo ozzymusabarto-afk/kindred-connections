@@ -1,7 +1,9 @@
+import { GaleriaObservacao } from "./GaleriaObservacao";
 import { PerguntaSocraticaCampo } from "./PerguntaSocratica";
 import { TelaJornada } from "./TelaJornada";
 import { respostaValida } from "@/hooks/useExpedicao";
 import type { DiaRoteiro, Pais } from "@/data/types";
+
 
 interface Props {
   pais: Pais;
@@ -53,6 +55,23 @@ export function TelaSabor({ pais, dia, respostas, onResponder, onAvancar, onVolt
         </span>
       )}
       {prato && <p className="text-sm leading-relaxed text-muted-foreground">{prato.historia}</p>}
+      {prato?.destaque && (
+        <p className="rounded-xl border-2 border-brass/60 bg-background px-4 py-3 text-sm leading-relaxed text-foreground">
+          <span aria-hidden className="mr-2">
+            ⭐
+          </span>
+          <strong className="font-normal text-brass">O mais pedido aqui: </strong>
+          {prato.destaque}
+        </p>
+      )}
+      {prato?.galeria && prato.galeria.length > 0 && (
+        <GaleriaObservacao
+          fotos={prato.galeria}
+          local={prato.nome}
+          titulo="Onde se come e outras opções"
+        />
+      )}
+
 
       <div className="space-y-4 rounded-xl border-2 border-dashed border-brass/60 bg-background p-4">
         <p className="text-[11px] uppercase tracking-[0.24em] text-brass">Caderno do explorador</p>

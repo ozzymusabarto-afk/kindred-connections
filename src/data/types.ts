@@ -14,7 +14,10 @@ export interface Transporte {
   imagem_url?: string;
   /** Crédito de autoria e licença da imagem. */
   credito?: string;
+  /** Miniaturas com outros ângulos do transporte. */
+  galeria?: FotoGaleria[];
 }
+
 
 export interface Hotspot {
   id: string;
@@ -119,6 +122,8 @@ export interface ItemNatureza {
   habitat: string;
   /** Crédito de autoria e licença da imagem. */
   credito?: string;
+  /** Miniaturas com outras fotos reais do animal. */
+  galeria?: FotoGaleria[];
 }
 
 export interface ItemGastronomia {
@@ -129,6 +134,10 @@ export interface ItemGastronomia {
   historia: string;
   /** Crédito de autoria e licença da imagem. */
   credito?: string;
+  /** O pedido mais comum no local visitado. */
+  destaque?: string;
+  /** Miniaturas com o lugar onde se come e outras opções. */
+  galeria?: FotoGaleria[];
 }
 
 export interface Comparativo {
