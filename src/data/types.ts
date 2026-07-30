@@ -24,10 +24,20 @@ export interface Hotspot {
   texto: string;
 }
 
+/** Foto secundária da galeria do ponto de observação (sem lupas). */
+export interface FotoGaleria {
+  id: string;
+  imagem_url: string;
+  /** Legenda curta exibida abaixo da miniatura. */
+  legenda: string;
+}
+
 export interface PontoObservacao {
   titulo: string;
   imagem_url: string;
   hotspots: Hotspot[];
+  /** Miniaturas com outros ângulos do local. */
+  galeria?: FotoGaleria[];
 }
 
 export interface ReferenciaDoDia {
