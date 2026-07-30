@@ -29,6 +29,7 @@ export const Route = createFileRoute("/passaporte")({
 
 function Passaporte() {
   const { carimbos, pronto } = usePassport();
+  const { nome } = useExplorador();
   const [progresso, setProgresso] = useState<ProgressoExpedicao>({});
 
   useEffect(() => setProgresso(lerProgressoTudo()), []);
@@ -38,15 +39,28 @@ function Passaporte() {
     <div className="min-h-screen">
       <SiteHeader ativo="passaporte" />
 
-      <main className="mx-auto max-w-4xl px-5 py-10">
+      <main className="mx-auto max-w-4xl px-5 py-10 print:py-0">
         <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
           Documento do explorador
         </p>
-        <h1 className="mt-3 text-4xl leading-tight text-foreground">Passaporte</h1>
+        <h1 className="mt-3 text-4xl leading-tight text-foreground">
+          Passaporte{nome ? ` de ${nome}` : ""}
+        </h1>
         <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
           Cada carimbo nasce de uma observação escrita por você. Eles ficam
           guardados neste navegador.
         </p>
+
+        {pronto && carimbos.length > 0 && (
+          <button
+            type="button"
+            onClick={() => window.print()}
+            className="mt-5 rounded-full border-2 border-brass bg-card px-5 py-2.5 font-display text-sm tracking-wide text-foreground shadow-sm transition-transform hover:scale-[1.03] print:hidden"
+          >
+            🖨️ Imprimir meu diário de viagem
+          </button>
+        )}
+
 
         {pronto && carimbos.length === 0 && (
           <p className="mt-10 rounded-md border border-dashed border-border p-8 text-center text-sm text-muted-foreground">
