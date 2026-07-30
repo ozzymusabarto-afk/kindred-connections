@@ -1,3 +1,4 @@
+import { GaleriaObservacao } from "./GaleriaObservacao";
 import { TelaJornada } from "./TelaJornada";
 import type { DiaRoteiro } from "@/data/types";
 
@@ -44,6 +45,13 @@ export function TelaTransporte({ dia, onAvancar, onVoltar }: Props) {
       </p>
       {transporte?.descricao && (
         <p className="text-sm leading-relaxed text-muted-foreground">{transporte.descricao}</p>
+      )}
+      {transporte?.galeria && transporte.galeria.length > 0 && (
+        <GaleriaObservacao
+          fotos={transporte.galeria}
+          local={transporte.nome}
+          titulo="Outros ângulos do transporte"
+        />
       )}
     </TelaJornada>
   );

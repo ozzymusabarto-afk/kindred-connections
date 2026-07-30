@@ -6,9 +6,11 @@ interface Props {
   fotos: FotoGaleria[];
   /** Nome do local, usado nos textos alternativos. */
   local: string;
+  /** Título curto acima das miniaturas. */
+  titulo?: string;
 }
 
-export function GaleriaObservacao({ fotos, local }: Props) {
+export function GaleriaObservacao({ fotos, local, titulo }: Props) {
   const [indice, setIndice] = useState<number | null>(null);
   const aberto = indice !== null ? fotos[indice] : null;
 
@@ -35,8 +37,9 @@ export function GaleriaObservacao({ fotos, local }: Props) {
   return (
     <div className="mt-4">
       <p className="text-[11px] uppercase tracking-[0.24em] text-brass">
-        Outros ângulos do lugar
+        {titulo ?? "Outros ângulos do lugar"}
       </p>
+
 
       <ul className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
         {fotos.map((foto, i) => (
