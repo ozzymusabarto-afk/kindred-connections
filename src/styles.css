@@ -41,6 +41,8 @@
   --color-ring-offset-background: var(--background);
   --color-brass: var(--brass);
   --color-sun: var(--sun);
+  --color-emerald: var(--emerald);
+
   --color-ocean: var(--ocean);
   --color-land: var(--land);
   --color-chart-1: var(--chart-1);
@@ -59,31 +61,33 @@
 }
 
 :root {
-  --radius: 0.75rem;
-  --background: #fdf8ec;
-  --foreground: #23301f;
-  --card: #fffdf7;
-  --card-foreground: #23301f;
-  --popover: #fffdf7;
-  --popover-foreground: #23301f;
-  --primary: #2e6f40;
-  --primary-foreground: #fdf8ec;
-  --secondary: #f4ead2;
-  --secondary-foreground: #2e6f40;
-  --muted: #f4ead2;
-  --muted-foreground: #5c6b52;
-  --accent: #ffe9c9;
-  --accent-foreground: #a2461a;
-  --destructive: #c0392b;
-  --destructive-foreground: #fffdf7;
-  --border: #e4d5b3;
-  --input: #e4d5b3;
+  --radius: 0.9rem;
+  /* Caderno do Explorador Ilustrado Vivo: céu claro + papel iluminado. */
+  --background: #eaf4fb;
+  --foreground: #1f2b1c;
+  --card: #f9f6f0;
+  --card-foreground: #1f2b1c;
+  --popover: #f9f6f0;
+  --popover-foreground: #1f2b1c;
+  --primary: #1e8a5f;
+  --primary-foreground: #f9f6f0;
+  --secondary: #d9ecf8;
+  --secondary-foreground: #1c5d99;
+  --muted: #dfeef8;
+  --muted-foreground: #4a5f52;
+  --accent: #ffe3c4;
+  --accent-foreground: #b34a12;
+  --destructive: #d84a3a;
+  --destructive-foreground: #f9f6f0;
+  --border: #9fc9e4;
+  --input: #9fc9e4;
   --ring: #d96b27;
   --brass: #d96b27;
   --ocean: #1c5d99;
-  --land: #f4ead2;
+  --land: #d9ecf8;
   --sun: #f7c548;
-  --map-ocean: #6ec6f0;
+  --emerald: #1e8a5f;
+  --map-ocean: #7fd0f5;
   --map-ocean-deep: #1c5d99;
   --map-1: #4caf50;
   --map-2: #f7c548;
@@ -91,21 +95,26 @@
   --map-4: #ef6461;
   --map-5: #b07ad6;
   --map-6: #3fc1c9;
+  --map-7: #8bc34a;
+  --map-8: #ffb26b;
+  --map-9: #7aa8e8;
+  --map-brasil: #16a34a;
   --map-star: #f7c548;
-  --chart-1: #2e6f40;
+  --chart-1: #1e8a5f;
   --chart-2: #d96b27;
   --chart-3: #1c5d99;
   --chart-4: #f7c548;
   --chart-5: #b07ad6;
-  --sidebar: #f4ead2;
-  --sidebar-foreground: #23301f;
-  --sidebar-primary: #2e6f40;
-  --sidebar-primary-foreground: #fdf8ec;
-  --sidebar-accent: #ffe9c9;
-  --sidebar-accent-foreground: #a2461a;
-  --sidebar-border: #e4d5b3;
+  --sidebar: #d9ecf8;
+  --sidebar-foreground: #1f2b1c;
+  --sidebar-primary: #1e8a5f;
+  --sidebar-primary-foreground: #f9f6f0;
+  --sidebar-accent: #ffe3c4;
+  --sidebar-accent-foreground: #b34a12;
+  --sidebar-border: #9fc9e4;
   --sidebar-ring: #d96b27;
 }
+
 
 .dark {
   --background: #16241c;
@@ -138,8 +147,14 @@
   --map-4: oklch(0.58 0.12 20);
   --map-5: oklch(0.6 0.1 310);
   --map-6: oklch(0.62 0.1 195);
+  --map-7: oklch(0.62 0.12 130);
+  --map-8: oklch(0.66 0.12 70);
+  --map-9: oklch(0.6 0.11 255);
+  --map-brasil: oklch(0.64 0.15 150);
+  --emerald: #58b06f;
   --map-star: #f7c548;
   --sun: #f7c548;
+
   --sidebar: oklch(0.25 0.02 165);
   --sidebar-foreground: oklch(0.94 0.012 85);
   --sidebar-primary: oklch(0.9 0.02 85);
@@ -251,5 +266,48 @@
   .fade-up,
   .star-drop {
     animation: none;
+  }
+}
+
+/* Botão grande estilo carimbo de passaporte. */
+@utility botao-carimbo {
+  position: relative;
+  border-radius: 9999px;
+  border: 3px solid var(--brass);
+  background-color: var(--brass);
+  color: var(--card);
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  box-shadow: 0 6px 0 color-mix(in oklab, var(--brass) 65%, black);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+
+  &:hover {
+    transform: translateY(-2px) rotate(-0.6deg);
+    box-shadow: 0 8px 0 color-mix(in oklab, var(--brass) 65%, black);
+  }
+
+  &:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 color-mix(in oklab, var(--brass) 65%, black);
+  }
+
+  &:disabled {
+    border-color: var(--border);
+    background-color: var(--muted);
+    color: var(--muted-foreground);
+    box-shadow: none;
+    transform: none;
+  }
+}
+
+@utility botao-carimbo-verde {
+  border-color: var(--emerald);
+  background-color: var(--emerald);
+  box-shadow: 0 6px 0 color-mix(in oklab, var(--emerald) 65%, black);
+
+  &:hover {
+    box-shadow: 0 8px 0 color-mix(in oklab, var(--emerald) 65%, black);
   }
 }

@@ -63,10 +63,11 @@ export function TelaJornada({
             type="button"
             onClick={acao.onClick}
             disabled={acao.desabilitado}
-            className="w-full rounded-full border-2 border-brass bg-brass px-5 py-4 font-display text-base tracking-wide text-card shadow-md transition-transform hover:scale-[1.02] disabled:scale-100 disabled:border-border disabled:bg-secondary disabled:text-muted-foreground disabled:shadow-none"
+            className="botao-carimbo w-full px-5 py-4 text-base"
           >
             {acao.rotulo}
           </button>
+
           {acao.dica && (
             <p className="text-xs text-muted-foreground">{acao.dica}</p>
           )}

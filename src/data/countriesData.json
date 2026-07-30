@@ -352,8 +352,8 @@
       },
       "codigo_mapa": "ca",
       "chegada": {
-        "imagem_url": "/imagens/janela-aviao.jpg",
-        "texto": "Lá embaixo aparecem florestas sem fim, lagos azuis e telhados cobertos de neve."
+        "imagem_url": "/imagens/janela-canada.jpg",
+        "texto": "Pela janela dá para ver florestas de pinheiros cobertas de neve, lagos congelados e o rio St. Lawrence largo e prateado, com Montreal ao longe."
       },
       "base": {
         "nome": "Chalé Bordo Dourado, em Montreal",
@@ -424,29 +424,29 @@
             "hotspots": [
               {
                 "id": "arco-flores",
-                "x": 40,
-                "y": 17,
+                "x": 52,
+                "y": 14,
                 "titulo": "O arco de flores",
                 "texto": "Cada trajinera tem um arco cheio de flores de verdade, muitas cultivadas ali mesmo nas chinampas. O nome pintado no arco é o nome do barco, como se fosse o apelido dele."
               },
               {
                 "id": "madeira-pintada",
-                "x": 26,
-                "y": 84,
+                "x": 55,
+                "y": 82,
                 "titulo": "A madeira pintada",
                 "texto": "O casco é de madeira pintada com azul, amarelo e vermelho fortes. A tinta protege a madeira da água o ano inteiro e deixa cada barco fácil de reconhecer de longe."
               },
               {
                 "id": "agua-canal",
-                "x": 80,
-                "y": 78,
+                "x": 86,
+                "y": 72,
                 "titulo": "A água do canal",
                 "texto": "Esse canal é um pedaço do antigo lago onde a cidade nasceu. A água rasa alimenta por baixo as hortas flutuantes, que quase nunca precisam ser regadas."
               },
               {
                 "id": "chinampa-verde",
-                "x": 93,
-                "y": 40,
+                "x": 15,
+                "y": 52,
                 "titulo": "A margem verde da chinampa",
                 "texto": "Aquelas faixas de verde não são terra firme: são canteiros construídos sobre a água, presos ao fundo pelas raízes dos salgueiros plantados nas bordas."
               }
@@ -670,8 +670,8 @@
       },
       "codigo_mapa": "mx",
       "chegada": {
-        "imagem_url": "/imagens/janela-aviao.jpg",
-        "texto": "Pela janela dá para ver uma cidade enorme dentro de um vale cercado por vulcões."
+        "imagem_url": "/imagens/janela-mexico.jpg",
+        "texto": "Pela janela dá para ver uma cidade enorme espalhada dentro de um vale, cercada por montanhas escuras e pelo vulcão nevado no horizonte."
       },
       "base": {
         "nome": "Casa Talavera, na Cidade do México",
@@ -1033,8 +1033,8 @@
       },
       "codigo_mapa": "us",
       "chegada": {
-        "imagem_url": "/imagens/janela-aviao.jpg",
-        "texto": "Pela janela surgem arranha-céus, rios largos e estradas que somem no horizonte."
+        "imagem_url": "/imagens/janela-eua.jpg",
+        "texto": "Pela janela aparece a ilha de Manhattan inteira: arranha-céus grudados uns nos outros, rios dos dois lados e pontes ligando tudo."
       },
       "base": {
         "nome": "Hotel Liberty, em Nova York",
