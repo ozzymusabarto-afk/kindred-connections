@@ -87,6 +87,11 @@ export function GaleriaObservacao({ fotos, local }: Props) {
             />
             <figcaption className="mt-3 text-center text-sm text-card">
               {aberto.legenda}
+              {aberto.credito && (
+                <span className="mt-1 block text-[11px] text-card/70">
+                  Foto: {aberto.credito}
+                </span>
+              )}
             </figcaption>
 
             <button
