@@ -79,6 +79,7 @@ export function TelaSabor({ pais, dia, respostas, onResponder, onAvancar, onVolt
       <NotaComparativaBrasil nota={dia.notas_brasil?.sabor} />
 
       <div className="space-y-4 rounded-xl border-2 border-dashed border-brass/60 bg-background p-4">
+        <p className="text-[11px] uppercase tracking-[0.24em] text-brass">Caderno do explorador</p>
 
         {perguntas.length === 0 ? (
           <p className="text-sm text-muted-foreground">
