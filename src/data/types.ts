@@ -7,6 +7,15 @@ export type ContinenteId =
   | "africa"
   | "oceania";
 
+/** Som ambiente real de uma etapa da expedição. */
+export interface SomAmbiente {
+  url: string;
+  /** Descrição curta do que se ouve. */
+  legenda: string;
+  /** Crédito de autoria e licença do áudio. */
+  credito?: string;
+}
+
 export interface Transporte {
   nome: string;
   icone: string;
@@ -16,6 +25,8 @@ export interface Transporte {
   credito?: string;
   /** Miniaturas com outros ângulos do transporte. */
   galeria?: FotoGaleria[];
+  /** Som real ouvido a bordo. */
+  som?: SomAmbiente;
 }
 
 
