@@ -1,8 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { paises } from "@/data/countries";
+import { lerProgressoTudo } from "@/hooks/useExpedicao";
+import type { ProgressoExpedicao } from "@/hooks/useExpedicao";
 import type { Pais } from "@/data/types";
+
 
 export const Route = createFileRoute("/comparar")({
   head: () => ({
