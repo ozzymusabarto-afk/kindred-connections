@@ -10,6 +10,8 @@ interface Props {
   alt?: string;
   /** Mídia customizada (ex.: imagem com lupas). */
   midia?: ReactNode;
+  /** Conteúdo extra dentro do painel esquerdo, logo abaixo da imagem (ex.: galeria). */
+  abaixoDaMidia?: ReactNode;
   children?: ReactNode;
   acao: {
     rotulo: string;
