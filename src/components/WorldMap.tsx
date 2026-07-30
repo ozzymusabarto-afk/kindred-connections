@@ -223,6 +223,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         {pinos.map(({ pais, ponto }) => {
           const carimbado = carimbados.includes(pais.id);
           const t = px(1);
+          const largura = Math.max(pais.nome.length, (pais.capital ?? "").length) * 8.2 + 26;
           return (
             <g
               key={pais.id}
@@ -236,19 +237,44 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
                 if (e.key === "Enter" || e.key === " ") viajar(pais, ponto);
               }}
             >
-              <circle
-                r="30"
-                fill="#ffffff"
-                fillOpacity="0.45"
-                className="origin-center transition-transform duration-300 group-hover:scale-125"
-              />
-              <circle r="19" fill="var(--card)" stroke="#ffffff" strokeWidth="4" />
-              <text textAnchor="middle" dominantBaseline="central" fontSize="24" y="1">
-                {pais.bandeira}
-              </text>
+              <g className="origin-center transition-transform duration-300 group-hover:scale-110">
+                <rect
+                  x={-largura / 2}
+                  y={pais.capital ? -30 : -21}
+                  width={largura}
+                  height={pais.capital ? 50 : 32}
+                  rx="16"
+                  fill="var(--card)"
+                  stroke="var(--brass)"
+                  strokeWidth="2.5"
+                />
+                <text
+                  y={pais.capital ? -10 : 1}
+                  textAnchor="middle"
+                  fontSize="20"
+                  fill="var(--foreground)"
+                  style={{ fontFamily: "var(--font-display)" }}
+                >
+                  {pais.nome}
+                </text>
+                {pais.capital && (
+                  <text
+                    y="10"
+                    textAnchor="middle"
+                    fontSize="13"
+                    fill="var(--muted-foreground)"
+                    style={{ fontFamily: "var(--font-sans)", fontStyle: "italic" }}
+                  >
+                    ★ {pais.capital}
+                  </text>
+                )}
+              </g>
 
               {carimbado && (
-                <g transform="translate(14 -30) scale(0.38)" className="star-drop">
+                <g
+                  transform={`translate(${largura / 2 - 4} ${pais.capital ? -38 : -29}) scale(0.4)`}
+                  className="star-drop"
+                >
                   <polygon
                     points={ESTRELA}
                     fill="var(--map-star)"
@@ -258,31 +284,10 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
                   />
                 </g>
               )}
-
-              <g transform="translate(0 -42)">
-                <rect
-                  x={-(pais.nome.length * 7.6) / 2 - 9}
-                  y="-22"
-                  width={pais.nome.length * 7.6 + 18}
-                  height="28"
-                  rx="14"
-                  fill="var(--card)"
-                  stroke="var(--brass)"
-                  strokeWidth="2"
-                />
-                <text
-                  y="-3"
-                  textAnchor="middle"
-                  fontSize="19"
-                  fill="var(--foreground)"
-                  style={{ fontFamily: "var(--font-display)" }}
-                >
-                  {pais.nome}
-                </text>
-              </g>
             </g>
           );
         })}
+
 
         <g
           transform={`translate(${aviao.x} ${aviao.y}) rotate(${angulo}) scale(${px(1)})`}
