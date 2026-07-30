@@ -76,6 +76,8 @@ export interface Chegada {
   temperatura?: string;
   /** Crédito de autoria e licença da imagem. */
   credito?: string;
+  /** Miniaturas com outras fotos reais da chegada. */
+  galeria?: FotoGaleria[];
 }
 
 /** Texto de deslocamento exibido na abertura de um dia. */
@@ -92,7 +94,10 @@ export interface BaseHospedagem {
   descricao: string;
   /** Crédito de autoria e licença da imagem. */
   credito?: string;
+  /** Miniaturas com outras fotos reais da base. */
+  galeria?: FotoGaleria[];
 }
+
 
 export interface DiaRoteiro {
   dia: number;
