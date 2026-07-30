@@ -13,6 +13,8 @@ interface Props {
   proximoDia?: number;
   onProximoDia: (dia: number) => void;
   onRefazer: () => void;
+  /** Chamado quando todos os dias foram carimbados (voo de volta). */
+  onEncerrar?: () => void;
 }
 
 export function TelaCarimbo({
@@ -23,6 +25,7 @@ export function TelaCarimbo({
   proximoDia,
   onProximoDia,
   onRefazer,
+  onEncerrar,
 }: Props) {
   const { nome } = useExplorador();
 
@@ -61,6 +64,14 @@ export function TelaCarimbo({
             className="w-full rounded-full border-2 border-brass bg-brass px-5 py-4 font-display text-base tracking-wide text-card shadow-md transition-transform hover:scale-[1.02]"
           >
             Começar o Dia {proximoDia} ➔
+          </button>
+        ) : onEncerrar ? (
+          <button
+            type="button"
+            onClick={onEncerrar}
+            className="w-full rounded-full border-2 border-brass bg-brass px-5 py-4 font-display text-base tracking-wide text-card shadow-md transition-transform hover:scale-[1.02]"
+          >
+            Embarcar no voo de volta ao Brasil ➔
           </button>
         ) : (
           <Link

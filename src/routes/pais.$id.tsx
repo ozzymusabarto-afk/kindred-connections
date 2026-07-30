@@ -10,6 +10,7 @@ import { TelaObservacao } from "@/components/expedicao/TelaObservacao";
 import { TelaFauna } from "@/components/expedicao/TelaFauna";
 import { TelaSabor } from "@/components/expedicao/TelaSabor";
 import { TelaCarimbo } from "@/components/expedicao/TelaCarimbo";
+import { TelaDespedida } from "@/components/expedicao/TelaDespedida";
 import { getPais } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
 import { useExpedicao } from "@/hooks/useExpedicao";
@@ -23,7 +24,8 @@ type TelaId =
   | "observacao"
   | "fauna"
   | "sabor"
-  | "carimbo";
+  | "carimbo"
+  | "despedida";
 
 const TELAS: TelaId[] = [
   "chegada",
@@ -33,6 +35,7 @@ const TELAS: TelaId[] = [
   "fauna",
   "sabor",
   "carimbo",
+  "despedida",
 ];
 
 const TELAS_DO_DIA: TelaId[] = [
@@ -272,7 +275,12 @@ function SimuladorViagem() {
             proximoDia={proximoDia}
             onProximoDia={(d) => ir("transporte", d)}
             onRefazer={() => ir("transporte")}
+            onEncerrar={() => ir("despedida")}
           />
+        )}
+
+        {tela === "despedida" && (
+          <TelaDespedida pais={pais} onVoltar={() => ir("carimbo")} />
         )}
 
         <p className="mt-12 text-sm text-muted-foreground">
