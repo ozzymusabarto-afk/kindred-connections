@@ -168,11 +168,13 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           />
         ))}
 
-        {/* Nomes de países e capitais, revelados conforme o zoom. */}
+        {/* Nomes de países com a capital logo abaixo. */}
         {WORLD_COUNTRIES.map((c) => {
           const mostraNome = escala >= c.rank * 0.55;
           if (!mostraNome) return null;
-          const mostraCapital = Boolean(c.capital) && escala >= 3.2;
+          const capital = c.capital
+            ? (CAPITAIS_PT[c.capital.nome] ?? c.capital.nome)
+            : null;
           return (
             <g key={`rot-${c.id}`} pointerEvents="none">
               <text
@@ -188,34 +190,35 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               >
                 {c.nome}
               </text>
-              {mostraCapital && c.capital && (
-                <g>
-                  <circle
-                    cx={c.capital.x}
-                    cy={c.capital.y}
-                    r={px(2.4)}
-                    fill="#1f2b1c"
-                    stroke="#ffffff"
-                    strokeWidth={px(1)}
-                  />
-                  <text
-                    x={c.capital.x}
-                    y={c.capital.y - px(5)}
-                    textAnchor="middle"
-                    fontSize={px(8)}
-                    fill="#26332a"
-                    stroke="#ffffff"
-                    strokeWidth={px(2)}
-                    paintOrder="stroke"
-                    style={{ fontFamily: "var(--font-sans)" }}
-                  >
-                    ★ {c.capital.nome}
-                  </text>
-                </g>
+              {capital && (
+                <text
+                  x={c.centro.x}
+                  y={c.centro.y + px(10)}
+                  textAnchor="middle"
+                  fontSize={px(8)}
+                  fill="#3c4a3e"
+                  stroke="#ffffff"
+                  strokeWidth={px(2.2)}
+                  paintOrder="stroke"
+                  style={{ fontFamily: "var(--font-sans)", fontStyle: "italic" }}
+                >
+                  ★ {capital}
+                </text>
+              )}
+              {c.capital && escala >= 3.2 && (
+                <circle
+                  cx={c.capital.x}
+                  cy={c.capital.y}
+                  r={px(2.4)}
+                  fill="#1f2b1c"
+                  stroke="#ffffff"
+                  strokeWidth={px(1)}
+                />
               )}
             </g>
           );
         })}
+
 
         {pinos.map(({ pais, ponto }) => {
           const carimbado = carimbados.includes(pais.id);
