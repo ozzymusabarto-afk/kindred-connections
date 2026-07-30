@@ -73,13 +73,6 @@ export function TelaSabor({ pais, dia, respostas, onResponder, onAvancar, onVolt
           {prato.destaque}
         </p>
       )}
-      {prato?.galeria && prato.galeria.length > 0 && (
-        <GaleriaObservacao
-          fotos={prato.galeria}
-          local={prato.nome}
-          titulo="Onde se come e outras opções"
-        />
-      )}
 
 
       <div className="space-y-4 rounded-xl border-2 border-dashed border-brass/60 bg-background p-4">
