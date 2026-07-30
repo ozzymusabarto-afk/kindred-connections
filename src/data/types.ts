@@ -12,6 +12,8 @@ export interface Transporte {
   icone: string;
   descricao: string;
   imagem_url?: string;
+  /** Crédito de autoria e licença da imagem. */
+  credito?: string;
 }
 
 export interface Hotspot {
@@ -30,6 +32,8 @@ export interface FotoGaleria {
   imagem_url: string;
   /** Legenda curta exibida abaixo da miniatura. */
   legenda: string;
+  /** Crédito de autoria e licença da imagem. */
+  credito?: string;
 }
 
 export interface PontoObservacao {
@@ -38,6 +42,8 @@ export interface PontoObservacao {
   hotspots: Hotspot[];
   /** Miniaturas com outros ângulos do local. */
   galeria?: FotoGaleria[];
+  /** Crédito de autoria e licença da imagem. */
+  credito?: string;
 }
 
 export interface ReferenciaDoDia {
@@ -65,18 +71,24 @@ export interface Chegada {
   idioma?: string;
   fuso_horario?: string;
   temperatura?: string;
+  /** Crédito de autoria e licença da imagem. */
+  credito?: string;
 }
 
 /** Texto de deslocamento exibido na abertura de um dia. */
 export interface AberturaDoDia {
   imagem_url: string;
   texto: string;
+  /** Crédito de autoria e licença da imagem. */
+  credito?: string;
 }
 
 export interface BaseHospedagem {
   nome: string;
   imagem_url: string;
   descricao: string;
+  /** Crédito de autoria e licença da imagem. */
+  credito?: string;
 }
 
 export interface DiaRoteiro {
@@ -93,6 +105,8 @@ export interface DiaRoteiro {
   fauna_do_dia?: ReferenciaDoDia;
   sabor_do_dia?: ReferenciaDoDia;
   perguntas?: PerguntaSocratica[];
+  /** Crédito de autoria e licença da imagem. */
+  credito?: string;
 }
 
 export interface ItemNatureza {
@@ -103,6 +117,8 @@ export interface ItemNatureza {
   som_url: string | null;
   curiosidade: string;
   habitat: string;
+  /** Crédito de autoria e licença da imagem. */
+  credito?: string;
 }
 
 export interface ItemGastronomia {
@@ -111,6 +127,8 @@ export interface ItemGastronomia {
   foto_url: string;
   adjetivo: string;
   historia: string;
+  /** Crédito de autoria e licença da imagem. */
+  credito?: string;
 }
 
 export interface Comparativo {
@@ -138,6 +156,8 @@ export interface Pais {
   fauna_flora: ItemNatureza[];
   gastronomia: ItemGastronomia[];
   comparativo: Comparativo;
+  /** Crédito de autoria e licença da imagem. */
+  credito?: string;
 }
 
 export interface Continente {
