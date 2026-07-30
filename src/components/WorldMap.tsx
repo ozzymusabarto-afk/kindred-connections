@@ -136,6 +136,12 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chaveFoco]);
 
+  /** Países que já têm cartão clicável não repetem o rótulo do mapa. */
+  const comPino = useMemo(
+    () => new Set(paises.map((p) => p.codigo_mapa)),
+    [paises],
+  );
+
   const escala = W / vista.w;
   const px = (base: number) => (base * vista.w) / W;
 
@@ -225,6 +231,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
 
         {/* Nomes de países com a capital logo abaixo. */}
         {WORLD_COUNTRIES.map((c) => {
+          if (comPino.has(c.id)) return null;
           const mostraNome = escala >= c.rank * 0.55;
           if (!mostraNome) return null;
           const capital = c.capital
