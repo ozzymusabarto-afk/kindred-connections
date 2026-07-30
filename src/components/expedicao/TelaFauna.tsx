@@ -73,13 +73,9 @@ export function TelaFauna({ pais, dia, respostas, onResponder, onAvancar, onVolt
               <track kind="captions" />
             </audio>
           )}
-          {animal.galeria && animal.galeria.length > 0 && (
-            <GaleriaObservacao
-              fotos={animal.galeria}
-              local={animal.nome}
-              titulo="Mais sobre este animal"
-            />
-          )}
+        </>
+      )}
+
         </>
       )}
 
