@@ -81,6 +81,12 @@ export const estadosUnidos: Pais = {
     nome: "Hotel boutique no coração de Nova York",
     imagem_url: "/__l5e/assets-v1/abb8ecf9-d56c-4e95-aaae-9f4eb00bd801/rep-base-eua.jpg",
     credito: "Saguão do Waldorf Astoria, Nova York (Wikimedia Commons)",
+    som: {
+      url: "/__l5e/assets-v1/b258c296-ab8d-4933-8a8d-dfba24668432/usa-som-padaria.mp3",
+      legenda:
+        "Burburinho real de pessoas conversando num saguão movimentado, como na recepção do hotel",
+      credito: "Wikimedia Commons · domínio público",
+    },
     descricao:
       "“Welcome to New York! Eu me chamo Sarah e vou acompanhar cada passo da sua jornada pelos Estados Unidos. Os EUA são um país continental imenso: 50 estados, desertos alaranjados no Arizona, vulcões no Havaí, montanhas nevadas no Alasca e florestas densas. Hoje nossa base é este hotel no coração de uma das maiores cidades do mundo. Dê uma olhada no termômetro do saguão: lá fora faz 12 °C. No Brasil, com essa temperatura, a gente já busca o casaco pesado, não é? Aqui as pessoas já estão acostumadas e caminham rápido pelas calçadas. Coloque seu agasalho: nosso primeiro transporte já está na porta!”",
     galeria: [
