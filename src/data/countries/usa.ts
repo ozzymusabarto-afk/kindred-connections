@@ -30,6 +30,12 @@ export const estadosUnidos: Pais = {
     imagem_url: "/__l5e/assets-v1/9f0d4526-6b9c-4e8e-b124-91e0901e4b3c/usa-chegada-janela.jpg",
     credito:
       "Recriação da vista da janela do avião sobre Manhattan em tarde de outono (ilustração fiel à paisagem real)",
+    som: {
+      url: "/__l5e/assets-v1/9afe377d-cb48-4411-9a63-1faf031180a1/usa-som-pouso.mp3",
+      legenda:
+        "Gravação real feita dentro de um avião durante a descida e o pouso: o ronco dos motores e o barulho do ar",
+      credito: "Wilfredor — Wikimedia Commons · CC0",
+    },
     idioma: "Inglês",
     fuso_horario: "15h00 no horário local — 1 hora a menos que Brasília",
     temperatura: "12 °C, brisa fresca de outono",
