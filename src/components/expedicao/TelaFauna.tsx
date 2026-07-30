@@ -1,6 +1,8 @@
 import { GaleriaObservacao } from "./GaleriaObservacao";
+import { NotaComparativaBrasil } from "./NotaComparativaBrasil";
 import { PerguntaSocraticaCampo } from "./PerguntaSocratica";
 import { TelaJornada } from "./TelaJornada";
+
 import { respostaValida } from "@/hooks/useExpedicao";
 import type { DiaRoteiro, Pais } from "@/data/types";
 
