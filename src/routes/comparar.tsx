@@ -142,8 +142,44 @@ function Comparar() {
                     </div>
                   </div>
                 ))}
+
+                <div className="border-t-2 border-dashed border-brass">
+                  <dt className="bg-accent/60 px-4 py-2 text-xs uppercase tracking-[0.24em] text-accent-foreground">
+                    O que você mesmo observou
+                  </dt>
+                  <div className="grid grid-cols-2">
+                    {[esquerda, direita].map((p) => {
+                      const notas = anotacoesDoPais(progresso, p.id);
+                      return (
+                        <dd
+                          key={p.id}
+                          className="space-y-3 border-r border-border px-4 py-4 last:border-r-0"
+                        >
+                          {notas.length === 0 ? (
+                            <p className="text-sm italic leading-relaxed text-muted-foreground">
+                              Você ainda não escreveu observações sobre {p.nome}.
+                            </p>
+                          ) : (
+                            notas.map((n) => (
+                              <p
+                                key={n.chave}
+                                className="rounded-lg bg-secondary/60 px-3 py-2 text-sm leading-relaxed text-foreground"
+                              >
+                                <span className="mr-1.5 text-[10px] uppercase tracking-widest text-brass">
+                                  Dia {n.dia}
+                                </span>
+                                “{n.texto}”
+                              </p>
+                            ))
+                          )}
+                        </dd>
+                      );
+                    })}
+                  </div>
+                </div>
               </dl>
             )}
+
           </section>
         )}
       </main>
