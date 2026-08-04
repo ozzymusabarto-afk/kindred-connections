@@ -65,7 +65,15 @@ export const japao: Pais = {
       },
       fauna_do_dia: {
         id: "macaco-japones",
-        contexto: "Nas montanhas nevadas, os macacos japoneses relaxam em fontes de água termal quente (Onsen) para fugir do frio."
+        contexto: "Nas montanhas nevadas, os macacos japoneses relaxam em fontes de água termal quente (Onsen) para fugir do frio.",
+        galeria: [
+          {
+            id: "jp-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Macaca_fuscata_it_is_snowing.jpg/1920px-Macaca_fuscata_it_is_snowing.jpg",
+            legenda: "Macaco Japonês na neve",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "sushi",

@@ -65,7 +65,15 @@ export const egito: Pais = {
       },
       fauna_do_dia: {
         id: "escaravelho",
-        contexto: "Nas areias, o escaravelho rola bolas de terra. Para os antigos egípcios, ele era um símbolo sagrado do sol e do renascimento."
+        contexto: "Nas areias, o escaravelho rola bolas de terra. Para os antigos egípcios, ele era um símbolo sagrado do sol e do renascimento.",
+        galeria: [
+          {
+            id: "eg-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Scarabaeus_sacer.jpg/1920px-Scarabaeus_sacer.jpg",
+            legenda: "Escaravelho Sagrado no deserto",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "falafel",

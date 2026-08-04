@@ -65,7 +65,15 @@ export const fiji: Pais = {
       },
       fauna_do_dia: {
         id: "peixe-palhaco",
-        contexto: "Nas anêmonas dos corais, o peixe-palhaço se esconde. Ele é imune às ferroadas da anêmona e os dois se ajudam para sobreviver."
+        contexto: "Nas anêmonas dos corais, o peixe-palhaço se esconde. Ele é imune às ferroadas da anêmona e os dois se ajudam para sobreviver.",
+        galeria: [
+          {
+            id: "fj-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Amphiprion_ocellaris_%28Clown_anemonefish%29_by_Nick_Hobgood.jpg/1200px-Amphiprion_ocellaris_%28Clown_anemonefish%29_by_Nick_Hobgood.jpg",
+            legenda: "Peixe-palhaço na anêmona",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "kokoda",

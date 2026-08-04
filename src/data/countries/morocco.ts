@@ -65,7 +65,15 @@ export const marrocos: Pais = {
       },
       fauna_do_dia: {
         id: "dromedario-marroquino",
-        contexto: "Nas bordas do deserto, os dromedários são os reis. Eles têm apenas uma corcova e são muito fortes."
+        contexto: "Nas bordas do deserto, os dromedários são os reis. Eles têm apenas uma corcova e são muito fortes.",
+        galeria: [
+          {
+            id: "ma-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/07_Camel_Profile%2C_Near_Silverton%2C_NSW%2C_07.07.2007.jpg/1200px-07_Camel_Profile%2C_Near_Silverton%2C_NSW%2C_07.07.2007.jpg",
+            legenda: "Dromedário no deserto",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "tagine",

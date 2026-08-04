@@ -65,7 +65,15 @@ export const novaZelandia: Pais = {
       },
       fauna_do_dia: {
         id: "kiwi-passaro",
-        contexto: "O Kiwi é um pássaro único: ele não voa, tem pelos em vez de penas e só sai de noite. Ele é o símbolo nacional!"
+        contexto: "O Kiwi é um pássaro único: ele não voa, tem pelos em vez de penas e só sai de noite. Ele é o símbolo nacional!",
+        galeria: [
+          {
+            id: "nz-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/North_Island_Brown_Kiwi.jpg/1200px-North_Island_Brown_Kiwi.jpg",
+            legenda: "Pássaro Kiwi na floresta",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "hangi",

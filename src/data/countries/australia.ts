@@ -65,7 +65,15 @@ export const australia: Pais = {
       },
       fauna_do_dia: {
         id: "canguru",
-        contexto: "Ao entardecer, os cangurus saem para pastar nas áreas gramadas perto da costa. Eles são os maratonistas do salto!"
+        contexto: "Ao entardecer, os cangurus saem para pastar nas áreas gramadas perto da costa. Eles são os maratonistas do salto!",
+        galeria: [
+          {
+            id: "au-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Red_kangaroo_jumping02.jpg/1920px-Red_kangaroo_jumping02.jpg",
+            legenda: "Canguru saltando no Outback",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "vegemite",
