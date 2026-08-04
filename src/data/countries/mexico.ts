@@ -118,7 +118,7 @@ export const mexico: Pais = {
       nome: "Axolote",
       nome_cientifico: "Ambystoma mexicanum",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Axolotl_san_francisco.jpg/1280px-Axolotl_san_francisco.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Water_Ambience.mp3",
       curiosidade: "É uma salamandra que nunca cresce: ela passa a vida inteira 'jovem' e dentro da água. O mais incrível é que ela pode regenerar partes do corpo!",
       habitat: "Canais de água doce de Xochimilco.",
       credito: "Wikimedia Commons"

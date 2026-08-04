@@ -18,7 +18,7 @@ export const portugal: Pais = {
     credito: "Wikimedia Commons",
     som: {
       url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
-      legenda: "Som real de um avião pousando no aeroporto de Lisboa",
+      legenda: "Pouso no Aeroporto Humberto Delgado, Lisboa",
       credito: "Wikimedia Commons"
     },
     idioma: "Português (com um sotaque charmoso!)",
@@ -262,7 +262,7 @@ export const portugal: Pais = {
       nome: "Lince-ibérico",
       nome_cientifico: "Lynx pardinus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Lince_ib%C3%A9rico_2.jpg/1280px-Lince_ib%C3%A9rico_2.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Iberian_Lynx_Sound.mp3",
       curiosidade: "É o felino mais ameaçado do mundo. Portugal criou santuários para que ele volte a correr livre pelas matas.",
       habitat: "Florestas e matagais mediterrânicos.",
       credito: "Wikimedia Commons"
@@ -272,7 +272,7 @@ export const portugal: Pais = {
       nome: "Lobo-ibérico",
       nome_cientifico: "Canis lupus signatus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Iberian_Wolf.jpg/1280px-Iberian_Wolf.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Wolf_Howl.mp3",
       curiosidade: "Diferente dos lobos dos contos de fadas, o lobo-ibérico é tímido e ajuda a equilibrar a natureza caçando javalis.",
       habitat: "Zonas montanhosas do norte.",
       credito: "Wikimedia Commons"
