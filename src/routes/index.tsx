@@ -33,18 +33,42 @@ export const Route = createFileRoute("/")({
 
 function MapaMundi() {
   const navigate = useNavigate();
-  const [continenteAtivo, setContinenteAtivo] = useState("america-do-norte");
+  const [continenteAtivo, setContinenteAtivo] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.localStorage.getItem("diario:continente-ativo") || "america-do-norte";
+    }
+    return "america-do-norte";
+  });
   const { carimbos } = usePassport();
   const paisesVisiveis = getPaisesPorContinente(continenteAtivo);
   const totalExplorados = carimbos.length;
   const totalPaises = 21; 
   const visitados = new Set(carimbos.map((c) => c.paisId));
 
-  // Validação simples de integridade no carregamento do continente
+  // Validação rigorosa de integridade no carregamento do continente
+  const [bloqueado, setBloqueado] = useState(false);
+  const [erros, setErros] = useState<string[]>([]);
+
   useEffect(() => {
-    const invalidos = paisesVisiveis.filter(p => !p.nome || !p.bandeira || !p.resumo_geografico);
+    const invalidos = paisesVisiveis.filter(p => {
+      const temTexto = p.nome && p.resumo_geografico && p.resumo_geografico.length > 20;
+      const temImagem = p.bandeira_url || p.bandeira;
+      const temRoteiro = p.id.length > 2 && p.roteiro_viagem && p.roteiro_viagem.length > 0;
+      return !temTexto || !temImagem || !temRoteiro;
+    });
+
     if (invalidos.length > 0) {
-      console.warn(`[Aviso de Integridade] Alguns países em ${continenteAtivo} possuem dados incompletos:`, invalidos.map(p => p.id));
+      setErros(invalidos.map(p => p.nome || p.id));
+      setBloqueado(true);
+      console.error(`[Erro de Integridade] Dados incompletos em ${continenteAtivo}:`, invalidos);
+    } else {
+      setErros([]);
+      setBloqueado(false);
+    }
+    
+    // Persiste o continente no localStorage
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("diario:continente-ativo", continenteAtivo);
     }
   }, [continenteAtivo, paisesVisiveis]);
 
