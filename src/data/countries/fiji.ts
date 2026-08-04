@@ -87,7 +87,7 @@ export const fiji: Pais = {
       nome: "Peixe-Palhaço",
       nome_cientifico: "Amphiprioninae",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Amphiprion_ocellaris_clownfish.jpg/1200px-Amphiprion_ocellaris_clownfish.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Clownfish_Bubbles.mp3",
       curiosidade: "Eles vivem em uma relação de parceria com as anêmonas: o peixe limpa a anêmona e ela o protege de outros predadores com seus tentáculos venenosos.",
       habitat: "Recifes de coral em águas quentes do Pacífico e Índico."
     }

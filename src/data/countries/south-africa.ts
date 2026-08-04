@@ -87,7 +87,7 @@ export const africaDoSul: Pais = {
       nome: "Leão Africano",
       nome_cientifico: "Panthera leo",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lion_waiting_in_Namibia.jpg/1200px-Lion_waiting_in_Namibia.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_Roar.mp3",
       curiosidade: "Diferente de outros felinos, os leões vivem em grupos sociais chamados alcateias. As leoas são as principais caçadoras do grupo.",
       habitat: "Savanas, planícies e matagais da África Subsaariana."
     }

@@ -87,7 +87,7 @@ export const tailandia: Pais = {
       nome: "Elefante Asiático",
       nome_cientifico: "Elephas maximus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Elephas_maximus_%28Bandipur%29.jpg/1200px-Elephas_maximus_%28Bandipur%29.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/2/21/Asian_Elephant_Sound.mp3",
       curiosidade: "Diferente do elefante africano, apenas alguns machos asiáticos têm presas de marfim. Eles são excelentes nadadores!",
       habitat: "Florestas tropicais e matagais do sudeste asiático."
     }

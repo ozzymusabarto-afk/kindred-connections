@@ -87,7 +87,7 @@ export const china: Pais = {
       nome: "Panda Gigante",
       nome_cientifico: "Ailuropoda melanoleuca",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Grosser_Panda.JPG/1200px-Grosser_Panda.JPG",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Giant_Panda_Sound.mp3",
       curiosidade: "Um panda adulto come cerca de 12 a 38 kg de bambu por dia! Eles têm um 'sexto dedo' no pulso que ajuda a segurar os caules de bambu.",
       habitat: "Florestas de bambu nas montanhas da China central."
     }

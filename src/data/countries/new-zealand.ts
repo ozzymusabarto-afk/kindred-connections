@@ -87,7 +87,7 @@ export const novaZelandia: Pais = {
       nome: "Kiwi",
       nome_cientifico: "Apteryx",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/North_Island_Brown_Kiwi.jpg/1200px-North_Island_Brown_Kiwi.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Kiwi_Bird_Call.mp3",
       curiosidade: "Ele tem narinas na ponta do bico para cheirar comida embaixo da terra. Seus ovos são enormes, quase do tamanho do seu próprio corpo!",
       habitat: "Florestas nativas e arbustos da Nova Zelândia."
     }
