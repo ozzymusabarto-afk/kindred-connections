@@ -60,7 +60,7 @@ export const Route = createFileRoute("/pais/$id")({
     if (!pais) throw notFound();
     return { pais };
   },
-  head: ({ loaderData }) => {
+  head: ({ loaderData, params }) => {
     if (!loaderData) {
       return {
         meta: [
@@ -72,6 +72,8 @@ export const Route = createFileRoute("/pais/$id")({
     const { pais } = loaderData;
     const titulo = `${pais.nome} — Diário de Bordo`;
     const descricao = pais.resumo_geografico.slice(0, 155);
+    const url = `https://diariodebordo.exploradores.com/pais/${params.id}`;
+
     return {
       meta: [
         { title: titulo },
@@ -79,8 +81,29 @@ export const Route = createFileRoute("/pais/$id")({
         { property: "og:title", content: titulo },
         { property: "og:description", content: descricao },
         { property: "og:image", content: pais.imagem_capa },
+        { property: "og:url", content: url },
+        { property: "og:type", content: "article" },
         { name: "twitter:image", content: pais.imagem_capa },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
+      links: [
+        { rel: "canonical", href: url },
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TravelAction",
+            "name": `Expedição imersiva para ${pais.nome}`,
+            "description": descricao,
+            "object": {
+              "@type": "Country",
+              "name": pais.nome
+            }
+          })
+        }
+      ]
     };
   },
   component: SimuladorViagem,
