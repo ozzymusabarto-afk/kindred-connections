@@ -36,7 +36,20 @@ export const africaDoSul: Pais = {
   base: {
     nome: "Safari Lodge no Kruger Park",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Kruger_National_Park_Safari_Lodge.jpg/1200px-Kruger_National_Park_Safari_Lodge.jpg",
-    descricao: "“Sawubona! Sou Thabo e vou te guiar pela savana. Nossa base é uma cabana segura no coração da natureza. À noite, você ouvirá o rugido dos leões e o riso das hienas lá fora. Fique atento: na África do Sul, a natureza manda e nós somos apenas visitantes!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Savanna_Night_Ambience.mp3",
+      legenda: "Sons da savana africana ao anoitecer",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“Sawubona! Sou Thabo e vou te guiar pela savana. Nossa base é uma cabana segura no coração da natureza. À noite, você ouvirá o rugido dos leões e o riso das hienas lá fora. Fique atento: na África do Sul, a natureza manda e nós somos apenas visitantes!”",
+    galeria: [
+      {
+        id: "za-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Kruger_National_Park_Safari_Lodge.jpg/1200px-Kruger_National_Park_Safari_Lodge.jpg",
+        legenda: "Um lodge de safári no coração do Kruger Park",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   roteiro_viagem: [
     {

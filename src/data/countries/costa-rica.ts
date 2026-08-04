@@ -37,7 +37,20 @@ export const costaRica: Pais = {
   base: {
     nome: "Ecolodge nas encostas do Vulcão Arenal",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Arenal_Volcano_and_Lake.jpg/1280px-Arenal_Volcano_and_Lake.jpg",
-    descricao: "“¡Pura Vida, exploradores! Eu sou o guia Mateo. Aqui vivemos em harmonia com a floresta. Acordamos com o canto dos pássaros e dormimos com o som das águas termais.”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Rainforest_Ambience.mp3",
+      legenda: "Sons da floresta tropical e pássaros",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“¡Pura Vida, exploradores! Eu sou o guia Mateo. Aqui vivemos em harmonia com a floresta. Acordamos com o canto dos pássaros e dormimos com o som das águas termais.”",
+    galeria: [
+      {
+        id: "cr-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Arenal_Volcano_and_Lake.jpg/1280px-Arenal_Volcano_and_Lake.jpg",
+        legenda: "Vista do Vulcão Arenal a partir do lodge",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   roteiro_viagem: [

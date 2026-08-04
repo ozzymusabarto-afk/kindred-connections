@@ -36,7 +36,20 @@ export const tailandia: Pais = {
   base: {
     nome: "Casa Flutuante no Rio Chao Phraya",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Chao_Phraya_River_Bangkok.jpg/1200px-Chao_Phraya_River_Bangkok.jpg",
-    descricao: "“Sawatdee! Sou Malee e vou te mostrar os encantos do meu país. Nossa base é uma casa de madeira sobre estacas na beira do rio. Na Tailândia, a água é vida! Você ouvirá o som dos barcos passando o dia todo. Antes de entrar, lembre-se: nunca aponte os pés para as pessoas ou imagens sagradas!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Chao_Phraya_River_Ambience.mp3",
+      legenda: "O som dos barcos e da água no rio Chao Phraya",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“Sawatdee! Sou Malee e vou te mostrar os encantos do meu país. Nossa base é uma casa de madeira sobre estacas na beira do rio. Na Tailândia, a água é vida! Você ouvirá o som dos barcos passando o dia todo. Antes de entrar, lembre-se: nunca aponte os pés para as pessoas ou imagens sagradas!”",
+    galeria: [
+      {
+        id: "th-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Chao_Phraya_River_Bangkok.jpg/1200px-Chao_Phraya_River_Bangkok.jpg",
+        legenda: "O Rio Chao Phraya ao entardecer",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   roteiro_viagem: [
     {

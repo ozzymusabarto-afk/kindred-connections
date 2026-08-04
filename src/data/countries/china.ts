@@ -36,7 +36,20 @@ export const china: Pais = {
   base: {
     nome: "Hutong Tradicional em Pequim",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Beijing_Hutong_2011.JPG/1200px-Beijing_Hutong_2011.JPG",
-    descricao: "“Nín hǎo! Sou Li, seu guia na China. Estamos hospedados em um Hutong, um bairro tradicional de vielas estreitas e casas com pátios internos. Aqui vive o verdadeiro espírito de Pequim. Prepare-se, pois hoje caminharemos sobre a história!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Beijing_Hutong_Ambience.mp3",
+      legenda: "O som calmo das vielas (Hutongs) de Pequim",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“Nín hǎo! Sou Li, seu guia na China. Estamos hospedados em um Hutong, um bairro tradicional de vielas estreitas e casas com pátios internos. Aqui vive o verdadeiro espírito de Pequim. Prepare-se, pois hoje caminharemos sobre a história!”",
+    galeria: [
+      {
+        id: "cn-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Beijing_Hutong_2011.JPG/1200px-Beijing_Hutong_2011.JPG",
+        legenda: "Um pátio tradicional em Pequim",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   roteiro_viagem: [
     {

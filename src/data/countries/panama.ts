@@ -37,7 +37,20 @@ export const panama: Pais = {
   base: {
     nome: "Hotel próximo ao Canal do Panamá",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Panama_Canal_Miraflores_Locks.jpg/1280px-Panama_Canal_Miraflores_Locks.jpg",
-    descricao: "“¡Hola! Sou o capitão Lucas. Aqui, verá navios gigantes passando entre dois oceanos. O Panamá é a ponte do mundo.”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Panama_Canal_Ambience.mp3",
+      legenda: "O som industrial e das águas no Canal",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“¡Hola! Sou o capitão Lucas. Aqui, verá navios gigantes passando entre dois oceanos. O Panamá é a ponte do mundo.”",
+    galeria: [
+      {
+        id: "pa-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Panama_Canal_Miraflores_Locks.jpg/1280px-Panama_Canal_Miraflores_Locks.jpg",
+        legenda: "As eclusas de Miraflores no Canal do Panamá",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   roteiro_viagem: [

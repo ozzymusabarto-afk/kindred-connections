@@ -37,7 +37,20 @@ export const guatemala: Pais = {
   base: {
     nome: "Casarão Colonial em Antigua",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Antigua_Guatemala_Street.jpg/1280px-Antigua_Guatemala_Street.jpg",
-    descricao: "“¡Hola! Sou a Maya. Vamos explorar templos escondidos na floresta e aprender sobre o tempo dos Maias.”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Antigua_Market_Ambience.mp3",
+      legenda: "O burburinho do mercado em Antigua",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“¡Hola! Sou a Maya. Vamos explorar templos escondidos na floresta e aprender sobre o tempo dos Maias.”",
+    galeria: [
+      {
+        id: "gt-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Antigua_Guatemala_Street.jpg/1280px-Antigua_Guatemala_Street.jpg",
+        legenda: "As ruas coloridas e vulcões de Antigua",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   roteiro_viagem: [
