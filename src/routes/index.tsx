@@ -5,7 +5,7 @@ import { CompassButton } from "@/components/CompassButton";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StarStamp } from "@/components/StarStamp";
 import { FichaExplorador } from "@/components/FichaExplorador";
-import { continentes, getPaisesPorContinente } from "@/data/countries";
+import { continentes, paises } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
 
 
