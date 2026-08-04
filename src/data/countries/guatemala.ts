@@ -72,7 +72,7 @@ export const guatemala: Pais = {
       nome: "Macaco-bugio",
       nome_cientifico: "Alouatta palliata",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Mantled_Howler_Monkey.jpg/1280px-Mantled_Howler_Monkey.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Howler_Monkey_Roar.mp3",
       curiosidade: "O bugio é famoso pelo seu grito alto, que pode ser ouvido a quilômetros de distância na floresta.",
       habitat: "Florestas tropicais."
     }

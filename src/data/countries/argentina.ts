@@ -48,7 +48,20 @@ export const argentina: Pais = {
     nome: "Hotel Boutique em San Telmo, Buenos Aires",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/San_Telmo_Buenos_Aires.jpg/1280px-San_Telmo_Buenos_Aires.jpg",
     credito: "Wikimedia Commons",
-    descricao: "“¡Hola! Meu nome é Santiago e serei o vosso guia pela Argentina. Estamos em San Telmo, o bairro mais antigo da cidade. Aqui as ruas são de pedra e os casarões têm pátios internos cheios de plantas. No final de semana, a praça se enche de músicos e dançarinos. Deixem as malas e vamos provar nosso primeiro 'alfajor'!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Buenos_Aires_City_Ambience.mp3",
+      legenda: "Atmosfera urbana de Buenos Aires",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“¡Hola! Meu nome é Santiago e serei o vosso guia pela Argentina. Estamos em San Telmo, o bairro mais antigo da cidade. Aqui as ruas são de pedra e os casarões têm pátios internos cheios de plantas. No final de semana, a praça se enche de músicos e dançarinos. Deixem as malas e vamos provar nosso primeiro 'alfajor'!”",
+    galeria: [
+      {
+        id: "ar-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/San_Telmo_Buenos_Aires.jpg/1280px-San_Telmo_Buenos_Aires.jpg",
+        legenda: "Uma rua clássica de San Telmo",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   roteiro_viagem: [

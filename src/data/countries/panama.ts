@@ -72,7 +72,7 @@ export const panama: Pais = {
       nome: "Tucano-toco",
       nome_cientifico: "Ramphastos toco",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Toco_toucan.jpg/1280px-Toco_toucan.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Toucan_Sound.mp3",
       curiosidade: "Seu bico enorme é super leve e ajuda a controlar a temperatura do corpo, além de alcançar frutas longe nos galhos.",
       habitat: "Florestas tropicais e áreas abertas."
     }

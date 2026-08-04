@@ -269,7 +269,7 @@ export const brasil: Pais = {
       nome: "Tucano-toco",
       nome_cientifico: "Ramphastos toco",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Toco_Toucan_P1130498.jpg/1280px-Toco_Toucan_P1130498.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Toucan_Sound.mp3",
       curiosidade: "Apesar do bico parecer pesado, ele é feito de um osso esponjoso muito leve. O bico serve para alcançar frutas longe no galho e também para ajudar a controlar a temperatura do corpo do pássaro.",
       habitat: "Cerrados e bordas de florestas por quase todo o Brasil.",
       credito: "Wikimedia Commons"

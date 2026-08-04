@@ -72,7 +72,7 @@ export const costaRica: Pais = {
       nome: "Preguiça de três dedos",
       nome_cientifico: "Bradypus variegatus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Bradypus_variegatus.jpg/1280px-Bradypus_variegatus.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Sloth_Sound.mp3",
       curiosidade: "Elas se movem tão devagar que, às vezes, algas crescem em seu pelo, ajudando na camuflagem!",
       habitat: "Dossel das florestas tropicais."
     }
