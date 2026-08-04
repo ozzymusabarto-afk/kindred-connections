@@ -37,8 +37,16 @@ function MapaMundi() {
   const { carimbos } = usePassport();
   const paisesVisiveis = getPaisesPorContinente(continenteAtivo);
   const totalExplorados = carimbos.length;
-  const totalPaises = 21; // 18 anteriores + 3 América Central // 3 por continente x 6 continentes (Am. Norte, Am. Sul, Europa, Ásia, África, Oceania)
+  const totalPaises = 21; 
   const visitados = new Set(carimbos.map((c) => c.paisId));
+
+  // Validação simples de integridade no carregamento do continente
+  useEffect(() => {
+    const invalidos = paisesVisiveis.filter(p => !p.nome || !p.bandeira || !p.resumo_geografico);
+    if (invalidos.length > 0) {
+      console.warn(`[Aviso de Integridade] Alguns países em ${continenteAtivo} possuem dados incompletos:`, invalidos.map(p => p.id));
+    }
+  }, [continenteAtivo, paisesVisiveis]);
 
   return (
     <div className="min-h-screen">
