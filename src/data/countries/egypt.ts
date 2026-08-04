@@ -100,7 +100,7 @@ export const egito: Pais = {
       nome: "Escaravelho Sagrado",
       nome_cientifico: "Scarabaeus sacer",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Scarabaeus_sacer.jpg/1920px-Scarabaeus_sacer.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Beetle_Buzz_Sound.mp3",
       curiosidade: "Ele usa o sol e as estrelas para se orientar enquanto rola suas bolas de detritos. No antigo Egito, era um amuleto de boa sorte muito comum.",
       habitat: "Dunas de areia e bordas do deserto."
     }

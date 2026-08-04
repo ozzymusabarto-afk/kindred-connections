@@ -100,7 +100,7 @@ export const australia: Pais = {
       nome: "Canguru-Vermelho",
       nome_cientifico: "Osphranter rufus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Red_kangaroo_jumping02.jpg/1920px-Red_kangaroo_jumping02.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Kangaroo_Sound.mp3",
       curiosidade: "É o maior marsupial do mundo. Ele usa sua cauda musculosa como um 'terceiro pé' para se equilibrar e pode saltar até 9 metros de distância em um único pulo!",
       habitat: "Planícies abertas, desertos e bosques da Austrália."
     }

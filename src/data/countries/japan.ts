@@ -100,7 +100,7 @@ export const japao: Pais = {
       nome: "Macaco Japonês",
       nome_cientifico: "Macaca fuscata",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Macaca_fuscata_it_is_snowing.jpg/1920px-Macaca_fuscata_it_is_snowing.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Japanese_Macaque_Sound.mp3",
       curiosidade: "Também chamados de Macacos da Neve, são os primatas que vivem mais ao norte do mundo. Eles aprenderam a tomar banho em águas termais quentes para sobreviver ao inverno rigoroso.",
       habitat: "Montanhas nevadas e florestas do Japão."
     }

@@ -240,7 +240,7 @@ export const chile: Pais = {
       nome: "Guanaco",
       nome_cientifico: "Lama guanicoe",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Guanaco_Chile.jpg/1280px-Guanaco_Chile.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Guanaco_Sound.mp3",
       curiosidade: "É um dos maiores animais terrestres da América do Sul. Ele consegue beber água salgada e sobreviver em lugares onde quase nada cresce.",
       habitat: "Estepes frias e montanhas da Patagônia.",
       credito: "Wikimedia Commons"
@@ -250,7 +250,7 @@ export const chile: Pais = {
       nome: "Flamingo Andino",
       nome_cientifico: "Phoenicoparrus andinus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Andean_Flamingo.jpg/1280px-Andean_Flamingo.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Andean_Flamingo_Sound.mp3",
       curiosidade: "Eles ganham essa cor rosada por causa da comida que encontram nas lagoas de sal. Conseguem aguentar águas que congelariam a maioria dos animais.",
       habitat: "Lagoas de sal em grandes altitudes nos Andes.",
       credito: "Wikimedia Commons"

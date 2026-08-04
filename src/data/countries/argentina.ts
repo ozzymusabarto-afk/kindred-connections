@@ -240,7 +240,7 @@ export const argentina: Pais = {
       nome: "Lhama",
       nome_cientifico: "Lama glama",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Llama_roaming_in_Machu_Picchu.jpg/1280px-Llama_roaming_in_Machu_Picchu.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Llama_Sound.mp3",
       curiosidade: "São primas dos camelos, mas sem corcovas. Elas são muito resistentes à altitude e têm um pelo muito grosso para se proteger do frio das montanhas.",
       habitat: "Montanhas dos Andes.",
       credito: "Wikimedia Commons"
@@ -250,7 +250,7 @@ export const argentina: Pais = {
       nome: "Condor Andino",
       nome_cientifico: "Vultur gryphus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Andean_Condor_P1130490.jpg/1280px-Andean_Condor_P1130490.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/8/82/Andean_Condor_Sound.mp3",
       curiosidade: "Pode viver até 70 anos e tem uma envergadura de asas de mais de 3 metros. É um mestre em usar as correntes de ar quente para planar por horas.",
       habitat: "Cordilheira dos Andes.",
       credito: "Wikimedia Commons"

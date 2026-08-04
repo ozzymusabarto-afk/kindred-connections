@@ -87,7 +87,7 @@ export const marrocos: Pais = {
       nome: "Raposa-do-Deserto (Feneco)",
       nome_cientifico: "Vulpes zerda",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Fennec_Fox_Vulpes_zerda.jpg/1200px-Fennec_Fox_Vulpes_zerda.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Fennec_Fox_Bark.mp3",
       curiosidade: "É a menor raposa do mundo. Suas orelhas gigantes servem para escutar insetos embaixo da areia e também para resfriar o corpo no calor do Saara.",
       habitat: "Dunas de areia do Deserto do Saara."
     }
