@@ -1,0 +1,112 @@
+import type { Pais } from "../types";
+
+export const japao: Pais = {
+  id: "japao",
+  nome: "Japão",
+  continente: "asia",
+  codigo_mapa: "jp",
+  bandeira: "🇯🇵",
+  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/1000px-Flag_of_Japan.svg.png",
+  capital: "Tóquio",
+  coordenadas: { x: 880, y: 395 },
+  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Tokyo_Tower_and_Tokyo_Skyline.jpg/1920px-Tokyo_Tower_and_Tokyo_Skyline.jpg",
+  resumo_geografico: "Um arquipélago formado por mais de 6.000 ilhas, onde o futuro e o passado caminham lado a lado. Das luzes de neon de Tóquio aos templos silenciosos de Quioto, o Japão é uma terra de montanhas vulcânicas, florestas de bambu e uma cultura baseada no respeito, na tecnologia e na harmonia com as estações do ano.",
+  chegada: {
+    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Tokyo_Bay_from_above.jpg/1920px-Tokyo_Bay_from_above.jpg",
+    texto: "Aperte o cinto, explorador! Estamos sobrevoando a Baía de Tóquio. Olhe pela janela: a cidade parece um oceano infinito de prédios e luzes. Lá ao fundo, em dias claros, podemos ver o pico nevado do Monte Fuji. O Japão está 12 horas à frente do Brasil — aqui o sol nasce primeiro! Vamos pousar no Aeroporto de Narita e começar nossa jornada pelo 'País do Sol Nascente'.",
+    fala_piloto_original: "Minasama, konnichiwa! Captain speaking. We are approaching Tokyo Narita Airport. The temperature is 22 degrees with clear skies. Welcome to Japan!",
+    fala_piloto_traducao: "Boa tarde a todos! Aqui é o capitão. Estamos nos aproximando do Aeroporto de Narita, em Tóquio. A temperatura é de 22 graus com céu limpo. Bem-vindos ao Japão!",
+    idioma: "Japonês",
+    fuso_horario: "+12 horas em relação a Brasília",
+    temperatura: "22 °C, dia ensolarado"
+  },
+  base: {
+    nome: "Ryokan Tradicional em Quioto",
+    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Ryokan_room_in_Kyoto.jpg/1920px-Ryokan_room_in_Kyoto.jpg",
+    descricao: "“Kon'nichiwa! Eu me chamo Akiko e serei sua guia nesta expedição. Para começar nossa viagem, estamos em um Ryokan — uma hospedaria tradicional. Repare que não há sapatos dentro do quarto, o chão é feito de palha trançada (tatami) e dormiremos em colchões macios chamados futons. O Japão é um país que valoriza muito o espaço e o silêncio. Prepare seu agasalho leve, vamos pegar o trem mais rápido do mundo!”"
+  },
+  roteiro_viagem: [
+    {
+      dia: 1,
+      titulo: "Dia 1: A velocidade da luz em Tóquio",
+      descricao: "Tóquio é uma das cidades mais modernas e limpas do mundo. Aqui, robôs ajudam as pessoas e os trens chegam no segundo exato. Mas, no meio de tanto vidro e aço, você encontrará pequenos jardins zen onde o tempo parece parar. Observe como as pessoas se curvam levemente ao cumprimentar: é um sinal de profundo respeito.",
+      imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Shibuya_Crossing%2C_Tokyo%2C_Japan.jpg/1920px-Shibuya_Crossing%2C_Tokyo%2C_Japan.jpg",
+      guia_nome: "Akiko",
+      transporte: {
+        nome: "Shinkansen (Trem Bala)",
+        icone: "🚄",
+        descricao: "O Shinkansen flutua sobre os trilhos a mais de 300 km/h! Ele é tão suave que você pode equilibrar uma moeda na mesa sem que ela caia."
+      },
+      fauna_do_dia: {
+        id: "macaco-japones",
+        contexto: "Nas montanhas nevadas, os macacos japoneses relaxam em fontes de água termal quente (Onsen) para fugir do frio."
+      },
+      sabor_do_dia: {
+        id: "sushi",
+        contexto: "Peixe fresquíssimo combinado com arroz temperado. No Japão, a comida é uma obra de arte visual!"
+      },
+      observacao: {
+        titulo: "Cruzamento de Shibuya",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Shibuya_Crossing%2C_Tokyo%2C_Japan.jpg/1920px-Shibuya_Crossing%2C_Tokyo%2C_Japan.jpg",
+        hotspots: [
+          {
+            id: "multidao",
+            x: 50,
+            y: 70,
+            titulo: "Organização Impecável",
+            texto: "Milhares de pessoas atravessam ao mesmo tempo, mas ninguém esbarra em ninguém. A regra é sempre manter a esquerda."
+          },
+          {
+            id: "neon",
+            x: 20,
+            y: 30,
+            titulo: "Luzes de Neon",
+            texto: "À noite, as fachadas dos prédios viram telas gigantes. Tóquio gasta muita energia, mas usa tecnologia LED para ser eficiente."
+          }
+        ]
+      },
+      perguntas: [
+        {
+          id: "j1",
+          tipo: "observacao",
+          etapa: "transporte",
+          texto: "O trem bala é super silencioso mesmo sendo muito rápido. Por que o silêncio é tão importante para os japoneses nos lugares públicos?"
+        },
+        {
+          id: "j2",
+          tipo: "comparacao",
+          etapa: "observacao",
+          texto: "Em Shibuya, as faixas de pedestres cruzam em todas as direções. Como são as faixas de pedestres perto da sua escola?"
+        }
+      ]
+    }
+  ],
+  fauna_flora: [
+    {
+      id: "macaco-japones",
+      nome: "Macaco Japonês",
+      nome_cientifico: "Macaca fuscata",
+      foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Macaca_fuscata_it_is_snowing.jpg/1920px-Macaca_fuscata_it_is_snowing.jpg",
+      som_url: null,
+      curiosidade: "Também chamados de Macacos da Neve, são os primatas que vivem mais ao norte do mundo. Eles aprenderam a tomar banho em águas termais quentes para sobreviver ao inverno rigoroso.",
+      habitat: "Montanhas nevadas e florestas do Japão."
+    }
+  ],
+  gastronomia: [
+    {
+      id: "sushi",
+      nome: "Sushi",
+      foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sushi_festival.jpg/1920px-Sushi_festival.jpg",
+      adjetivo: "delicado",
+      historia: "Originalmente era uma forma de conservar o peixe em arroz fermentado. Hoje, é apreciado pela pureza dos ingredientes e pelo corte preciso do mestre sushiman."
+    }
+  ],
+  comparativo: {
+    clima_predominante: "Temperado com estações bem definidas e neve no norte",
+    bioma_principal: "Florestas temperadas e arquipélagos vulcânicos",
+    elemento_marcante: "A tecnologia de ponta convivendo com tradições milenares",
+    agricultura_construcoes: "Terras limitadas levam ao uso de tecnologia hidropônica e prédios super resistentes a terremotos.",
+    roupas_modo_de_vida: "Uso de Kimonos em festivais e roupas sociais modernas no trabalho. Grande foco em educação e limpeza pública.",
+    fauna_alimentacao: "Baseada em frutos do mar, arroz e vegetais, com destaque para a preservação de espécies como o grou-japones."
+  }
+};
