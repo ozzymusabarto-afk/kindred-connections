@@ -13,9 +13,10 @@ interface WorldMapProps {
 // ISO numeric to alpha-2 mapping (subset for critical countries)
 const ISO_NUMERIC_MAP: Record<string, string> = {
   "076": "br", "124": "ca", "840": "us", "484": "mx", "620": "pt", "380": "it", "826": "gb", 
-  "032": "ar", "152": "cl", "392": "jp", "818": "eg", "036": "au", "156": "cn", "764": "th", 
-  "504": "ma", "710": "za", "554": "nz", "242": "fj", "188": "cr", "591": "pa", "320": "gt"
-};
+    "032": "ar", "152": "cl", "392": "jp", "818": "eg", "036": "au", "156": "cn", "764": "th", 
+    "504": "ma", "710": "za", "554": "nz", "242": "fj", "188": "cr", "591": "pa", "320": "gt",
+    "604": "pe"
+  };
 
 export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   const svgRef = useRef<SVGSVGElement | null>(null);
