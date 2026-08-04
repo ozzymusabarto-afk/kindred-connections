@@ -201,10 +201,12 @@ function MapaMundi() {
             <button
               key={pais.id}
               type="button"
+              disabled={bloqueado}
+              aria-label={`Ver diário de campo de ${pais.nome}${visitados.has(pais.id) ? " - já explorado" : ""}`}
               onClick={() =>
                 navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
               }
-              className="group relative overflow-hidden rounded-md border border-border bg-card text-left transition-colors hover:border-brass"
+              className="group relative overflow-hidden rounded-md border border-border bg-card text-left transition-all hover:border-brass hover:shadow-md focus:outline-none focus:ring-4 focus:ring-brass/40 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {visitados.has(pais.id) && (
                 <span className="absolute right-3 top-3 z-10 drop-shadow">
