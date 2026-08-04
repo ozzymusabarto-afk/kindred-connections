@@ -114,6 +114,24 @@ function MapaMundi() {
             <p>
               📑 <strong>Cadernos de Campo:</strong> Abra os Diários de Bordo para investigar os segredos dos demais países através de histórias curtas, fotos marcantes e registros de viagem prontos para você carimbar!
             </p>
+            <div className="mt-8 grid gap-4 border-t border-brass/10 pt-8 sm:grid-cols-2">
+              <div className="space-y-2">
+                <h3 className="font-display text-sm font-semibold text-brass">Novos Horizontes</h3>
+                <p className="text-sm">Ativar suporte a múltiplos idiomas para a interface, com tradução de textos dos países e dos Diários de Bordo e um seletor de idioma acessível.</p>
+              </div>
+              <div className="space-y-2">
+                <h3 className="font-display text-sm font-semibold text-brass">Conquistas</h3>
+                <p className="text-sm">Criar um painel de conquistas que mostre o progresso por continente, os países visitados e as “medalhas” ganhas, com um resumo ao final de cada jornada.</p>
+              </div>
+              <div className="space-y-2">
+                <h3 className="font-display text-sm font-semibold text-brass">Sempre com Você</h3>
+                <p className="text-sm">Implementar um modo offline com cache de conteúdo essencial (mapa, textos e áudios), para a criança continuar explorando mesmo sem conexão.</p>
+              </div>
+              <div className="space-y-2">
+                <h3 className="font-display text-sm font-semibold text-brass">Voz do Guia</h3>
+                <p className="text-sm">Adicionar narração em áudio automática para o texto dos países e dos Diários de Bordo, com controles de play/pause e opção de ajustar a velocidade.</p>
+              </div>
+            </div>
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
             <a 
