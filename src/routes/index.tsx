@@ -60,8 +60,7 @@ function MapaMundi() {
     return "america-do-norte";
   });
   const { carimbos } = usePassport();
-  const allPaises = paises; // Importado de @/data/countries
-  const paisesVisiveis = allPaises; // Mostrar todos no mapa 3D
+  const paisesVisiveis = paises; // Mostrar todos no globo 3D
   const totalExplorados = carimbos.length;
   const totalPaises = 21; 
   const visitados = new Set(carimbos.map((c) => c.paisId));
