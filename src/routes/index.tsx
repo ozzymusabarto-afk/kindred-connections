@@ -45,7 +45,7 @@ function MapaMundi() {
       <SiteHeader ativo="mapa" />
 
       <main className="mx-auto max-w-6xl px-5 py-10">
-        <section className="max-w-2xl">
+        <section className="max-w-3xl">
           <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
             Diário de bordo do explorador
           </p>
