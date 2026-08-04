@@ -131,7 +131,8 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           {countriesFeatures.map((f: any) => {
             const numericId = f.id.toString().padStart(3, '0');
             const alpha2 = ISO_NUMERIC_MAP[numericId];
-            const hasData = !!paises.find(p => p.codigo_mapa === alpha2);
+            const countryData = paises.find(p => p.codigo_mapa === alpha2);
+            const hasData = !!countryData;
             const immersive = isImmersive(f);
             
             return (
@@ -143,11 +144,27 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
                 strokeWidth={hasData ? 0.8 : 0.4}
                 className={`transition-colors duration-300 ${hasData ? 'hover:fill-brass/20 cursor-pointer' : ''}`}
                 onClick={() => hasData && handleCountryClick(f)}
-                onMouseEnter={() => hasData && setHoveredCountry({ feature: f, name: ISO_NUMERIC_MAP[numericId] })}
+                onMouseEnter={() => {
+                  if (hasData && countryData) {
+                    setHoveredCountry({ 
+                      feature: f, 
+                      name: countryData.nome,
+                      type: immersive ? "Expedição Imersiva" : "Diário de Bordo"
+                    });
+                  }
+                }}
                 onMouseLeave={() => setHoveredCountry(null)}
               />
             );
           })}
+        </g>
+
+        {/* Illustrations (Small Mountains/Clouds) */}
+        <g pointerEvents="none" opacity="0.4">
+          <text x={width * 0.2} y={height * 0.3} fontSize="20">☁️</text>
+          <text x={width * 0.7} y={height * 0.2} fontSize="15">☁️</text>
+          <text x={width * 0.15} y={height * 0.75} fontSize="24">⛵</text>
+          <text x={width * 0.85} y={height * 0.65} fontSize="18">🐳</text>
         </g>
 
         {/* Country Markers (Pins/Medals) */}
