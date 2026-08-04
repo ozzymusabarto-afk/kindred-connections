@@ -11,6 +11,12 @@ import { chile } from "./countries/chile";
 import { japao } from "./countries/japan";
 import { egito } from "./countries/egypt";
 import { australia } from "./countries/australia";
+import { china } from "./countries/china";
+import { tailandia } from "./countries/thailand";
+import { marrocos } from "./countries/morocco";
+import { africaDoSul } from "./countries/south-africa";
+import { novaZelandia } from "./countries/new-zealand";
+import { fiji } from "./countries/fiji";
 import type { CountriesData, Continente, Pais } from "./types";
 
 const data = raw as CountriesData;
@@ -28,7 +34,13 @@ const paisesDedicados: Pais[] = [
   chile,
   japao,
   egito,
-  australia
+  australia,
+  china,
+  tailandia,
+  marrocos,
+  africaDoSul,
+  novaZelandia,
+  fiji
 ];
 const idsDedicados = new Set(paisesDedicados.map((p) => p.id));
 
