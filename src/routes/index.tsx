@@ -70,7 +70,7 @@ function MapaMundi() {
   const [erros, setErros] = useState<string[]>([]);
 
   useEffect(() => {
-    const invalidos = paisesVisiveis.filter(p => {
+    const invalidos = paisesVisiveis.filter((p: any) => {
       const temTexto = p.nome && p.resumo_geografico && p.resumo_geografico.length > 20;
       const temImagem = p.bandeira_url || p.bandeira;
       const temRoteiro = p.id.length > 2 && p.roteiro_viagem && p.roteiro_viagem.length > 0;
