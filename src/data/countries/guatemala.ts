@@ -15,10 +15,23 @@ export const guatemala: Pais = {
 
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Antigua_Guatemala_Street.jpg/1280px-Antigua_Guatemala_Street.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Chegada à Guatemala, o coração do mundo Maia",
+      credito: "Wikimedia Commons"
+    },
     texto: "Chegamos a Antigua, uma cidade cercada por vulcões! Veja as construções antigas e o mercado vibrante que nos dá as boas-vindas.",
     idioma: "Espanhol e línguas maias",
     fuso_horario: "08h00 local — 3 horas a menos que Brasília",
-    temperatura: "20 °C, clima de montanha agradável"
+    temperatura: "20 °C, clima de montanha agradável",
+    galeria: [
+      {
+        id: "gt-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Guatemala_Volcanoes_Aerial.jpg/1280px-Guatemala_Volcanoes_Aerial.jpg",
+        legenda: "Vulcões majestosos da Guatemala vistos de cima",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   base: {

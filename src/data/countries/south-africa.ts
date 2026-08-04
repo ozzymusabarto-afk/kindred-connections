@@ -13,12 +13,25 @@ export const africaDoSul: Pais = {
   resumo_geografico: "Conhecida como a 'Nação Arco-Íris' por sua diversidade de povos, a África do Sul fica na ponta extrema do continente. É uma terra de safáris incríveis com os 'Big Five', montanhas que parecem mesas e o encontro épico de dois oceanos: o Atlântico e o Índico.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Cape_Town_Aerial_View.jpg/1200px-Cape_Town_Aerial_View.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso na Cidade do Cabo com vista para a Table Mountain",
+      credito: "Wikimedia Commons"
+    },
     texto: "Sawubona! Estamos chegando à Cidade do Cabo. Olhe pela janela a Table Mountain — ela é plana no topo como uma mesa de gigante! A África do Sul tem um clima muito parecido com o sul do Brasil, com estações bem definidas. O fuso horário está 5 horas à frente. Vamos pousar e buscar os animais selvagens!",
     fala_piloto_original: "Sawubona! Dumelang! Welcome to Cape Town. The temperature is 22 degrees. Prepare for an amazing safari experience!",
     fala_piloto_traducao: "Olá! Bem-vindos à Cidade do Cabo. A temperatura é de 22 graus. Preparem-se para uma experiência incrível de safári!",
     idioma: "Inglês, Zulu, Africâner (entre 11 oficiais)",
     fuso_horario: "+5 horas em relação a Brasília",
-    temperatura: "22 °C, brisa oceânica"
+    temperatura: "22 °C, brisa oceânica",
+    galeria: [
+      {
+        id: "za-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Cape_Town_Coastline_Aerial.jpg/1200px-Cape_Town_Coastline_Aerial.jpg",
+        legenda: "A costa da Cidade do Cabo vista do céu",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   base: {
     nome: "Safari Lodge no Kruger Park",

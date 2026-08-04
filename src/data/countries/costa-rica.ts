@@ -15,10 +15,23 @@ export const costaRica: Pais = {
 
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/San_Jose_Costa_Rica_skyline.jpg/1280px-San_Jose_Costa_Rica_skyline.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Chegada à Costa Rica, o paraíso da biodiversidade",
+      credito: "Wikimedia Commons"
+    },
     texto: "Estamos chegando em San José, cercada por vales e montanhas! O ar é fresco e o verde está por toda parte. Prepare-se para conhecer o coração da América Central.",
     idioma: "Espanhol",
     fuso_horario: "06h00 local — 3 horas a menos que Brasília",
     temperatura: "24 °C, clima ameno de montanha",
+    galeria: [
+      {
+        id: "cr-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Costa_Rica_Nature_Aerial.jpg/1280px-Costa_Rica_Nature_Aerial.jpg",
+        legenda: "As densas florestas tropicais da Costa Rica vistas de cima",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   base: {

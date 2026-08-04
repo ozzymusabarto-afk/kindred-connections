@@ -15,10 +15,23 @@ export const panama: Pais = {
 
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Panama_City_Skyline.jpg/1280px-Panama_City_Skyline.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso no Panamá, a ponte entre dois oceanos",
+      credito: "Wikimedia Commons"
+    },
     texto: "Bem-vindos à Cidade do Panamá! Veja os arranha-céus modernos que brilham sob o sol tropical. O Canal do Panamá é logo ali, o verdadeiro coração desta nação.",
     idioma: "Espanhol",
     fuso_horario: "09h00 local — 2 horas a menos que Brasília",
-    temperatura: "28 °C, clima quente e úmido"
+    temperatura: "28 °C, clima quente e úmido",
+    galeria: [
+      {
+        id: "pa-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Panama_Canal_Aerial_View.jpg/1280px-Panama_Canal_Aerial_View.jpg",
+        legenda: "O Canal do Panamá visto do céu",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   base: {
