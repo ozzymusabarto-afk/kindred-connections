@@ -8,7 +8,7 @@
     {
       "id": "america-central",
       "nome": "América Central",
-      "disponivel": false
+      "disponivel": true
     },
     {
       "id": "america-do-sul",

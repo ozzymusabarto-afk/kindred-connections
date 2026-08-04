@@ -17,6 +17,9 @@ import { marrocos } from "./countries/morocco";
 import { africaDoSul } from "./countries/south-africa";
 import { novaZelandia } from "./countries/new-zealand";
 import { fiji } from "./countries/fiji";
+import { costaRica } from "./countries/costa-rica";
+import { panama } from "./countries/panama";
+import { guatemala } from "./countries/guatemala";
 import type { CountriesData, Continente, Pais } from "./types";
 
 const data = raw as CountriesData;
@@ -40,7 +43,10 @@ const paisesDedicados: Pais[] = [
   marrocos,
   africaDoSul,
   novaZelandia,
-  fiji
+  fiji,
+  costaRica,
+  panama,
+  guatemala
 ];
 const idsDedicados = new Set(paisesDedicados.map((p) => p.id));
 
