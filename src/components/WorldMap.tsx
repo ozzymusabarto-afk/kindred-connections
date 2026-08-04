@@ -282,7 +282,32 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   const visitados = paises.filter((p) => carimbados.includes(p.id)).length;
 
   return (
-    <div className="relative w-full overflow-hidden rounded-2xl border-2 border-border shadow-lg">
+    <div className="group/map relative w-full overflow-hidden rounded-3xl border-4 border-brass/20 bg-card shadow-2xl transition-all duration-500 hover:border-brass/40">
+      {/* Controles de Zoom Estilizados (Lupa) */}
+      <div className="absolute right-6 top-6 z-20 flex flex-col gap-3">
+        <button
+          onClick={() => zoomEm(1.5)}
+          className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-brass/30 bg-card/90 text-brass shadow-lg backdrop-blur-sm transition-all hover:scale-110 hover:border-brass hover:bg-card active:scale-95"
+          title="Aumentar zoom"
+        >
+          <span className="text-2xl font-bold">+</span>
+        </button>
+        <button
+          onClick={() => zoomEm(1 / 1.5)}
+          className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-brass/30 bg-card/90 text-brass shadow-lg backdrop-blur-sm transition-all hover:scale-110 hover:border-brass hover:bg-card active:scale-95"
+          title="Diminuir zoom"
+        >
+          <span className="text-2xl font-bold">−</span>
+        </button>
+        <button
+          onClick={() => setVista(VISTA_MUNDO)}
+          className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-brass/30 bg-card/90 text-brass shadow-lg backdrop-blur-sm transition-all hover:scale-110 hover:border-brass hover:bg-card active:scale-95"
+          title="Ver o mundo todo"
+        >
+          <span className="text-xl">🌍</span>
+        </button>
+      </div>
+
       <svg
         ref={svgRef}
         viewBox={`${vista.x} ${vista.y} ${vista.w} ${vista.h}`}
@@ -295,6 +320,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         onPointerDown={(e) => {
           arrasto.current = { x: e.clientX, y: e.clientY, vista };
           e.currentTarget.setPointerCapture(e.pointerId);
+          setTooltip(null);
         }}
         onPointerMove={(e) => {
           const a = arrasto.current;
@@ -309,9 +335,17 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         onPointerLeave={() => { arrasto.current = null; }}
       >
         <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+          </radialGradient>
+          <filter id="shadow-pin">
+            <feDropShadow dx="0" dy="2" stdDeviation="2" floodOpacity="0.3" />
+          </filter>
           <linearGradient id="oceano" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="var(--map-ocean)" />
-            <stop offset="100%" stopColor="var(--map-ocean-deep)" />
+            <stop offset="0%" stopColor="#d9ecf8" />
+            <stop offset="50%" stopColor="#b9e4f5" />
+            <stop offset="100%" stopColor="#7fd0f5" />
           </linearGradient>
           {pinos.map(({ pais }) => (
             <clipPath key={`clip-${pais.id}`} id={`clip-${pais.id}`}>
