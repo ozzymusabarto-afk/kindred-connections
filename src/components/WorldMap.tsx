@@ -192,10 +192,12 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   const [vista, setVista] = useState<Vista>(VISTA_MUNDO);
   const [pousado, setPousado] = useState(ORIGEM_BRASIL ?? { x: W * 0.32, y: H * 0.62 });
   const [voo, setVoo] = useState<{ d: string; destino: { x: number; y: number }; progresso: number } | null>(null);
+  const [hoveredPais, setHoveredPais] = useState<Pais | null>(null);
   const [emFoco, setEmFoco] = useState<string | null>(null);
   const requestRef = useRef<number | null>(null);
   const startTimeRef = useRef<number | null>(null);
   const arrasto = useRef<{ x: number; y: number; vista: Vista } | null>(null);
+  const [tooltip, setTooltip] = useState<{ x: number; y: number; pais: Pais } | null>(null);
 
   useEffect(() => () => { if (requestRef.current) cancelAnimationFrame(requestRef.current); }, []);
 
