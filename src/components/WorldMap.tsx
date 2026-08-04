@@ -70,8 +70,12 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
     
     if (pais) {
       const centroid = d3.geoCentroid(feature);
+      const brazilPath = WORLD_COUNTRIES.find(c => c.id === 'br');
+      const brazilCentroid = brazilPath ? brazilPath.centro : { x: 0, y: 0 }; // We'd need to convert this to lat/long or stick to SVG space
       
-      // Animate rotation to destination
+      // Since this is a 3D globe, flight paths should ideally be great circles.
+      // For now, let's keep it simple: rotate to destination.
+      
       setAnimating(true);
       d3.transition()
         .duration(1200)
