@@ -13,12 +13,25 @@ export const japao: Pais = {
   resumo_geografico: "Um arquipélago formado por mais de 6.000 ilhas, onde o futuro e o passado caminham lado a lado. Das luzes de neon de Tóquio aos templos silenciosos de Quioto, o Japão é uma terra de montanhas vulcânicas, florestas de bambu e uma cultura baseada no respeito, na tecnologia e na harmonia com as estações do ano.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Tokyo_Bay_from_above.jpg/1920px-Tokyo_Bay_from_above.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso no Aeroporto de Narita, Tóquio",
+      credito: "Wikimedia Commons"
+    },
     texto: "Aperte o cinto, explorador! Estamos sobrevoando a Baía de Tóquio. Olhe pela janela: a cidade parece um oceano infinito de prédios e luzes. Lá ao fundo, em dias claros, podemos ver o pico nevado do Monte Fuji. O Japão está 12 horas à frente do Brasil — aqui o sol nasce primeiro! Vamos pousar no Aeroporto de Narita e começar nossa jornada pelo 'País do Sol Nascente'.",
     fala_piloto_original: "Minasama, konnichiwa! Captain speaking. We are approaching Tokyo Narita Airport. The temperature is 22 degrees with clear skies. Welcome to Japan!",
     fala_piloto_traducao: "Boa tarde a todos! Aqui é o capitão. Estamos nos aproximando do Aeroporto de Narita, em Tóquio. A temperatura é de 22 graus com céu limpo. Bem-vindos ao Japão!",
     idioma: "Japonês",
     fuso_horario: "+12 horas em relação a Brasília",
-    temperatura: "22 °C, dia ensolarado"
+    temperatura: "22 °C, dia ensolarado",
+    galeria: [
+      {
+        id: "jp-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Tokyo_Aerial_View.jpg/1920px-Tokyo_Aerial_View.jpg",
+        legenda: "A imensidão urbana de Tóquio vista do céu",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   base: {
     nome: "Ryokan Tradicional em Quioto",

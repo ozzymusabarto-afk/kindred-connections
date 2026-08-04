@@ -13,12 +13,25 @@ export const egito: Pais = {
   resumo_geografico: "Uma dádiva do Rio Nilo no meio do maior deserto do mundo, o Saara. O Egito é o berço de uma das civilizações mais antigas da Terra, onde pirâmides monumentais guardam segredos de faraós e o Rio Nilo traz vida a uma faixa verde de terra que corta as areias escaldantes.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/View_of_Nile_river_and_Cairo_city_at_sunset.jpg/1920px-View_of_Nile_river_and_Cairo_city_at_sunset.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso no deserto no Aeroporto Internacional do Cairo",
+      credito: "Wikimedia Commons"
+    },
     texto: "Uau, explorador! Olhe pela janela: o Rio Nilo parece uma serpente azul brilhante cercada por uma linha verde de palmeiras, dividindo o deserto ao meio. Estamos chegando ao Cairo, uma cidade vibrante e barulhenta onde a história tem milhares de anos. O calor é seco e o sol brilha forte quase todo o ano. Vamos desembarcar e sentir o perfume das especiarias no ar!",
     fala_piloto_original: "Ahlan wa sahlan! Welcome to Cairo. The temperature outside is 34 degrees Celsius. We are landing at Cairo International Airport. Please remain seated until the aircraft comes to a complete stop.",
     fala_piloto_traducao: "Bem-vindos! Aqui é o capitão. Estamos chegando ao Cairo. A temperatura externa é de 34 graus Celsius. Estamos pousando no Aeroporto Internacional do Cairo. Por favor, permaneçam sentados até a parada total.",
     idioma: "Árabe",
     fuso_horario: "+5 horas em relação a Brasília",
-    temperatura: "34 °C, calor seco"
+    temperatura: "34 °C, calor seco",
+    galeria: [
+      {
+        id: "eg-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Cairo_Aerial_Nile.jpg/1920px-Cairo_Aerial_Nile.jpg",
+        legenda: "O Rio Nilo cortando a cidade do Cairo",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   base: {
     nome: "Eco-Lodge na Margem do Nilo",

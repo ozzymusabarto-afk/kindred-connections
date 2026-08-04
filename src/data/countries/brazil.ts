@@ -23,18 +23,51 @@ export const brasil: Pais = {
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Cidade_do_Rio_de_Janeiro.jpg/1280px-Cidade_do_Rio_de_Janeiro.jpg",
     credito: "Wikimedia Commons",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso no Aeroporto Internacional do Rio de Janeiro",
+      credito: "Wikimedia Commons"
+    },
     idioma: "Português",
     fuso_horario: "Horário de Brasília",
     temperatura: "28 °C, sol tropical com brisa do mar",
     fala_piloto_original: "Bem-vindos ao Brasil! Estamos sobrevoando a Baía de Guanabara, no Rio de Janeiro. A temperatura é de 28 graus e o dia está maravilhoso. É um prazer recebê-los em nosso país. Aproveitem a jornada!",
-    texto: "Olhe pela janela, explorador! Estamos chegando no país do futebol, do samba e de uma natureza que não tem fim. Veja como o verde das montanhas mergulha direto no azul do oceano. Esta é a 'Cidade Maravilhosa'. Aqui, a natureza e a cidade convivem lado a lado. Prepare-se para conhecer o coração da América do Sul!"
+    fala_piloto_traducao: "Bem-vindos ao Brasil! Estamos sobrevoando a Baía de Guanabara, no Rio de Janeiro. A temperatura é de 28 graus e o dia está maravilhoso. É um prazer recebê-los em nosso país. Aproveitem a jornada!",
+    texto: "Olhe pela janela, explorador! Estamos chegando no país do futebol, do samba e de uma natureza que não tem fim. Veja como o verde das montanhas mergulha direto no azul do oceano. Esta é a 'Cidade Maravilhosa'. Aqui, a natureza e a cidade convivem lado a lado. Prepare-se para conhecer o coração da América do Sul!",
+    galeria: [
+      {
+        id: "br-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Rio_de_Janeiro_Aerial_View_2.jpg/1280px-Rio_de_Janeiro_Aerial_View_2.jpg",
+        legenda: "A Baía de Guanabara vista de cima",
+        credito: "Wikimedia Commons"
+      },
+      {
+        id: "br-chegada-2",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Rio_Airport_Terminal.jpg/1280px-Rio_Airport_Terminal.jpg",
+        legenda: "Terminal do Aeroporto do Galeão",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   base: {
     nome: "Pousada Aconchegante em Santa Teresa, Rio de Janeiro",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Santa_Teresa_Rio_de_Janeiro_2014.jpg/1280px-Santa_Teresa_Rio_de_Janeiro_2014.jpg",
     credito: "Wikimedia Commons",
-    descricao: "“Sejam bem-vindos! Meu nome é Gabriel e vou acompanhar vocês pelo nosso imenso Brasil. Nossa base é em Santa Teresa, um bairro histórico no alto de uma colina, cheio de casarões antigos e ateliês de artistas. Daqui conseguimos ouvir o som do bonde e ver o Cristo Redentor lá no alto. O Brasil é um país de contrastes e alegria, e vocês vão sentir isso em cada parada!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/23/Rio_De_Janeiro_Beach_Ambience.mp3",
+      legenda: "O som da cidade: natureza e o burburinho urbano",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“Sejam bem-vindos! Meu nome é Gabriel e vou acompanhar vocês pelo nosso imenso Brasil. Nossa base é em Santa Teresa, um bairro histórico no alto de uma colina, cheio de casarões antigos e ateliês de artistas. Daqui conseguimos ouvir o som do bonde e ver o Cristo Redentor lá no alto. O Brasil é um país de contrastes e alegria, e vocês vão sentir isso em cada parada!”",
+    galeria: [
+      {
+        id: "br-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Santa_Teresa_Mansion.jpg/1280px-Santa_Teresa_Mansion.jpg",
+        legenda: "Um casarão histórico em Santa Teresa",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   roteiro_viagem: [
@@ -226,7 +259,7 @@ export const brasil: Pais = {
       nome: "Boto-cor-de-rosa",
       nome_cientifico: "Inia geoffrensis",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Inia_geoffrensis_2.jpg/1280px-Inia_geoffrensis_2.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Amazon_River_Dolphin_Sound.mp3",
       curiosidade: "É o maior golfinho de água doce do mundo. Eles nascem cinzas e vão ficando rosados à medida que envelhecem. Conseguem virar a cabeça em todas as direções para caçar entre as árvores alagadas.",
       habitat: "Bacias dos rios Amazonas e Orinoco.",
       credito: "Wikimedia Commons"
