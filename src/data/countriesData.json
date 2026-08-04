@@ -23,17 +23,17 @@
     {
       "id": "asia",
       "nome": "Ásia",
-      "disponivel": false
+      "disponivel": true
     },
     {
       "id": "africa",
       "nome": "África",
-      "disponivel": false
+      "disponivel": true
     },
     {
       "id": "oceania",
       "nome": "Oceania",
-      "disponivel": false
+      "disponivel": true
     }
   ],
   "paises": [
