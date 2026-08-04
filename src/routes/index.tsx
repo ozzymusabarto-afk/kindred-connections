@@ -34,6 +34,8 @@ function MapaMundi() {
   const [continenteAtivo, setContinenteAtivo] = useState("america-do-norte");
   const { carimbos } = usePassport();
   const paisesVisiveis = getPaisesPorContinente(continenteAtivo);
+  const totalExplorados = carimbos.length;
+  const totalPaises = 4; // USA, Canada, Mexico, Portugal (os principais implementados)
   const visitados = new Set(carimbos.map((c) => c.paisId));
 
   return (
