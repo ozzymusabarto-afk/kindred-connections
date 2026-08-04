@@ -405,11 +405,17 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
                 const found = paises.find(p => p.codigo_mapa === c.id);
                 if (found) viajar(found, c.centro);
               }}
-              onMouseEnter={() => {
+              onMouseEnter={(e) => {
                 const found = paises.find(p => p.codigo_mapa === c.id);
-                if (found) setHoveredPais(found);
+                if (found) {
+                  setHoveredPais(found);
+                  setTooltip({ x: e.clientX, y: e.clientY, pais: found });
+                }
               }}
-              onMouseLeave={() => setHoveredPais(null)}
+              onMouseLeave={() => {
+                setHoveredPais(null);
+                setTooltip(null);
+              }}
             />
           );
         })}
