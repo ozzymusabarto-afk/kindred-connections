@@ -13,12 +13,25 @@ export const tailandia: Pais = {
   resumo_geografico: "Conhecida como a 'Terra dos Sorrisos', a Tailândia é um país tropical do sudeste asiático famoso por seus templos budistas dourados, praias de águas cristalinas e uma culinária de rua vibrante. É um lugar onde a espiritualidade profunda se mistura com a energia das metrópoles modernas.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Wat_Arun_Bangkok_Sunset.jpg/1200px-Wat_Arun_Bangkok_Sunset.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso tropical em Bangkok",
+      credito: "Wikimedia Commons"
+    },
     texto: "Sawatdee! Estamos chegando a Bangkok. Olhe pela janela: o rio Chao Phraya corta a cidade e os telhados dos templos brilham como se fossem feitos de ouro. O calor é tropical, parecido com o do litoral brasileiro. Prepare-se para cores, aromas e muitos sorrisos!",
     fala_piloto_original: "Sawatdee khrap! Welcome to Bangkok Suvarnabhumi Airport. The temperature is 32 degrees Celsius with high humidity.",
     fala_piloto_traducao: "Olá! Bem-vindos ao Aeroporto Suvarnabhumi de Bangkok. A temperatura é de 32 graus com alta umidade.",
     idioma: "Tailandês",
     fuso_horario: "+10 horas em relação a Brasília",
-    temperatura: "32 °C, úmido"
+    temperatura: "32 °C, úmido",
+    galeria: [
+      {
+        id: "th-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Bangkok_Aerial_View.jpg/1200px-Bangkok_Aerial_View.jpg",
+        legenda: "Os canais e templos de Bangkok vistos de cima",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   base: {
     nome: "Casa Flutuante no Rio Chao Phraya",

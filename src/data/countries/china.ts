@@ -13,12 +13,25 @@ export const china: Pais = {
   resumo_geografico: "Uma das civilizações mais antigas do mundo, a China é um país de proporções gigantescas. Da Grande Muralha que serpenteia as montanhas às cidades futuristas como Xangai, o país oferece um contraste fascinante entre tradições milenares e inovação tecnológica de ponta.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Forbidden_City_Beijing_Aerial_View.jpg/1200px-Forbidden_City_Beijing_Aerial_View.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Chegada a Pequim, no coração da Ásia",
+      credito: "Wikimedia Commons"
+    },
     texto: "Estamos sobrevoando Pequim! Olhe para baixo e tente avistar a Cidade Proibida, um enorme complexo de palácios vermelhos e amarelos que já foi o coração do império. A China é o país mais populoso do mundo e aqui tudo é grandioso. O idioma é o mandarim e o fuso horário está 11 horas à frente do Brasil. Vamos pousar e explorar!",
     fala_piloto_original: "Nín hǎo! Huānyíng lái dào Běijīng. Welcome to Beijing Capital International Airport. The temperature is 24 degrees.",
     fala_piloto_traducao: "Olá! Bem-vindos a Pequim. A temperatura é de 24 graus. Bem-vindos ao Aeroporto Internacional de Pequim!",
     idioma: "Mandarim",
     fuso_horario: "+11 horas em relação a Brasília",
-    temperatura: "24 °C"
+    temperatura: "24 °C",
+    galeria: [
+      {
+        id: "cn-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Beijing_Skyline_Aerial.jpg/1200px-Beijing_Skyline_Aerial.jpg",
+        legenda: "Vista aérea de Pequim e seus palácios imperiais",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   base: {
     nome: "Hutong Tradicional em Pequim",

@@ -13,12 +13,25 @@ export const marrocos: Pais = {
   resumo_geografico: "Marrocos é o portão de entrada para a África, um país de montanhas nevadas (o Atlas), desertos de dunas douradas e cidades imperiais com labirintos de mercados. É um lugar onde o aroma do chá de hortelã e das especiarias preenche o ar e a arquitetura é uma joia de mosaicos coloridos.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Marrakesh_Menara_Airport_Terminal_1.jpg/1200px-Marrakesh_Menara_Airport_Terminal_1.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso na Cidade Vermelha, Marraquexe",
+      credito: "Wikimedia Commons"
+    },
     texto: "Salam! Estamos pousando em Marraquexe. Olhe pela janela: a cidade é toda de tons avermelhados, por isso é chamada de 'Cidade Vermelha'. Ao longe, as montanhas do Atlas ainda têm neve no topo, mesmo estando perto do deserto! Prepare-se para um labirinto de cores e sons.",
     fala_piloto_original: "Salam Alaykum! Welcome to Marrakesh Menara Airport. The temperature is 28 degrees. Marhaba to Morocco!",
     fala_piloto_traducao: "Que a paz esteja com vocês! Bem-vindos ao Aeroporto Menara de Marraquexe. A temperatura é de 28 graus. Boas-vindas ao Marrocos!",
     idioma: "Árabe e Berbere",
     fuso_horario: "+4 horas em relação a Brasília",
-    temperatura: "28 °C, ar seco"
+    temperatura: "28 °C, ar seco",
+    galeria: [
+      {
+        id: "ma-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Marrakesh_Aerial_View.jpg/1200px-Marrakesh_Aerial_View.jpg",
+        legenda: "A Cidade Vermelha e as Montanhas do Atlas ao fundo",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   base: {
     nome: "Riad Tradicional na Medina",

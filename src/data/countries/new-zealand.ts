@@ -13,12 +13,25 @@ export const novaZelandia: Pais = {
   resumo_geografico: "Um país de duas ilhas principais no sul do Pacífico, a Nova Zelândia é o cenário de filmes de fantasia na vida real. De vulcões ativos e gêiseres a fiordes profundos esculpidos por geleiras, o país é o lar do povo Maori e do pássaro Kiwi, um lugar onde a natureza é intocada e poderosa.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Auckland_Skyline_from_Bayswater.jpg/1200px-Auckland_Skyline_from_Bayswater.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Chegada à Nova Zelândia pelo Pacífico",
+      credito: "Wikimedia Commons"
+    },
     texto: "Kia Ora! Estamos chegando a Auckland. Olhe pela janela os vulcões adormecidos que pontilham a cidade — são pequenas colinas verdes cercadas pelo azul do mar. A Nova Zelândia é muito verde e cheia de colinas. Aqui o fuso horário é de 15 a 16 horas à frente do Brasil! Vamos pousar no fim do mundo!",
     fala_piloto_original: "Kia Ora! Welcome to Auckland Airport. The temperature is 18 degrees with a fresh breeze. Enjoy Middle-earth!",
     fala_piloto_traducao: "Olá! Bem-vindos ao Aeroporto de Auckland. A temperatura é de 18 graus com uma brisa fresca. Aproveitem a Terra-Média!",
     idioma: "Inglês e Maori",
     fuso_horario: "+15 a +16 horas em relação a Brasília",
-    temperatura: "18 °C, vento fresco"
+    temperatura: "18 °C, vento fresco",
+    galeria: [
+      {
+        id: "nz-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Auckland_Aerial_View.jpg/1200px-Auckland_Aerial_View.jpg",
+        legenda: "Auckland e seus vulcões adormecidos vistos de cima",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   base: {
     nome: "Eco-Cabin nas Colinas de Hobbiton",

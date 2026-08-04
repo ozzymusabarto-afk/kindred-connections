@@ -13,12 +13,25 @@ export const fiji: Pais = {
   resumo_geografico: "Fiji é um paraíso tropical formado por mais de 300 ilhas no coração do Pacífico Sul. Famoso por suas águas azul-turquesa, recifes de coral vibrantes e a hospitalidade calorosa de seu povo. É um lugar onde o ritmo é lento e a natureza marinha é a verdadeira protagonista.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Mamanuca_Islands_Fiji.jpg/1200px-Mamanuca_Islands_Fiji.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso no paraíso das ilhas Fiji",
+      credito: "Wikimedia Commons"
+    },
     texto: "Bula! Estamos chegando às ilhas Fiji. Olhe pela janela: o mar muda de azul escuro para turquesa clarinho conforme chegamos perto dos corais. Cada ilha parece uma joia verde flutuando na imensidão do oceano. Aqui o sol brilha forte e o mar é quente o ano todo. Vamos mergulhar nessa aventura!",
     fala_piloto_original: "Bula vinaka! Welcome to Nadi International Airport. The temperature is 30 degrees. Prepare to relax in paradise!",
     fala_piloto_traducao: "Olá! Bem-vindos ao Aeroporto Internacional de Nadi. A temperatura é de 30 graus. Preparem-se para relaxar no paraíso!",
     idioma: "Fijiano e Inglês",
     fuso_horario: "+15 horas em relação a Brasília",
-    temperatura: "30 °C, tropical"
+    temperatura: "30 °C, tropical",
+    galeria: [
+      {
+        id: "fj-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Fiji_Islands_Aerial_View.jpg/1200px-Fiji_Islands_Aerial_View.jpg",
+        legenda: "As ilhas e recifes de coral de Fiji vistos do céu",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   base: {
     nome: "Bure Tradicional na Areia",

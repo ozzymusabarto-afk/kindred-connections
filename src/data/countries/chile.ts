@@ -23,11 +23,25 @@ export const chile: Pais = {
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Santiago_Chile_City.jpg/1280px-Santiago_Chile_City.jpg",
     credito: "Wikimedia Commons",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso em Santiago com vista para os Andes",
+      credito: "Wikimedia Commons"
+    },
     idioma: "Espanhol",
     fuso_horario: "1 hora a menos que Brasília",
     temperatura: "22 °C, ar seco e céu muito limpo",
     fala_piloto_original: "¡Bienvenidos a Chile! Estamos descendiendo hacia el Aeropuerto Arturo Merino Benítez en Santiago. A su derecha pueden ver la imponente Cordillera de los Andes. La temperatura es de 22 grados. ¡Disfruten su viaje!",
-    texto: "Prepare-se para uma vista inesquecível! À direita do avião, a Cordilheira dos Andes se estende como um muro de pedra e neve que parece não ter fim. Estamos pousando em Santiago, uma cidade moderna protegida por essas montanhas gigantes. O ar aqui é seco e o céu é de um azul tão profundo que você vai querer fotografar cada minuto!"
+    fala_piloto_traducao: "Bem-vindos ao Chile! Estamos descendo em direção ao Aeroporto Arturo Merino Benítez em Santiago. À sua direita podem ver a imponente Cordilheira dos Andes. A temperatura é de 22 graus. Aproveitem sua viagem!",
+    texto: "Prepare-se para uma vista inesquecível! À direita do avião, a Cordilheira dos Andes se estende como um muro de pedra e neve que parece não ter fim. Estamos pousando em Santiago, uma cidade moderna protegida por essas montanhas gigantes. O ar aqui é seco e o céu é de um azul tão profundo que você vai querer fotografar cada minuto!",
+    galeria: [
+      {
+        id: "cl-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Andes_Mountains_from_Plane.jpg/1280px-Andes_Mountains_from_Plane.jpg",
+        legenda: "A imensidão dos Andes vista da janela do avião",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   base: {
