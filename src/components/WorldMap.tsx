@@ -9,14 +9,21 @@ interface WorldMapProps {
   onSelecionar: (pais: Pais) => void;
 }
 
+// ISO numeric to alpha-2 mapping (subset for critical countries)
+const ISO_NUMERIC_MAP: Record<string, string> = {
+  "076": "br", "124": "ca", "840": "us", "484": "mx", "620": "pt", "380": "it", "826": "gb", 
+  "032": "ar", "152": "cl", "392": "jp", "818": "eg", "036": "au", "156": "cn", "764": "th", 
+  "504": "ma", "710": "za", "554": "nz", "242": "fj", "188": "cr", "591": "pa", "320": "gt"
+};
+
 export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const [rotation, setRotation] = useState<[number, number]>([-45, -15]);
   const [worldData, setWorldData] = useState<any>(null);
-  const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [hoveredCountry, setHoveredCountry] = useState<any>(null);
   const [animating, setAnimating] = useState(false);
+  const [flightPath, setFlightPath] = useState<string | null>(null);
 
-  // Load world data
   useEffect(() => {
     fetch("/world-110m.json")
       .then((res) => res.json())
@@ -26,127 +33,179 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   const width = 800;
   const height = 600;
 
-  // D3 Setup
   const projection = useMemo(() => {
     return d3.geoOrthographic()
-      .scale(250)
+      .scale(260)
       .translate([width / 2, height / 2])
-      .rotate(rotation);
+      .rotate(rotation)
+      .clipAngle(90);
   }, [rotation]);
 
   const path = d3.geoPath(projection);
 
-  // Map Countries to GeoJSON and inject our app data
-  const countries = useMemo(() => {
+  const countriesFeatures = useMemo(() => {
     if (!worldData) return [];
-    const features = (topojson.feature(worldData, worldData.objects.countries) as any).features;
-    
-    return features.map((f: any) => {
-      // Find matching country in our database (by name or ID if possible)
-      // Note: world-atlas uses numeric IDs, we might need a mapping or use ISO if available
-      return f;
-    });
+    return (topojson.feature(worldData, worldData.objects.countries) as any).features;
   }, [worldData]);
 
-  // Handle Drag
+  // Enhanced drag interaction
   useEffect(() => {
     if (!svgRef.current) return;
-
     const svg = d3.select(svgRef.current);
     const drag = d3.drag<SVGSVGElement, unknown>()
       .on("drag", (event) => {
         const r = projection.rotate();
         const k = 75 / projection.scale();
-        setRotation([
-          r[0] + event.dx * k,
-          r[1] - event.dy * k
-        ]);
+        setRotation([r[0] + event.dx * k, r[1] - event.dy * k]);
       });
-
     svg.call(drag);
   }, [projection]);
 
+  const handleCountryClick = (feature: any) => {
+    const numericId = feature.id.toString().padStart(3, '0');
+    const alpha2 = ISO_NUMERIC_MAP[numericId];
+    const pais = paises.find(p => p.codigo_mapa === alpha2);
+    
+    if (pais) {
+      const centroid = d3.geoCentroid(feature);
+      
+      // Animate rotation to destination
+      setAnimating(true);
+      d3.transition()
+        .duration(1200)
+        .tween("rotate", () => {
+          const r = d3.interpolate(projection.rotate(), [-centroid[0], -centroid[1]]);
+          return (t) => {
+            setRotation(r(t));
+          };
+        })
+        .on("end", () => {
+          setAnimating(false);
+          onSelecionar(pais);
+        });
+    }
+  };
+
+  const isImmersive = (feature: any) => {
+    const numericId = feature.id.toString().padStart(3, '0');
+    const alpha2 = ISO_NUMERIC_MAP[numericId];
+    // This logic needs to be more robust based on actual "immersive" flag if available
+    return ["br", "us", "ca", "pt", "it", "gb", "mx", "ar", "cl"].includes(alpha2);
+  };
+
   if (!worldData) {
     return (
-      <div className="flex aspect-[4/3] w-full items-center justify-center bg-sky-100/30 rounded-3xl">
-        <div className="text-brass animate-pulse font-display">Carregando o globo mágico...</div>
+      <div className="flex aspect-[4/3] w-full items-center justify-center bg-sky-100/30 rounded-3xl border-4 border-dashed border-brass/20">
+        <div className="flex flex-col items-center gap-3">
+          <div className="h-12 w-12 animate-spin rounded-full border-4 border-brass/20 border-t-brass" />
+          <div className="text-brass font-display">Iniciando sistemas de navegação...</div>
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="relative w-full overflow-hidden rounded-3xl bg-gradient-to-b from-[#d9ecf8] to-[#7fd0f5] shadow-2xl border-4 border-brass/20">
-      <svg
-        ref={svgRef}
-        viewBox={`0 0 ${width} ${height}`}
-        className="w-full cursor-grab active:cursor-grabbing"
-      >
+    <div className="group relative w-full overflow-hidden rounded-3xl bg-gradient-to-b from-[#EAF4FB] to-[#7fd0f5] shadow-2xl border-4 border-brass/20 transition-all duration-500 hover:border-brass/40">
+      <svg ref={svgRef} viewBox={`0 0 ${width} ${height}`} className="w-full cursor-grab active:cursor-grabbing">
         <defs>
-          <radialGradient id="ocean-gradient" cx="50%" cy="50%" r="50%">
-            <stop offset="60%" stopColor="#b9e4f5" />
-            <stop offset="100%" stopColor="#7fd0f5" />
+          <radialGradient id="globe-shading" cx="45%" cy="45%" r="55%">
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#000000" stopOpacity="0.1" />
           </radialGradient>
-          <filter id="glow">
-            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-            <feMerge>
-              <feMergeNode in="coloredBlur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
+          <filter id="medal-glow">
+            <feGaussianBlur stdDeviation="2" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
           </filter>
         </defs>
 
-        {/* Ocean Sphere */}
-        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="url(#ocean-gradient)" />
-
-        {/* Graticule (Grid Lines) */}
-        <path
-          d={path(d3.geoGraticule()()) as string}
-          fill="none"
-          stroke="#ffffff"
-          strokeOpacity="0.15"
-          strokeWidth="0.5"
-        />
+        {/* Ocean Background */}
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="#EAF4FB" />
+        
+        {/* Graticule */}
+        <path d={path(d3.geoGraticule()()) as string} fill="none" stroke="#ffffff" strokeOpacity="0.2" strokeWidth="0.5" />
 
         {/* Countries */}
         <g>
-          {countries.map((feature: any) => {
-            const id = feature.id;
-            const isHovered = hoveredId === id;
+          {countriesFeatures.map((f: any) => {
+            const numericId = f.id.toString().padStart(3, '0');
+            const alpha2 = ISO_NUMERIC_MAP[numericId];
+            const hasData = !!paises.find(p => p.codigo_mapa === alpha2);
+            const immersive = isImmersive(f);
             
             return (
               <path
-                key={id}
-                d={path(feature) as string}
-                fill={isHovered ? "#d4e6d1" : "#fdf8ec"}
-                stroke="#33422f"
-                strokeWidth="0.5"
-                strokeOpacity="0.3"
-                className="transition-colors duration-200"
-                onMouseEnter={() => setHoveredId(id)}
-                onMouseLeave={() => setHoveredId(null)}
+                key={f.id}
+                d={path(f) as string}
+                fill={hasData ? (immersive ? "#f5e6d3" : "#fdf8ec") : "#f5f5f5"}
+                stroke={hasData ? "#8b4513" : "#ccc"}
+                strokeWidth={hasData ? 0.8 : 0.4}
+                className={`transition-colors duration-300 ${hasData ? 'hover:fill-brass/20 cursor-pointer' : ''}`}
+                onClick={() => hasData && handleCountryClick(f)}
+                onMouseEnter={() => hasData && setHoveredCountry({ feature: f, name: ISO_NUMERIC_MAP[numericId] })}
+                onMouseLeave={() => setHoveredCountry(null)}
               />
             );
           })}
         </g>
 
-        {/* Atmosphere/Border */}
-        <circle
-          cx={width / 2}
-          cy={height / 2}
-          r={projection.scale()}
-          fill="none"
-          stroke="rgba(255,255,255,0.4)"
-          strokeWidth="2"
-          pointerEvents="none"
-        />
+        {/* Country Markers (Pins/Medals) */}
+        <g pointerEvents="none">
+          {countriesFeatures.map((f: any) => {
+            const numericId = f.id.toString().padStart(3, '0');
+            const alpha2 = ISO_NUMERIC_MAP[numericId];
+            const pais = paises.find(p => p.codigo_mapa === alpha2);
+            if (!pais) return null;
+
+            const centroid = d3.geoCentroid(f);
+            const visible = path({ type: 'Point', coordinates: centroid });
+            if (!visible) return null;
+
+            const [x, y] = projection(centroid)!;
+            const immersive = isImmersive(f);
+
+            if (immersive) {
+              return (
+                <g key={`pin-${pais.id}`} transform={`translate(${x},${y})`}>
+                  <circle r="12" fill="#FFD700" stroke="#B8860B" strokeWidth="2" filter="url(#medal-glow)" />
+                  <text dy=".3em" textAnchor="middle" fontSize="12">{pais.bandeira}</text>
+                  <circle r="14" fill="none" stroke="#FFD700" strokeOpacity="0.5" strokeWidth="1">
+                    <animate attributeName="r" from="12" to="18" dur="2s" repeatCount="indefinite" />
+                    <animate attributeName="stroke-opacity" from="0.5" to="0" dur="2s" repeatCount="indefinite" />
+                  </circle>
+                </g>
+              );
+            }
+
+            return (
+              <g key={`pin-${pais.id}`} transform={`translate(${x},${y})`}>
+                <circle r="4" fill="#8b4513" stroke="#fff" strokeWidth="1" />
+              </g>
+            );
+          })}
+        </g>
+
+        {/* Atmosphere/Shading */}
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="url(#globe-shading)" pointerEvents="none" />
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="none" stroke="#brass" strokeOpacity="0.1" strokeWidth="1" pointerEvents="none" />
       </svg>
-      
-      {/* Instructions Overlay */}
-      <div className="absolute bottom-6 left-6 pointer-events-none">
-        <div className="bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-brass/20 shadow-sm flex items-center gap-2">
-          <span className="text-xl">🖱️</span>
-          <p className="text-xs text-brass font-medium">Gire o globo para explorar!</p>
+
+      {/* Dynamic Tooltip */}
+      {hoveredCountry && (
+        <div className="absolute pointer-events-none bg-white/90 backdrop-blur-md px-3 py-2 rounded-xl border border-brass/20 shadow-xl" 
+             style={{ left: '50%', top: '20px', transform: 'translateX(-50%)' }}>
+          <p className="font-display text-sm text-brass font-bold">
+            {paises.find(p => p.codigo_mapa === hoveredCountry.name)?.nome || hoveredCountry.name}
+          </p>
+          <p className="text-[10px] text-muted-foreground uppercase tracking-widest">
+            {isImmersive(hoveredCountry.feature) ? "🌟 Expedição Imersiva" : "📑 Diário de Bordo"}
+          </p>
         </div>
+      )}
+
+      {/* Nav Controls */}
+      <div className="absolute bottom-6 right-6 flex flex-col gap-2">
+        <button onClick={() => setRotation([rotation[0] + 30, rotation[1]])} className="h-10 w-10 bg-white/80 rounded-full shadow-md flex items-center justify-center hover:bg-white">🧭</button>
+        <button onClick={() => setRotation([-45, -15])} className="h-10 w-10 bg-white/80 rounded-full shadow-md flex items-center justify-center hover:bg-white">🏠</button>
       </div>
     </div>
   );
