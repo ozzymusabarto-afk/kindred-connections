@@ -8,6 +8,9 @@ import { escocia } from "./countries/scotland";
 import { brasil } from "./countries/brazil";
 import { argentina } from "./countries/argentina";
 import { chile } from "./countries/chile";
+import { japao } from "./countries/japan";
+import { egito } from "./countries/egypt";
+import { australia } from "./countries/australia";
 import type { CountriesData, Continente, Pais } from "./types";
 
 const data = raw as CountriesData;
@@ -22,7 +25,10 @@ const paisesDedicados: Pais[] = [
   escocia,
   brasil,
   argentina,
-  chile
+  chile,
+  japao,
+  egito,
+  australia
 ];
 const idsDedicados = new Set(paisesDedicados.map((p) => p.id));
 

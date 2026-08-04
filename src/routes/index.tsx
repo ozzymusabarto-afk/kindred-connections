@@ -35,7 +35,7 @@ function MapaMundi() {
   const { carimbos } = usePassport();
   const paisesVisiveis = getPaisesPorContinente(continenteAtivo);
   const totalExplorados = carimbos.length;
-  const totalPaises = 18; // USA, Canada, Mexico, Portugal, Itália, Escócia, Brasil, Argentina, Chile, Japão, Tailândia, China, Egito, Marrocos, África do Sul, Austrália, Nova Zelândia, Fiji
+  const totalPaises = 12; // USA, Canada, Mexico, Portugal, Itália, Escocia, Brasil, Argentina, Chile, Japão, Egito, Austrália
   const visitados = new Set(carimbos.map((c) => c.paisId));
 
   return (
