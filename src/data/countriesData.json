@@ -18,7 +18,7 @@
     {
       "id": "europa",
       "nome": "Europa",
-      "disponivel": false
+      "disponivel": true
     },
     {
       "id": "asia",

@@ -52,9 +52,7 @@ function MapaMundi() {
             Explore lugares desconhecidos e conheça um pouco de cada país.
           </p>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Seja um explorador do mundo: observe paisagens de verdade, encontre animais
-            incríveis, prove delícias culinárias da região e embarque em aventuras
-            inesquecíveis.
+            O mundo é um lugar imenso e cheio de segredos! Para que sua jornada seja inesquecível, dividimos nossa exploração em dois estilos: nos <strong>Países Imersivos</strong> (dois por continente, como Portugal e os da América do Norte), você vive uma expedição real passo a passo, do pouso à refeição. Nos demais, você encontrará um <strong>Diário de Aventuras</strong> empolgante, pronto para despertar sua curiosidade e imaginação.
           </p>
           <p className="mt-5 inline-flex items-center gap-2 rounded-full border-2 border-brass/60 bg-card px-4 py-2 font-display text-base text-foreground shadow-sm">
             <span aria-hidden>🧭</span>

@@ -1,12 +1,13 @@
 import raw from "./countriesData.json";
 import { estadosUnidos } from "./countries/usa";
 import { canada } from "./countries/canada";
+import { portugal } from "./countries/portugal";
 import type { CountriesData, Continente, Pais } from "./types";
 
 const data = raw as CountriesData;
 
 /** Países vindos do arquivo por país (um módulo dedicado para cada). */
-const paisesDedicados: Pais[] = [estadosUnidos, canada];
+const paisesDedicados: Pais[] = [estadosUnidos, canada, portugal];
 const idsDedicados = new Set(paisesDedicados.map((p) => p.id));
 
 export const continentes: Continente[] = data.continentes;
