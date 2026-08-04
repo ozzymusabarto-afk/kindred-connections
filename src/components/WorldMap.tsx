@@ -93,7 +93,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
     const numericId = feature.id.toString().padStart(3, '0');
     const alpha2 = ISO_NUMERIC_MAP[numericId];
     // This logic needs to be more robust based on actual "immersive" flag if available
-    return ["br", "us", "ca", "pt", "it", "gb", "mx", "ar", "cl"].includes(alpha2);
+    return ["br", "us", "ca", "pt", "it", "gb", "mx", "ar", "cl", "pe"].includes(alpha2);
   };
 
   if (!worldData) {
