@@ -192,10 +192,12 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   const [vista, setVista] = useState<Vista>(VISTA_MUNDO);
   const [pousado, setPousado] = useState(ORIGEM_BRASIL ?? { x: W * 0.32, y: H * 0.62 });
   const [voo, setVoo] = useState<{ d: string; destino: { x: number; y: number }; progresso: number } | null>(null);
+  const [hoveredPais, setHoveredPais] = useState<Pais | null>(null);
   const [emFoco, setEmFoco] = useState<string | null>(null);
   const requestRef = useRef<number | null>(null);
   const startTimeRef = useRef<number | null>(null);
   const arrasto = useRef<{ x: number; y: number; vista: Vista } | null>(null);
+  const [tooltip, setTooltip] = useState<{ x: number; y: number; pais: Pais } | null>(null);
 
   useEffect(() => () => { if (requestRef.current) cancelAnimationFrame(requestRef.current); }, []);
 
@@ -280,7 +282,32 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   const visitados = paises.filter((p) => carimbados.includes(p.id)).length;
 
   return (
-    <div className="relative w-full overflow-hidden rounded-2xl border-2 border-border shadow-lg">
+    <div className="group/map relative w-full overflow-hidden rounded-3xl border-4 border-brass/20 bg-card shadow-2xl transition-all duration-500 hover:border-brass/40">
+      {/* Controles de Zoom Estilizados (Lupa) */}
+      <div className="absolute right-6 top-6 z-20 flex flex-col gap-3">
+        <button
+          onClick={() => zoomEm(1.5)}
+          className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-brass/30 bg-card/90 text-brass shadow-lg backdrop-blur-sm transition-all hover:scale-110 hover:border-brass hover:bg-card active:scale-95"
+          title="Aumentar zoom"
+        >
+          <span className="text-2xl font-bold">+</span>
+        </button>
+        <button
+          onClick={() => zoomEm(1 / 1.5)}
+          className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-brass/30 bg-card/90 text-brass shadow-lg backdrop-blur-sm transition-all hover:scale-110 hover:border-brass hover:bg-card active:scale-95"
+          title="Diminuir zoom"
+        >
+          <span className="text-2xl font-bold">−</span>
+        </button>
+        <button
+          onClick={() => setVista(VISTA_MUNDO)}
+          className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-brass/30 bg-card/90 text-brass shadow-lg backdrop-blur-sm transition-all hover:scale-110 hover:border-brass hover:bg-card active:scale-95"
+          title="Ver o mundo todo"
+        >
+          <span className="text-xl">🌍</span>
+        </button>
+      </div>
+
       <svg
         ref={svgRef}
         viewBox={`${vista.x} ${vista.y} ${vista.w} ${vista.h}`}
@@ -293,6 +320,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         onPointerDown={(e) => {
           arrasto.current = { x: e.clientX, y: e.clientY, vista };
           e.currentTarget.setPointerCapture(e.pointerId);
+          setTooltip(null);
         }}
         onPointerMove={(e) => {
           const a = arrasto.current;
@@ -307,9 +335,17 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         onPointerLeave={() => { arrasto.current = null; }}
       >
         <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+          </radialGradient>
+          <filter id="shadow-pin">
+            <feDropShadow dx="0" dy="2" stdDeviation="2" floodOpacity="0.3" />
+          </filter>
           <linearGradient id="oceano" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="var(--map-ocean)" />
-            <stop offset="100%" stopColor="var(--map-ocean-deep)" />
+            <stop offset="0%" stopColor="#d9ecf8" />
+            <stop offset="50%" stopColor="#b9e4f5" />
+            <stop offset="100%" stopColor="#7fd0f5" />
           </linearGradient>
           {pinos.map(({ pais }) => (
             <clipPath key={`clip-${pais.id}`} id={`clip-${pais.id}`}>
@@ -342,27 +378,47 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         </g>
 
         {/* Legenda dos Mares */}
-        <g pointerEvents="none" style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }} opacity="0.4">
-          <text x={W * 0.15} y={H * 0.4} fontSize={px(18)} fill="#ffffff">Oceano Pacífico</text>
-          <text x={W * 0.42} y={H * 0.55} fontSize={px(18)} fill="#ffffff">Oceano Atlântico</text>
-          <text x={W * 0.72} y={H * 0.65} fontSize={px(18)} fill="#ffffff">Oceano Índico</text>
+        <g pointerEvents="none" style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }} opacity="0.5">
+          <text x={W * 0.1} y={H * 0.45} fontSize={px(22)} fill="#1c5d99" fillOpacity="0.6">Oceano Pacífico</text>
+          <text x={W * 0.38} y={H * 0.55} fontSize={px(22)} fill="#1c5d99" fillOpacity="0.6">Oceano Atlântico</text>
+          <text x={W * 0.7} y={H * 0.65} fontSize={px(22)} fill="#1c5d99" fillOpacity="0.6">Oceano Índico</text>
+          <text x={W * 0.88} y={H * 0.45} fontSize={px(22)} fill="#1c5d99" fillOpacity="0.6">Oceano Pacífico</text>
         </g>
 
         {NUVENS.map((n, i) => (
           <Nuvem key={`nuvem-${i}`} x={W * n.x} y={H * n.y} escala={px(n.e)} />
         ))}
 
-        {WORLD_COUNTRIES.map((c) => (
-          <path
-            key={c.id}
-            d={c.d}
-            fill={corDoMapa(c.id, c.cor)}
-            stroke="#ffffff"
-            strokeOpacity="0.85"
-            strokeWidth={px(1.6)}
-            strokeLinejoin="round"
-          />
-        ))}
+        {WORLD_COUNTRIES.map((c) => {
+          const isImmersive = paises.some(p => p.codigo_mapa === c.id);
+          return (
+            <path
+              key={c.id}
+              d={c.d}
+              fill={corDoMapa(c.id, c.cor)}
+              stroke="#ffffff"
+              strokeOpacity="0.8"
+              strokeWidth={px(isImmersive ? 2.5 : 1.2)}
+              strokeLinejoin="round"
+              className="transition-all duration-300 hover:fill-brass/30 cursor-pointer"
+              onClick={() => {
+                const found = paises.find(p => p.codigo_mapa === c.id);
+                if (found) viajar(found, c.centro);
+              }}
+              onMouseEnter={(e) => {
+                const found = paises.find(p => p.codigo_mapa === c.id);
+                if (found) {
+                  setHoveredPais(found);
+                  setTooltip({ x: e.clientX, y: e.clientY, pais: found });
+                }
+              }}
+              onMouseLeave={() => {
+                setHoveredPais(null);
+                setTooltip(null);
+              }}
+            />
+          );
+        })}
 
         {/* Nomes de países com a capital logo abaixo. */}
         {WORLD_COUNTRIES.map((c) => {
@@ -492,88 +548,66 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           </g>
         )}
 
-        {/* Pinos compactos dos países visitáveis. */}
+        {/* Pinos de Luxo dos Países Imersivos */}
         {pinos.map(({ pais, ponto }) => {
           const carimbado = carimbados.includes(pais.id);
           const ativo = emFoco === pais.id;
-          const mostraNome = ativo || escala >= 2.4;
+          const escalaPino = ativo ? 1.4 : 1.1;
+          
           return (
             <g
-              key={pais.id}
-              transform={`translate(${ponto.x} ${ponto.y}) scale(${px(1)})`}
-              className="group cursor-pointer"
+              key={`pino-${pais.id}`}
+              className="cursor-pointer transition-transform hover:scale-110"
               onClick={() => viajar(pais, ponto)}
-              onPointerEnter={() => setEmFoco(pais.id)}
-              onPointerLeave={() => setEmFoco((a) => (a === pais.id ? null : a))}
-              onFocus={() => setEmFoco(pais.id)}
-              onBlur={() => setEmFoco((a) => (a === pais.id ? null : a))}
-              role="button"
-              tabIndex={0}
-              aria-label={`Explorar ${pais.nome}${carimbado ? " (já explorado)" : ""}`}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") viajar(pais, ponto);
+              onMouseEnter={(e) => {
+                setEmFoco(pais.id);
+                setTooltip({ x: e.clientX, y: e.clientY, pais });
+              }}
+              onMouseLeave={() => {
+                setEmFoco(null);
+                setTooltip(null);
               }}
             >
-              <circle r="30" fill="transparent" />
-              <g className="origin-center transition-transform duration-300 group-hover:scale-125">
-                <circle r="17" fill="var(--card)" stroke="var(--brass)" strokeWidth="3" />
-                {pais.bandeira_url ? (
-                  <image
-                    href={pais.bandeira_url}
-                    x="-15"
-                    y="-15"
-                    width="30"
-                    height="30"
-                    preserveAspectRatio="xMidYMid slice"
-                    clipPath={`url(#clip-${pais.id})`}
-                  />
-                ) : (
-                  <text y="6" textAnchor="middle" fontSize="18">
-                    {pais.bandeira}
-                  </text>
-                )}
-                {carimbado && (
-                  <g transform="translate(11 -13) scale(0.22)" className="star-drop">
-                    <polygon
-                      points={ESTRELA}
-                      fill="var(--map-star)"
-                      stroke="#ffffff"
-                      strokeWidth="8"
-                      strokeLinejoin="round"
-                    />
-                  </g>
-                )}
-              </g>
-
-              {mostraNome && (
-                <g pointerEvents="none">
-                  <text
-                    y="34"
-                    textAnchor="middle"
-                    fontSize="15"
-                    fill="var(--foreground)"
-                    stroke="var(--card)"
-                    strokeWidth="3"
-                    paintOrder="stroke"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {pais.nome}
-                  </text>
-                  {pais.capital && (
-                    <text
-                      y="48"
-                      textAnchor="middle"
-                      fontSize="11"
-                      fill="var(--muted-foreground)"
-                      stroke="var(--card)"
-                      strokeWidth="3.5"
-                      paintOrder="stroke"
-                      style={{ fontFamily: "var(--font-sans)", fontStyle: "italic" }}
-                    >
-                      ★ {pais.capital}
-                    </text>
-                  )}
+              {/* Brilho (Glow) para Imersivos */}
+              <circle
+                cx={ponto.x}
+                cy={ponto.y}
+                r={px(35)}
+                fill="url(#glow)"
+                className="animate-pulse"
+                opacity={0.6}
+              />
+              
+              {/* Medalha/Broche */}
+              <g transform={`translate(${ponto.x} ${ponto.y}) scale(${px(escalaPino)})`} filter="url(#shadow-pin)">
+                <circle r="18" fill="var(--brass)" stroke="#ffffff" strokeWidth="2" />
+                <g clipPath={`url(#clip-${pais.id})`}>
+                  <text x="0" y="6" textAnchor="middle" fontSize="24">{pais.bandeira}</text>
                 </g>
+                {/* Ícone de Estrela para destaque */}
+                <path
+                  d="M0 -22 L3 -15 L10 -15 L4 -10 L6 -3 L0 -7 L-6 -3 L-4 -10 L-10 -15 L-3 -15 Z"
+                  fill="var(--sun)"
+                  stroke="#ffffff"
+                  strokeWidth="1"
+                  transform="scale(0.8) translate(0 -2)"
+                />
+              </g>
+              
+              {(ativo || escala >= 2.2) && (
+                <text
+                  x={ponto.x}
+                  y={ponto.y + px(28)}
+                  textAnchor="middle"
+                  fontSize={px(12)}
+                  fill="var(--foreground)"
+                  stroke="#ffffff"
+                  strokeWidth={px(3)}
+                  paintOrder="stroke"
+                  className="font-display font-bold"
+                >
+                  {pais.nome}
+                </text>
               )}
             </g>
           );
@@ -593,6 +627,10 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               keySplines="0.4 0 0.3 1"
             />
             <g transform={`scale(${px(0.85)})`}>
+              {/* Rastro de Nuvens/Estrelas no voo */}
+              <circle r="4" fill="white" opacity="0.6">
+                <animate attributeName="opacity" values="0.6;0" dur="0.5s" repeatCount="indefinite" />
+              </circle>
               <Aviaozinho />
             </g>
           </g>
@@ -606,48 +644,29 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         )}
       </svg>
 
-      <div className="absolute right-3 top-3 flex flex-col gap-2">
-        <BotaoZoom rotulo="Aproximar" onClick={() => zoomEm(1.5)}>
-          +
-        </BotaoZoom>
-        <BotaoZoom rotulo="Afastar" onClick={() => zoomEm(1 / 1.5)}>
-          −
-        </BotaoZoom>
-        <BotaoZoom
-          rotulo="Ver o mundo inteiro"
-          onClick={() => setVista(VISTA_MUNDO)}
+      {/* Tooltip Customizado Flutuante */}
+      {tooltip && (
+        <div 
+          className="pointer-events-none fixed z-50 flex -translate-x-1/2 -translate-y-[110%] flex-col items-center gap-1 slide-in"
+          style={{ left: tooltip.x, top: tooltip.y }}
         >
-          🌎
-        </BotaoZoom>
-      </div>
+          <div className="flex items-center gap-3 rounded-2xl border-2 border-brass bg-card p-3 shadow-2xl backdrop-blur-md">
+            <span className="text-3xl drop-shadow-sm">{tooltip.pais.bandeira}</span>
+            <div>
+              <p className="font-display text-lg font-bold leading-none text-foreground">{tooltip.pais.nome}</p>
+              <span className="mt-1 inline-block rounded-full bg-brass/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brass">
+                {tooltip.pais.resumo_geografico ? "Expedição Imersiva" : "Diário de Bordo"}
+              </span>
+            </div>
+          </div>
+          <div className="h-3 w-3 rotate-45 border-b-2 border-r-2 border-brass bg-card" />
+        </div>
+      )}
 
-      <p className="absolute bottom-3 left-3 rounded-full bg-card/95 px-3.5 py-1.5 text-xs tracking-wide text-foreground shadow-sm">
+      <p className="absolute bottom-3 left-6 rounded-full bg-card/90 px-4 py-2 text-xs font-medium tracking-wide text-foreground shadow-lg backdrop-blur-sm">
         {visitados} de {paises.length}{" "}
-        {paises.length === 1 ? "país explorado" : "países explorados"} · toque numa
-        bandeirinha e o aviãozinho decola do Brasil
+        {paises.length === 1 ? "país explorado" : "países explorados"} · Toque para decolar do Brasil! ✈️
       </p>
     </div>
-  );
-}
-
-function BotaoZoom({
-  rotulo,
-  onClick,
-  children,
-}: {
-  rotulo: string;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={rotulo}
-      title={rotulo}
-      className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-brass bg-card text-lg text-foreground shadow-md transition-transform hover:scale-110"
-    >
-      {children}
-    </button>
   );
 }
