@@ -48,17 +48,22 @@ function MapaMundi() {
             Diário de bordo do explorador
           </p>
           <h1 className="mt-3 text-4xl leading-tight text-foreground sm:text-5xl">
-            Embarque numa viagem ao redor do mundo
+            Sua Grande Jornada Começa Agora!
           </h1>
           <p className="mt-3 font-display text-xl leading-snug text-brass">
-            Explore lugares desconhecidos e conheça um pouco de cada país.
+            Preparado para girar o globo e conhecer o nosso planeta? Aqui, cada país reserva uma descoberta única:
           </p>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            O mundo é um lugar imenso e cheio de segredos! Para que sua jornada seja inesquecível, dividimos nossa exploração em dois estilos: nos <strong>Países Imersivos</strong> (dois por continente, como Portugal e os da América do Norte), você vive uma expedição real passo a passo, do pouso à refeição. Nos demais, você encontrará um <strong>Diário de Aventuras</strong> empolgante, pronto para despertar sua curiosidade e imaginação.
-          </p>
-          <p className="mt-5 inline-flex items-center gap-2 rounded-full border-2 border-brass/60 bg-card px-4 py-2 font-display text-base text-foreground shadow-sm">
+          <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
+            <p>
+              ✈️ <strong>Viagens ao Vivo:</strong> Entre nos Países Imersivos para sentir a experiência completa de um viajante — com sons reais, rotas de transporte, refeições típicas e conversas ao vivo com nossos guias!
+            </p>
+            <p>
+              📑 <strong>Cadernos de Campo:</strong> Abra os Diários de Bordo para investigar os segredos dos demais países através de histórias curtas, fotos marcantes e registros de viagem prontos para você carimbar!
+            </p>
+          </div>
+          <p className="mt-8 inline-flex items-center gap-2 rounded-full border-2 border-brass/60 bg-card px-4 py-2 font-display text-base text-foreground shadow-sm">
             <span aria-hidden>🧭</span>
-            Escolha seu destino e vamos partir!
+            O mapa está aberto. Qual será sua próxima parada?
           </p>
         </section>
 
