@@ -191,12 +191,13 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const [vista, setVista] = useState<Vista>(VISTA_MUNDO);
   const [pousado, setPousado] = useState(ORIGEM_BRASIL ?? { x: W * 0.32, y: H * 0.62 });
-  const [voo, setVoo] = useState<{ d: string; destino: { x: number; y: number } } | null>(null);
+  const [voo, setVoo] = useState<{ d: string; destino: { x: number; y: number }; progresso: number } | null>(null);
   const [emFoco, setEmFoco] = useState<string | null>(null);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const requestRef = useRef<number | null>(null);
+  const startTimeRef = useRef<number | null>(null);
   const arrasto = useRef<{ x: number; y: number; vista: Vista } | null>(null);
 
-  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
+  useEffect(() => () => { if (requestRef.current) cancelAnimationFrame(requestRef.current); }, []);
 
   /** Posição de cada país no mapa mundial, a partir do contorno real. */
   const pinos = useMemo(() => {
@@ -248,17 +249,32 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   function viajar(pais: Pais, destino: { x: number; y: number }) {
     if (voo) return;
     const partida = pousado;
+    
     if (prefereMenosMovimento()) {
       setPousado(destino);
       onSelecionar(pais);
       return;
     }
-    setVoo({ d: rotaDeVoo(partida, destino), destino });
-    timer.current = setTimeout(() => {
-      setPousado(destino);
-      setVoo(null);
-      onSelecionar(pais);
-    }, DURACAO_VOO);
+
+    const d = rotaDeVoo(partida, destino);
+    startTimeRef.current = null;
+
+    const animar = (time: number) => {
+      if (!startTimeRef.current) startTimeRef.current = time;
+      const progress = Math.min((time - startTimeRef.current) / DURACAO_VOO, 1);
+      
+      setVoo({ d, destino, progresso: progress });
+
+      if (progress < 1) {
+        requestRef.current = requestAnimationFrame(animar);
+      } else {
+        setPousado(destino);
+        setVoo(null);
+        onSelecionar(pais);
+      }
+    };
+
+    requestRef.current = requestAnimationFrame(animar);
   }
 
   const visitados = paises.filter((p) => carimbados.includes(p.id)).length;
@@ -303,6 +319,34 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         </defs>
 
         <rect x="0" y="0" width={W} height={H} fill="url(#oceano)" />
+
+        {/* Linhas Geográficas */}
+        <g stroke="#ffffff" strokeOpacity="0.15" strokeWidth={px(1)} fill="none" pointerEvents="none">
+          {/* Equador */}
+          <line x1="0" y1={H * 0.5} x2={W} y2={H * 0.5} strokeOpacity="0.3" strokeWidth={px(1.5)} />
+          {/* Trópico de Câncer */}
+          <line x1="0" y1={H * 0.37} x2={W} y2={H * 0.37} strokeDasharray={`${px(5)} ${px(5)}`} />
+          {/* Trópico de Capricórnio */}
+          <line x1="0" y1={H * 0.63} x2={W} y2={H * 0.63} strokeDasharray={`${px(5)} ${px(5)}`} />
+        </g>
+
+        {/* Rosa dos Ventos */}
+        <g transform={`translate(${W * 0.92} ${H * 0.82}) scale(${px(0.8)})`} pointerEvents="none">
+          <circle r="40" fill="var(--card)" opacity="0.2" />
+          <path d="M0 -45 L8 0 L0 45 L-8 0 Z" fill="var(--brass)" />
+          <path d="M-45 0 L0 -8 L45 0 L0 8 Z" fill="var(--brass)" />
+          <text y="-50" textAnchor="middle" fontSize="14" fontWeight="bold" fill="var(--foreground)" opacity="0.7">N</text>
+          <text y="60" textAnchor="middle" fontSize="14" fontWeight="bold" fill="var(--foreground)" opacity="0.7">S</text>
+          <text x="50" y="5" textAnchor="middle" fontSize="14" fontWeight="bold" fill="var(--foreground)" opacity="0.7">L</text>
+          <text x="-55" y="5" textAnchor="middle" fontSize="14" fontWeight="bold" fill="var(--foreground)" opacity="0.7">O</text>
+        </g>
+
+        {/* Legenda dos Mares */}
+        <g pointerEvents="none" style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }} opacity="0.4">
+          <text x={W * 0.15} y={H * 0.4} fontSize={px(18)} fill="#ffffff">Oceano Pacífico</text>
+          <text x={W * 0.42} y={H * 0.55} fontSize={px(18)} fill="#ffffff">Oceano Atlântico</text>
+          <text x={W * 0.72} y={H * 0.65} fontSize={px(18)} fill="#ffffff">Oceano Índico</text>
+        </g>
 
         {NUVENS.map((n, i) => (
           <Nuvem key={`nuvem-${i}`} x={W * n.x} y={H * n.y} escala={px(n.e)} />
@@ -395,16 +439,30 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           })}
 
         {voo && (
-          <path
-            d={voo.d}
-            fill="none"
-            stroke="#e63946"
-            strokeOpacity="0.5"
-            strokeWidth={px(2)}
-            strokeDasharray={`${px(7)} ${px(6)}`}
-            strokeLinecap="round"
-            pointerEvents="none"
-          />
+          <g>
+            <path
+              id="rota-voo"
+              d={voo.d}
+              fill="none"
+              stroke="#e63946"
+              strokeOpacity="0.5"
+              strokeWidth={px(2)}
+              strokeDasharray={`${px(7)} ${px(6)}`}
+              strokeLinecap="round"
+              pointerEvents="none"
+            />
+            <g>
+              <animateMotion
+                dur={`${DURACAO_VOO}ms`}
+                repeatCount="1"
+                rotate="auto"
+                begin="0s"
+              >
+                <mpath href="#rota-voo" />
+              </animateMotion>
+              <Aviaozinho />
+            </g>
+          </g>
         )}
 
         {/* Marcador da casa dos exploradores. */}
