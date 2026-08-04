@@ -13,17 +13,43 @@ export const japao: Pais = {
   resumo_geografico: "Um arquipélago formado por mais de 6.000 ilhas, onde o futuro e o passado caminham lado a lado. Das luzes de neon de Tóquio aos templos silenciosos de Quioto, o Japão é uma terra de montanhas vulcânicas, florestas de bambu e uma cultura baseada no respeito, na tecnologia e na harmonia com as estações do ano.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Tokyo_Bay_from_above.jpg/1920px-Tokyo_Bay_from_above.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso no Aeroporto de Narita, Tóquio",
+      credito: "Wikimedia Commons"
+    },
     texto: "Aperte o cinto, explorador! Estamos sobrevoando a Baía de Tóquio. Olhe pela janela: a cidade parece um oceano infinito de prédios e luzes. Lá ao fundo, em dias claros, podemos ver o pico nevado do Monte Fuji. O Japão está 12 horas à frente do Brasil — aqui o sol nasce primeiro! Vamos pousar no Aeroporto de Narita e começar nossa jornada pelo 'País do Sol Nascente'.",
     fala_piloto_original: "Minasama, konnichiwa! Captain speaking. We are approaching Tokyo Narita Airport. The temperature is 22 degrees with clear skies. Welcome to Japan!",
     fala_piloto_traducao: "Boa tarde a todos! Aqui é o capitão. Estamos nos aproximando do Aeroporto de Narita, em Tóquio. A temperatura é de 22 graus com céu limpo. Bem-vindos ao Japão!",
     idioma: "Japonês",
     fuso_horario: "+12 horas em relação a Brasília",
-    temperatura: "22 °C, dia ensolarado"
+    temperatura: "22 °C, dia ensolarado",
+    galeria: [
+      {
+        id: "jp-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Tokyo_Aerial_View.jpg/1920px-Tokyo_Aerial_View.jpg",
+        legenda: "A imensidão urbana de Tóquio vista do céu",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   base: {
     nome: "Ryokan Tradicional em Quioto",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Ryokan_room_in_Kyoto.jpg/1920px-Ryokan_room_in_Kyoto.jpg",
-    descricao: "“Kon'nichiwa! Eu me chamo Akiko e serei sua guia nesta expedição. Para começar nossa viagem, estamos em um Ryokan — uma hospedaria tradicional. Repare que não há sapatos dentro do quarto, o chão é feito de palha trançada (tatami) e dormiremos em colchões macios chamados futons. O Japão é um país que valoriza muito o espaço e o silêncio. Prepare seu agasalho leve, vamos pegar o trem mais rápido do mundo!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Japanese_Garden_Ambience.mp3",
+      legenda: "Silêncio e sons de um jardim japonês",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“Kon'nichiwa! Eu me chamo Akiko e serei sua guia nesta expedição. Para começar nossa viagem, estamos em um Ryokan — uma hospedaria tradicional. Repare que não há sapatos dentro do quarto, o chão é feito de palha trançada (tatami) e dormiremos em colchões macios chamados futons. O Japão é um país que valoriza muito o espaço e o silêncio. Prepare seu agasalho leve, vamos pegar o trem mais rápido do mundo!”",
+    galeria: [
+      {
+        id: "jp-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Ryokan_room_in_Kyoto.jpg/1920px-Ryokan_room_in_Kyoto.jpg",
+        legenda: "Um quarto Ryokan com tatamis",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   roteiro_viagem: [
     {
@@ -39,7 +65,15 @@ export const japao: Pais = {
       },
       fauna_do_dia: {
         id: "macaco-japones",
-        contexto: "Nas montanhas nevadas, os macacos japoneses relaxam em fontes de água termal quente (Onsen) para fugir do frio."
+        contexto: "Nas montanhas nevadas, os macacos japoneses relaxam em fontes de água termal quente (Onsen) para fugir do frio.",
+        galeria: [
+          {
+            id: "jp-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Macaca_fuscata_it_is_snowing.jpg/1920px-Macaca_fuscata_it_is_snowing.jpg",
+            legenda: "Macaco Japonês na neve",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "sushi",
@@ -87,7 +121,7 @@ export const japao: Pais = {
       nome: "Macaco Japonês",
       nome_cientifico: "Macaca fuscata",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Macaca_fuscata_it_is_snowing.jpg/1920px-Macaca_fuscata_it_is_snowing.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Japanese_Macaque_Sound.mp3",
       curiosidade: "Também chamados de Macacos da Neve, são os primatas que vivem mais ao norte do mundo. Eles aprenderam a tomar banho em águas termais quentes para sobreviver ao inverno rigoroso.",
       habitat: "Montanhas nevadas e florestas do Japão."
     }

@@ -23,18 +23,45 @@ export const argentina: Pais = {
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Buenos_Aires_City.jpg/1280px-Buenos_Aires_City.jpg",
     credito: "Wikimedia Commons",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso no Aeroporto de Ezeiza, Buenos Aires",
+      credito: "Wikimedia Commons"
+    },
     idioma: "Espanhol (Castelhano)",
     fuso_horario: "O mesmo de Brasília",
     temperatura: "18 °C, céu limpo e brisa do Rio da Prata",
     fala_piloto_original: "¡Bienvenidos a Argentina! Estamos aterrizando en el Aeropuerto Internacional de Ezeiza en Buenos Aires. La temperatura es de 18 grados. Es un gusto tenerlos con nosotros. ¡Disfruten de su estadia!",
-    texto: "Bem-vindos à terra do Tango! Olhe pela janela: a cidade de Buenos Aires parece um tabuleiro de xadrez gigante com avenidas largas e prédios que lembram muito Paris. Estamos pousando à beira de um rio tão largo que não dá para ver a outra margem: o Rio da Prata. Prepare o paladar para as empanadas e prepare os olhos para paisagens que parecem pinturas!"
+    fala_piloto_traducao: "Bem-vindos à Argentina! Estamos pousando no Aeroporto Internacional de Ezeiza em Buenos Aires. A temperatura é de 18 graus. É um prazer tê-los conosco. Aproveitem sua estadia!",
+    texto: "Bem-vindos à terra do Tango! Olhe pela janela: a cidade de Buenos Aires parece um tabuleiro de xadrez gigante com avenidas largas e prédios que lembram muito Paris. Estamos pousando à beira de um rio tão largo que não dá para ver a outra margem: o Rio da Prata. Prepare o paladar para as empanadas e prepare os olhos para paisagens que parecem pinturas!",
+    galeria: [
+      {
+        id: "ar-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Buenos_Aires_Aerial_View.jpg/1280px-Buenos_Aires_Aerial_View.jpg",
+        legenda: "As largas avenidas de Buenos Aires do céu",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   base: {
     nome: "Hotel Boutique em San Telmo, Buenos Aires",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/San_Telmo_Buenos_Aires.jpg/1280px-San_Telmo_Buenos_Aires.jpg",
     credito: "Wikimedia Commons",
-    descricao: "“¡Hola! Meu nome é Santiago e serei o vosso guia pela Argentina. Estamos em San Telmo, o bairro mais antigo da cidade. Aqui as ruas são de pedra e os casarões têm pátios internos cheios de plantas. No final de semana, a praça se enche de músicos e dançarinos. Deixem as malas e vamos provar nosso primeiro 'alfajor'!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Buenos_Aires_City_Ambience.mp3",
+      legenda: "Atmosfera urbana de Buenos Aires",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“¡Hola! Meu nome é Santiago e serei o vosso guia pela Argentina. Estamos em San Telmo, o bairro mais antigo da cidade. Aqui as ruas são de pedra e os casarões têm pátios internos cheios de plantas. No final de semana, a praça se enche de músicos e dançarinos. Deixem as malas e vamos provar nosso primeiro 'alfajor'!”",
+    galeria: [
+      {
+        id: "ar-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/San_Telmo_Buenos_Aires.jpg/1280px-San_Telmo_Buenos_Aires.jpg",
+        legenda: "Uma rua clássica de San Telmo",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   roteiro_viagem: [
@@ -77,7 +104,15 @@ export const argentina: Pais = {
       },
       fauna_do_dia: {
         id: "pombas-urbana",
-        contexto: "Nas praças de Buenos Aires, as pombas são parte constante da paisagem urbana, quase tão famosas quanto os cães de rua."
+        contexto: "Nas praças de Buenos Aires, as pombas são parte constante da paisagem urbana, quase tão famosas quanto os cães de rua.",
+        galeria: [
+          {
+            id: "ar-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pigeons_in_Plaza_de_Mayo.jpg/1280px-Pigeons_in_Plaza_de_Mayo.jpg",
+            legenda: "Pombas na Plaza de Mayo",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "empanada",
@@ -226,7 +261,7 @@ export const argentina: Pais = {
       nome: "Lhama",
       nome_cientifico: "Lama glama",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Llama_roaming_in_Machu_Picchu.jpg/1280px-Llama_roaming_in_Machu_Picchu.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/a/a2/Llama_Sound.mp3",
       curiosidade: "São primas dos camelos, mas sem corcovas. Elas são muito resistentes à altitude e têm um pelo muito grosso para se proteger do frio das montanhas.",
       habitat: "Montanhas dos Andes.",
       credito: "Wikimedia Commons"
@@ -236,7 +271,7 @@ export const argentina: Pais = {
       nome: "Condor Andino",
       nome_cientifico: "Vultur gryphus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Andean_Condor_P1130490.jpg/1280px-Andean_Condor_P1130490.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/8/82/Andean_Condor_Sound.mp3",
       curiosidade: "Pode viver até 70 anos e tem uma envergadura de asas de mais de 3 metros. É um mestre em usar as correntes de ar quente para planar por horas.",
       habitat: "Cordilheira dos Andes.",
       credito: "Wikimedia Commons"

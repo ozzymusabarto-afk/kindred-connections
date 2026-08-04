@@ -15,16 +15,42 @@ export const panama: Pais = {
 
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Panama_City_Skyline.jpg/1280px-Panama_City_Skyline.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso no Panamá, a ponte entre dois oceanos",
+      credito: "Wikimedia Commons"
+    },
     texto: "Bem-vindos à Cidade do Panamá! Veja os arranha-céus modernos que brilham sob o sol tropical. O Canal do Panamá é logo ali, o verdadeiro coração desta nação.",
     idioma: "Espanhol",
     fuso_horario: "09h00 local — 2 horas a menos que Brasília",
-    temperatura: "28 °C, clima quente e úmido"
+    temperatura: "28 °C, clima quente e úmido",
+    galeria: [
+      {
+        id: "pa-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Panama_Canal_Aerial_View.jpg/1280px-Panama_Canal_Aerial_View.jpg",
+        legenda: "O Canal do Panamá visto do céu",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   base: {
     nome: "Hotel próximo ao Canal do Panamá",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Panama_Canal_Miraflores_Locks.jpg/1280px-Panama_Canal_Miraflores_Locks.jpg",
-    descricao: "“¡Hola! Sou o capitão Lucas. Aqui, verá navios gigantes passando entre dois oceanos. O Panamá é a ponte do mundo.”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Panama_Canal_Ambience.mp3",
+      legenda: "O som industrial e das águas no Canal",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“¡Hola! Sou o capitão Lucas. Aqui, verá navios gigantes passando entre dois oceanos. O Panamá é a ponte do mundo.”",
+    galeria: [
+      {
+        id: "pa-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Panama_Canal_Miraflores_Locks.jpg/1280px-Panama_Canal_Miraflores_Locks.jpg",
+        legenda: "As eclusas de Miraflores no Canal do Panamá",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   roteiro_viagem: [
@@ -42,7 +68,15 @@ export const panama: Pais = {
       },
       fauna_do_dia: {
         id: "tucano",
-        contexto: "Um tucano de bico colorido observa a movimentação das árvores próximas às eclusas."
+        contexto: "Um tucano de bico colorido observa a movimentação das árvores próximas às eclusas.",
+        galeria: [
+          {
+            id: "pa-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Toco_Toucan_P1130498.jpg/1280px-Toco_Toucan_P1130498.jpg",
+            legenda: "Tucano-toco no Panamá",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "sancocho",
@@ -59,7 +93,7 @@ export const panama: Pais = {
       nome: "Tucano-toco",
       nome_cientifico: "Ramphastos toco",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Toco_toucan.jpg/1280px-Toco_toucan.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Toucan_Sound.mp3",
       curiosidade: "Seu bico enorme é super leve e ajuda a controlar a temperatura do corpo, além de alcançar frutas longe nos galhos.",
       habitat: "Florestas tropicais e áreas abertas."
     }

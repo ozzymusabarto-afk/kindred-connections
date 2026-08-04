@@ -84,11 +84,27 @@ export const mexico: Pais = {
       },
       fauna_do_dia: {
         id: "axolote",
-        contexto: "Nas águas de Xochimilco, vive um bichinho que parece um dragão sorridente."
+        contexto: "Nas águas de Xochimilco, vive um bichinho que parece um dragão sorridente.",
+        galeria: [
+          {
+            id: "mx-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Axolotl_san_francisco.jpg/1280px-Axolotl_san_francisco.jpg",
+            legenda: "Axolote em seu habitat aquático",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "taco",
-        contexto: "Hora de experimentar a tortilha de milho feita na hora, a base de toda a comida mexicana."
+        contexto: "Hora de experimentar a tortilha de milho feita na hora, a base de toda a comida mexicana.",
+        galeria: [
+          {
+            id: "mx-sabor-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_Mi_Pueblo%2C_Puebla.jpg/1280px-001_Tacos_de_carnitas%2C_Mi_Pueblo%2C_Puebla.jpg",
+            legenda: "Tacos mexicanos tradicionais",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       perguntas: [
         {
@@ -118,7 +134,7 @@ export const mexico: Pais = {
       nome: "Axolote",
       nome_cientifico: "Ambystoma mexicanum",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Axolotl_san_francisco.jpg/1280px-Axolotl_san_francisco.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Water_Ambience.mp3",
       curiosidade: "É uma salamandra que nunca cresce: ela passa a vida inteira 'jovem' e dentro da água. O mais incrível é que ela pode regenerar partes do corpo!",
       habitat: "Canais de água doce de Xochimilco.",
       credito: "Wikimedia Commons"

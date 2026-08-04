@@ -13,17 +13,43 @@ export const tailandia: Pais = {
   resumo_geografico: "Conhecida como a 'Terra dos Sorrisos', a Tailândia é um país tropical do sudeste asiático famoso por seus templos budistas dourados, praias de águas cristalinas e uma culinária de rua vibrante. É um lugar onde a espiritualidade profunda se mistura com a energia das metrópoles modernas.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Wat_Arun_Bangkok_Sunset.jpg/1200px-Wat_Arun_Bangkok_Sunset.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso tropical em Bangkok",
+      credito: "Wikimedia Commons"
+    },
     texto: "Sawatdee! Estamos chegando a Bangkok. Olhe pela janela: o rio Chao Phraya corta a cidade e os telhados dos templos brilham como se fossem feitos de ouro. O calor é tropical, parecido com o do litoral brasileiro. Prepare-se para cores, aromas e muitos sorrisos!",
     fala_piloto_original: "Sawatdee khrap! Welcome to Bangkok Suvarnabhumi Airport. The temperature is 32 degrees Celsius with high humidity.",
     fala_piloto_traducao: "Olá! Bem-vindos ao Aeroporto Suvarnabhumi de Bangkok. A temperatura é de 32 graus com alta umidade.",
     idioma: "Tailandês",
     fuso_horario: "+10 horas em relação a Brasília",
-    temperatura: "32 °C, úmido"
+    temperatura: "32 °C, úmido",
+    galeria: [
+      {
+        id: "th-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Bangkok_Aerial_View.jpg/1200px-Bangkok_Aerial_View.jpg",
+        legenda: "Os canais e templos de Bangkok vistos de cima",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   base: {
     nome: "Casa Flutuante no Rio Chao Phraya",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Chao_Phraya_River_Bangkok.jpg/1200px-Chao_Phraya_River_Bangkok.jpg",
-    descricao: "“Sawatdee! Sou Malee e vou te mostrar os encantos do meu país. Nossa base é uma casa de madeira sobre estacas na beira do rio. Na Tailândia, a água é vida! Você ouvirá o som dos barcos passando o dia todo. Antes de entrar, lembre-se: nunca aponte os pés para as pessoas ou imagens sagradas!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Chao_Phraya_River_Ambience.mp3",
+      legenda: "O som dos barcos e da água no rio Chao Phraya",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“Sawatdee! Sou Malee e vou te mostrar os encantos do meu país. Nossa base é uma casa de madeira sobre estacas na beira do rio. Na Tailândia, a água é vida! Você ouvirá o som dos barcos passando o dia todo. Antes de entrar, lembre-se: nunca aponte os pés para as pessoas ou imagens sagradas!”",
+    galeria: [
+      {
+        id: "th-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Chao_Phraya_River_Bangkok.jpg/1200px-Chao_Phraya_River_Bangkok.jpg",
+        legenda: "O Rio Chao Phraya ao entardecer",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   roteiro_viagem: [
     {
@@ -39,7 +65,15 @@ export const tailandia: Pais = {
       },
       fauna_do_dia: {
         id: "elefante-asiatico",
-        contexto: "O elefante é o animal sagrado da Tailândia. Eles são menores que os africanos e têm orelhas menores também."
+        contexto: "O elefante é o animal sagrado da Tailândia. Eles são menores que os africanos e têm orelhas menores também.",
+        galeria: [
+          {
+            id: "th-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Elephas_maximus_%28Bandipur%29.jpg/1200px-Elephas_maximus_%28Bandipur%29.jpg",
+            legenda: "Elefante Asiático na floresta",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "pad-thai",
@@ -74,7 +108,7 @@ export const tailandia: Pais = {
       nome: "Elefante Asiático",
       nome_cientifico: "Elephas maximus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Elephas_maximus_%28Bandipur%29.jpg/1200px-Elephas_maximus_%28Bandipur%29.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/2/21/Asian_Elephant_Sound.mp3",
       curiosidade: "Diferente do elefante africano, apenas alguns machos asiáticos têm presas de marfim. Eles são excelentes nadadores!",
       habitat: "Florestas tropicais e matagais do sudeste asiático."
     }

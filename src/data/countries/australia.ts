@@ -13,17 +13,43 @@ export const australia: Pais = {
   resumo_geografico: "A maior ilha do mundo e um continente inteiro. A Austrália é uma terra de contrastes, onde cidades ultra-modernas na costa dão lugar ao imenso 'Outback' — um deserto vermelho e selvagem no interior. É o lar de animais que não existem em nenhum outro lugar do planeta e da maior estrutura viva da Terra: a Grande Barreira de Corais.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Sydney_Opera_House_and_Harbour_Bridge_from_Air.jpg/1920px-Sydney_Opera_House_and_Harbour_Bridge_from_Air.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Chegada à Austrália no Aeroporto de Sydney",
+      credito: "Wikimedia Commons"
+    },
     texto: "Prepare-se para pousar na 'Terra de Cabeça para Baixo'! Olhe pela janela: a Baía de Sydney brilha sob o sol, com o desenho inconfundível da Opera House que parece velas de um barco ao vento. A Austrália é imensa e muito isolada, o que permitiu que a natureza seguisse caminhos únicos aqui. O fuso horário é quase o oposto do Brasil — quando lá é noite, aqui o dia está apenas começando!",
     fala_piloto_original: "G'day mates! This is your captain speaking. We are landing at Sydney Kingsford Smith Airport. The weather is beautiful, 25 degrees and sunny. Welcome to Australia!",
     fala_piloto_traducao: "Bom dia, parceiros! Aqui é o capitão. Estamos pousando no Aeroporto Kingsford Smith, em Sydney. O tempo está lindo, 25 graus e ensolarado. Bem-vindos à Austrália!",
     idioma: "Inglês",
     fuso_horario: "+13 a +14 horas em relação a Brasília",
-    temperatura: "25 °C, brisa marinha"
+    temperatura: "25 °C, brisa marinha",
+    galeria: [
+      {
+        id: "au-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Sydney_Harbour_Aerial.jpg/1920px-Sydney_Harbour_Aerial.jpg",
+        legenda: "A icônica baía de Sydney vista do alto",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   base: {
     nome: "Acampamento de Luxo no Outback",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Uluru_Panorama.jpg/1920px-Uluru_Panorama.jpg",
-    descricao: "“G'day! Eu sou o Jack e vou te mostrar as maravilhas da nossa ilha. Estamos acampados no coração do Outback, perto da rocha sagrada de Uluru. O solo aqui é vermelho por causa do ferro na terra. À noite, o céu é tão limpo que você verá milhares de estrelas que não aparecem no hemisfério norte. Cuidado com as botas antes de calçar — algum bichinho pode ter resolvido tirar um cochilo dentro delas!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Outback_Ambience.mp3",
+      legenda: "Vento e pássaros no deserto Outback",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“G'day! Eu sou o Jack e vou te mostrar as maravilhas da nossa ilha. Estamos acampados no coração do Outback, perto da rocha sagrada de Uluru. O solo aqui é vermelho por causa do ferro na terra. À noite, o céu é tão limpo que você verá milhares de estrelas que não aparecem no hemisfério norte. Cuidado com as botas antes de calçar — algum bichinho pode ter resolvido tirar um cochilo dentro delas!”",
+    galeria: [
+      {
+        id: "au-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Uluru_Panorama.jpg/1920px-Uluru_Panorama.jpg",
+        legenda: "O imenso Uluru no pôr do sol",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   roteiro_viagem: [
     {
@@ -39,7 +65,15 @@ export const australia: Pais = {
       },
       fauna_do_dia: {
         id: "canguru",
-        contexto: "Ao entardecer, os cangurus saem para pastar nas áreas gramadas perto da costa. Eles são os maratonistas do salto!"
+        contexto: "Ao entardecer, os cangurus saem para pastar nas áreas gramadas perto da costa. Eles são os maratonistas do salto!",
+        galeria: [
+          {
+            id: "au-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Red_kangaroo_jumping02.jpg/1920px-Red_kangaroo_jumping02.jpg",
+            legenda: "Canguru saltando no Outback",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "vegemite",
@@ -87,7 +121,7 @@ export const australia: Pais = {
       nome: "Canguru-Vermelho",
       nome_cientifico: "Osphranter rufus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Red_kangaroo_jumping02.jpg/1920px-Red_kangaroo_jumping02.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Kangaroo_Sound.mp3",
       curiosidade: "É o maior marsupial do mundo. Ele usa sua cauda musculosa como um 'terceiro pé' para se equilibrar e pode saltar até 9 metros de distância em um único pulo!",
       habitat: "Planícies abertas, desertos e bosques da Austrália."
     }

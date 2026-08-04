@@ -15,16 +15,42 @@ export const costaRica: Pais = {
 
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/San_Jose_Costa_Rica_skyline.jpg/1280px-San_Jose_Costa_Rica_skyline.jpg",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Chegada à Costa Rica, o paraíso da biodiversidade",
+      credito: "Wikimedia Commons"
+    },
     texto: "Estamos chegando em San José, cercada por vales e montanhas! O ar é fresco e o verde está por toda parte. Prepare-se para conhecer o coração da América Central.",
     idioma: "Espanhol",
     fuso_horario: "06h00 local — 3 horas a menos que Brasília",
     temperatura: "24 °C, clima ameno de montanha",
+    galeria: [
+      {
+        id: "cr-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Costa_Rica_Nature_Aerial.jpg/1280px-Costa_Rica_Nature_Aerial.jpg",
+        legenda: "As densas florestas tropicais da Costa Rica vistas de cima",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   base: {
     nome: "Ecolodge nas encostas do Vulcão Arenal",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Arenal_Volcano_and_Lake.jpg/1280px-Arenal_Volcano_and_Lake.jpg",
-    descricao: "“¡Pura Vida, exploradores! Eu sou o guia Mateo. Aqui vivemos em harmonia com a floresta. Acordamos com o canto dos pássaros e dormimos com o som das águas termais.”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Rainforest_Ambience.mp3",
+      legenda: "Sons da floresta tropical e pássaros",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“¡Pura Vida, exploradores! Eu sou o guia Mateo. Aqui vivemos em harmonia com a floresta. Acordamos com o canto dos pássaros e dormimos com o som das águas termais.”",
+    galeria: [
+      {
+        id: "cr-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Arenal_Volcano_and_Lake.jpg/1280px-Arenal_Volcano_and_Lake.jpg",
+        legenda: "Vista do Vulcão Arenal a partir do lodge",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   roteiro_viagem: [
@@ -42,7 +68,15 @@ export const costaRica: Pais = {
       },
       fauna_do_dia: {
         id: "preguica",
-        contexto: "Uma preguiça de três dedos descansa lentamente no topo de uma árvore gigante."
+        contexto: "Uma preguiça de três dedos descansa lentamente no topo de uma árvore gigante.",
+        galeria: [
+          {
+            id: "cr-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Three-toed_sloth_pygmy.jpg/1200px-Three-toed_sloth_pygmy.jpg",
+            legenda: "Bicho-preguiça na selva",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "gallo-pinto",
@@ -59,7 +93,7 @@ export const costaRica: Pais = {
       nome: "Preguiça de três dedos",
       nome_cientifico: "Bradypus variegatus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Bradypus_variegatus.jpg/1280px-Bradypus_variegatus.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Sloth_Sound.mp3",
       curiosidade: "Elas se movem tão devagar que, às vezes, algas crescem em seu pelo, ajudando na camuflagem!",
       habitat: "Dossel das florestas tropicais."
     }

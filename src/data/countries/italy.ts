@@ -84,11 +84,27 @@ export const italia: Pais = {
       },
       fauna_do_dia: {
         id: "lobo-italico",
-        contexto: "Diz a lenda que uma loba amamentou os fundadores de Roma, Rômulo e Remo."
+        contexto: "Diz a lenda que uma loba amamentou os fundadores de Roma, Rômulo e Remo.",
+        galeria: [
+          {
+            id: "it-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Canis_lupus_265b.jpg/1280px-Canis_lupus_265b.jpg",
+            legenda: "Lobo-itálico nos Apeninos",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "pizza-margherita",
-        contexto: "Nada como uma pizza autêntica com as cores da bandeira da Itália: manjericão, queijo e tomate."
+        contexto: "Nada como uma pizza autêntica com as cores da bandeira da Itália: manjericão, queijo e tomate.",
+        galeria: [
+          {
+            id: "it-sabor-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg/1280px-Eq_it-na_pizza-margherita_sep2005_sml.jpg",
+            legenda: "Pizza Margherita tradicional",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       perguntas: [
         {
@@ -247,7 +263,7 @@ export const italia: Pais = {
       nome: "Lobo-itálico",
       nome_cientifico: "Canis lupus italicus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Canis_lupus_265b.jpg/1280px-Canis_lupus_265b.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Wolf_Howl.mp3",
       curiosidade: "É o animal nacional da Itália. Quase desapareceu no século passado, mas agora está voltando a habitar as montanhas dos Apeninos.",
       habitat: "Zonas montanhosas e florestas.",
       credito: "Wikimedia Commons"
@@ -257,7 +273,7 @@ export const italia: Pais = {
       nome: "Javali Selvagem",
       nome_cientifico: "Sus scrofa",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Wild_Boar_Hog.jpg/1280px-Wild_Boar_Hog.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Wild_Boar_Grunt.mp3",
       curiosidade: "São animais muito fortes e inteligentes que vivem em grupos familiares. Adoram comer bolotas de carvalho e raízes.",
       habitat: "Florestas e áreas de matagal.",
       credito: "Wikimedia Commons"
