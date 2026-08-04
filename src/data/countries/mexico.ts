@@ -16,12 +16,25 @@ export const mexico: Pais = {
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Mexico_City_Zocalo_Skyline.jpg/1280px-Mexico_City_Zocalo_Skyline.jpg",
     credito: "Wikimedia Commons",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso no Aeroporto Internacional da Cidade do México",
+      credito: "Wikimedia Commons"
+    },
     idioma: "Espanhol",
     fuso_horario: "09h00 no horário local — 3 horas a menos que Brasília",
     temperatura: "22 °C, ensolarado e ar seco da altitude",
     fala_piloto_original: "¡Bienvenidos a México! Estamos sobrevolando la Ciudad de México. A su derecha pueden ver los volcanes Popocatépetl e Iztaccíhuatl. Prepárense para el aterrizaje en el Aeropuerto Internacional Benito Juárez.",
     fala_piloto_traducao: "Bem-vindos ao México! Estamos sobrevoando a Cidade do México. À sua direita podem ver os vulcões Popocatépetl e Iztaccíhuatl. Preparem-se para o pouso no Aeroporto Internacional Benito Juárez.",
-    texto: "Olhe pela janela! A Cidade do México é uma das maiores do mundo e foi construída sobre um antigo lago. Veja como as montanhas cercam todo o vale. Ao longe, se o céu estiver limpo, conseguimos ver os picos nevados dos vulcões Popocatépetl e Iztaccíhuatl. Eles parecem gigantes guardiões da cidade!"
+    texto: "Olhe pela janela! A Cidade do México é uma das maiores do mundo e foi construída sobre um antigo lago. Veja como as montanhas cercam todo o vale. Ao longe, se o céu estiver limpo, conseguimos ver os picos nevados dos vulcões Popocatépetl e Iztaccíhuatl. Eles parecem gigantes guardiões da cidade!",
+    galeria: [
+      {
+        id: "mx-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Mexico_City_from_Above.jpg/1280px-Mexico_City_from_Above.jpg",
+        legenda: "A imensidão da Cidade do México vista de cima",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   base: {

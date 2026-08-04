@@ -16,12 +16,25 @@ export const italia: Pais = {
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/View_of_Rome_from_the_Janiculum.jpg/1280px-View_of_Rome_from_the_Janiculum.jpg",
     credito: "Wikimedia Commons",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Chegada ao Aeroporto Leonardo da Vinci em Roma",
+      credito: "Wikimedia Commons"
+    },
     idioma: "Italiano",
     fuso_horario: "10h00 no horário local — 4 horas a mais que Brasília",
     temperatura: "20 °C, dia ensolarado com céu azul",
     fala_piloto_original: "Buongiorno, signore e signori! Benvenuti in Italia. Stiamo scendendo verso l'Aeroporto Internazionale Leonardo da Vinci a Roma. La temperatura è di 20 gradi e il cielo è sereno. Il fuso orario locale è avanti di quattro ore rispetto a Brasilia. Godetevi il vostro soggiorno!",
     fala_piloto_traducao: "Bom dia, senhoras e senhores! Bem-vindos à Itália. Estamos descendo em direção ao Aeroporto Internacional Leonardo da Vinci, em Roma. A temperatura é de 20 graus e o céu está limpo. O fuso horário local está quatro horas à frente de Brasília. Aproveitem a sua estadia!",
-    texto: "Olhe para baixo, explorador! Estamos chegando na 'Cidade Eterna'. Veja como as cúpulas das igrejas e os prédios de terracota brilham sob o sol. Roma foi o centro de um dos maiores impérios da história. Quase tudo o que usamos hoje — como leis, estradas e até o nosso alfabeto — tem raízes aqui. Prepare-se para comer a melhor pizza da sua vida!"
+    texto: "Olhe para baixo, explorador! Estamos chegando na 'Cidade Eterna'. Veja como as cúpulas das igrejas e os prédios de terracota brilham sob o sol. Roma foi o centro de um dos maiores impérios da história. Quase tudo o que usamos hoje — como leis, estradas e até o nosso alfabeto — tem raízes aqui. Prepare-se para comer a melhor pizza da sua vida!",
+    galeria: [
+      {
+        id: "it-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Rome_Aerial_View.jpg/1280px-Rome_Aerial_View.jpg",
+        legenda: "As cúpulas de Roma vistas de cima",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   base: {
