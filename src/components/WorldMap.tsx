@@ -98,10 +98,13 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
 
   if (!worldData) {
     return (
-      <div className="flex aspect-[4/3] w-full items-center justify-center bg-sky-100/30 rounded-3xl border-4 border-dashed border-brass/20">
-        <div className="flex flex-col items-center gap-3">
-          <div className="h-12 w-12 animate-spin rounded-full border-4 border-brass/20 border-t-brass" />
-          <div className="text-brass font-display">Iniciando sistemas de navegação...</div>
+      <div className="flex aspect-[4/3] w-full items-center justify-center bg-[#EAF4FB] rounded-3xl border-4 border-brass/20">
+        <div className="flex flex-col items-center gap-4">
+          <div className="relative">
+            <div className="h-16 w-16 animate-spin rounded-full border-4 border-brass/10 border-t-brass" />
+            <div className="absolute inset-0 flex items-center justify-center text-xl">🧭</div>
+          </div>
+          <div className="text-brass font-display text-lg animate-pulse">Iniciando o Globo de Aventuras...</div>
         </div>
       </div>
     );
