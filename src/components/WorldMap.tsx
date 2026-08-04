@@ -389,17 +389,30 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           <Nuvem key={`nuvem-${i}`} x={W * n.x} y={H * n.y} escala={px(n.e)} />
         ))}
 
-        {WORLD_COUNTRIES.map((c) => (
-          <path
-            key={c.id}
-            d={c.d}
-            fill={corDoMapa(c.id, c.cor)}
-            stroke="#ffffff"
-            strokeOpacity="0.85"
-            strokeWidth={px(1.6)}
-            strokeLinejoin="round"
-          />
-        ))}
+        {WORLD_COUNTRIES.map((c) => {
+          const isImmersive = paises.some(p => p.codigo_mapa === c.id);
+          return (
+            <path
+              key={c.id}
+              d={c.d}
+              fill={corDoMapa(c.id, c.cor)}
+              stroke="#ffffff"
+              strokeOpacity="0.8"
+              strokeWidth={px(isImmersive ? 2.5 : 1.2)}
+              strokeLinejoin="round"
+              className="transition-all duration-300 hover:fill-brass/30 cursor-pointer"
+              onClick={() => {
+                const found = paises.find(p => p.codigo_mapa === c.id);
+                if (found) viajar(found, c.centro);
+              }}
+              onMouseEnter={() => {
+                const found = paises.find(p => p.codigo_mapa === c.id);
+                if (found) setHoveredPais(found);
+              }}
+              onMouseLeave={() => setHoveredPais(null)}
+            />
+          );
+        })}
 
         {/* Nomes de países com a capital logo abaixo. */}
         {WORLD_COUNTRIES.map((c) => {
