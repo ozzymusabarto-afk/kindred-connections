@@ -606,86 +606,6 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
             </g>
           );
         })}
-            <g
-              key={pais.id}
-              transform={`translate(${ponto.x} ${ponto.y}) scale(${px(1)})`}
-              className="group cursor-pointer"
-              onClick={() => viajar(pais, ponto)}
-              onPointerEnter={() => setEmFoco(pais.id)}
-              onPointerLeave={() => setEmFoco((a) => (a === pais.id ? null : a))}
-              onFocus={() => setEmFoco(pais.id)}
-              onBlur={() => setEmFoco((a) => (a === pais.id ? null : a))}
-              role="button"
-              tabIndex={0}
-              aria-label={`Explorar ${pais.nome}${carimbado ? " (já explorado)" : ""}`}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") viajar(pais, ponto);
-              }}
-            >
-              <circle r="30" fill="transparent" />
-              <g className="origin-center transition-transform duration-300 group-hover:scale-125">
-                <circle r="17" fill="var(--card)" stroke="var(--brass)" strokeWidth="3" />
-                {pais.bandeira_url ? (
-                  <image
-                    href={pais.bandeira_url}
-                    x="-15"
-                    y="-15"
-                    width="30"
-                    height="30"
-                    preserveAspectRatio="xMidYMid slice"
-                    clipPath={`url(#clip-${pais.id})`}
-                  />
-                ) : (
-                  <text y="6" textAnchor="middle" fontSize="18">
-                    {pais.bandeira}
-                  </text>
-                )}
-                {carimbado && (
-                  <g transform="translate(11 -13) scale(0.22)" className="star-drop">
-                    <polygon
-                      points={ESTRELA}
-                      fill="var(--map-star)"
-                      stroke="#ffffff"
-                      strokeWidth="8"
-                      strokeLinejoin="round"
-                    />
-                  </g>
-                )}
-              </g>
-
-              {mostraNome && (
-                <g pointerEvents="none">
-                  <text
-                    y="34"
-                    textAnchor="middle"
-                    fontSize="15"
-                    fill="var(--foreground)"
-                    stroke="var(--card)"
-                    strokeWidth="3"
-                    paintOrder="stroke"
-                    style={{ fontFamily: "var(--font-display)" }}
-                  >
-                    {pais.nome}
-                  </text>
-                  {pais.capital && (
-                    <text
-                      y="48"
-                      textAnchor="middle"
-                      fontSize="11"
-                      fill="var(--muted-foreground)"
-                      stroke="var(--card)"
-                      strokeWidth="3.5"
-                      paintOrder="stroke"
-                      style={{ fontFamily: "var(--font-sans)", fontStyle: "italic" }}
-                    >
-                      ★ {pais.capital}
-                    </text>
-                  )}
-                </g>
-              )}
-            </g>
-          );
-        })}
 
         {/* Aviãozinho: pousado no último destino ou em pleno voo. */}
         {voo ? (
@@ -701,6 +621,10 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               keySplines="0.4 0 0.3 1"
             />
             <g transform={`scale(${px(0.85)})`}>
+              {/* Rastro de Nuvens/Estrelas no voo */}
+              <circle r="4" fill="white" opacity="0.6">
+                <animate attributeName="opacity" values="0.6;0" dur="0.5s" repeatCount="indefinite" />
+              </circle>
               <Aviaozinho />
             </g>
           </g>
@@ -714,48 +638,29 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         )}
       </svg>
 
-      <div className="absolute right-3 top-3 flex flex-col gap-2">
-        <BotaoZoom rotulo="Aproximar" onClick={() => zoomEm(1.5)}>
-          +
-        </BotaoZoom>
-        <BotaoZoom rotulo="Afastar" onClick={() => zoomEm(1 / 1.5)}>
-          −
-        </BotaoZoom>
-        <BotaoZoom
-          rotulo="Ver o mundo inteiro"
-          onClick={() => setVista(VISTA_MUNDO)}
+      {/* Tooltip Customizado Flutuante */}
+      {tooltip && (
+        <div 
+          className="pointer-events-none fixed z-50 flex -translate-x-1/2 -translate-y-[110%] flex-col items-center gap-1 slide-in"
+          style={{ left: tooltip.x, top: tooltip.y }}
         >
-          🌎
-        </BotaoZoom>
-      </div>
+          <div className="flex items-center gap-3 rounded-2xl border-2 border-brass bg-card p-3 shadow-2xl backdrop-blur-md">
+            <span className="text-3xl drop-shadow-sm">{tooltip.pais.bandeira}</span>
+            <div>
+              <p className="font-display text-lg font-bold leading-none text-foreground">{tooltip.pais.nome}</p>
+              <span className="mt-1 inline-block rounded-full bg-brass/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-brass">
+                {tooltip.pais.resumo_geografico ? "Expedição Imersiva" : "Diário de Bordo"}
+              </span>
+            </div>
+          </div>
+          <div className="h-3 w-3 rotate-45 border-b-2 border-r-2 border-brass bg-card" />
+        </div>
+      )}
 
-      <p className="absolute bottom-3 left-3 rounded-full bg-card/95 px-3.5 py-1.5 text-xs tracking-wide text-foreground shadow-sm">
+      <p className="absolute bottom-3 left-6 rounded-full bg-card/90 px-4 py-2 text-xs font-medium tracking-wide text-foreground shadow-lg backdrop-blur-sm">
         {visitados} de {paises.length}{" "}
-        {paises.length === 1 ? "país explorado" : "países explorados"} · toque numa
-        bandeirinha e o aviãozinho decola do Brasil
+        {paises.length === 1 ? "país explorado" : "países explorados"} · Toque para decolar do Brasil! ✈️
       </p>
     </div>
-  );
-}
-
-function BotaoZoom({
-  rotulo,
-  onClick,
-  children,
-}: {
-  rotulo: string;
-  onClick: () => void;
-  children: React.ReactNode;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      aria-label={rotulo}
-      title={rotulo}
-      className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-brass bg-card text-lg text-foreground shadow-md transition-transform hover:scale-110"
-    >
-      {children}
-    </button>
   );
 }
