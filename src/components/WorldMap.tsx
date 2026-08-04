@@ -116,7 +116,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
 
   return (
     <div className="group relative w-full overflow-hidden rounded-[2.5rem] bg-gradient-to-b from-[#EAF4FB] to-[#d9ecf8] shadow-[0_20px_50px_rgba(0,0,0,0.15)] border-4 border-brass/30 transition-all duration-500 hover:border-brass/50">
-      <svg ref={svgRef} viewBox={`0 0 ${width} ${height}`} className="w-full cursor-grab active:cursor-grabbing">
+      <svg ref={svgRef} viewBox={`0 0 ${width} ${height}`} className="w-full cursor-grab active:cursor-grabbing transition-transform duration-500">
         <defs>
           <radialGradient id="globe-shading" cx="45%" cy="45%" r="55%">
             <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
