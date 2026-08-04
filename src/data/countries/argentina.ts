@@ -23,11 +23,25 @@ export const argentina: Pais = {
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Buenos_Aires_City.jpg/1280px-Buenos_Aires_City.jpg",
     credito: "Wikimedia Commons",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Pouso no Aeroporto de Ezeiza, Buenos Aires",
+      credito: "Wikimedia Commons"
+    },
     idioma: "Espanhol (Castelhano)",
     fuso_horario: "O mesmo de Brasília",
     temperatura: "18 °C, céu limpo e brisa do Rio da Prata",
     fala_piloto_original: "¡Bienvenidos a Argentina! Estamos aterrizando en el Aeropuerto Internacional de Ezeiza en Buenos Aires. La temperatura es de 18 grados. Es un gusto tenerlos con nosotros. ¡Disfruten de su estadia!",
-    texto: "Bem-vindos à terra do Tango! Olhe pela janela: a cidade de Buenos Aires parece um tabuleiro de xadrez gigante com avenidas largas e prédios que lembram muito Paris. Estamos pousando à beira de um rio tão largo que não dá para ver a outra margem: o Rio da Prata. Prepare o paladar para as empanadas e prepare os olhos para paisagens que parecem pinturas!"
+    fala_piloto_traducao: "Bem-vindos à Argentina! Estamos pousando no Aeroporto Internacional de Ezeiza em Buenos Aires. A temperatura é de 18 graus. É um prazer tê-los conosco. Aproveitem sua estadia!",
+    texto: "Bem-vindos à terra do Tango! Olhe pela janela: a cidade de Buenos Aires parece um tabuleiro de xadrez gigante com avenidas largas e prédios que lembram muito Paris. Estamos pousando à beira de um rio tão largo que não dá para ver a outra margem: o Rio da Prata. Prepare o paladar para as empanadas e prepare os olhos para paisagens que parecem pinturas!",
+    galeria: [
+      {
+        id: "ar-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Buenos_Aires_Aerial_View.jpg/1280px-Buenos_Aires_Aerial_View.jpg",
+        legenda: "As largas avenidas de Buenos Aires do céu",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   base: {
