@@ -5,12 +5,25 @@ import { portugal } from "./countries/portugal";
 import { mexico } from "./countries/mexico";
 import { italia } from "./countries/italy";
 import { escocia } from "./countries/scotland";
+import { brasil } from "./countries/brazil";
+import { argentina } from "./countries/argentina";
+import { chile } from "./countries/chile";
 import type { CountriesData, Continente, Pais } from "./types";
 
 const data = raw as CountriesData;
 
 /** Países vindos do arquivo por país (um módulo dedicado para cada). */
-const paisesDedicados: Pais[] = [estadosUnidos, canada, portugal, mexico, italia, escocia];
+const paisesDedicados: Pais[] = [
+  estadosUnidos, 
+  canada, 
+  portugal, 
+  mexico, 
+  italia, 
+  escocia,
+  brasil,
+  argentina,
+  chile
+];
 const idsDedicados = new Set(paisesDedicados.map((p) => p.id));
 
 export const continentes: Continente[] = data.continentes;
