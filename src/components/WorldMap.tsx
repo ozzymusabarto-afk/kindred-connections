@@ -193,14 +193,19 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
 
       {/* Dynamic Tooltip */}
       {hoveredCountry && (
-        <div className="absolute pointer-events-none bg-white/90 backdrop-blur-md px-3 py-2 rounded-xl border border-brass/20 shadow-xl" 
-             style={{ left: '50%', top: '20px', transform: 'translateX(-50%)' }}>
-          <p className="font-display text-sm text-brass font-bold">
-            {paises.find(p => p.codigo_mapa === hoveredCountry.name)?.nome || hoveredCountry.name}
-          </p>
-          <p className="text-[10px] text-muted-foreground uppercase tracking-widest">
-            {isImmersive(hoveredCountry.feature) ? "🌟 Expedição Imersiva" : "📑 Diário de Bordo"}
-          </p>
+        <div className="absolute pointer-events-none bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl border-2 border-brass/20 shadow-2xl flex items-center gap-3 animate-in fade-in zoom-in duration-200" 
+             style={{ left: '50%', top: '30px', transform: 'translateX(-50%)' }}>
+          <div className="text-2xl">
+            {paises.find(p => p.nome === hoveredCountry.name)?.bandeira || "📍"}
+          </div>
+          <div>
+            <p className="font-display text-base text-brass font-bold leading-none">
+              {hoveredCountry.name}
+            </p>
+            <p className="text-[10px] text-muted-foreground uppercase tracking-widest mt-1 font-semibold">
+              {hoveredCountry.type}
+            </p>
+          </div>
         </div>
       )}
 
