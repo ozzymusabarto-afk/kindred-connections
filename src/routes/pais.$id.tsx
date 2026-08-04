@@ -176,24 +176,48 @@ function SimuladorViagem() {
 
       <main className="mx-auto max-w-7xl px-5 py-6">
         {indiceDia >= 0 && (
-          <div className="mb-5">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">
-                Dia {dia.dia} de {dias.length} · Passo {indiceDia + 1} de{" "}
-                {TELAS_DO_DIA.length}
-              </p>
-              <p className="text-xs text-muted-foreground">
-                {totalConcluidos} dia(s) carimbado(s) em {pais.nome}
-              </p>
+          <div className="mb-8">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.24em] text-muted-foreground">
+                  Sua Expedição em {pais.nome}
+                </p>
+                <h2 className="mt-1 text-lg font-display text-foreground">
+                  Dia {dia.dia} de {dias.length} · Estação {indiceDia + 1} de {TELAS_DO_DIA.length}
+                </h2>
+              </div>
+              <div className="flex items-center gap-3 rounded-full border border-border bg-card px-4 py-2 shadow-sm">
+                <span className="text-xl">✈️</span>
+                <p className="text-xs font-medium text-muted-foreground">
+                  {totalConcluidos} de {dias.length} dias concluídos
+                </p>
+              </div>
             </div>
-            <div className="mt-2 flex gap-1.5">
+            
+            <div className="mt-5 relative h-3 w-full overflow-hidden rounded-full bg-border">
+              <div 
+                className="absolute left-0 top-0 h-full bg-brass shadow-[0_0_10px_rgba(184,134,11,0.3)] transition-all duration-700 ease-out" 
+                style={{ width: `${((indiceDia + 1) / TELAS_DO_DIA.length) * 100}%` }}
+              />
+            </div>
+            
+            <div className="mt-3 flex justify-between px-1">
               {TELAS_DO_DIA.map((t, i) => (
-                <span
-                  key={t}
-                  className={`h-1.5 flex-1 rounded-full transition-colors ${
-                    i <= indiceDia ? "bg-brass" : "bg-border"
-                  }`}
-                />
+                <div key={t} className="flex flex-col items-center gap-1.5">
+                  <div 
+                    className={`h-2.5 w-2.5 rounded-full transition-all duration-500 ${
+                      i <= indiceDia ? "bg-brass scale-125" : "bg-muted-foreground/30"
+                    }`} 
+                  />
+                  <span className={`text-[9px] uppercase tracking-tighter transition-colors ${
+                    i === indiceDia ? "font-bold text-brass" : "text-muted-foreground/60"
+                  }`}>
+                    {t === "transporte" ? "Transporte" : 
+                     t === "observacao" ? "Observação" : 
+                     t === "fauna" ? "Natureza" : 
+                     t === "sabor" ? "Sabores" : "Carimbo"}
+                  </span>
+                </div>
               ))}
             </div>
           </div>
