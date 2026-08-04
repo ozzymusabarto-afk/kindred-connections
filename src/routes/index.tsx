@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { WorldMap } from "@/components/WorldMap";
 import { CompassButton } from "@/components/CompassButton";
 import { SiteHeader } from "@/components/SiteHeader";
