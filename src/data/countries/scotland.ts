@@ -84,7 +84,15 @@ export const escocia: Pais = {
       },
       fauna_do_dia: {
         id: "vaca-highland",
-        contexto: "Veja só aquela vaca com franja! Ela parece usar um casaco de lã bem grosso."
+        contexto: "Veja só aquela vaca com franja! Ela parece usar um casaco de lã bem grosso.",
+        galeria: [
+          {
+            id: "sc-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Highland_cow_Scotland.jpg/1200px-Highland_cow_Scotland.jpg",
+            legenda: "Vaca das Terras Altas",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "shortbread",
