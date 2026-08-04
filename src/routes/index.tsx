@@ -12,18 +12,20 @@ import { usePassport } from "@/hooks/usePassport";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Diário de Bordo: Exploradores do Mundo" },
+      { title: "Sua Grande Jornada Começa Agora! | Diário de Bordo" },
       {
         name: "description",
         content:
-          "Um atlas interativo para crianças explorarem geografia, história, fauna e gastronomia dos países.",
+          "Explore o mundo em uma experiência imersiva para crianças. Descubra geografia, fauna, sons e sabores reais de cada país.",
       },
       { property: "og:title", content: "Diário de Bordo: Exploradores do Mundo" },
       {
         property: "og:description",
         content:
-          "Viaje pelo mapa, observe paisagens reais, conheça animais e sabores de cada país.",
+          "Um simulador de viagem interativo com mapas, sons e descobertas pedagógicas.",
       },
+      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:type", content: "website" },
     ],
   }),
   component: MapaMundi,
@@ -61,27 +63,47 @@ function MapaMundi() {
               📑 <strong>Cadernos de Campo:</strong> Abra os Diários de Bordo para investigar os segredos dos demais países através de histórias curtas, fotos marcantes e registros de viagem prontos para você carimbar!
             </p>
           </div>
-          <p className="mt-8 inline-flex items-center gap-2 rounded-full border-2 border-brass/60 bg-card px-4 py-2 font-display text-base text-foreground shadow-sm">
-            <span aria-hidden>🧭</span>
-            O mapa está aberto. Qual será sua próxima parada?
-          </p>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a 
+              href="#mapa" 
+              className="inline-flex items-center gap-2 rounded-full border-2 border-brass bg-brass px-6 py-3 font-display text-lg text-white shadow-md transition-transform hover:scale-105"
+            >
+              <span aria-hidden>🧭</span>
+              Ir para o Mapa
+            </a>
+            <a 
+              href="#diarios" 
+              className="inline-flex items-center gap-2 rounded-full border-2 border-brass/40 bg-card px-6 py-3 font-display text-lg text-foreground shadow-sm transition-transform hover:scale-105"
+            >
+              <span aria-hidden>📑</span>
+              Ver Diários
+            </a>
+          </div>
         </section>
 
         <section className="mt-8 max-w-2xl">
           <div className="flex flex-col gap-4">
             <FichaExplorador />
             
-            <div className="flex items-center gap-4 rounded-2xl border-2 border-brass/20 bg-card p-4 shadow-sm">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brass/10 text-brass">
-                <span className="text-2xl">⭐</span>
-              </div>
-              <div>
-                <p className="font-display text-base text-foreground">
-                  {totalExplorados} de {totalPaises} países explorados
-                </p>
-                <p className="text-sm text-muted-foreground italic">
-                  Toque numa bandeirinha e o aviãozinho decola do Brasil!
-                </p>
+            <div className="rounded-2xl border-2 border-brass/20 bg-card p-5 shadow-sm">
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brass/10 text-brass">
+                  <span className="text-2xl">🌍</span>
+                </div>
+                <div className="flex-1">
+                  <p className="font-display text-base text-foreground">
+                    Seu progresso global
+                  </p>
+                  <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-muted">
+                    <div 
+                      className="h-full bg-brass transition-all duration-1000" 
+                      style={{ width: `${(totalExplorados / totalPaises) * 100}%` }}
+                    />
+                  </div>
+                  <p className="mt-2 text-xs text-muted-foreground italic">
+                    {totalExplorados} de {totalPaises} destinos explorados — {visitados.has('br') ? 'Decolando do Brasil!' : 'Pronto para decolar!'}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -118,7 +140,7 @@ function MapaMundi() {
           })}
         </div>
 
-        <div className="mt-6">
+        <div id="mapa" className="mt-6 scroll-mt-24">
           <WorldMap
             paises={paisesVisiveis}
             carimbados={carimbos.map((c) => c.paisId)}
@@ -128,7 +150,7 @@ function MapaMundi() {
           />
         </div>
 
-        <section className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <section id="diarios" className="mt-10 grid gap-4 scroll-mt-24 sm:grid-cols-2 lg:grid-cols-3">
           {paisesVisiveis.map((pais) => (
             <button
               key={pais.id}
