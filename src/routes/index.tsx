@@ -182,33 +182,6 @@ function MapaMundi() {
 
 
 
-        <div className="mt-8 flex flex-wrap gap-2">
-          {continentes.map((c) => {
-            const ativo = c.id === continenteAtivo;
-            return (
-              <button
-                key={c.id}
-                type="button"
-                disabled={!c.disponivel}
-                onClick={() => setContinenteAtivo(c.id)}
-                className={`rounded-full border px-4 py-1.5 text-sm tracking-wide transition-colors ${
-                  ativo
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : c.disponivel
-                      ? "border-border bg-card text-foreground hover:bg-accent"
-                      : "cursor-not-allowed border-dashed border-border text-muted-foreground/60"
-                }`}
-              >
-                {c.nome}
-                {!c.disponivel && (
-                  <span className="ml-2 text-[10px] uppercase tracking-widest">
-                    em breve
-                  </span>
-                )}
-              </button>
-            );
-          })}
-        </div>
 
         <div 
           id="mapa" 
