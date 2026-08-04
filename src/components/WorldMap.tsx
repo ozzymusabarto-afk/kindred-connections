@@ -542,12 +542,70 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           </g>
         )}
 
-        {/* Pinos compactos dos países visitáveis. */}
+        {/* Pinos de Luxo dos Países Imersivos */}
         {pinos.map(({ pais, ponto }) => {
           const carimbado = carimbados.includes(pais.id);
           const ativo = emFoco === pais.id;
-          const mostraNome = ativo || escala >= 2.4;
+          const escalaPino = ativo ? 1.4 : 1.1;
+          
           return (
+            <g
+              key={`pino-${pais.id}`}
+              className="cursor-pointer transition-transform hover:scale-110"
+              onClick={() => viajar(pais, ponto)}
+              onMouseEnter={(e) => {
+                setEmFoco(pais.id);
+                setTooltip({ x: e.clientX, y: e.clientY, pais });
+              }}
+              onMouseLeave={() => {
+                setEmFoco(null);
+                setTooltip(null);
+              }}
+            >
+              {/* Brilho (Glow) para Imersivos */}
+              <circle
+                cx={ponto.x}
+                cy={ponto.y}
+                r={px(35)}
+                fill="url(#glow)"
+                className="animate-pulse"
+                opacity={0.6}
+              />
+              
+              {/* Medalha/Broche */}
+              <g transform={`translate(${ponto.x} ${ponto.y}) scale(${px(escalaPino)})`} filter="url(#shadow-pin)">
+                <circle r="18" fill="var(--brass)" stroke="#ffffff" strokeWidth="2" />
+                <g clipPath={`url(#clip-${pais.id})`}>
+                  <text x="0" y="6" textAnchor="middle" fontSize="24">{pais.bandeira}</text>
+                </g>
+                {/* Ícone de Estrela para destaque */}
+                <path
+                  d="M0 -22 L3 -15 L10 -15 L4 -10 L6 -3 L0 -7 L-6 -3 L-4 -10 L-10 -15 L-3 -15 Z"
+                  fill="var(--sun)"
+                  stroke="#ffffff"
+                  strokeWidth="1"
+                  transform="scale(0.8) translate(0 -2)"
+                />
+              </g>
+              
+              {(ativo || escala >= 2.2) && (
+                <text
+                  x={ponto.x}
+                  y={ponto.y + px(28)}
+                  textAnchor="middle"
+                  fontSize={px(12)}
+                  fill="var(--foreground)"
+                  stroke="#ffffff"
+                  strokeWidth={px(3)}
+                  paintOrder="stroke"
+                  className="font-display font-bold"
+                >
+                  {pais.nome}
+                </text>
+              )}
+            </g>
+          );
+        })}
             <g
               key={pais.id}
               transform={`translate(${ponto.x} ${ponto.y}) scale(${px(1)})`}
