@@ -5,7 +5,7 @@ import { CompassButton } from "@/components/CompassButton";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StarStamp } from "@/components/StarStamp";
 import { FichaExplorador } from "@/components/FichaExplorador";
-import { continentes, getPaisesPorContinente } from "@/data/countries";
+import { continentes, paises } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
 
 
@@ -60,7 +60,7 @@ function MapaMundi() {
     return "america-do-norte";
   });
   const { carimbos } = usePassport();
-  const paisesVisiveis = getPaisesPorContinente(continenteAtivo);
+  const paisesVisiveis = paises; // Mostrar todos no globo 3D
   const totalExplorados = carimbos.length;
   const totalPaises = 21; 
   const visitados = new Set(carimbos.map((c) => c.paisId));
@@ -70,7 +70,7 @@ function MapaMundi() {
   const [erros, setErros] = useState<string[]>([]);
 
   useEffect(() => {
-    const invalidos = paisesVisiveis.filter(p => {
+    const invalidos = paisesVisiveis.filter((p: any) => {
       const temTexto = p.nome && p.resumo_geografico && p.resumo_geografico.length > 20;
       const temImagem = p.bandeira_url || p.bandeira;
       const temRoteiro = p.id.length > 2 && p.roteiro_viagem && p.roteiro_viagem.length > 0;
@@ -78,7 +78,7 @@ function MapaMundi() {
     });
 
     if (invalidos.length > 0) {
-      setErros(invalidos.map(p => p.nome || p.id));
+      setErros(invalidos.map((p: any) => p.nome || p.id));
       setBloqueado(true);
       console.error(`[Erro de Integridade] Dados incompletos em ${continenteAtivo}:`, invalidos);
     } else {
@@ -182,33 +182,6 @@ function MapaMundi() {
 
 
 
-        <div className="mt-8 flex flex-wrap gap-2">
-          {continentes.map((c) => {
-            const ativo = c.id === continenteAtivo;
-            return (
-              <button
-                key={c.id}
-                type="button"
-                disabled={!c.disponivel}
-                onClick={() => setContinenteAtivo(c.id)}
-                className={`rounded-full border px-4 py-1.5 text-sm tracking-wide transition-colors ${
-                  ativo
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : c.disponivel
-                      ? "border-border bg-card text-foreground hover:bg-accent"
-                      : "cursor-not-allowed border-dashed border-border text-muted-foreground/60"
-                }`}
-              >
-                {c.nome}
-                {!c.disponivel && (
-                  <span className="ml-2 text-[10px] uppercase tracking-widest">
-                    em breve
-                  </span>
-                )}
-              </button>
-            );
-          })}
-        </div>
 
         <div 
           id="mapa" 
@@ -227,7 +200,7 @@ function MapaMundi() {
             <WorldMap
               paises={paisesVisiveis}
               carimbados={carimbos.map((c) => c.paisId)}
-              onSelecionar={(pais) =>
+              onSelecionar={(pais: any) =>
                 navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
               }
             />
@@ -235,7 +208,7 @@ function MapaMundi() {
         </div>
 
         <section id="diarios" className="mt-10 grid gap-4 scroll-mt-24 sm:grid-cols-2 lg:grid-cols-3">
-          {paisesVisiveis.map((pais) => (
+          {paisesVisiveis.map((pais: any) => (
             <button
               key={pais.id}
               type="button"
