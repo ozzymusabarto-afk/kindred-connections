@@ -88,7 +88,15 @@ export const mexico: Pais = {
       },
       sabor_do_dia: {
         id: "taco",
-        contexto: "Hora de experimentar a tortilha de milho feita na hora, a base de toda a comida mexicana."
+        contexto: "Hora de experimentar a tortilha de milho feita na hora, a base de toda a comida mexicana.",
+        galeria: [
+          {
+            id: "mx-sabor-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_Mi_Pueblo%2C_Puebla.jpg/1280px-001_Tacos_de_carnitas%2C_Mi_Pueblo%2C_Puebla.jpg",
+            legenda: "Tacos mexicanos tradicionais",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       perguntas: [
         {

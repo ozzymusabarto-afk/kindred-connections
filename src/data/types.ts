@@ -67,6 +67,8 @@ export interface ReferenciaDoDia {
   contexto: string;
   /** Fala mais longa do guia local nesta parada. */
   texto_guia?: string;
+  /** Miniaturas com outros ângulos ou detalhes. */
+  galeria?: FotoGaleria[];
 }
 
 export interface PerguntaSocratica {
