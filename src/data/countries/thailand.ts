@@ -65,7 +65,15 @@ export const tailandia: Pais = {
       },
       fauna_do_dia: {
         id: "elefante-asiatico",
-        contexto: "O elefante é o animal sagrado da Tailândia. Eles são menores que os africanos e têm orelhas menores também."
+        contexto: "O elefante é o animal sagrado da Tailândia. Eles são menores que os africanos e têm orelhas menores também.",
+        galeria: [
+          {
+            id: "th-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Elephas_maximus_%28Bandipur%29.jpg/1200px-Elephas_maximus_%28Bandipur%29.jpg",
+            legenda: "Elefante Asiático na floresta",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "pad-thai",

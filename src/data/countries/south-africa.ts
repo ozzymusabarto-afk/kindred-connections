@@ -65,7 +65,15 @@ export const africaDoSul: Pais = {
       },
       fauna_do_dia: {
         id: "leao-africano",
-        contexto: "O leão é o rei. Ele passa cerca de 20 horas por dia descansando na sombra para poupar energia para a caça."
+        contexto: "O leão é o rei. Ele passa cerca de 20 horas por dia descansando na sombra para poupar energia para a caça.",
+        galeria: [
+          {
+            id: "za-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Lion_waiting_in_Namibia.jpg/1200px-Lion_waiting_in_Namibia.jpg",
+            legenda: "Leão Africano descansando",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "braai",

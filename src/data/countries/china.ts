@@ -65,7 +65,15 @@ export const china: Pais = {
       },
       fauna_do_dia: {
         id: "panda-gigante",
-        contexto: "O Panda Gigante é o tesouro nacional da China. Ele passa a maior parte do dia comendo bambu nas florestas úmidas."
+        contexto: "O Panda Gigante é o tesouro nacional da China. Ele passa a maior parte do dia comendo bambu nas florestas úmidas.",
+        galeria: [
+          {
+            id: "cn-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Grosser_Panda.JPG/1200px-Grosser_Panda.JPG",
+            legenda: "Panda Gigante comendo bambu",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "dim-sum",
