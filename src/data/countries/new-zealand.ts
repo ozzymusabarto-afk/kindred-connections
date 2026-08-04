@@ -36,7 +36,20 @@ export const novaZelandia: Pais = {
   base: {
     nome: "Eco-Cabin nas Colinas de Hobbiton",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Hobbiton_New_Zealand.jpg/1200px-Hobbiton_New_Zealand.jpg",
-    descricao: "“Kia Ora! Sou Aroha e serei sua guia. Nossa base é uma cabana sustentável no meio das colinas verdes. A Nova Zelândia é um país que protege muito sua terra e sua água. Sinta o cheiro da grama úmida! Amanhã, vamos ver a fumaça saindo do chão e pássaros que não voam!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/New_Zealand_Forest_Ambience.mp3",
+      legenda: "Pássaros nativos e brisa nas colinas",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“Kia Ora! Sou Aroha e serei sua guia. Nossa base é uma cabana sustentável no meio das colinas verdes. A Nova Zelândia é um país que protege muito sua terra e sua água. Sinta o cheiro da grama úmida! Amanhã, vamos ver a fumaça saindo do chão e pássaros que não voam!”",
+    galeria: [
+      {
+        id: "nz-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Hobbiton_New_Zealand.jpg/1200px-Hobbiton_New_Zealand.jpg",
+        legenda: "As verdes colinas de Hobbiton",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   roteiro_viagem: [
     {
