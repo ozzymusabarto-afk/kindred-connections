@@ -557,7 +557,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           return (
             <g
               key={`pino-${pais.id}`}
-              className="cursor-pointer transition-transform hover:scale-110"
+              className="cursor-pointer transition-transform hover:scale-110 focus:outline-none"
               onClick={() => viajar(pais, ponto)}
               onMouseEnter={(e) => {
                 setEmFoco(pais.id);
@@ -566,6 +566,21 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               onMouseLeave={() => {
                 setEmFoco(null);
                 setTooltip(null);
+              }}
+              onFocus={(e) => {
+                setEmFoco(pais.id);
+                const rect = e.currentTarget.getBoundingClientRect();
+                setTooltip({ x: rect.left + rect.width / 2, y: rect.top, pais });
+              }}
+              onBlur={() => {
+                setEmFoco(null);
+                setTooltip(null);
+              }}
+              role="button"
+              tabIndex={0}
+              aria-label={`Explorar ${pais.nome}${carimbado ? " - já visitado" : ""}`}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") viajar(pais, ponto);
               }}
             >
               {/* Brilho (Glow) para Imersivos */}
@@ -580,11 +595,10 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               
               {/* Medalha/Broche */}
               <g transform={`translate(${ponto.x} ${ponto.y}) scale(${px(escalaPino)})`} filter="url(#shadow-pin)">
-                <circle r="18" fill="var(--brass)" stroke="#ffffff" strokeWidth="2" />
+                <circle r="18" fill="var(--brass)" stroke="#ffffff" strokeWidth={ativo ? "4" : "2"} />
                 <g clipPath={`url(#clip-${pais.id})`}>
                   <text x="0" y="6" textAnchor="middle" fontSize="24">{pais.bandeira}</text>
                 </g>
-                {/* Ícone de Estrela para destaque */}
                 <path
                   d="M0 -22 L3 -15 L10 -15 L4 -10 L6 -3 L0 -7 L-6 -3 L-4 -10 L-10 -15 L-3 -15 Z"
                   fill="var(--sun)"

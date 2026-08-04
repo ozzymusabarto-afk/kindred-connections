@@ -25,16 +25,16 @@ export function SiteHeader({ ativo }: SiteHeaderProps) {
           </span>
         </Link>
         <nav className="flex items-center gap-5">
-          <Link to="/" className={link("mapa")}>
+          <Link to="/" className={link("mapa")} aria-current={ativo === "mapa" ? "page" : undefined}>
             Mapa
           </Link>
-          <Link to="/comparar" className={link("comparar")}>
+          <Link to="/comparar" className={link("comparar")} aria-current={ativo === "comparar" ? "page" : undefined}>
             Comparar
           </Link>
-          <Link to="/album" className={link("album")}>
+          <Link to="/album" className={link("album")} aria-current={ativo === "album" ? "page" : undefined}>
             Álbum
           </Link>
-          <Link to="/passaporte" className={link("passaporte")}>
+          <Link to="/passaporte" className={link("passaporte")} aria-current={ativo === "passaporte" ? "page" : undefined}>
             Passaporte
           </Link>
 

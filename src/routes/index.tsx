@@ -10,41 +10,85 @@ import { usePassport } from "@/hooks/usePassport";
 
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Sua Grande Jornada Começa Agora! | Diário de Bordo" },
-      {
-        name: "description",
-        content:
-          "Explore o mundo em uma experiência imersiva para crianças. Descubra geografia, fauna, sons e sabores reais de cada país.",
-      },
-      { property: "og:title", content: "Diário de Bordo: Exploradores do Mundo" },
-      {
-        property: "og:description",
-        content:
-          "Um simulador de viagem interativo com mapas, sons e descobertas pedagógicas.",
-      },
-      { name: "twitter:card", content: "summary_large_image" },
-      { property: "og:type", content: "website" },
-    ],
-  }),
+  head: () => {
+    const title = "Sua Grande Jornada Começa Agora! | Diário de Bordo";
+    const description = "Explore o mundo em uma experiência imersiva para crianças. Descubra geografia, fauna, sons e sabores reais de cada país.";
+    const url = "https://diariodebordo.exploradores.com"; // URL fictícia para SEO
+    
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:url", content: url },
+        { property: "og:site_name", content: "Diário de Bordo: Exploradores do Mundo" },
+        { property: "og:locale", content: "pt_BR" },
+        { name: "twitter:card", content: "summary_large_image" },
+        { property: "og:type", content: "website" },
+      ],
+      links: [
+        { rel: "canonical", href: url },
+      ],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "EducationalOrganization",
+            "name": "Diário de Bordo: Exploradores do Mundo",
+            "description": description,
+            "url": url,
+            "audience": {
+              "@type": "Audience",
+              "audienceType": "Children"
+            }
+          })
+        }
+      ]
+    };
+  },
   component: MapaMundi,
 });
 
 function MapaMundi() {
   const navigate = useNavigate();
-  const [continenteAtivo, setContinenteAtivo] = useState("america-do-norte");
+  const [continenteAtivo, setContinenteAtivo] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.localStorage.getItem("diario:continente-ativo") || "america-do-norte";
+    }
+    return "america-do-norte";
+  });
   const { carimbos } = usePassport();
   const paisesVisiveis = getPaisesPorContinente(continenteAtivo);
   const totalExplorados = carimbos.length;
   const totalPaises = 21; 
   const visitados = new Set(carimbos.map((c) => c.paisId));
 
-  // Validação simples de integridade no carregamento do continente
+  // Validação rigorosa de integridade no carregamento do continente
+  const [bloqueado, setBloqueado] = useState(false);
+  const [erros, setErros] = useState<string[]>([]);
+
   useEffect(() => {
-    const invalidos = paisesVisiveis.filter(p => !p.nome || !p.bandeira || !p.resumo_geografico);
+    const invalidos = paisesVisiveis.filter(p => {
+      const temTexto = p.nome && p.resumo_geografico && p.resumo_geografico.length > 20;
+      const temImagem = p.bandeira_url || p.bandeira;
+      const temRoteiro = p.id.length > 2 && p.roteiro_viagem && p.roteiro_viagem.length > 0;
+      return !temTexto || !temImagem || !temRoteiro;
+    });
+
     if (invalidos.length > 0) {
-      console.warn(`[Aviso de Integridade] Alguns países em ${continenteAtivo} possuem dados incompletos:`, invalidos.map(p => p.id));
+      setErros(invalidos.map(p => p.nome || p.id));
+      setBloqueado(true);
+      console.error(`[Erro de Integridade] Dados incompletos em ${continenteAtivo}:`, invalidos);
+    } else {
+      setErros([]);
+      setBloqueado(false);
+    }
+    
+    // Persiste o continente no localStorage
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem("diario:continente-ativo", continenteAtivo);
     }
   }, [continenteAtivo, paisesVisiveis]);
 
@@ -148,14 +192,28 @@ function MapaMundi() {
           })}
         </div>
 
-        <div id="mapa" className="mt-6 scroll-mt-24">
-          <WorldMap
-            paises={paisesVisiveis}
-            carimbados={carimbos.map((c) => c.paisId)}
-            onSelecionar={(pais) =>
-              navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
-            }
-          />
+        <div 
+          id="mapa" 
+          className="mt-6 scroll-mt-24 focus-within:ring-4 focus-within:ring-brass/30 rounded-3xl transition-all"
+          aria-label="Mapa do mundo para escolher um destino"
+        >
+          {bloqueado ? (
+            <div className="flex flex-col items-center justify-center rounded-3xl border-4 border-dashed border-destructive/30 bg-destructive/5 p-12 text-center">
+              <span className="text-5xl mb-4">🚧</span>
+              <h3 className="text-xl font-display text-destructive">Mapeamento em curso...</h3>
+              <p className="mt-2 text-muted-foreground max-w-md">
+                Estamos preparando os detalhes de <strong>{erros.join(", ")}</strong> para que sua viagem seja perfeita. Por enquanto, escolha outro continente!
+              </p>
+            </div>
+          ) : (
+            <WorldMap
+              paises={paisesVisiveis}
+              carimbados={carimbos.map((c) => c.paisId)}
+              onSelecionar={(pais) =>
+                navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
+              }
+            />
+          )}
         </div>
 
         <section id="diarios" className="mt-10 grid gap-4 scroll-mt-24 sm:grid-cols-2 lg:grid-cols-3">
@@ -163,10 +221,12 @@ function MapaMundi() {
             <button
               key={pais.id}
               type="button"
+              disabled={bloqueado}
+              aria-label={`Ver diário de campo de ${pais.nome}${visitados.has(pais.id) ? " - já explorado" : ""}`}
               onClick={() =>
                 navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
               }
-              className="group relative overflow-hidden rounded-md border border-border bg-card text-left transition-colors hover:border-brass"
+              className="group relative overflow-hidden rounded-md border border-border bg-card text-left transition-all hover:border-brass hover:shadow-md focus:outline-none focus:ring-4 focus:ring-brass/40 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {visitados.has(pais.id) && (
                 <span className="absolute right-3 top-3 z-10 drop-shadow">
