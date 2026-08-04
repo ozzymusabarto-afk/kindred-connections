@@ -4,6 +4,7 @@ export const portugal: Pais = {
   id: "portugal",
   nome: "Portugal",
   continente: "europa",
+  codigo_mapa: "pt",
   bandeira: "🇵🇹",
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/1280px-Flag_of_Portugal.svg.png",
   capital: "Lisboa",
@@ -11,16 +12,13 @@ export const portugal: Pais = {
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Pra%C3%A7a_do_Com%C3%A9rcio_Lisbon_July_2011.jpg/1280px-Pra%C3%A7a_do_Com%C3%A9rcio_Lisbon_July_2011.jpg",
   resumo_geografico: "A porta de entrada da Europa e um pedaço fundamental da história do Brasil. Portugal é um país de navegadores, com castelos medievais, bondes amarelos que sobem colinas íngremes e um litoral banhado pelo Atlântico de onde partiram as caravelas que chegaram ao solo brasileiro há séculos.",
   chegada: {
-    imagem_janela: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Lisboa_-_Set%C3%BAbal_%2848529598207%29.jpg/1280px-Lisboa_-_Set%C3%BAbal_%2848529598207%29.jpg",
-    texto: "Pela janela do avião, vemos a foz do Rio Tejo e a Ponte 25 de Abril, que parece muito com a de San Francisco! Estamos chegando à terra dos nossos antepassados.",
-    audio_ambiente: null
+    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Lisboa_-_Set%C3%BAbal_%2848529598207%29.jpg/1280px-Lisboa_-_Set%C3%BAbal_%2848529598207%29.jpg",
+    texto: "Pela janela do avião, vemos a foz do Rio Tejo e a Ponte 25 de Abril, que parece muito com a de San Francisco! Estamos chegando à terra dos nossos antepassados."
   },
   base: {
-    titulo: "Check-in em Lisboa",
+    nome: "Hotel Solar do Castelo",
     descricao: "Ficaremos em um hotel charmoso no bairro de Alfama. Daqui ouvimos o som do Fado e o tilintar dos bondes passando pelas ruas estreitas de pedra.",
-    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Alfama_Lisbon.jpg/1280px-Alfama_Lisbon.jpg",
-    guia_nome: "João",
-    guia_avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=Joao"
+    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Alfama_Lisbon.jpg/1280px-Alfama_Lisbon.jpg"
   },
   roteiro_viagem: [
     {
@@ -113,6 +111,7 @@ export const portugal: Pais = {
     bioma_principal: "Sobreirais e matagal mediterrânico",
     elemento_marcante: "O azulejo azul e branco que decora as fachadas",
     agricultura_construcoes: "Grande produção de cortiça (das árvores sobreiros) e azeite. As casas costumam ser brancas com detalhes coloridos nas janelas.",
-    roupas_modo_de_vida: "Vida tranquila, com muita gente caminhando pelas praças e cafés. No verão, as praias do Algarve ficam cheias."
+    roupas_modo_de_vida: "Vida tranquila, com muita gente caminhando pelas praças e cafés. No verão, as praias do Algarve ficam cheias.",
+    fauna_alimentacao: "Peixes frescos, mariscos e azeite de oliva são a base da mesa portuguesa."
   }
 };
