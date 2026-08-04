@@ -172,14 +172,28 @@ function MapaMundi() {
           })}
         </div>
 
-        <div id="mapa" className="mt-6 scroll-mt-24">
-          <WorldMap
-            paises={paisesVisiveis}
-            carimbados={carimbos.map((c) => c.paisId)}
-            onSelecionar={(pais) =>
-              navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
-            }
-          />
+        <div 
+          id="mapa" 
+          className="mt-6 scroll-mt-24 focus-within:ring-4 focus-within:ring-brass/30 rounded-3xl transition-all"
+          aria-label="Mapa do mundo para escolher um destino"
+        >
+          {bloqueado ? (
+            <div className="flex flex-col items-center justify-center rounded-3xl border-4 border-dashed border-destructive/30 bg-destructive/5 p-12 text-center">
+              <span className="text-5xl mb-4">🚧</span>
+              <h3 className="text-xl font-display text-destructive">Mapeamento em curso...</h3>
+              <p className="mt-2 text-muted-foreground max-w-md">
+                Estamos preparando os detalhes de <strong>{erros.join(", ")}</strong> para que sua viagem seja perfeita. Por enquanto, escolha outro continente!
+              </p>
+            </div>
+          ) : (
+            <WorldMap
+              paises={paisesVisiveis}
+              carimbados={carimbos.map((c) => c.paisId)}
+              onSelecionar={(pais) =>
+                navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
+              }
+            />
+          )}
         </div>
 
         <section id="diarios" className="mt-10 grid gap-4 scroll-mt-24 sm:grid-cols-2 lg:grid-cols-3">
