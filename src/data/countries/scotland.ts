@@ -28,7 +28,20 @@ export const escocia: Pais = {
     nome: "Pousada Aconchegante na Royal Mile, Edimburgo",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/The_Royal_Mile_Edinburgh.jpg/1280px-The_Royal_Mile_Edinburgh.jpg",
     credito: "Wikimedia Commons",
-    descricao: "“Welcome! Meu nome é Angus e serei o vosso guia pelas terras altas. Nossa base é esta casa de pedra na Royal Mile, a rua mais famosa da cidade. Conseguem ouvir ao longe? É o som da gaita de fole ecoando pelas paredes. Preparem-se, pois aqui o tempo muda rápido: podemos ter sol, chuva e vento tudo em um só dia. É o que chamamos de 'clima escocês'!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Bagpipes_Edinburgh_Ambience.mp3",
+      legenda: "Gaitas de fole ecoando pela Royal Mile",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“Welcome! Meu nome é Angus e serei o vosso guia pelas terras altas. Nossa base é esta casa de pedra na Royal Mile, a rua mais famosa da cidade. Conseguem ouvir ao longe? É o som da gaita de fole ecoando pelas paredes. Preparem-se, pois aqui o tempo muda rápido: podemos ter sol, chuva e vento tudo em um só dia. É o que chamamos de 'clima escocês'!”",
+    galeria: [
+      {
+        id: "sc-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/The_Royal_Mile_Edinburgh.jpg/1280px-The_Royal_Mile_Edinburgh.jpg",
+        legenda: "A Royal Mile em um dia nublado",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   roteiro_viagem: [
@@ -160,7 +173,7 @@ export const escocia: Pais = {
       nome: "Vaca das Highlands",
       nome_cientifico: "Bos taurus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Highland_Cow_near_Edzell.jpg/1280px-Highland_Cow_near_Edzell.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Highland_Cow_Sound.mp3",
       curiosidade: "Elas têm duas camadas de pelo: um longo e grosso para a chuva escorrer, e um macio por baixo para manter o calor. A franja protege os olhos do vento forte.",
       habitat: "Montanhas e pastagens frias da Escócia.",
       credito: "Wikimedia Commons"
@@ -170,7 +183,7 @@ export const escocia: Pais = {
       nome: "Veado Vermelho",
       nome_cientifico: "Cervus elaphus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Red_Deer_Stag.jpg/1280px-Red_Deer_Stag.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Red_Deer_Stag_Roar.mp3",
       curiosidade: "É o maior mamífero selvagem da Escócia. No outono, os machos dão bramidos altos que ecoam por todos os vales.",
       habitat: "Florestas e encostas de montanhas.",
       credito: "Wikimedia Commons"
