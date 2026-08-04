@@ -24,6 +24,13 @@ export const curiosidades: Record<string, string[]> = {
     "O México é o país com mais espécies de cactos do mundo.",
     "A águia da bandeira pousada num cacto devorando uma serpente vem de uma lenda asteca sobre onde fundar a cidade.",
   ],
+  portugal: [
+    "Portugal é o maior produtor de cortiça do mundo — aquela casca de árvore usada para fazer rolhas, quadros de aviso e até sapatos!",
+    "A Livraria Bertrand, em Lisboa, é a livraria mais antiga do mundo ainda em funcionamento. Ela abriu suas portas em 1732.",
+    "Os azulejos azuis e brancos que você vê nas paredes não são só enfeite: eles ajudam a controlar a temperatura dentro das casas.",
+    "A Ponte Vasco da Gama, em Lisboa, é uma das mais longas da Europa, com mais de 12 quilômetros de comprimento.",
+    "Portugal e o Brasil compartilham a mesma língua e muita história, por isso chamamos Portugal de 'país irmão'.",
+  ],
 };
 
 export function getCuriosidades(paisId: string): string[] {
