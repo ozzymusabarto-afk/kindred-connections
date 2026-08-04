@@ -45,6 +45,27 @@ export const curiosidades: Record<string, string[]> = {
     "Dizem que o Loch Ness tem mais água do que todos os lagos da Inglaterra e do País de Gales juntos.",
     "O golfe foi inventado na Escócia no século 15. No início, era jogado com bolas de madeira!",
   ],
+  brasil: [
+    "O Brasil é o único país do mundo onde o Rio Amazonas é tão largo que, em alguns pontos, não se vê a outra margem, parecendo um oceano de água doce.",
+    "A Floresta Amazônica produz cerca de 20% do oxigênio do planeta e abriga uma em cada dez espécies de animais conhecidas.",
+    "O Brasil tem a maior comunidade de descendentes de japoneses fora do Japão, concentrada principalmente em São Paulo.",
+    "O país é o maior produtor de café do mundo há mais de 150 anos!",
+    "Brasília, a capital, vista de cima, tem o formato de um avião (ou de uma borboleta), projetada para ser uma cidade moderna e funcional.",
+  ],
+  argentina: [
+    "A Argentina é o país que mais consome carne bovina por pessoa no mundo, e o churrasco (asado) é quase um ritual sagrado para as famílias.",
+    "A Avenida 9 de Julho, em Buenos Aires, é considerada a avenida mais larga do mundo, com 140 metros de largura.",
+    "O país já teve cinco presidentes diferentes em apenas duas semanas durante uma crise em 2001.",
+    "O rádio foi transmitido pela primeira vez na Argentina em 1920, sendo um dos países pioneiros nesta tecnologia.",
+    "A Argentina é o país que mais ganhou prêmios Nobel na América Latina, com 5 laureados em ciência e paz.",
+  ],
+  chile: [
+    "O Chile é o país onde se encontra o lugar mais seco da Terra, o Deserto do Atacama, onde algumas partes nunca registraram chuva na história.",
+    "O país é um dos poucos lugares do mundo onde se pode esquiar na montanha de manhã e ir à praia à tarde no mesmo dia.",
+    "O Chile tem a maior piscina do mundo em Algarrobo, com mais de 1 quilômetro de comprimento e contendo 250 milhões de litros de água do mar.",
+    "O país é o maior exportador de cobre do mundo, mineral essencial para quase todos os aparelhos eletrônicos que usamos.",
+    "A Ilha de Páscoa, que pertence ao Chile, abriga quase 900 estátuas gigantes de pedra chamadas Moais, esculpidas há centenas de anos.",
+  ],
 };
 
 export function getCuriosidades(paisId: string): string[] {

@@ -13,7 +13,7 @@
     {
       "id": "america-do-sul",
       "nome": "América do Sul",
-      "disponivel": false
+      "disponivel": true
     },
     {
       "id": "europa",
