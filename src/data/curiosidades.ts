@@ -31,6 +31,20 @@ export const curiosidades: Record<string, string[]> = {
     "A Ponte Vasco da Gama, em Lisboa, é uma das mais longas da Europa, com mais de 12 quilômetros de comprimento.",
     "Portugal e o Brasil compartilham a mesma língua e muita história, por isso chamamos Portugal de 'país irmão'.",
   ],
+  italia: [
+    "A Itália é o país com o maior número de Patrimônios da Humanidade da UNESCO no mundo. São tantos monumentos que é impossível ver tudo em uma só viagem!",
+    "A pizza moderna nasceu em Nápoles, mas os antigos romanos já comiam pães achatados com ervas parecidos com a focaccia.",
+    "Existem mais de 300 tipos diferentes de massas na Itália, cada uma com um nome e um molho específico que combina melhor.",
+    "Veneza não tem ruas para carros, apenas 150 canais e mais de 400 pontes de pedra ligando as pequenas ilhas.",
+    "A Vespa foi criada após a Segunda Guerra Mundial para ser um transporte barato e fácil, e hoje é um ícone de estilo mundial.",
+  ],
+  escocia: [
+    "O unicórnio é o animal nacional da Escócia! Na mitologia, ele era o único animal capaz de derrotar um leão.",
+    "A Escócia tem cerca de 800 ilhas, mas apenas umas 100 são habitadas por pessoas.",
+    "O som da gaita de fole podia ser ouvido a quilômetros de distância nas montanhas, servindo para avisar os clãs sobre perigos.",
+    "Dizem que o Loch Ness tem mais água do que todos os lagos da Inglaterra e do País de Gales juntos.",
+    "O golfe foi inventado na Escócia no século 15. No início, era jogado com bolas de madeira!",
+  ],
 };
 
 export function getCuriosidades(paisId: string): string[] {
