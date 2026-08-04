@@ -76,7 +76,8 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         .tween("rotate", () => {
           const r = d3.interpolate(projection.rotate(), [-centroid[0], -centroid[1]]);
           return (t) => {
-            setRotation(r(t));
+            const nextRotation = r(t);
+            setRotation([nextRotation[0], nextRotation[1]]);
           };
         })
         .on("end", () => {
