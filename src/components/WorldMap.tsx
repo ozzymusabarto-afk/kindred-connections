@@ -378,10 +378,11 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         </g>
 
         {/* Legenda dos Mares */}
-        <g pointerEvents="none" style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }} opacity="0.4">
-          <text x={W * 0.15} y={H * 0.4} fontSize={px(18)} fill="#ffffff">Oceano Pacífico</text>
-          <text x={W * 0.42} y={H * 0.55} fontSize={px(18)} fill="#ffffff">Oceano Atlântico</text>
-          <text x={W * 0.72} y={H * 0.65} fontSize={px(18)} fill="#ffffff">Oceano Índico</text>
+        <g pointerEvents="none" style={{ fontFamily: "var(--font-display)", fontStyle: "italic" }} opacity="0.5">
+          <text x={W * 0.1} y={H * 0.45} fontSize={px(22)} fill="#1c5d99" fillOpacity="0.6">Oceano Pacífico</text>
+          <text x={W * 0.38} y={H * 0.55} fontSize={px(22)} fill="#1c5d99" fillOpacity="0.6">Oceano Atlântico</text>
+          <text x={W * 0.7} y={H * 0.65} fontSize={px(22)} fill="#1c5d99" fillOpacity="0.6">Oceano Índico</text>
+          <text x={W * 0.88} y={H * 0.45} fontSize={px(22)} fill="#1c5d99" fillOpacity="0.6">Oceano Pacífico</text>
         </g>
 
         {NUVENS.map((n, i) => (
