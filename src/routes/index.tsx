@@ -208,7 +208,7 @@ function MapaMundi() {
         </div>
 
         <section id="diarios" className="mt-10 grid gap-4 scroll-mt-24 sm:grid-cols-2 lg:grid-cols-3">
-          {paisesVisiveis.map((pais) => (
+          {paisesVisiveis.map((pais: any) => (
             <button
               key={pais.id}
               type="button"
