@@ -68,7 +68,15 @@ export const panama: Pais = {
       },
       fauna_do_dia: {
         id: "tucano",
-        contexto: "Um tucano de bico colorido observa a movimentação das árvores próximas às eclusas."
+        contexto: "Um tucano de bico colorido observa a movimentação das árvores próximas às eclusas.",
+        galeria: [
+          {
+            id: "pa-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Toco_Toucan_P1130498.jpg/1280px-Toco_Toucan_P1130498.jpg",
+            legenda: "Tucano-toco no Panamá",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "sancocho",

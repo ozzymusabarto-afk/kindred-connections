@@ -68,7 +68,15 @@ export const guatemala: Pais = {
       },
       fauna_do_dia: {
         id: "bugio",
-        contexto: "O grito de um bugio (macaco) ecoa pela floresta, parecendo um rugido de leão."
+        contexto: "O grito de um bugio (macaco) ecoa pela floresta, parecendo um rugido de leão.",
+        galeria: [
+          {
+            id: "gt-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Alouatta_palliata_%28Mantled_Howler_Monkey%29.jpg/1200px-Alouatta_palliata_%28Mantled_Howler_Monkey%29.jpg",
+            legenda: "Macaco Bugio na selva de Tikal",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "tamales",

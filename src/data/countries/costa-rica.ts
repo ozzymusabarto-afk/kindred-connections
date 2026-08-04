@@ -68,7 +68,15 @@ export const costaRica: Pais = {
       },
       fauna_do_dia: {
         id: "preguica",
-        contexto: "Uma preguiça de três dedos descansa lentamente no topo de uma árvore gigante."
+        contexto: "Uma preguiça de três dedos descansa lentamente no topo de uma árvore gigante.",
+        galeria: [
+          {
+            id: "cr-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Three-toed_sloth_pygmy.jpg/1200px-Three-toed_sloth_pygmy.jpg",
+            legenda: "Bicho-preguiça na selva",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "gallo-pinto",
