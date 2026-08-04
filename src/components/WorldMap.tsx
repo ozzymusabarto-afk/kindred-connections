@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useMemo } from "react";
 import * as d3 from "d3";
 import * as topojson from "topojson-client";
+import { WORLD_COUNTRIES } from "@/data/worldMap";
 import type { Pais } from "@/data/types";
 
 interface WorldMapProps {
