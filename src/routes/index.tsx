@@ -63,7 +63,23 @@ function MapaMundi() {
         </section>
 
         <section className="mt-8 max-w-2xl">
-          <FichaExplorador />
+          <div className="flex flex-col gap-4">
+            <FichaExplorador />
+            
+            <div className="flex items-center gap-4 rounded-2xl border-2 border-brass/20 bg-card p-4 shadow-sm">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brass/10 text-brass">
+                <span className="text-2xl">⭐</span>
+              </div>
+              <div>
+                <p className="font-display text-base text-foreground">
+                  {totalExplorados} de {totalPaises} países explorados
+                </p>
+                <p className="text-sm text-muted-foreground italic">
+                  Toque numa bandeirinha e o aviãozinho decola do Brasil!
+                </p>
+              </div>
+            </div>
+          </div>
         </section>
 
 
