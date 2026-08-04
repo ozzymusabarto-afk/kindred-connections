@@ -36,7 +36,20 @@ export const egito: Pais = {
   base: {
     nome: "Eco-Lodge na Margem do Nilo",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Nile_view_from_Aswan.jpg/1920px-Nile_view_from_Aswan.jpg",
-    descricao: "“Salam! Eu sou Omar e serei seu guia pelas areias do tempo. Nossa base é uma casa tradicional nubiana, feita de tijolos de barro que mantêm o interior fresco mesmo no calor do deserto. Repare nos padrões coloridos das paredes! Ouça o som da água do Nilo batendo na margem... sem esse rio, não existiria vida aqui. Amanhã, vamos visitar as gigantes de pedra!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Nile_River_Ambience.mp3",
+      legenda: "O som suave das águas do Rio Nilo",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“Salam! Eu sou Omar e serei seu guia pelas areias do tempo. Nossa base é uma casa tradicional nubiana, feita de tijolos de barro que mantêm o interior fresco mesmo no calor do deserto. Repare nos padrões coloridos das paredes! Ouça o som da água do Nilo batendo na margem... sem esse rio, não existiria vida aqui. Amanhã, vamos visitar as gigantes de pedra!”",
+    galeria: [
+      {
+        id: "eg-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Nile_view_from_Aswan.jpg/1920px-Nile_view_from_Aswan.jpg",
+        legenda: "Pôr do sol no Rio Nilo",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   roteiro_viagem: [
     {

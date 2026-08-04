@@ -48,7 +48,20 @@ export const chile: Pais = {
     nome: "Hotel Boutique no Bairro Lastarria, Santiago",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Barrio_Lastarria_Santiago.jpg/1280px-Barrio_Lastarria_Santiago.jpg",
     credito: "Wikimedia Commons",
-    descricao: "“¡Hola! Meu nome é Javiera e serei sua guia nesta longa jornada pelo Chile. Nossa base é o bairro Lastarria, o coração cultural de Santiago, cheio de livrarias, cafés e parques. Daqui podemos caminhar até o Cerro Santa Lucía para ver a cidade do alto. O Chile é um país de poetas e exploradores, e vamos descobrir o porquê!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Santiago_City_Ambience.mp3",
+      legenda: "Sons do centro de Santiago",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“¡Hola! Meu nome é Javiera e serei sua guia nesta longa jornada pelo Chile. Nossa base é o bairro Lastarria, o coração cultural de Santiago, cheio de livrarias, cafés e parques. Daqui podemos caminhar até o Cerro Santa Lucía para ver a cidade do alto. O Chile é um país de poetas e exploradores, e vamos descobrir o porquê!”",
+    galeria: [
+      {
+        id: "cl-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Barrio_Lastarria_Santiago.jpg/1280px-Barrio_Lastarria_Santiago.jpg",
+        legenda: "Bairro Lastarria em Santiago",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   roteiro_viagem: [

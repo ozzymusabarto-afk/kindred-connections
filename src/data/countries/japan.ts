@@ -36,7 +36,20 @@ export const japao: Pais = {
   base: {
     nome: "Ryokan Tradicional em Quioto",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Ryokan_room_in_Kyoto.jpg/1920px-Ryokan_room_in_Kyoto.jpg",
-    descricao: "“Kon'nichiwa! Eu me chamo Akiko e serei sua guia nesta expedição. Para começar nossa viagem, estamos em um Ryokan — uma hospedaria tradicional. Repare que não há sapatos dentro do quarto, o chão é feito de palha trançada (tatami) e dormiremos em colchões macios chamados futons. O Japão é um país que valoriza muito o espaço e o silêncio. Prepare seu agasalho leve, vamos pegar o trem mais rápido do mundo!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Japanese_Garden_Ambience.mp3",
+      legenda: "Silêncio e sons de um jardim japonês",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“Kon'nichiwa! Eu me chamo Akiko e serei sua guia nesta expedição. Para começar nossa viagem, estamos em um Ryokan — uma hospedaria tradicional. Repare que não há sapatos dentro do quarto, o chão é feito de palha trançada (tatami) e dormiremos em colchões macios chamados futons. O Japão é um país que valoriza muito o espaço e o silêncio. Prepare seu agasalho leve, vamos pegar o trem mais rápido do mundo!”",
+    galeria: [
+      {
+        id: "jp-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Ryokan_room_in_Kyoto.jpg/1920px-Ryokan_room_in_Kyoto.jpg",
+        legenda: "Um quarto Ryokan com tatamis",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   roteiro_viagem: [
     {

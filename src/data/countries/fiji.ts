@@ -36,7 +36,20 @@ export const fiji: Pais = {
   base: {
     nome: "Bure Tradicional na Areia",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Fiji_Resort_Bure.jpg/1200px-Fiji_Resort_Bure.jpg",
-    descricao: "“Bula! Sou Sione e vou te mostrar o espírito das nossas ilhas. Nossa base é um Bure — uma cabana de madeira e palha construída bem na frente do mar. Você vai dormir ouvindo o som das ondas. Em Fiji, não temos pressa. Respire fundo e sinta o perfume das flores de hibisco!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Fiji_Ocean_Ambience.mp3",
+      legenda: "O som suave das ondas nas ilhas Fiji",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“Bula! Sou Sione e vou te mostrar o espírito das nossas ilhas. Nossa base é um Bure — uma cabana de madeira e palha construída bem na frente do mar. Você vai dormir ouvindo o som das ondas. Em Fiji, não temos pressa. Respire fundo e sinta o perfume das flores de hibisco!”",
+    galeria: [
+      {
+        id: "fj-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Fiji_Resort_Bure.jpg/1200px-Fiji_Resort_Bure.jpg",
+        legenda: "Um Bure tradicional na beira da praia",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   roteiro_viagem: [
     {

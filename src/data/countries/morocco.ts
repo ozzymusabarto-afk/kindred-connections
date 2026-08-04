@@ -36,7 +36,20 @@ export const marrocos: Pais = {
   base: {
     nome: "Riad Tradicional na Medina",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Riad_Enija%2C_Marrakech.jpg/1200px-Riad_Enija%2C_Marrakech.jpg",
-    descricao: "“Marhaba! Sou Youssef, seu guia por estas terras. Nossa base é um Riad — uma casa tradicional com um jardim escondido no centro. Do lado de fora, as ruas são barulhentas, mas aqui dentro reina a paz e o som das fontes. Sente-se, tome um pouco de chá de hortelã e prepare seus sentidos!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Riad_Garden_Ambience.mp3",
+      legenda: "O som da fonte em um pátio marroquino",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“Marhaba! Sou Youssef, seu guia por estas terras. Nossa base é um Riad — uma casa tradicional com um jardim escondido no centro. Do lado de fora, as ruas são barulhentas, mas aqui dentro reina a paz e o som das fontes. Sente-se, tome um pouco de chá de hortelã e prepare seus sentidos!”",
+    galeria: [
+      {
+        id: "ma-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Riad_Enija%2C_Marrakech.jpg/1200px-Riad_Enija%2C_Marrakech.jpg",
+        legenda: "Pátio interno de um Riad em Marraquexe",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   roteiro_viagem: [
     {

@@ -36,7 +36,20 @@ export const australia: Pais = {
   base: {
     nome: "Acampamento de Luxo no Outback",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Uluru_Panorama.jpg/1920px-Uluru_Panorama.jpg",
-    descricao: "“G'day! Eu sou o Jack e vou te mostrar as maravilhas da nossa ilha. Estamos acampados no coração do Outback, perto da rocha sagrada de Uluru. O solo aqui é vermelho por causa do ferro na terra. À noite, o céu é tão limpo que você verá milhares de estrelas que não aparecem no hemisfério norte. Cuidado com as botas antes de calçar — algum bichinho pode ter resolvido tirar um cochilo dentro delas!”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Outback_Ambience.mp3",
+      legenda: "Vento e pássaros no deserto Outback",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“G'day! Eu sou o Jack e vou te mostrar as maravilhas da nossa ilha. Estamos acampados no coração do Outback, perto da rocha sagrada de Uluru. O solo aqui é vermelho por causa do ferro na terra. À noite, o céu é tão limpo que você verá milhares de estrelas que não aparecem no hemisfério norte. Cuidado com as botas antes de calçar — algum bichinho pode ter resolvido tirar um cochilo dentro delas!”",
+    galeria: [
+      {
+        id: "au-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Uluru_Panorama.jpg/1920px-Uluru_Panorama.jpg",
+        legenda: "O imenso Uluru no pôr do sol",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
   roteiro_viagem: [
     {
