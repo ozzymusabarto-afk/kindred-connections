@@ -110,7 +110,15 @@ export const brasil: Pais = {
       },
       fauna_do_dia: {
         id: "mico-estrela",
-        contexto: "Pequenos e rápidos, eles adoram aparecer nas trilhas em busca de frutas."
+        contexto: "Pequenos e rápidos, eles adoram aparecer nas trilhas em busca de frutas.",
+        galeria: [
+          {
+            id: "br-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Callithrix_penicillata_1.jpg/1280px-Callithrix_penicillata_1.jpg",
+            legenda: "Mico-estrela na Mata Atlântica",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "feijoada",

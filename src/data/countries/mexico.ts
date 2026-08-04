@@ -84,7 +84,15 @@ export const mexico: Pais = {
       },
       fauna_do_dia: {
         id: "axolote",
-        contexto: "Nas águas de Xochimilco, vive um bichinho que parece um dragão sorridente."
+        contexto: "Nas águas de Xochimilco, vive um bichinho que parece um dragão sorridente.",
+        galeria: [
+          {
+            id: "mx-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Axolotl_san_francisco.jpg/1280px-Axolotl_san_francisco.jpg",
+            legenda: "Axolote em seu habitat aquático",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "taco",

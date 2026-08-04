@@ -103,7 +103,15 @@ export const portugal: Pais = {
       },
       fauna_do_dia: {
         id: "gaivota",
-        contexto: "As gaivotas dão um show à parte, mergulhando no rio para pescar."
+        contexto: "As gaivotas dão um show à parte, mergulhando no rio para pescar.",
+        galeria: [
+          {
+            id: "pt-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/European_Herring_Gull_Larus_argentatus.jpg/1280px-European_Herring_Gull_Larus_argentatus.jpg",
+            legenda: "Gaivota-argentea em Belém",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "pastel-belem",

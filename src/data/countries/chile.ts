@@ -104,7 +104,15 @@ export const chile: Pais = {
       },
       fauna_do_dia: {
         id: "zorzal",
-        contexto: "Um pássaro de peito alaranjado que canta todas as manhãs nos parques de Santiago."
+        contexto: "Um pássaro de peito alaranjado que canta todas as manhãs nos parques de Santiago.",
+        galeria: [
+          {
+            id: "cl-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Austral_thrush_Chile.jpg/1280px-Austral_thrush_Chile.jpg",
+            legenda: "Zorzal-austral em Santiago",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "mote-con-huesillo",

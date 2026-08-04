@@ -104,7 +104,15 @@ export const argentina: Pais = {
       },
       fauna_do_dia: {
         id: "pombas-urbana",
-        contexto: "Nas praças de Buenos Aires, as pombas são parte constante da paisagem urbana, quase tão famosas quanto os cães de rua."
+        contexto: "Nas praças de Buenos Aires, as pombas são parte constante da paisagem urbana, quase tão famosas quanto os cães de rua.",
+        galeria: [
+          {
+            id: "ar-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pigeons_in_Plaza_de_Mayo.jpg/1280px-Pigeons_in_Plaza_de_Mayo.jpg",
+            legenda: "Pombas na Plaza de Mayo",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "empanada",

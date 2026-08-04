@@ -84,7 +84,15 @@ export const italia: Pais = {
       },
       fauna_do_dia: {
         id: "lobo-italico",
-        contexto: "Diz a lenda que uma loba amamentou os fundadores de Roma, Rômulo e Remo."
+        contexto: "Diz a lenda que uma loba amamentou os fundadores de Roma, Rômulo e Remo.",
+        galeria: [
+          {
+            id: "it-fauna-1",
+            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Canis_lupus_265b.jpg/1280px-Canis_lupus_265b.jpg",
+            legenda: "Lobo-itálico nos Apeninos",
+            credito: "Wikimedia Commons"
+          }
+        ]
       },
       sabor_do_dia: {
         id: "pizza-margherita",
