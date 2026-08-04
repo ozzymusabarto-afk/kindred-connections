@@ -16,19 +16,51 @@ export const portugal: Pais = {
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Alfama_Lisbon.jpg/1280px-Alfama_Lisbon.jpg",
     credito: "Wikimedia Commons",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
+      legenda: "Som real de um avião pousando no aeroporto de Lisboa",
+      credito: "Wikimedia Commons"
+    },
     idioma: "Português (com um sotaque charmoso!)",
     fuso_horario: "12h00 no horário local — 4 horas a mais que Brasília",
     temperatura: "18 °C, sol entre nuvens e vento do mar",
     fala_piloto_original: "Bom dia, senhores passageiros! Aqui fala o comandante. Iniciamos a nossa descida para o Aeroporto Humberto Delgado, em Lisboa. O tempo está agradável, com 18 graus e o céu parcialmente nublado. O fuso horário local é de meio-dia, quatro horas à frente de Brasília. Sejam muito bem-vindos a Portugal!",
     fala_piloto_traducao: "Bom dia, senhores passageiros! Aqui fala o comandante. Iniciamos a nossa descida para o Aeroporto Humberto Delgado, em Lisboa. O tempo está agradável, com 18 graus e o céu parcialmente nublado. O fuso horário local é de meio-dia, quatro horas à frente de Brasília. Sejam muito bem-vindos a Portugal!",
-    texto: "Olhe pela janela, explorador! Estamos sobrevoando a foz do Rio Tejo. Veja como a luz do sol brilha intensamente refletida nas águas e nas fachadas brancas dos prédios. Aquela ponte enorme que você vê é a Ponte 25 de Abril, muito parecida com a de San Francisco! Portugal é um país pequeno em tamanho, mas gigante em história. Quase tudo o que conhecemos no Brasil — a língua, muitas comidas, a arquitetura das cidades antigas — começou aqui. Prepare-se para uma viagem no tempo!"
+    texto: "Olhe pela janela, explorador! Estamos sobrevoando a foz do Rio Tejo. Veja como a luz do sol brilha intensamente refletida nas águas e nas fachadas brancas dos prédios. Aquela ponte enorme que você vê é a Ponte 25 de Abril, muito parecida com a de San Francisco! Portugal é um país pequeno em tamanho, mas gigante em história. Quase tudo o que conhecemos no Brasil — a língua, muitas comidas, a arquitetura das cidades antigas — começou aqui. Prepare-se para uma viagem no tempo!",
+    galeria: [
+      {
+        id: "pt-chegada-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Lisboa_Aerial_View.jpg/1280px-Lisboa_Aerial_View.jpg",
+        legenda: "Vista aérea de Lisboa e do Rio Tejo",
+        credito: "Wikimedia Commons"
+      },
+      {
+        id: "pt-chegada-2",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Lisbon_Airport_Terminal.jpg/1280px-Lisbon_Airport_Terminal.jpg",
+        legenda: "Terminal do Aeroporto Humberto Delgado",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   base: {
     nome: "Pousada no bairro de Alfama, Lisboa",
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Alfama_Lisbon.jpg/1280px-Alfama_Lisbon.jpg",
     credito: "Wikimedia Commons",
-    descricao: "“Bem-vindos! Eu me chamo João e serei o vosso guia por esta terra de navegadores. Ficaremos hospedados aqui em Alfama, o bairro mais antigo de Lisboa. Ouçam... conseguem ouvir o som dos bondes subindo a ladeira e o cheiro de peixe assado vindo das janelas? As ruas aqui são tão estreitas que quase podemos tocar as paredes dos dois lados! Deixem as malas e calcem sapatos confortáveis, pois as calçadas de pedra portuguesa esperam por nós.”"
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/23/Lisbon_Street_Atmosphere.mp3",
+      legenda: "Sons das ruas de Alfama: bondes e conversas",
+      credito: "Wikimedia Commons"
+    },
+    descricao: "“Bem-vindos! Eu me chamo João e serei o vosso guia por esta terra de navegadores. Ficaremos hospedados aqui em Alfama, o bairro mais antigo de Lisboa. Ouçam... conseguem ouvir o som dos bondes subindo a ladeira e o cheiro de peixe assado vindo das janelas? As ruas aqui são tão estreitas que quase podemos tocar as paredes dos dois lados! Deixem as malas e calcem sapatos confortáveis, pois as calçadas de pedra portuguesa esperam por nós.”",
+    galeria: [
+      {
+        id: "pt-base-1",
+        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Alfama_Street_View.jpg/1280px-Alfama_Street_View.jpg",
+        legenda: "As ruas estreitas de Alfama",
+        credito: "Wikimedia Commons"
+      }
+    ]
   },
 
   roteiro_viagem: [
@@ -220,7 +252,7 @@ export const portugal: Pais = {
       nome: "Gaivota-argentea",
       nome_cientifico: "Larus argentatus",
       foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/European_Herring_Gull_Larus_argentatus.jpg/1280px-European_Herring_Gull_Larus_argentatus.jpg",
-      som_url: null,
+      som_url: "https://upload.wikimedia.org/wikipedia/commons/b/b3/Herring_Gull_Call.mp3",
       curiosidade: "São aves muito inteligentes que vivem no litoral. Elas aprenderam a seguir os barcos de pesca para conseguir comida fácil.",
       habitat: "Zonas costeiras e estuários.",
       credito: "Wikimedia Commons"
