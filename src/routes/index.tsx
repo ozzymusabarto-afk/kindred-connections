@@ -78,7 +78,7 @@ function MapaMundi() {
     });
 
     if (invalidos.length > 0) {
-      setErros(invalidos.map(p => p.nome || p.id));
+      setErros(invalidos.map((p: any) => p.nome || p.id));
       setBloqueado(true);
       console.error(`[Erro de Integridade] Dados incompletos em ${continenteAtivo}:`, invalidos);
     } else {
