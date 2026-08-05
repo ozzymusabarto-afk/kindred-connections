@@ -40,7 +40,8 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
       .scale(260)
       .translate([width / 2, height / 2])
       .rotate(rotation)
-      .clipAngle(90);
+      .clipAngle(90)
+      .precision(0.1);
   }, [rotation]);
 
   const path = d3.geoPath(projection);
@@ -50,15 +51,18 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
     return (topojson.feature(worldData, worldData.objects.countries) as any).features;
   }, [worldData]);
 
-  // Enhanced drag interaction
+  // Interação de arrastar aprimorada
   useEffect(() => {
     if (!svgRef.current) return;
     const svg = d3.select(svgRef.current);
     const drag = d3.drag<SVGSVGElement, unknown>()
-      .on("drag", (event) => {
+      .subject(() => {
         const r = projection.rotate();
-        const k = 75 / projection.scale();
-        setRotation([r[0] + event.dx * k, r[1] - event.dy * k]);
+        return { x: r[0], y: -r[1] };
+      })
+      .on("drag", (event) => {
+        // Sensibilidade ajustada para rotação natural
+        setRotation([event.x, -event.y]);
       });
     svg.call(drag);
   }, [projection]);
@@ -200,12 +204,12 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               const immersive = isImmersive(f);
               const isVisited = alpha2 && carimbados.includes(alpha2);
               
-              // Dynamic colors for land
-              let fill = "#c5e1a5"; // Soft green default
-              if (alpha2 === "br") fill = "#4caf50"; // Brazil vibrant green
-              else if (immersive) fill = "#81c784"; 
-              if (isVisited) fill = "#ffd54f"; // Golden yellow for visited
-              if (!hasData) fill = "#e0e0e0"; // Soft gray for others
+              // Cores dinâmicas para a terra (estilo livro antigo colorido)
+              let fill = "#fdf2f2"; // Base bege rosado (Europa/Geral)
+              if (alpha2 === "br") fill = "#4ade80"; // Brasil verde vibrante
+              else if (immersive) fill = "#fef08a"; // Amarelo suave para imersivos
+              if (isVisited) fill = "#fbbf24"; // Ouro para visitados
+              if (!hasData) fill = "#f3f4f6"; // Cinza claríssimo para outros
               
               return (
                 <path
@@ -348,11 +352,51 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         </div>
       )}
 
-      {/* Nav Controls */}
+      {/* Controles de Navegação */}
       <div className="absolute bottom-6 right-6 flex flex-col gap-2">
-        <button onClick={() => setRotation([rotation[0] + 30, rotation[1]])} className="h-10 w-10 bg-white/20 backdrop-blur-md rounded-full shadow-lg flex items-center justify-center hover:bg-white/40 border border-white/30 text-white transition-all">🧭</button>
-        <button onClick={() => setRotation([-45, -15])} className="h-10 w-10 bg-white/20 backdrop-blur-md rounded-full shadow-lg flex items-center justify-center hover:bg-white/40 border border-white/30 text-white transition-all">🏠</button>
+        <div className="grid grid-cols-3 gap-1 bg-white/10 backdrop-blur-md p-2 rounded-2xl border border-white/20">
+          <div />
+          <button 
+            onClick={() => setRotation([rotation[0], rotation[1] + 15])}
+            className="h-10 w-10 flex items-center justify-center hover:bg-white/20 rounded-lg text-white transition-colors"
+            title="Girar para Cima"
+          >
+            🔼
+          </button>
+          <div />
+          
+          <button 
+            onClick={() => setRotation([rotation[0] - 15, rotation[1]])}
+            className="h-10 w-10 flex items-center justify-center hover:bg-white/20 rounded-lg text-white transition-colors"
+            title="Girar para Esquerda"
+          >
+            ◀️
+          </button>
+          <button 
+            onClick={() => setRotation([-45, -15])}
+            className="h-10 w-10 flex items-center justify-center hover:bg-white/20 rounded-lg text-white transition-colors"
+            title="Centralizar"
+          >
+            🏠
+          </button>
+          <button 
+            onClick={() => setRotation([rotation[0] + 15, rotation[1]])}
+            className="h-10 w-10 flex items-center justify-center hover:bg-white/20 rounded-lg text-white transition-colors"
+            title="Girar para Direita"
+          >
+            ▶️
+          </button>
 
+          <div />
+          <button 
+            onClick={() => setRotation([rotation[0], rotation[1] - 15])}
+            className="h-10 w-10 flex items-center justify-center hover:bg-white/20 rounded-lg text-white transition-colors"
+            title="Girar para Baixo"
+          >
+            🔽
+          </button>
+          <div />
+        </div>
       </div>
     </div>
   );
