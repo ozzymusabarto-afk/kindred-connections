@@ -64,7 +64,8 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   }, [projection]);
 
   const handleCountryClick = (feature: any) => {
-    const numericId = feature.id.toString().padStart(3, '0');
+    const numericId = feature.id?.toString().padStart(3, '0');
+    if (!numericId) return;
     const alpha2 = ISO_NUMERIC_MAP[numericId];
     const pais = paises.find(p => p.codigo_mapa === alpha2);
     
@@ -94,7 +95,8 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   };
 
   const isImmersive = (feature: any) => {
-    const numericId = feature.id.toString().padStart(3, '0');
+    const numericId = feature.id?.toString().padStart(3, '0');
+    if (!numericId) return false;
     const alpha2 = ISO_NUMERIC_MAP[numericId];
     // This logic needs to be more robust based on actual "immersive" flag if available
     return ["br", "us", "ca", "pt", "it", "gb", "mx", "ar", "cl", "pe"].includes(alpha2);
@@ -137,9 +139,10 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         {/* Countries */}
         <g>
           {countriesFeatures.map((f: any) => {
-            const numericId = f.id.toString().padStart(3, '0');
+            const numericId = f.id?.toString().padStart(3, '0');
+            if (!numericId) return null;
             const alpha2 = ISO_NUMERIC_MAP[numericId];
-            const countryData = paises.find(p => p.codigo_mapa === alpha2);
+            const countryData = alpha2 ? paises.find(p => p.codigo_mapa === alpha2) : null;
             const hasData = !!countryData;
             const immersive = isImmersive(f);
             
@@ -178,7 +181,8 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         {/* Country Markers (Pins/Medals) */}
         <g pointerEvents="none">
           {countriesFeatures.map((f: any) => {
-            const numericId = f.id.toString().padStart(3, '0');
+            const numericId = f.id?.toString().padStart(3, '0');
+            if (!numericId) return null;
             const alpha2 = ISO_NUMERIC_MAP[numericId];
             const pais = paises.find(p => p.codigo_mapa === alpha2);
             if (!pais) return null;
