@@ -13,10 +13,37 @@ interface WorldMapProps {
 // ISO numeric to alpha-2 mapping (subset for critical countries)
 const ISO_NUMERIC_MAP: Record<string, string> = {
   "076": "br", "124": "ca", "840": "us", "484": "mx", "620": "pt", "380": "it", "826": "gb", 
-    "032": "ar", "152": "cl", "392": "jp", "818": "eg", "036": "au", "156": "cn", "764": "th", 
-    "504": "ma", "710": "za", "554": "nz", "242": "fj", "188": "cr", "591": "pa", "320": "gt",
-    "604": "pe"
-  };
+  "032": "ar", "152": "cl", "392": "jp", "818": "eg", "036": "au", "156": "cn", "764": "th", 
+  "504": "ma", "710": "za", "554": "nz", "242": "fj", "188": "cr", "591": "pa", "320": "gt",
+  "604": "pe", "250": "fr", "276": "de", "724": "es", "752": "se", "528": "nl", "056": "be",
+  "756": "ch", "040": "at", "300": "gr", "616": "pl", "643": "ru", "792": "tr", "356": "in",
+  "410": "kr", "702": "sg", "458": "my", "360": "id", "608": "ph", "826": "gb", "372": "ie",
+  "578": "no", "208": "dk", "246": "fi"
+};
+
+const LAND_COLORS = [
+  "#4ade80", // Verde Brasil (especial)
+  "#fbbf24", // Âmbar (especial)
+  "#fcd34d", // Amarelo sol
+  "#93c5fd", // Azul céu suave
+  "#a7f3d0", // Esmeralda suave
+  "#ddd6fe", // Violeta suave
+  "#fed7aa", // Laranja suave
+  "#fecaca", // Vermelho suave
+  "#d1d5db", // Cinza suave
+];
+
+const getCountryColor = (alpha2: string | undefined, index: number, hasData: boolean) => {
+  if (alpha2 === "br") return "#16a34a"; // Brasil Verde Vibrante
+  if (hasData) {
+    // Cores vibrantes mas harmoniosas para países com conteúdo
+    const colors = ["#4ade80", "#facc15", "#f97316", "#3b82f6", "#a855f7", "#ec4899"];
+    return colors[index % colors.length];
+  }
+  // Cores de "mapa antigo" para os demais
+  const oldMapColors = ["#e2e8f0", "#f1f5f9", "#f8fafc", "#f1f5f9"];
+  return oldMapColors[index % oldMapColors.length];
+};
 
 export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   const svgRef = useRef<SVGSVGElement | null>(null);
