@@ -53,23 +53,29 @@ export const Route = createFileRoute("/")({
 
 function MapaMundi() {
   const navigate = useNavigate();
-  const [continenteAtivo, setContinenteAtivo] = useState(() => {
+  const [continenteAtivo, setContinenteAtivo] = useState<ContinenteId | "todos">(() => {
     if (typeof window !== "undefined") {
-      return window.localStorage.getItem("diario:continente-ativo") || "america-do-norte";
+      return (window.localStorage.getItem("diario:continente-ativo") as ContinenteId | "todos") || "todos";
     }
-    return "america-do-norte";
+    return "todos";
   });
   const { carimbos } = usePassport();
-  const paisesVisiveis = paises; // Mostrar todos no globo 3D
+  
+  // Filtrar países com base no continente selecionado
+  const paisesVisiveis = continenteAtivo === "todos" 
+    ? paises 
+    : paises.filter(p => p.continente === continenteAtivo);
+
   const totalExplorados = carimbos.length;
   const totalPaises = 21; 
   const visitados = new Set(carimbos.map((c) => c.paisId));
 
-  // Validação rigorosa de integridade no carregamento do continente
+  // Validação rigorosa de integridade
   const [bloqueado, setBloqueado] = useState(false);
   const [erros, setErros] = useState<string[]>([]);
 
   useEffect(() => {
+    // Validar apenas os países que seriam mostrados
     const invalidos = paisesVisiveis.filter((p: any) => {
       const temTexto = p.nome && p.resumo_geografico && p.resumo_geografico.length > 20;
       const temImagem = p.bandeira_url || p.bandeira;
@@ -80,13 +86,12 @@ function MapaMundi() {
     if (invalidos.length > 0) {
       setErros(invalidos.map((p: any) => p.nome || p.id));
       setBloqueado(true);
-      console.error(`[Erro de Integridade] Dados incompletos em ${continenteAtivo}:`, invalidos);
+      console.error(`[Erro de Integridade] Dados incompletos:`, invalidos);
     } else {
       setErros([]);
       setBloqueado(false);
     }
     
-    // Persiste o continente no localStorage
     if (typeof window !== "undefined") {
       window.localStorage.setItem("diario:continente-ativo", continenteAtivo);
     }
