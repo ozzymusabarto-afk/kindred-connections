@@ -112,14 +112,14 @@ function MapaMundi() {
             Sua Grande Jornada Começa Agora!
           </h1>
           <p className="mt-3 font-display text-xl leading-snug text-brass">
-            Preparado para girar o globo e conhecer o nosso planeta? Aqui, cada país reserva uma descoberta única:
+            Preparado para explorar o nosso planeta? Aqui, cada país reserva uma descoberta única:
           </p>
           <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
             <p>
-              ✈️ <strong>Viagens ao Vivo:</strong> Entre nos Países Imersivos para sentir a experiência completa de um viajante — com sons reais, rotas de transporte, refeições típicas e conversas ao vivo com nossos guias!
+              ✈️ <strong>Viagens ao Vivo:</strong> Entre nos Países Imersivos para sentir a experiência completa de um viajante — com fotos, sons reais, rotas de transporte e refeições típicas!
             </p>
             <p>
-              📑 <strong>Cadernos de Campo:</strong> Abra os Diários de Bordo para investigar os segredos dos demais países através de histórias curtas, fotos marcantes e registros de viagem prontos para você carimbar!
+              📑 <strong>Cadernos de Campo:</strong> Abra os Diários de Bordo para investigar os segredos dos demais países através de histórias curtas, fotos marcantes e registros de viagem!
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
