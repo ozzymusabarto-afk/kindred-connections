@@ -118,9 +118,9 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
 
   return (
     <div className="group relative w-full overflow-hidden rounded-[2.5rem] bg-[#050B14] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-brass/30 transition-all duration-500 hover:border-brass/50">
-      {/* Space Background Elements */}
-      <div className="absolute inset-0 pointer-events-none opacity-40">
-        {[...Array(50)].map((_, i) => (
+      {/* Espaço Sideral com Estrelas */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {[...Array(80)].map((_, i) => (
           <div 
             key={i} 
             className="absolute rounded-full bg-white" 
@@ -129,8 +129,8 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               top: `${Math.random() * 100}%`,
               width: `${Math.random() * 2 + 1}px`,
               height: `${Math.random() * 2 + 1}px`,
-              opacity: Math.random() * 0.8 + 0.2,
-              animation: `pulse ${Math.random() * 3 + 2}s infinite`
+              opacity: Math.random() * 0.7 + 0.3,
+              animation: `star-pulse ${Math.random() * 4 + 2}s infinite ${Math.random() * 5}s`
             }}
           />
         ))}
@@ -139,25 +139,16 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
       <svg ref={svgRef} viewBox={`0 0 ${width} ${height}`} className="w-full cursor-grab active:cursor-grabbing transition-transform duration-500 relative z-10">
         <defs>
           <radialGradient id="globe-shading" cx="45%" cy="45%" r="55%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#000000" stopOpacity="0.2" />
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#000000" stopOpacity="0.3" />
           </radialGradient>
           <filter id="medal-glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="3" result="blur" />
             <feComposite in="SourceGraphic" in2="blur" operator="over" />
           </filter>
-          <filter id="star-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="2" result="blur" />
-            <feColorMatrix type="matrix" values="1 0 0 0 1  0 1 0 0 1  0 0 1 0 1  0 0 0 1 0" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-
           <filter id="country-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="4" result="blur" />
-            <feFlood floodColor="#FFD700" floodOpacity="0.4" result="color" />
+            <feGaussianBlur stdDeviation="5" result="blur" />
+            <feFlood floodColor="#FFD700" floodOpacity="0.6" result="color" />
             <feComposite in="color" in2="blur" operator="in" result="glow" />
             <feMerge>
               <feMergeNode in="glow" />
@@ -169,11 +160,12 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           </clipPath>
         </defs>
 
-        {/* Ocean Background - Now deep vibrant blue */}
-        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="#1E40AF" stroke="#2563EB" strokeWidth="2" />
+        {/* Oceano Profundo e Vibrante */}
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="#2563EB" stroke="#1E40AF" strokeWidth="2" />
         
         {/* Graticule */}
         <path d={path(d3.geoGraticule()()) as string} fill="none" stroke="#ffffff" strokeOpacity="0.1" strokeWidth="0.5" />
+
 
         {/* Global Clipped Area for Illustrations */}
         <g clipPath="url(#globe-clip)">
