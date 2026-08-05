@@ -124,15 +124,15 @@ function MapaMundi() {
             <div className="mt-8 grid gap-4 border-t border-brass/10 pt-8 sm:grid-cols-2">
               <div className="space-y-2">
                 <h3 className="font-display text-sm font-semibold text-brass">Navegação Inteligente</h3>
-                <p className="text-sm">Adicionar botões de controle para girar, centralizar e voltar ao último país visitado no globo com animações suaves.</p>
+                <p className="text-sm">Verificar e exibir um aviso quando algum país estiver com dados incompletos (dias da viagem, pontos de localização, comidas, animais e vida cotidiana) para manter tudo consistente no Diário de Bordo. Criar um botão para voltar ao último país que eu visitei no globo, posicionando-o automaticamente com uma animação suave e destacando o país na lista.</p>
               </div>
               <div className="space-y-2">
                 <h3 className="font-display text-sm font-semibold text-brass">Memória de Viagem</h3>
-                <p className="text-sm">Salvar automaticamente quais países eu já visitei e os carimbos que recebi, para eu continuar de onde parei ao voltar.</p>
+                <p className="text-sm">Implementar a navegação em dois passos para eu selecionar o continente primeiro e só depois ver os países daquele continente no globo e na lista. Salvar automaticamente quais países eu já visitei e quais carimbos eu recebi para eu continuar de onde parei mesmo depois de fechar e reabrir o app.</p>
               </div>
               <div className="space-y-2">
                 <h3 className="font-display text-sm font-semibold text-brass">Exploração por Etapas</h3>
-                <p className="text-sm">Implementar uma navegação em dois passos para que eu selecione o continente e só depois eu veja os países daquele continente no globo e na lista.</p>
+                <p className="text-sm">Adicionar botões funcionais para girar, centralizar e dar zoom no globo com animações suaves, além de suporte a arrastar no mouse e toque no celular e tablet. REmova os emojis do globo terrestre e crie elementos realistas</p>
               </div>
             </div>
           </div>
