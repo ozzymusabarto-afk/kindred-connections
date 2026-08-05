@@ -228,9 +228,10 @@ function MapaMundi() {
           {bloqueado ? (
             <div className="flex flex-col items-center justify-center rounded-3xl border-4 border-dashed border-destructive/30 bg-destructive/5 p-12 text-center">
               <span className="text-5xl mb-4">🚧</span>
-              <h3 className="text-xl font-display text-destructive">Mapeamento em curso...</h3>
+              <h3 className="text-xl font-display text-destructive">Sistemas de Navegação em Calibração...</h3>
               <p className="mt-2 text-muted-foreground max-w-md">
-                Estamos preparando os detalhes de <strong>{erros.join(", ")}</strong> para que sua viagem seja perfeita. Por enquanto, escolha outro continente!
+                Estamos preparando os detalhes de <strong>{erros.join(", ")}</strong> para que sua viagem seja perfeita. Por enquanto, escolha outro destino!
+
               </p>
             </div>
           ) : (
