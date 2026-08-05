@@ -117,7 +117,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   }
 
   return (
-    <div className="group relative w-full overflow-hidden rounded-[2.5rem] bg-[#050B14] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-brass/30 transition-all duration-500 hover:border-brass/50">
+    <div className="group relative w-full overflow-hidden rounded-[2.5rem] bg-[#050B14] shadow-[0_30px_60px_rgba(0,0,0,0.7)] border-4 border-brass/30 transition-all duration-500 hover:border-brass/50">
       {/* Espaço Sideral com Estrelas */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(80)].map((_, i) => (
@@ -139,32 +139,43 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
       <svg ref={svgRef} viewBox={`0 0 ${width} ${height}`} className="w-full cursor-grab active:cursor-grabbing transition-transform duration-500 relative z-10">
         <defs>
           <radialGradient id="globe-shading" cx="45%" cy="45%" r="55%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#000000" stopOpacity="0.3" />
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#000000" stopOpacity="0.5" />
+          </radialGradient>
+          <radialGradient id="atmosphere" cx="50%" cy="50%" r="50%">
+            <stop offset="90%" stopColor="#2563EB" stopOpacity="0" />
+            <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.4" />
           </radialGradient>
           <filter id="medal-glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="3" result="blur" />
             <feComposite in="SourceGraphic" in2="blur" operator="over" />
           </filter>
           <filter id="country-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="5" result="blur" />
-            <feFlood floodColor="#FFD700" floodOpacity="0.6" result="color" />
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feFlood floodColor="#FFD700" floodOpacity="0.8" result="color" />
             <feComposite in="color" in2="blur" operator="in" result="glow" />
             <feMerge>
               <feMergeNode in="glow" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
+          <filter id="sphere-shadow">
+            <feDropShadow dx="0" dy="15" stdDeviation="20" floodOpacity="0.6"/>
+          </filter>
           <clipPath id="globe-clip">
             <circle cx={width / 2} cy={height / 2} r={projection.scale()} />
           </clipPath>
         </defs>
 
-        {/* Oceano Profundo e Vibrante */}
-        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="#2563EB" stroke="#1E40AF" strokeWidth="2" />
+        {/* Sombra da Esfera */}
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="black" filter="url(#sphere-shadow)" opacity="0.4" />
         
-        {/* Graticule */}
-        <path d={path(d3.geoGraticule()()) as string} fill="none" stroke="#ffffff" strokeOpacity="0.1" strokeWidth="0.5" />
+        {/* Oceano Profundo e Vibrante */}
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="#1c5d99" stroke="#1e40af" strokeWidth="2" />
+        
+        {/* Graticule (Equator and Tropics) */}
+        <path d={path(d3.geoGraticule()()) as string} fill="none" stroke="#ffffff" strokeOpacity="0.15" strokeWidth="0.8" />
+        <path d={path({type: "LineString", coordinates: [[-180, 0], [0, 0], [180, 0]]}) as string} fill="none" stroke="#FFD700" strokeOpacity="0.3" strokeWidth="1.5" />
 
 
         {/* Global Clipped Area for Illustrations */}
@@ -180,14 +191,19 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               const immersive = isImmersive(f);
               const isVisited = alpha2 && carimbados.includes(alpha2);
               
+              // Dynamic colors for land
+              let fill = "#c5e1a5"; // Soft green default
+              if (alpha2 === "br") fill = "#4caf50"; // Brazil vibrant green
+              else if (immersive) fill = "#81c784"; 
+              if (isVisited) fill = "#ffd54f"; // Golden yellow for visited
+              if (!hasData) fill = "#e0e0e0"; // Soft gray for others
+              
               return (
                 <path
                   key={f.id}
                   d={path(f) as string}
-                  fill={hasData 
-                    ? (isVisited ? "#FCD34D" : (immersive ? "#D97706" : "#4ade80")) 
-                    : "#64748b"}
-                  stroke={hasData ? "#1e293b" : "#475569"}
+                  fill={fill}
+                  stroke={hasData ? "#2e7d32" : "#9e9e9e"}
                   strokeWidth={hasData ? 0.8 : 0.4}
                   filter={isVisited ? "url(#country-glow)" : ""}
                   className={`transition-all duration-300 ${hasData ? 'hover:brightness-110 cursor-pointer' : ''}`}
@@ -207,32 +223,50 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
             })}
           </g>
 
-          {/* Ocean Illustrations (Now rotate with globe) */}
+          {/* Ocean Elements & Labels */}
           <g pointerEvents="none">
-            {/* We place these at specific geographic points so they move with rotation */}
             {[
-              { coords: [-30, -10], icon: "🐋", size: 30 },
-              { coords: [150, 20], icon: "⛵", size: 25 },
-              { coords: [-120, -20], icon: "🐳", size: 22 },
-              { coords: [40, -40], icon: "🚢", size: 24 },
-              { coords: [-60, 40], icon: "☁️", size: 35 },
-              { coords: [100, -30], icon: "☁️", size: 25 },
-              { coords: [10, 60], icon: "☁️", size: 30 },
-              { coords: [20, 20], icon: "🏔️", size: 20 }, // High peaks
-              { coords: [80, 30], icon: "🏔️", size: 20 }
+              { coords: [-30, -10], icon: "🐋", size: 35 },
+              { coords: [150, 20], icon: "⛵", size: 28 },
+              { coords: [-120, -20], icon: "🐳", size: 26 },
+              { coords: [40, -40], icon: "🚢", size: 28 },
+              { coords: [-60, 40], icon: "☁️", size: 40 },
+              { coords: [100, -30], icon: "☁️", size: 30 },
+              { coords: [10, 60], icon: "☁️", size: 35 },
+              { coords: [-20, 20], icon: "⛰️", size: 22 }, 
+              { coords: [80, 30], icon: "⛰️", size: 22 },
+              { coords: [-140, 0], label: "OCEANO PACÍFICO", size: 10 },
+              { coords: [-30, 10], label: "OCEANO ATLÂNTICO", size: 10 },
+              { coords: [70, -20], label: "OCEANO ÍNDICO", size: 10 }
             ].map((item, i) => {
               const visible = path({ type: 'Point', coordinates: item.coords as [number, number] });
               if (!visible) return null;
               const [x, y] = projection(item.coords as [number, number])!;
+              
+              if (item.label) {
+                return (
+                  <text 
+                    key={`label-${i}`} 
+                    x={x} y={y} 
+                    fontSize={item.size} 
+                    fill="white" 
+                    fillOpacity="0.4"
+                    textAnchor="middle" 
+                    className="font-bold tracking-widest pointer-events-none"
+                  >
+                    {item.label}
+                  </text>
+                );
+              }
+
               return (
                 <text 
                   key={`illust-${i}`} 
-                  x={x} 
-                  y={y} 
+                  x={x} y={y} 
                   fontSize={item.size} 
                   textAnchor="middle" 
                   alignmentBaseline="middle"
-                  style={{ pointerEvents: 'none' }}
+                  className="pointer-events-none drop-shadow-md"
                 >
                   {item.icon}
                 </text>
@@ -242,8 +276,9 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         </g>
 
         {/* Atmosphere/Shading */}
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="url(#atmosphere)" pointerEvents="none" />
         <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="url(#globe-shading)" pointerEvents="none" />
-        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="none" stroke="#B8860B" strokeOpacity="0.3" strokeWidth="2" pointerEvents="none" />
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="none" stroke="#B8860B" strokeOpacity="0.4" strokeWidth="2.5" pointerEvents="none" />
 
         {/* Country Markers (Pins/Medals) */}
         <g pointerEvents="none">
