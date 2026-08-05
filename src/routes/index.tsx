@@ -7,6 +7,8 @@ import { StarStamp } from "@/components/StarStamp";
 import { FichaExplorador } from "@/components/FichaExplorador";
 import { continentes, paises } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
+import type { ContinenteId } from "@/data/types";
+
 
 
 export const Route = createFileRoute("/")({
