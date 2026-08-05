@@ -173,8 +173,9 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         {/* Oceano Profundo e Vibrante */}
         <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="#1c5d99" stroke="#1e40af" strokeWidth="2" />
         
-        {/* Graticule */}
-        <path d={path(d3.geoGraticule()()) as string} fill="none" stroke="#ffffff" strokeOpacity="0.1" strokeWidth="0.5" />
+        {/* Graticule (Equator and Tropics) */}
+        <path d={path(d3.geoGraticule()()) as string} fill="none" stroke="#ffffff" strokeOpacity="0.15" strokeWidth="0.8" />
+        <path d={path({type: "LineString", coordinates: [[-180, 0], [0, 0], [180, 0]]}) as string} fill="none" stroke="#FFD700" strokeOpacity="0.3" strokeWidth="1.5" />
 
 
         {/* Global Clipped Area for Illustrations */}
@@ -222,32 +223,50 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
             })}
           </g>
 
-          {/* Ocean Illustrations (Now rotate with globe) */}
+          {/* Ocean Elements & Labels */}
           <g pointerEvents="none">
-            {/* We place these at specific geographic points so they move with rotation */}
             {[
-              { coords: [-30, -10], icon: "🐋", size: 30 },
-              { coords: [150, 20], icon: "⛵", size: 25 },
-              { coords: [-120, -20], icon: "🐳", size: 22 },
-              { coords: [40, -40], icon: "🚢", size: 24 },
-              { coords: [-60, 40], icon: "☁️", size: 35 },
-              { coords: [100, -30], icon: "☁️", size: 25 },
-              { coords: [10, 60], icon: "☁️", size: 30 },
-              { coords: [20, 20], icon: "🏔️", size: 20 }, // High peaks
-              { coords: [80, 30], icon: "🏔️", size: 20 }
+              { coords: [-30, -10], icon: "🐋", size: 35 },
+              { coords: [150, 20], icon: "⛵", size: 28 },
+              { coords: [-120, -20], icon: "🐳", size: 26 },
+              { coords: [40, -40], icon: "🚢", size: 28 },
+              { coords: [-60, 40], icon: "☁️", size: 40 },
+              { coords: [100, -30], icon: "☁️", size: 30 },
+              { coords: [10, 60], icon: "☁️", size: 35 },
+              { coords: [-20, 20], icon: "⛰️", size: 22 }, 
+              { coords: [80, 30], icon: "⛰️", size: 22 },
+              { coords: [-140, 0], label: "OCEANO PACÍFICO", size: 10 },
+              { coords: [-30, 10], label: "OCEANO ATLÂNTICO", size: 10 },
+              { coords: [70, -20], label: "OCEANO ÍNDICO", size: 10 }
             ].map((item, i) => {
               const visible = path({ type: 'Point', coordinates: item.coords as [number, number] });
               if (!visible) return null;
               const [x, y] = projection(item.coords as [number, number])!;
+              
+              if (item.label) {
+                return (
+                  <text 
+                    key={`label-${i}`} 
+                    x={x} y={y} 
+                    fontSize={item.size} 
+                    fill="white" 
+                    fillOpacity="0.4"
+                    textAnchor="middle" 
+                    className="font-bold tracking-widest pointer-events-none"
+                  >
+                    {item.label}
+                  </text>
+                );
+              }
+
               return (
                 <text 
                   key={`illust-${i}`} 
-                  x={x} 
-                  y={y} 
+                  x={x} y={y} 
                   fontSize={item.size} 
                   textAnchor="middle" 
                   alignmentBaseline="middle"
-                  style={{ pointerEvents: 'none' }}
+                  className="pointer-events-none drop-shadow-md"
                 >
                   {item.icon}
                 </text>
