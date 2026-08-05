@@ -64,7 +64,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   }, [projection]);
 
   const handleCountryClick = (feature: any) => {
-    const numericId = f.id?.toString().padStart(3, '0');
+    const numericId = feature.id?.toString().padStart(3, '0');
     if (!numericId) return;
     const alpha2 = ISO_NUMERIC_MAP[numericId];
     const pais = paises.find(p => p.codigo_mapa === alpha2);
