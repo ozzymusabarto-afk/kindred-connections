@@ -132,7 +132,7 @@ function MapaMundi() {
               </div>
               <div className="space-y-2">
                 <h3 className="font-display text-sm font-semibold text-brass">Exploração por Etapas</h3>
-                <p className="text-sm">Add buttons to rotate, center, and zoom the globe with smooth animations and drag/touch support.remova os emojis e crie ilustraçlões realistas pra o globo terrestre, deixe os paises coloridos a terra deve ser um esfera não uma cicunferência. .</p>
+                <p className="text-sm">Explore o globo 3D interativo, selecione continentes e países para descobrir curiosidades e completar seu diário de bordo com novas descobertas.</p>
               </div>
             </div>
           </div>
