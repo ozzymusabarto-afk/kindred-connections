@@ -34,14 +34,31 @@ const LAND_COLORS = [
 ];
 
 const getCountryColor = (alpha2: string | undefined, index: number, hasData: boolean) => {
-  if (alpha2 === "br") return "#16a34a"; // Brasil Verde Vibrante
+  if (alpha2 === "br") return "#16a34a"; // Brasil Verde Vibrante (Foco Principal)
+  
   if (hasData) {
-    // Cores vibrantes mas harmoniosas para países com conteúdo
-    const colors = ["#4ade80", "#facc15", "#f97316", "#3b82f6", "#a855f7", "#ec4899"];
-    return colors[index % colors.length];
+    // Cores vibrantes e saturadas para países com conteúdo
+    const vibrantColors = [
+      "#4ade80", // Verde vibrante
+      "#facc15", // Amarelo sol
+      "#fb923c", // Laranja vibrante
+      "#3b82f6", // Azul vibrante
+      "#a855f7", // Roxo vibrante
+      "#ec4899", // Rosa vibrante
+      "#ef4444", // Vermelho vibrante
+      "#06b6d4"  // Ciano vibrante
+    ];
+    return vibrantColors[index % vibrantColors.length];
   }
-  // Cores de "mapa antigo" para os demais
-  const oldMapColors = ["#e2e8f0", "#f1f5f9", "#f8fafc", "#f1f5f9"];
+  
+  // Cores de "mapa antigo" mas ainda com tom pastel colorido para os demais
+  const oldMapColors = [
+    "#fef3c7", // Âmbar clarinho
+    "#ecfdf5", // Esmeralda clarinho
+    "#eff6ff", // Azul clarinho
+    "#fff1f2", // Rosa clarinho
+    "#f5f3ff"  // Roxo clarinho
+  ];
   return oldMapColors[index % oldMapColors.length];
 };
 
@@ -219,15 +236,37 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         {/* Oceano Profundo e Vibrante */}
         <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="#0e7490" stroke="#083344" strokeWidth="2" />
         
-        {/* Rosa dos Ventos - Estilo Aventura Antiga */}
-        <g transform={`translate(${width - 120}, ${120}) scale(0.6)`} opacity="0.8">
-          <circle r="60" fill="none" stroke="#d96b27" strokeWidth="1" strokeDasharray="2,2" />
-          <path d="M 0 -70 L 15 0 L 0 70 L -15 0 Z" fill="#d96b27" />
-          <path d="M -70 0 L 0 -15 L 70 0 L 0 15 Z" fill="#d96b27" />
-          <path d="M 0 -70 L 8 -10 L 0 0 Z" fill="#facc15" />
-          <path d="M 70 0 L 10 8 L 0 0 Z" fill="#facc15" />
-          <circle r="8" fill="#1e2b1c" />
-          <text y="-80" textAnchor="middle" fill="#d96b27" fontWeight="bold" fontSize="24" fontFamily="Fraunces">N</text>
+        {/* Rosa dos Ventos - Estilo Aventura Realista e Detalhada */}
+        <g transform={`translate(${width - 120}, ${120})`} opacity="0.9">
+          {/* Círculo decorativo externo */}
+          <circle r="75" fill="none" stroke="#d96b27" strokeWidth="1" strokeDasharray="4,4" opacity="0.3" />
+          <circle r="65" fill="none" stroke="#d96b27" strokeWidth="2" />
+          
+          {/* Pontos Cardeais (N, S, L, O) */}
+          <g className="font-display font-bold">
+            <text y="-85" textAnchor="middle" fill="#d96b27" fontSize="26">N</text>
+            <text y="95" textAnchor="middle" fill="#d96b27" fontSize="22">S</text>
+            <text x="85" dy=".35em" textAnchor="middle" fill="#d96b27" fontSize="22">L</text>
+            <text x="-85" dy=".35em" textAnchor="middle" fill="#d96b27" fontSize="22">O</text>
+          </g>
+
+          {/* Agulha Principal (Norte-Sul) */}
+          <path d="M 0 -75 L 12 0 L 0 75 L -12 0 Z" fill="#d96b27" stroke="#92400e" strokeWidth="1" />
+          <path d="M 0 -75 L 12 0 L 0 0 Z" fill="#facc15" />
+          
+          {/* Agulha Principal (Leste-Oeste) */}
+          <path d="M -75 0 L 0 -12 L 75 0 L 0 12 Z" fill="#d96b27" stroke="#92400e" strokeWidth="1" />
+          <path d="M 75 0 L 0 -12 L 0 0 Z" fill="#facc15" />
+
+          {/* Agulhas Secundárias (Diagonais) */}
+          <g transform="rotate(45)">
+            <path d="M 0 -50 L 8 0 L 0 50 L -8 0 Z" fill="#92400e" opacity="0.6" />
+            <path d="M -50 0 L 0 -8 L 50 0 L 0 8 Z" fill="#92400e" opacity="0.6" />
+          </g>
+          
+          {/* Centro da Rosa */}
+          <circle r="12" fill="#d96b27" stroke="#facc15" strokeWidth="2" />
+          <circle r="4" fill="#facc15" />
         </g>
         
         {/* Graticule (Equator and Tropics) */}
@@ -340,14 +379,15 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           </g>
         </g>
 
-        {/* Sphere Volume Shading (Outside clip but covering the same area) */}
+        {/* Atmosfera e Volume (Fora do clip) */}
         <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="url(#atmosphere)" pointerEvents="none" />
         <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="url(#globe-shading)" pointerEvents="none" />
         
-        {/* Sphere highlight to give it a 3D glass/plastic feel */}
-        <ellipse cx={width / 2 - 60} cy={height / 2 - 60} rx="40" ry="20" fill="white" fillOpacity="0.1" transform={`rotate(-45, ${width / 2 - 60}, ${height / 2 - 60})`} pointerEvents="none" filter="blur(10px)" />
+        {/* Brilho da lente para dar efeito esférico de vidro */}
+        <ellipse cx={width / 2 - 80} cy={height / 2 - 80} rx="60" ry="30" fill="white" fillOpacity="0.2" transform={`rotate(-45, ${width / 2 - 80}, ${height / 2 - 80})`} pointerEvents="none" filter="blur(15px)" />
         
-        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="none" stroke="#B8860B" strokeOpacity="0.3" strokeWidth="3" pointerEvents="none" />
+        {/* Borda Dourada do Globo */}
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="none" stroke="#fbbf24" strokeOpacity="0.4" strokeWidth="4" pointerEvents="none" />
 
         {/* Country Markers (Pins/Medals) */}
         <g pointerEvents="none">
