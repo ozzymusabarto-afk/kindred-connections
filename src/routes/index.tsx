@@ -158,7 +158,37 @@ function MapaMundi() {
           </div>
         </section>
 
+        <section id="escolha" className="mt-12 scroll-mt-24">
+          <h2 className="text-2xl font-display text-brass mb-6">Para onde vamos hoje?</h2>
+          <div className="flex flex-wrap gap-3">
+            <button
+              onClick={() => setContinenteAtivo("todos")}
+              className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
+                continenteAtivo === "todos"
+                  ? "bg-brass text-white shadow-md scale-105"
+                  : "bg-card border border-brass/20 text-foreground hover:bg-brass/5"
+              }`}
+            >
+              🌎 Todos
+            </button>
+            {continentes.map((c) => (
+              <button
+                key={c.id}
+                onClick={() => setContinenteAtivo(c.id)}
+                className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
+                  continenteAtivo === c.id
+                    ? "bg-brass text-white shadow-md scale-105"
+                    : "bg-card border border-brass/20 text-foreground hover:bg-brass/5"
+                }`}
+              >
+                {c.nome}
+              </button>
+            ))}
+          </div>
+        </section>
+
         <section className="mt-8 max-w-2xl">
+
           <div className="flex flex-col gap-4">
             <FichaExplorador />
             
