@@ -121,20 +121,6 @@ function MapaMundi() {
             <p>
               📑 <strong>Cadernos de Campo:</strong> Abra os Diários de Bordo para investigar os segredos dos demais países através de histórias curtas, fotos marcantes e registros de viagem prontos para você carimbar!
             </p>
-            <div className="mt-8 grid gap-4 border-t border-brass/10 pt-8 sm:grid-cols-2">
-              <div className="space-y-2">
-                <h3 className="font-display text-sm font-semibold text-brass">Navegação Inteligente</h3>
-                <p className="text-sm">Adicionar botões de controle para girar, centralizar e voltar ao último país visitado no globo com animações suaves. Salvar automaticamente quais países eu já visitei e os carimbos que recebi, para eu continuar de onde parei ao voltar.</p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-display text-sm font-semibold text-brass">Memória de Viagem</h3>
-                <p className="text-sm">Implementar uma navegação em dois passos para que eu selecione o continente e só depois eu veja os países daquele continente no globo e na lista.</p>
-              </div>
-              <div className="space-y-2">
-                <h3 className="font-display text-sm font-semibold text-brass">Exploração por Etapas</h3>
-                <p className="text-sm">Explore o globo 3D interativo, selecione continentes e países para descobrir curiosidades e completar seu diário de bordo com novas descobertas.</p>
-              </div>
-            </div>
           </div>
           <div className="mt-8 flex flex-wrap gap-4">
             <a 

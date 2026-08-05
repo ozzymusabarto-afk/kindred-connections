@@ -357,7 +357,9 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               if (item.type === 'whale') {
                 return (
                   <g key={`whale-${i}`} transform={`translate(${x},${y}) scale(${item.scale})`}>
-                    <text fontSize="30">🐋</text>
+                    {/* Ilustração realista de baleia em SVG */}
+                    <path d="M-15,5 Q-5,15 15,5 Q20,-5 10,-10 Q0,-15 -10,-5 Z" fill="#1e3a8a" />
+                    <path d="M15,5 Q25,0 20,-10" fill="none" stroke="#1e3a8a" strokeWidth="2" />
                   </g>
                 );
               }
@@ -365,7 +367,9 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               if (item.type === 'ship') {
                 return (
                   <g key={`ship-${i}`} transform={`translate(${x},${y}) scale(${item.scale})`}>
-                    <text fontSize="40">🚢</text>
+                    {/* Ilustração realista de navio em SVG */}
+                    <path d="M-20,0 L20,0 L15,10 L-15,10 Z" fill="#451a03" />
+                    <path d="M-5,0 L-5,-15 L10,0 Z" fill="#f8fafc" stroke="#451a03" strokeWidth="1" />
                   </g>
                 );
               }
