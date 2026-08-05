@@ -180,14 +180,19 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               const immersive = isImmersive(f);
               const isVisited = alpha2 && carimbados.includes(alpha2);
               
+              // Dynamic colors for land
+              let fill = "#c5e1a5"; // Soft green default
+              if (alpha2 === "br") fill = "#4caf50"; // Brazil vibrant green
+              else if (immersive) fill = "#81c784"; 
+              if (isVisited) fill = "#ffd54f"; // Golden yellow for visited
+              if (!hasData) fill = "#e0e0e0"; // Soft gray for others
+              
               return (
                 <path
                   key={f.id}
                   d={path(f) as string}
-                  fill={hasData 
-                    ? (isVisited ? "#FCD34D" : (immersive ? "#D97706" : "#4ade80")) 
-                    : "#64748b"}
-                  stroke={hasData ? "#1e293b" : "#475569"}
+                  fill={fill}
+                  stroke={hasData ? "#2e7d32" : "#9e9e9e"}
                   strokeWidth={hasData ? 0.8 : 0.4}
                   filter={isVisited ? "url(#country-glow)" : ""}
                   className={`transition-all duration-300 ${hasData ? 'hover:brightness-110 cursor-pointer' : ''}`}
