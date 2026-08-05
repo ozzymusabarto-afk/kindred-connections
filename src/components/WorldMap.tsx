@@ -159,8 +159,17 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
+          <filter id="sphere-glow">
+            <feGaussianBlur stdDeviation="15" result="blur" />
+            <feFlood floodColor="#3B82F6" floodOpacity="0.3" result="color" />
+            <feComposite in="color" in2="blur" operator="in" result="glow" />
+            <feMerge>
+              <feMergeNode in="glow" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
           <filter id="sphere-shadow">
-            <feDropShadow dx="0" dy="15" stdDeviation="20" floodOpacity="0.6"/>
+            <feDropShadow dx="0" dy="25" stdDeviation="35" floodOpacity="0.8"/>
           </filter>
           <clipPath id="globe-clip">
             <circle cx={width / 2} cy={height / 2} r={projection.scale()} />
@@ -223,62 +232,63 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
             })}
           </g>
 
-          {/* Ocean Elements & Labels */}
+          {/* Ocean Labels */}
           <g pointerEvents="none">
             {[
-              { coords: [-30, -10], icon: "🐋", size: 35 },
-              { coords: [150, 20], icon: "⛵", size: 28 },
-              { coords: [-120, -20], icon: "🐳", size: 26 },
-              { coords: [40, -40], icon: "🚢", size: 28 },
-              { coords: [-60, 40], icon: "☁️", size: 40 },
-              { coords: [100, -30], icon: "☁️", size: 30 },
-              { coords: [10, 60], icon: "☁️", size: 35 },
-              { coords: [-20, 20], icon: "⛰️", size: 22 }, 
-              { coords: [80, 30], icon: "⛰️", size: 22 },
-              { coords: [-140, 0], label: "OCEANO PACÍFICO", size: 10 },
-              { coords: [-30, 10], label: "OCEANO ATLÂNTICO", size: 10 },
-              { coords: [70, -20], label: "OCEANO ÍNDICO", size: 10 }
+              { coords: [-140, 0], label: "OCEANO PACÍFICO", size: 12 },
+              { coords: [-30, 10], label: "OCEANO ATLÂNTICO", size: 12 },
+              { coords: [70, -20], label: "OCEANO ÍNDICO", size: 12 }
             ].map((item, i) => {
               const visible = path({ type: 'Point', coordinates: item.coords as [number, number] });
               if (!visible) return null;
               const [x, y] = projection(item.coords as [number, number])!;
               
-              if (item.label) {
-                return (
-                  <text 
-                    key={`label-${i}`} 
-                    x={x} y={y} 
-                    fontSize={item.size} 
-                    fill="white" 
-                    fillOpacity="0.4"
-                    textAnchor="middle" 
-                    className="font-bold tracking-widest pointer-events-none"
-                  >
-                    {item.label}
-                  </text>
-                );
-              }
-
               return (
                 <text 
-                  key={`illust-${i}`} 
+                  key={`label-${i}`} 
                   x={x} y={y} 
                   fontSize={item.size} 
+                  fill="white" 
+                  fillOpacity="0.4"
                   textAnchor="middle" 
-                  alignmentBaseline="middle"
-                  className="pointer-events-none drop-shadow-md"
+                  className="font-bold tracking-[0.3em] pointer-events-none uppercase"
                 >
-                  {item.icon}
+                  {item.label}
                 </text>
+              );
+            })}
+          </g>
+
+          {/* Clouds Layer (Clipped inside) */}
+          <g pointerEvents="none" opacity="0.6">
+            {[
+              { coords: [-60, 40], scale: 1.2 },
+              { coords: [100, -30], scale: 0.8 },
+              { coords: [10, 60], scale: 1 },
+              { coords: [-100, -20], scale: 1.1 }
+            ].map((item, i) => {
+              const visible = path({ type: 'Point', coordinates: item.coords as [number, number] });
+              if (!visible) return null;
+              const [x, y] = projection(item.coords as [number, number])!;
+              return (
+                <g key={`cloud-${i}`} transform={`translate(${x},${y}) scale(${item.scale})`}>
+                  <ellipse cx="0" cy="0" rx="20" ry="10" fill="white" filter="blur(4px)" />
+                  <ellipse cx="-10" cy="-5" rx="15" ry="8" fill="white" filter="blur(4px)" />
+                  <ellipse cx="10" cy="-3" rx="12" ry="7" fill="white" filter="blur(4px)" />
+                </g>
               );
             })}
           </g>
         </g>
 
-        {/* Atmosphere/Shading */}
+        {/* Sphere Volume Shading (Outside clip but covering the same area) */}
         <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="url(#atmosphere)" pointerEvents="none" />
         <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="url(#globe-shading)" pointerEvents="none" />
-        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="none" stroke="#B8860B" strokeOpacity="0.4" strokeWidth="2.5" pointerEvents="none" />
+        
+        {/* Sphere highlight to give it a 3D glass/plastic feel */}
+        <ellipse cx={width / 2 - 60} cy={height / 2 - 60} rx="40" ry="20" fill="white" fillOpacity="0.1" transform={`rotate(-45, ${width / 2 - 60}, ${height / 2 - 60})`} pointerEvents="none" filter="blur(10px)" />
+        
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="none" stroke="#B8860B" strokeOpacity="0.3" strokeWidth="3" pointerEvents="none" />
 
         {/* Country Markers (Pins/Medals) */}
         <g pointerEvents="none">
