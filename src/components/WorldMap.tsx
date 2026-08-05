@@ -139,21 +139,28 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
       <svg ref={svgRef} viewBox={`0 0 ${width} ${height}`} className="w-full cursor-grab active:cursor-grabbing transition-transform duration-500 relative z-10">
         <defs>
           <radialGradient id="globe-shading" cx="45%" cy="45%" r="55%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
-            <stop offset="100%" stopColor="#000000" stopOpacity="0.3" />
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#000000" stopOpacity="0.5" />
+          </radialGradient>
+          <radialGradient id="atmosphere" cx="50%" cy="50%" r="50%">
+            <stop offset="90%" stopColor="#2563EB" stopOpacity="0" />
+            <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.4" />
           </radialGradient>
           <filter id="medal-glow" x="-50%" y="-50%" width="200%" height="200%">
             <feGaussianBlur stdDeviation="3" result="blur" />
             <feComposite in="SourceGraphic" in2="blur" operator="over" />
           </filter>
           <filter id="country-glow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="5" result="blur" />
-            <feFlood floodColor="#FFD700" floodOpacity="0.6" result="color" />
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feFlood floodColor="#FFD700" floodOpacity="0.8" result="color" />
             <feComposite in="color" in2="blur" operator="in" result="glow" />
             <feMerge>
               <feMergeNode in="glow" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
+          </filter>
+          <filter id="sphere-shadow">
+            <feDropShadow dx="0" dy="15" stdDeviation="20" floodOpacity="0.6"/>
           </filter>
           <clipPath id="globe-clip">
             <circle cx={width / 2} cy={height / 2} r={projection.scale()} />
