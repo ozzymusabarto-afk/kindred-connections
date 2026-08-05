@@ -257,8 +257,9 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         </g>
 
         {/* Atmosphere/Shading */}
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="url(#atmosphere)" pointerEvents="none" />
         <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="url(#globe-shading)" pointerEvents="none" />
-        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="none" stroke="#B8860B" strokeOpacity="0.3" strokeWidth="2" pointerEvents="none" />
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="none" stroke="#B8860B" strokeOpacity="0.4" strokeWidth="2.5" pointerEvents="none" />
 
         {/* Country Markers (Pins/Medals) */}
         <g pointerEvents="none">
