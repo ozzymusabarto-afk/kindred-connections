@@ -158,6 +158,30 @@ function MapaMundi() {
           </div>
         </section>
 
+        <div 
+          id="mapa" 
+          className="mt-6 scroll-mt-24 focus-within:ring-4 focus-within:ring-brass/30 rounded-3xl transition-all"
+          aria-label="Mapa do mundo para escolher um destino"
+        >
+          {bloqueado ? (
+            <div className="flex flex-col items-center justify-center rounded-3xl border-4 border-dashed border-destructive/30 bg-destructive/5 p-12 text-center">
+              <span className="text-5xl mb-4">🚧</span>
+              <h3 className="text-xl font-display text-destructive">Sistemas de Navegação em Calibração...</h3>
+              <p className="mt-2 text-muted-foreground max-w-md">
+                Estamos preparando os detalhes de <strong>{erros.join(", ")}</strong> para que sua viagem seja perfeita. Por enquanto, escolha outro destino!
+              </p>
+            </div>
+          ) : (
+            <WorldMap
+              paises={paisesVisiveis}
+              carimbados={carimbos.map((c) => c.paisId)}
+              onSelecionar={(pais: any) =>
+                navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
+              }
+            />
+          )}
+        </div>
+
         <section id="escolha" className="mt-12 scroll-mt-24">
           <h2 className="text-2xl font-display text-brass mb-6">Para onde vamos hoje?</h2>
           <div className="flex flex-wrap gap-3">
@@ -186,64 +210,6 @@ function MapaMundi() {
             ))}
           </div>
         </section>
-
-        <section className="mt-8 max-w-2xl">
-
-          <div className="flex flex-col gap-4">
-            <FichaExplorador />
-            
-            <div className="rounded-2xl border-2 border-brass/20 bg-card p-5 shadow-sm">
-              <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-brass/10 text-brass">
-                  <span className="text-2xl">🌍</span>
-                </div>
-                <div className="flex-1">
-                  <p className="font-display text-base text-foreground">
-                    Seu progresso global
-                  </p>
-                  <div className="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-muted">
-                    <div 
-                      className="h-full bg-brass transition-all duration-1000" 
-                      style={{ width: `${(totalExplorados / totalPaises) * 100}%` }}
-                    />
-                  </div>
-                  <p className="mt-2 text-xs text-muted-foreground italic">
-                    {totalExplorados} de {totalPaises} destinos explorados — {visitados.has('br') ? 'Decolando do Brasil!' : 'Pronto para decolar!'}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-
-
-
-        <div 
-          id="mapa" 
-          className="mt-6 scroll-mt-24 focus-within:ring-4 focus-within:ring-brass/30 rounded-3xl transition-all"
-          aria-label="Mapa do mundo para escolher um destino"
-        >
-          {bloqueado ? (
-            <div className="flex flex-col items-center justify-center rounded-3xl border-4 border-dashed border-destructive/30 bg-destructive/5 p-12 text-center">
-              <span className="text-5xl mb-4">🚧</span>
-              <h3 className="text-xl font-display text-destructive">Sistemas de Navegação em Calibração...</h3>
-              <p className="mt-2 text-muted-foreground max-w-md">
-                Estamos preparando os detalhes de <strong>{erros.join(", ")}</strong> para que sua viagem seja perfeita. Por enquanto, escolha outro destino!
-
-              </p>
-            </div>
-          ) : (
-            <WorldMap
-              paises={paisesVisiveis}
-              carimbados={carimbos.map((c) => c.paisId)}
-              onSelecionar={(pais: any) =>
-                navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
-              }
-            />
-          )}
-        </div>
 
         <section id="diarios" className="mt-10 grid gap-4 scroll-mt-24 sm:grid-cols-2 lg:grid-cols-3">
           {paisesVisiveis.map((pais: any) => (
