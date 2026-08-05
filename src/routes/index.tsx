@@ -7,6 +7,8 @@ import { StarStamp } from "@/components/StarStamp";
 import { FichaExplorador } from "@/components/FichaExplorador";
 import { continentes, paises } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
+import type { ContinenteId } from "@/data/types";
+
 
 
 export const Route = createFileRoute("/")({
@@ -53,23 +55,29 @@ export const Route = createFileRoute("/")({
 
 function MapaMundi() {
   const navigate = useNavigate();
-  const [continenteAtivo, setContinenteAtivo] = useState(() => {
+  const [continenteAtivo, setContinenteAtivo] = useState<ContinenteId | "todos">(() => {
     if (typeof window !== "undefined") {
-      return window.localStorage.getItem("diario:continente-ativo") || "america-do-norte";
+      return (window.localStorage.getItem("diario:continente-ativo") as ContinenteId | "todos") || "todos";
     }
-    return "america-do-norte";
+    return "todos";
   });
   const { carimbos } = usePassport();
-  const paisesVisiveis = paises; // Mostrar todos no globo 3D
+  
+  // Filtrar países com base no continente selecionado
+  const paisesVisiveis = continenteAtivo === "todos" 
+    ? paises 
+    : paises.filter(p => p.continente === continenteAtivo);
+
   const totalExplorados = carimbos.length;
   const totalPaises = 21; 
   const visitados = new Set(carimbos.map((c) => c.paisId));
 
-  // Validação rigorosa de integridade no carregamento do continente
+  // Validação rigorosa de integridade
   const [bloqueado, setBloqueado] = useState(false);
   const [erros, setErros] = useState<string[]>([]);
 
   useEffect(() => {
+    // Validar apenas os países que seriam mostrados
     const invalidos = paisesVisiveis.filter((p: any) => {
       const temTexto = p.nome && p.resumo_geografico && p.resumo_geografico.length > 20;
       const temImagem = p.bandeira_url || p.bandeira;
@@ -80,13 +88,12 @@ function MapaMundi() {
     if (invalidos.length > 0) {
       setErros(invalidos.map((p: any) => p.nome || p.id));
       setBloqueado(true);
-      console.error(`[Erro de Integridade] Dados incompletos em ${continenteAtivo}:`, invalidos);
+      console.error(`[Erro de Integridade] Dados incompletos:`, invalidos);
     } else {
       setErros([]);
       setBloqueado(false);
     }
     
-    // Persiste o continente no localStorage
     if (typeof window !== "undefined") {
       window.localStorage.setItem("diario:continente-ativo", continenteAtivo);
     }
@@ -151,7 +158,37 @@ function MapaMundi() {
           </div>
         </section>
 
+        <section id="escolha" className="mt-12 scroll-mt-24">
+          <h2 className="text-2xl font-display text-brass mb-6">Para onde vamos hoje?</h2>
+          <div className="flex flex-wrap gap-3">
+            <button
+              onClick={() => setContinenteAtivo("todos")}
+              className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
+                continenteAtivo === "todos"
+                  ? "bg-brass text-white shadow-md scale-105"
+                  : "bg-card border border-brass/20 text-foreground hover:bg-brass/5"
+              }`}
+            >
+              🌎 Todos
+            </button>
+            {continentes.map((c) => (
+              <button
+                key={c.id}
+                onClick={() => setContinenteAtivo(c.id)}
+                className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
+                  continenteAtivo === c.id
+                    ? "bg-brass text-white shadow-md scale-105"
+                    : "bg-card border border-brass/20 text-foreground hover:bg-brass/5"
+                }`}
+              >
+                {c.nome}
+              </button>
+            ))}
+          </div>
+        </section>
+
         <section className="mt-8 max-w-2xl">
+
           <div className="flex flex-col gap-4">
             <FichaExplorador />
             
@@ -191,9 +228,10 @@ function MapaMundi() {
           {bloqueado ? (
             <div className="flex flex-col items-center justify-center rounded-3xl border-4 border-dashed border-destructive/30 bg-destructive/5 p-12 text-center">
               <span className="text-5xl mb-4">🚧</span>
-              <h3 className="text-xl font-display text-destructive">Mapeamento em curso...</h3>
+              <h3 className="text-xl font-display text-destructive">Sistemas de Navegação em Calibração...</h3>
               <p className="mt-2 text-muted-foreground max-w-md">
-                Estamos preparando os detalhes de <strong>{erros.join(", ")}</strong> para que sua viagem seja perfeita. Por enquanto, escolha outro continente!
+                Estamos preparando os detalhes de <strong>{erros.join(", ")}</strong> para que sua viagem seja perfeita. Por enquanto, escolha outro destino!
+
               </p>
             </div>
           ) : (
