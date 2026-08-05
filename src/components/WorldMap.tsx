@@ -167,6 +167,9 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           </clipPath>
         </defs>
 
+        {/* Sombra da Esfera */}
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="black" filter="url(#sphere-shadow)" opacity="0.4" />
+        
         {/* Oceano Profundo e Vibrante */}
         <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="#1c5d99" stroke="#1e40af" strokeWidth="2" />
         
