@@ -117,7 +117,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   }
 
   return (
-    <div className="group relative w-full overflow-hidden rounded-[2.5rem] bg-[#050B14] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-brass/30 transition-all duration-500 hover:border-brass/50">
+    <div className="group relative w-full overflow-hidden rounded-[2.5rem] bg-[#050B14] shadow-[0_30px_60px_rgba(0,0,0,0.7)] border-4 border-brass/30 transition-all duration-500 hover:border-brass/50">
       {/* Espaço Sideral com Estrelas */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {[...Array(80)].map((_, i) => (
