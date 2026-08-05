@@ -304,8 +304,9 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
 
       {/* Nav Controls */}
       <div className="absolute bottom-6 right-6 flex flex-col gap-2">
-        <button onClick={() => setRotation([rotation[0] + 30, rotation[1]])} className="h-10 w-10 bg-white/80 rounded-full shadow-md flex items-center justify-center hover:bg-white">🧭</button>
-        <button onClick={() => setRotation([-45, -15])} className="h-10 w-10 bg-white/80 rounded-full shadow-md flex items-center justify-center hover:bg-white">🏠</button>
+        <button onClick={() => setRotation([rotation[0] + 30, rotation[1]])} className="h-10 w-10 bg-white/20 backdrop-blur-md rounded-full shadow-lg flex items-center justify-center hover:bg-white/40 border border-white/30 text-white transition-all">🧭</button>
+        <button onClick={() => setRotation([-45, -15])} className="h-10 w-10 bg-white/20 backdrop-blur-md rounded-full shadow-lg flex items-center justify-center hover:bg-white/40 border border-white/30 text-white transition-all">🏠</button>
+
       </div>
     </div>
   );
