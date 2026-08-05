@@ -1,4 +1,10 @@
 @import "tailwindcss" source(none);
+
+@keyframes star-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
 @source "../src";
 @import "tw-animate-css";
 
