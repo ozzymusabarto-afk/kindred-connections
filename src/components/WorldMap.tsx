@@ -117,66 +117,133 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   }
 
   return (
-    <div className="group relative w-full overflow-hidden rounded-[2.5rem] bg-gradient-to-b from-[#EAF4FB] to-[#d9ecf8] shadow-[0_20px_50px_rgba(0,0,0,0.15)] border-4 border-brass/30 transition-all duration-500 hover:border-brass/50">
-      <svg ref={svgRef} viewBox={`0 0 ${width} ${height}`} className="w-full cursor-grab active:cursor-grabbing transition-transform duration-500">
+    <div className="group relative w-full overflow-hidden rounded-[2.5rem] bg-[#050B14] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-brass/30 transition-all duration-500 hover:border-brass/50">
+      {/* Espaço Sideral com Estrelas */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {[...Array(80)].map((_, i) => (
+          <div 
+            key={i} 
+            className="absolute rounded-full bg-white" 
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              width: `${Math.random() * 2 + 1}px`,
+              height: `${Math.random() * 2 + 1}px`,
+              opacity: Math.random() * 0.7 + 0.3,
+              animation: `star-pulse ${Math.random() * 4 + 2}s infinite ${Math.random() * 5}s`
+            }}
+          />
+        ))}
+      </div>
+
+      <svg ref={svgRef} viewBox={`0 0 ${width} ${height}`} className="w-full cursor-grab active:cursor-grabbing transition-transform duration-500 relative z-10">
         <defs>
           <radialGradient id="globe-shading" cx="45%" cy="45%" r="55%">
-            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#000000" stopOpacity="0.1" />
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.4" />
+            <stop offset="100%" stopColor="#000000" stopOpacity="0.3" />
           </radialGradient>
-          <filter id="medal-glow">
-            <feGaussianBlur stdDeviation="2" result="blur" />
+          <filter id="medal-glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
             <feComposite in="SourceGraphic" in2="blur" operator="over" />
           </filter>
+          <filter id="country-glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="5" result="blur" />
+            <feFlood floodColor="#FFD700" floodOpacity="0.6" result="color" />
+            <feComposite in="color" in2="blur" operator="in" result="glow" />
+            <feMerge>
+              <feMergeNode in="glow" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+          <clipPath id="globe-clip">
+            <circle cx={width / 2} cy={height / 2} r={projection.scale()} />
+          </clipPath>
         </defs>
 
-        {/* Ocean Background */}
-        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="#EAF4FB" />
+        {/* Oceano Profundo e Vibrante */}
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="#2563EB" stroke="#1E40AF" strokeWidth="2" />
         
         {/* Graticule */}
-        <path d={path(d3.geoGraticule()()) as string} fill="none" stroke="#ffffff" strokeOpacity="0.2" strokeWidth="0.5" />
+        <path d={path(d3.geoGraticule()()) as string} fill="none" stroke="#ffffff" strokeOpacity="0.1" strokeWidth="0.5" />
 
-        {/* Countries */}
-        <g>
-          {countriesFeatures.map((f: any) => {
-            const numericId = f.id?.toString().padStart(3, '0');
-            if (!numericId) return null;
-            const alpha2 = ISO_NUMERIC_MAP[numericId];
-            const countryData = alpha2 ? paises.find(p => p.codigo_mapa === alpha2) : null;
-            const hasData = !!countryData;
-            const immersive = isImmersive(f);
-            
-            return (
-              <path
-                key={f.id}
-                d={path(f) as string}
-                fill={hasData ? (immersive ? "#f5e6d3" : "#fdf8ec") : "#f5f5f5"}
-                stroke={hasData ? "#8b4513" : "#ccc"}
-                strokeWidth={hasData ? 0.8 : 0.4}
-                className={`transition-colors duration-300 ${hasData ? 'hover:fill-brass/20 cursor-pointer' : ''}`}
-                onClick={() => hasData && handleCountryClick(f)}
-                onMouseEnter={() => {
-                  if (hasData && countryData) {
-                    setHoveredCountry({ 
-                      feature: f, 
-                      name: countryData.nome,
-                      type: immersive ? "Expedição Imersiva" : "Diário de Bordo"
-                    });
-                  }
-                }}
-                onMouseLeave={() => setHoveredCountry(null)}
-              />
-            );
-          })}
+
+        {/* Global Clipped Area for Illustrations */}
+        <g clipPath="url(#globe-clip)">
+          {/* Countries */}
+          <g>
+            {countriesFeatures.map((f: any) => {
+              const numericId = f.id?.toString().padStart(3, '0');
+              if (!numericId) return null;
+              const alpha2 = ISO_NUMERIC_MAP[numericId];
+              const countryData = alpha2 ? paises.find(p => p.codigo_mapa === alpha2) : null;
+              const hasData = !!countryData;
+              const immersive = isImmersive(f);
+              const isVisited = alpha2 && carimbados.includes(alpha2);
+              
+              return (
+                <path
+                  key={f.id}
+                  d={path(f) as string}
+                  fill={hasData 
+                    ? (isVisited ? "#FCD34D" : (immersive ? "#D97706" : "#4ade80")) 
+                    : "#64748b"}
+                  stroke={hasData ? "#1e293b" : "#475569"}
+                  strokeWidth={hasData ? 0.8 : 0.4}
+                  filter={isVisited ? "url(#country-glow)" : ""}
+                  className={`transition-all duration-300 ${hasData ? 'hover:brightness-110 cursor-pointer' : ''}`}
+                  onClick={() => hasData && handleCountryClick(f)}
+                  onMouseEnter={() => {
+                    if (hasData && countryData) {
+                      setHoveredCountry({ 
+                        feature: f, 
+                        name: countryData.nome,
+                        type: immersive ? "Expedição Imersiva" : "Diário de Bordo"
+                      });
+                    }
+                  }}
+                  onMouseLeave={() => setHoveredCountry(null)}
+                />
+              );
+            })}
+          </g>
+
+          {/* Ocean Illustrations (Now rotate with globe) */}
+          <g pointerEvents="none">
+            {/* We place these at specific geographic points so they move with rotation */}
+            {[
+              { coords: [-30, -10], icon: "🐋", size: 30 },
+              { coords: [150, 20], icon: "⛵", size: 25 },
+              { coords: [-120, -20], icon: "🐳", size: 22 },
+              { coords: [40, -40], icon: "🚢", size: 24 },
+              { coords: [-60, 40], icon: "☁️", size: 35 },
+              { coords: [100, -30], icon: "☁️", size: 25 },
+              { coords: [10, 60], icon: "☁️", size: 30 },
+              { coords: [20, 20], icon: "🏔️", size: 20 }, // High peaks
+              { coords: [80, 30], icon: "🏔️", size: 20 }
+            ].map((item, i) => {
+              const visible = path({ type: 'Point', coordinates: item.coords as [number, number] });
+              if (!visible) return null;
+              const [x, y] = projection(item.coords as [number, number])!;
+              return (
+                <text 
+                  key={`illust-${i}`} 
+                  x={x} 
+                  y={y} 
+                  fontSize={item.size} 
+                  textAnchor="middle" 
+                  alignmentBaseline="middle"
+                  style={{ pointerEvents: 'none' }}
+                >
+                  {item.icon}
+                </text>
+              );
+            })}
+          </g>
         </g>
 
-        {/* Illustrations (Small Mountains/Clouds) */}
-        <g pointerEvents="none" opacity="0.4">
-          <text x={width * 0.2} y={height * 0.3} fontSize="20">☁️</text>
-          <text x={width * 0.7} y={height * 0.2} fontSize="15">☁️</text>
-          <text x={width * 0.15} y={height * 0.75} fontSize="24">⛵</text>
-          <text x={width * 0.85} y={height * 0.65} fontSize="18">🐳</text>
-        </g>
+        {/* Atmosphere/Shading */}
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="url(#globe-shading)" pointerEvents="none" />
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="none" stroke="#B8860B" strokeOpacity="0.3" strokeWidth="2" pointerEvents="none" />
 
         {/* Country Markers (Pins/Medals) */}
         <g pointerEvents="none">
@@ -193,14 +260,15 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
 
             const [x, y] = projection(centroid)!;
             const immersive = isImmersive(f);
+            const isVisited = carimbados.includes(alpha2);
 
             if (immersive) {
               return (
                 <g key={`pin-${pais.id}`} transform={`translate(${x},${y})`}>
-                  <circle r="12" fill="#FFD700" stroke="#B8860B" strokeWidth="2" filter="url(#medal-glow)" />
-                  <text dy=".3em" textAnchor="middle" fontSize="12">{pais.bandeira}</text>
+                  <circle r={isVisited ? "14" : "12"} fill={isVisited ? "#FBBF24" : "#FFD700"} stroke="#B8860B" strokeWidth="2" filter="url(#medal-glow)" />
+                  <text dy=".3em" textAnchor="middle" fontSize={isVisited ? "14" : "12"}>{pais.bandeira}</text>
                   <circle r="14" fill="none" stroke="#FFD700" strokeOpacity="0.5" strokeWidth="1">
-                    <animate attributeName="r" from="12" to="18" dur="2s" repeatCount="indefinite" />
+                    <animate attributeName="r" from="12" to={isVisited ? "22" : "18"} dur="2s" repeatCount="indefinite" />
                     <animate attributeName="stroke-opacity" from="0.5" to="0" dur="2s" repeatCount="indefinite" />
                   </circle>
                 </g>
@@ -209,16 +277,13 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
 
             return (
               <g key={`pin-${pais.id}`} transform={`translate(${x},${y})`}>
-                <circle r="4" fill="#8b4513" stroke="#fff" strokeWidth="1" />
+                <circle r={isVisited ? "6" : "4"} fill={isVisited ? "#FCD34D" : "#8b4513"} stroke="#fff" strokeWidth="1" />
               </g>
             );
           })}
         </g>
-
-        {/* Atmosphere/Shading */}
-        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="url(#globe-shading)" pointerEvents="none" />
-        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="none" stroke="#brass" strokeOpacity="0.1" strokeWidth="1" pointerEvents="none" />
       </svg>
+
 
       {/* Dynamic Tooltip */}
       {hoveredCountry && (
@@ -240,8 +305,9 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
 
       {/* Nav Controls */}
       <div className="absolute bottom-6 right-6 flex flex-col gap-2">
-        <button onClick={() => setRotation([rotation[0] + 30, rotation[1]])} className="h-10 w-10 bg-white/80 rounded-full shadow-md flex items-center justify-center hover:bg-white">🧭</button>
-        <button onClick={() => setRotation([-45, -15])} className="h-10 w-10 bg-white/80 rounded-full shadow-md flex items-center justify-center hover:bg-white">🏠</button>
+        <button onClick={() => setRotation([rotation[0] + 30, rotation[1]])} className="h-10 w-10 bg-white/20 backdrop-blur-md rounded-full shadow-lg flex items-center justify-center hover:bg-white/40 border border-white/30 text-white transition-all">🧭</button>
+        <button onClick={() => setRotation([-45, -15])} className="h-10 w-10 bg-white/20 backdrop-blur-md rounded-full shadow-lg flex items-center justify-center hover:bg-white/40 border border-white/30 text-white transition-all">🏠</button>
+
       </div>
     </div>
   );
