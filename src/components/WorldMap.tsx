@@ -161,7 +161,7 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         </defs>
 
         {/* Oceano Profundo e Vibrante */}
-        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="#2563EB" stroke="#1E40AF" strokeWidth="2" />
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="#1c5d99" stroke="#1e40af" strokeWidth="2" />
         
         {/* Graticule */}
         <path d={path(d3.geoGraticule()()) as string} fill="none" stroke="#ffffff" strokeOpacity="0.1" strokeWidth="0.5" />
