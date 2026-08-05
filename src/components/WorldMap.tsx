@@ -17,7 +17,7 @@ const ISO_NUMERIC_MAP: Record<string, string> = {
   "504": "ma", "710": "za", "554": "nz", "242": "fj", "188": "cr", "591": "pa", "320": "gt",
   "604": "pe", "250": "fr", "276": "de", "724": "es", "752": "se", "528": "nl", "056": "be",
   "756": "ch", "040": "at", "300": "gr", "616": "pl", "643": "ru", "792": "tr", "356": "in",
-  "410": "kr", "702": "sg", "458": "my", "360": "id", "608": "ph", "826": "gb", "372": "ie",
+  "410": "kr", "702": "sg", "458": "my", "360": "id", "608": "ph", "372": "ie",
   "578": "no", "208": "dk", "246": "fi"
 };
 
@@ -190,6 +190,12 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
+          <filter id="paper-texture" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" result="noise" />
+            <feDiffuseLighting in="noise" lightingColor="#fff" surfaceScale="2">
+              <feDistantLight azimuth="45" elevation="60" />
+            </feDiffuseLighting>
+          </filter>
           <filter id="sphere-glow">
             <feGaussianBlur stdDeviation="15" result="blur" />
             <feFlood floodColor="#3B82F6" floodOpacity="0.3" result="color" />
@@ -211,18 +217,28 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="black" filter="url(#sphere-shadow)" opacity="0.4" />
         
         {/* Oceano Profundo e Vibrante */}
-        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="#1c5d99" stroke="#1e40af" strokeWidth="2" />
+        <circle cx={width / 2} cy={height / 2} r={projection.scale()} fill="#0e7490" stroke="#083344" strokeWidth="2" />
+        
+        {/* Rosa dos Ventos - Estilo Aventura Antiga */}
+        <g transform={`translate(${width - 120}, ${120}) scale(0.6)`} opacity="0.8">
+          <circle r="60" fill="none" stroke="#d96b27" strokeWidth="1" strokeDasharray="2,2" />
+          <path d="M 0 -70 L 15 0 L 0 70 L -15 0 Z" fill="#d96b27" />
+          <path d="M -70 0 L 0 -15 L 70 0 L 0 15 Z" fill="#d96b27" />
+          <path d="M 0 -70 L 8 -10 L 0 0 Z" fill="#facc15" />
+          <path d="M 70 0 L 10 8 L 0 0 Z" fill="#facc15" />
+          <circle r="8" fill="#1e2b1c" />
+          <text y="-80" textAnchor="middle" fill="#d96b27" fontWeight="bold" fontSize="24" fontFamily="Fraunces">N</text>
+        </g>
         
         {/* Graticule (Equator and Tropics) */}
-        <path d={path(d3.geoGraticule()()) as string} fill="none" stroke="#ffffff" strokeOpacity="0.15" strokeWidth="0.8" />
-        <path d={path({type: "LineString", coordinates: [[-180, 0], [0, 0], [180, 0]]}) as string} fill="none" stroke="#FFD700" strokeOpacity="0.3" strokeWidth="1.5" />
-
+        <path d={path(d3.geoGraticule()()) as string} fill="none" stroke="#ffffff" strokeOpacity="0.1" strokeWidth="0.8" />
+        <path d={path({type: "LineString", coordinates: [[-180, 0], [0, 0], [180, 0]]}) as string} fill="none" stroke="#facc15" strokeOpacity="0.5" strokeWidth="2" />
 
         {/* Global Clipped Area for Illustrations */}
         <g clipPath="url(#globe-clip)">
           {/* Countries */}
           <g>
-            {countriesFeatures.map((f: any) => {
+            {countriesFeatures.map((f: any, i: number) => {
               const numericId = f.id?.toString().padStart(3, '0');
               if (!numericId) return null;
               const alpha2 = ISO_NUMERIC_MAP[numericId];
@@ -231,20 +247,15 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
               const immersive = isImmersive(f);
               const isVisited = alpha2 && carimbados.includes(alpha2);
               
-              // Cores dinâmicas para a terra (estilo livro antigo colorido)
-              let fill = "#fdf2f2"; // Base bege rosado (Europa/Geral)
-              if (alpha2 === "br") fill = "#4ade80"; // Brasil verde vibrante
-              else if (immersive) fill = "#fef08a"; // Amarelo suave para imersivos
-              if (isVisited) fill = "#fbbf24"; // Ouro para visitados
-              if (!hasData) fill = "#f3f4f6"; // Cinza claríssimo para outros
+              const fill = getCountryColor(alpha2, i, hasData);
               
               return (
                 <path
                   key={f.id}
                   d={path(f) as string}
                   fill={fill}
-                  stroke={hasData ? "#2e7d32" : "#9e9e9e"}
-                  strokeWidth={hasData ? 0.8 : 0.4}
+                  stroke={hasData ? "#1e2b1c" : "#94a3b8"}
+                  strokeWidth={hasData ? 1 : 0.5}
                   filter={isVisited ? "url(#country-glow)" : ""}
                   className={`transition-all duration-300 ${hasData ? 'hover:brightness-110 cursor-pointer' : ''}`}
                   onClick={() => hasData && handleCountryClick(f)}
@@ -266,9 +277,9 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           {/* Ocean Labels */}
           <g pointerEvents="none">
             {[
-              { coords: [-140, 0], label: "OCEANO PACÍFICO", size: 12 },
-              { coords: [-30, 10], label: "OCEANO ATLÂNTICO", size: 12 },
-              { coords: [70, -20], label: "OCEANO ÍNDICO", size: 12 }
+              { coords: [-140, 0], label: "PACÍFICO", size: 14 },
+              { coords: [-30, 10], label: "ATLÂNTICO", size: 14 },
+              { coords: [70, -20], label: "ÍNDICO", size: 14 }
             ].map((item, i) => {
               const visible = path({ type: 'Point', coordinates: item.coords as [number, number] });
               if (!visible) return null;
@@ -293,19 +304,36 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           {/* Clouds Layer (Clipped inside) */}
           <g pointerEvents="none" opacity="0.6">
             {[
-              { coords: [-60, 40], scale: 1.2 },
-              { coords: [100, -30], scale: 0.8 },
-              { coords: [10, 60], scale: 1 },
-              { coords: [-100, -20], scale: 1.1 }
+              { coords: [-60, 40], scale: 1.2, type: 'cloud' },
+              { coords: [100, -30], scale: 0.8, type: 'cloud' },
+              { coords: [10, 60], scale: 1, type: 'cloud' },
+              { coords: [-100, -20], scale: 1.1, type: 'cloud' },
+              { coords: [-40, -40], scale: 0.8, type: 'whale' },
+              { coords: [40, 30], scale: 0.6, type: 'ship' }
             ].map((item, i) => {
               const visible = path({ type: 'Point', coordinates: item.coords as [number, number] });
               if (!visible) return null;
               const [x, y] = projection(item.coords as [number, number])!;
+              
+              if (item.type === 'whale') {
+                return (
+                  <g key={`whale-${i}`} transform={`translate(${x},${y}) scale(${item.scale})`}>
+                    <text fontSize="30">🐋</text>
+                  </g>
+                );
+              }
+              
+              if (item.type === 'ship') {
+                return (
+                  <g key={`ship-${i}`} transform={`translate(${x},${y}) scale(${item.scale})`}>
+                    <text fontSize="40">🚢</text>
+                  </g>
+                );
+              }
+
               return (
                 <g key={`cloud-${i}`} transform={`translate(${x},${y}) scale(${item.scale})`}>
-                  <ellipse cx="0" cy="0" rx="20" ry="10" fill="white" filter="blur(4px)" />
-                  <ellipse cx="-10" cy="-5" rx="15" ry="8" fill="white" filter="blur(4px)" />
-                  <ellipse cx="10" cy="-3" rx="12" ry="7" fill="white" filter="blur(4px)" />
+                  <ellipse cx="0" cy="0" rx="25" ry="12" fill="white" filter="blur(5px)" opacity="0.8" />
                 </g>
               );
             })}
