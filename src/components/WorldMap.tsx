@@ -412,8 +412,11 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         <div className="grid grid-cols-3 gap-1 bg-white/10 backdrop-blur-md p-2 rounded-2xl border border-white/20">
           <div />
           <button 
-            onClick={() => setRotation([rotation[0], rotation[1] + 15])}
-            className="h-10 w-10 flex items-center justify-center hover:bg-white/20 rounded-lg text-white transition-colors"
+            onClick={() => {
+              const next: [number, number] = [rotation[0], rotation[1] + 20];
+              setRotation(next);
+            }}
+            className="h-12 w-12 flex items-center justify-center hover:bg-white/30 rounded-full bg-white/10 text-2xl transition-all active:scale-95"
             title="Girar para Cima"
           >
             🔼
@@ -421,22 +424,28 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
           <div />
           
           <button 
-            onClick={() => setRotation([rotation[0] - 15, rotation[1]])}
-            className="h-10 w-10 flex items-center justify-center hover:bg-white/20 rounded-lg text-white transition-colors"
+            onClick={() => {
+              const next: [number, number] = [rotation[0] - 20, rotation[1]];
+              setRotation(next);
+            }}
+            className="h-12 w-12 flex items-center justify-center hover:bg-white/30 rounded-full bg-white/10 text-2xl transition-all active:scale-95"
             title="Girar para Esquerda"
           >
             ◀️
           </button>
           <button 
             onClick={() => setRotation([-45, -15])}
-            className="h-10 w-10 flex items-center justify-center hover:bg-white/20 rounded-lg text-white transition-colors"
+            className="h-12 w-12 flex items-center justify-center hover:bg-brass/40 rounded-full bg-brass/20 text-2xl transition-all active:scale-95 shadow-inner shadow-black/20"
             title="Centralizar"
           >
             🏠
           </button>
           <button 
-            onClick={() => setRotation([rotation[0] + 15, rotation[1]])}
-            className="h-10 w-10 flex items-center justify-center hover:bg-white/20 rounded-lg text-white transition-colors"
+            onClick={() => {
+              const next: [number, number] = [rotation[0] + 20, rotation[1]];
+              setRotation(next);
+            }}
+            className="h-12 w-12 flex items-center justify-center hover:bg-white/30 rounded-full bg-white/10 text-2xl transition-all active:scale-95"
             title="Girar para Direita"
           >
             ▶️
@@ -444,8 +453,11 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
 
           <div />
           <button 
-            onClick={() => setRotation([rotation[0], rotation[1] - 15])}
-            className="h-10 w-10 flex items-center justify-center hover:bg-white/20 rounded-lg text-white transition-colors"
+            onClick={() => {
+              const next: [number, number] = [rotation[0], rotation[1] - 20];
+              setRotation(next);
+            }}
+            className="h-12 w-12 flex items-center justify-center hover:bg-white/30 rounded-full bg-white/10 text-2xl transition-all active:scale-95"
             title="Girar para Baixo"
           >
             🔽
