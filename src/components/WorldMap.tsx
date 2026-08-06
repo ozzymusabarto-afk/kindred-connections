@@ -161,7 +161,7 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
         }
         .animate-plane {
           animation: plane-flight 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-          offset-path: path('M 660 680 Q 1000 300 ${(selectedCountry?.centro?.x)} ${(selectedCountry?.centro?.y)}');
+          offset-path: path('M 660 680 Q 1000 300 ${selectedCountry?.centro?.x ?? 0} ${selectedCountry?.centro?.y ?? 0}');
         }
         @keyframes plane-flight {
           from { offset-distance: 0%; }
