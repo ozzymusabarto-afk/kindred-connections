@@ -58,12 +58,13 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
   const destination = animating ? PIN_LOCATIONS[animating.to] : null;
 
   return (
-    <div className="relative w-full overflow-hidden rounded-[2.5rem] bg-[#bae6fd] shadow-2xl border-8 border-white aspect-[2/1] group/map">
+    <div className="relative w-full overflow-hidden rounded-[2.5rem] bg-[#bae6fd] shadow-2xl border-8 border-white aspect-video group/map">
       {/* Background: Mapa Ilustrado Infantil */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover/map:scale-[1.02]"
+      <img 
+        src="https://images.unsplash.com/photo-1589519160732-57fc498494f8?q=80&w=2070&auto=format&fit=crop"
+        alt="Mapa Mundi Ilustrado"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover/map:scale-[1.02]"
         style={{ 
-          backgroundImage: `url('https://images.unsplash.com/photo-1589519160732-57fc498494f8?q=80&w=2070&auto=format&fit=crop')`,
           filter: "sepia(0.2) brightness(1.1) contrast(1.1)",
         }}
       />
@@ -168,22 +169,25 @@ export function WorldMap({ paises, carimbados, onSelecionar }: WorldMapProps) {
         )}
       </svg>
 
-      {/* Tooltip Label (Posicionado em relação ao mouse ou centralizado no pin) */}
+      {/* Tooltip Card (Posicionado em relação ao mouse ou centralizado no pin) */}
       {hoveredCountry && (
         <div 
-          className="absolute z-50 rounded-2xl bg-white/95 px-6 py-3 shadow-2xl border-4 border-brass/20 animate-in fade-in zoom-in duration-200"
+          className="absolute z-50 rounded-2xl bg-white/95 px-6 py-4 shadow-2xl border-4 border-brass/20 animate-in fade-in zoom-in duration-200"
           style={{ 
             left: `${(PIN_LOCATIONS[hoveredCountry].x / 2000) * 100}%`,
             top: `${(PIN_LOCATIONS[hoveredCountry].y / 1000) * 100 - 8}%`,
             transform: 'translate(-50%, -100%)'
           }}
         >
-          <div className="flex flex-col items-center gap-1">
-            <span className="font-display text-2xl font-bold text-brass drop-shadow-sm">
-              {WORLD_COUNTRIES.find(c => c.id === hoveredCountry)?.nome}
-            </span>
+          <div className="flex flex-col items-center gap-3">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">{paises.find(p => p.codigo_mapa === hoveredCountry)?.bandeira}</span>
+              <span className="font-display text-2xl font-bold text-brass drop-shadow-sm">
+                {WORLD_COUNTRIES.find(c => c.id === hoveredCountry)?.nome}
+              </span>
+            </div>
             <div className="flex items-center gap-2">
-              <span className={`rounded-full px-3 py-1 text-xs font-bold text-white uppercase shadow-sm ${
+              <span className={`rounded-full px-4 py-1 text-xs font-bold text-white uppercase shadow-sm ${
                 IMMERSIVE_COUNTRIES.includes(hoveredCountry) ? 'bg-brass' : 'bg-primary'
               }`}>
                 {IMMERSIVE_COUNTRIES.includes(hoveredCountry) ? "🌍 Expedição Imersiva" : "📑 Diário de Bordo"}
