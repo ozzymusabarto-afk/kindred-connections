@@ -199,7 +199,9 @@ function SimuladorViagem() {
       />
 
       <main className="mx-auto max-w-7xl px-5 py-6">
-        <MiniWorldMap highlightedContinent={pais.continente} />
+        <div className="flex justify-center w-full">
+          <MiniWorldMap highlightedContinent={pais.continente} />
+        </div>
         {indiceDia >= 0 && (
           <div className="mb-8">
             <div className="flex flex-wrap items-center justify-between gap-4">
