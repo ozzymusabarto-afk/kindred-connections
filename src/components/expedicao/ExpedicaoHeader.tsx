@@ -16,8 +16,8 @@ export function ExpedicaoHeader({ pais, guia, clima }: Props) {
   useEffect(() => setSom(somLigado()), []);
 
   return (
-    <header className="border-b border-border bg-card/60 paper-grain">
-      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 py-5 sm:flex sm:flex-wrap sm:justify-between">
+    <header className="sticky top-0 z-50 border-b border-border/40 bg-white/70 backdrop-blur-xl transition-all duration-300">
+      <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-6 px-6 py-5 sm:flex sm:flex-wrap sm:justify-between">
         <div className="flex min-w-0 items-center gap-3">
           <span aria-hidden className="shrink-0 text-4xl">
             {pais.bandeira}
