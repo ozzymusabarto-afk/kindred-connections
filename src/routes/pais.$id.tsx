@@ -11,6 +11,7 @@ import { TelaFauna } from "@/components/expedicao/TelaFauna";
 import { TelaSabor } from "@/components/expedicao/TelaSabor";
 import { TelaCarimbo } from "@/components/expedicao/TelaCarimbo";
 import { TelaDespedida } from "@/components/expedicao/TelaDespedida";
+import { MiniWorldMap } from "@/components/MiniWorldMap";
 import { getPais } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
 import { useExpedicao } from "@/hooks/useExpedicao";
@@ -198,6 +199,7 @@ function SimuladorViagem() {
       />
 
       <main className="mx-auto max-w-7xl px-5 py-6">
+        <MiniWorldMap highlightedContinent={pais.continente} />
         {indiceDia >= 0 && (
           <div className="mb-8">
             <div className="flex flex-wrap items-center justify-between gap-4">
