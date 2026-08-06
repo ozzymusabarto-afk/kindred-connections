@@ -180,7 +180,7 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
           </div>
         )}
 
-        {/* Rosa dos Ventos - Estilo Clássico Refinado */}
+        {/* Rosa dos Ventos - Estilo Clássico Refinado, menor e no canto inferior esquerdo */}
         <div className="absolute bottom-6 left-6 w-20 h-20 opacity-90 pointer-events-none z-30 drop-shadow-lg">
           <div className="relative w-full h-full flex items-center justify-center">
             {/* Círculo decorativo clássico */}
