@@ -115,15 +115,15 @@ function MapaMundi() {
           )}
         </div>
 
-        <section id="escolha" className="mt-12 scroll-mt-24">
-          <h2 className="text-2xl font-display text-brass mb-6">Para onde vamos hoje?</h2>
-          <div className="flex flex-wrap gap-3">
+        <section id="escolha" className="mt-16 scroll-mt-24 bg-white/50 p-8 rounded-[2rem] border-2 border-brass/10 backdrop-blur-sm">
+          <h2 className="text-3xl font-display text-brass mb-8 text-center italic">Para onde vamos explorar hoje?</h2>
+          <div className="flex flex-wrap gap-4 justify-center">
             <button
               onClick={() => setContinenteAtivo("todos")}
-              className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
+              className={`rounded-full px-8 py-3 text-lg font-display transition-all shadow-sm ${
                 continenteAtivo === "todos"
-                  ? "bg-brass text-white shadow-md scale-105"
-                  : "bg-card border border-brass/20 text-foreground hover:bg-brass/5"
+                  ? "bg-brass text-white shadow-brass/20 scale-105"
+                  : "bg-white border-2 border-brass/20 text-foreground hover:border-brass hover:bg-brass/5"
               }`}
             >
               🌎 Todos
@@ -132,10 +132,10 @@ function MapaMundi() {
               <button
                 key={c.id}
                 onClick={() => setContinenteAtivo(c.id)}
-                className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
+                className={`rounded-full px-8 py-3 text-lg font-display transition-all shadow-sm ${
                   continenteAtivo === c.id
-                    ? "bg-brass text-white shadow-md scale-105"
-                    : "bg-card border border-brass/20 text-foreground hover:bg-brass/5"
+                    ? "bg-brass text-white shadow-brass/20 scale-105"
+                    : "bg-white border-2 border-brass/20 text-foreground hover:border-brass hover:bg-brass/5"
                 }`}
               >
                 {c.nome}
