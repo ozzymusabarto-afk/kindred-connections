@@ -14,8 +14,8 @@ export function SiteHeader({ ativo }: SiteHeaderProps) {
     }`;
 
   return (
-    <header className="border-b border-border bg-background/85 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
+    <header className="sticky top-0 z-50 border-b border-border/40 bg-background/70 backdrop-blur-xl transition-all duration-300">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6 py-5">
         <Link to="/" className="flex items-baseline gap-2">
           <span className="font-display text-lg text-foreground">
             Diário de Bordo

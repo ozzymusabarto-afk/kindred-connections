@@ -211,17 +211,17 @@ function SimuladorViagem() {
                   Dia {dia.dia} de {dias.length} · Estação {indiceDia + 1} de {TELAS_DO_DIA.length}
                 </h2>
               </div>
-              <div className="flex items-center gap-3 rounded-full border border-border bg-card px-4 py-2 shadow-sm">
-                <span className="text-xl">✈️</span>
-                <p className="text-xs font-medium text-muted-foreground">
+              <div className="flex items-center gap-3 premium-card px-5 py-2.5 shadow-sm border-sky-100/30">
+                <span className="text-2xl">✈️</span>
+                <p className="text-sm font-bold text-sky-700 font-rounded">
                   {totalConcluidos} de {dias.length} dias concluídos
                 </p>
               </div>
             </div>
             
-            <div className="mt-5 relative h-3 w-full overflow-hidden rounded-full bg-border">
+            <div className="mt-6 relative h-4 w-full overflow-hidden rounded-full bg-sky-100/50 p-1">
               <div 
-                className="absolute left-0 top-0 h-full bg-brass shadow-[0_0_10px_rgba(184,134,11,0.3)] transition-all duration-700 ease-out" 
+                className="h-full bg-gradient-to-r from-sky-400 to-sky-500 rounded-full shadow-[0_0_15px_rgba(14,165,233,0.3)] transition-all duration-1000 ease-out" 
                 style={{ width: `${((indiceDia + 1) / TELAS_DO_DIA.length) * 100}%` }}
               />
             </div>
