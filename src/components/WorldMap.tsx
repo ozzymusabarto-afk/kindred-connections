@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from '@tanstack/react-router';
 import { Compass, Plane, MapPin } from 'lucide-react';
 import type { Pais } from '@/data/types';
+import { WORLD_COUNTRIES, WORLD_VIEWBOX } from '@/data/worldMap';
 
 // Lista de Países Cadastrados no App
 const COUNTRIES = [
@@ -16,6 +17,29 @@ const COUNTRIES = [
   { id: 'egypt', name: 'Egito', type: 'Imersivo', flag: '🇪🇬', top: '42%', left: '56%' },
 ];
 
+// Mapeamento de Cores por Continente / ID de País para visual infantil
+const getCountryColor = (id: string) => {
+  // Cores dos Continentes baseadas no ID (prefixo/região)
+  // Como o WORLD_COUNTRIES tem IDs ISO, podemos agrupar
+  const N_AMERICA = ['ca', 'us', 'mx', 'gl', 'cu', 'pr'];
+  const S_AMERICA = ['br', 'ar', 'pe', 'cl', 'co', 've', 'ec', 'bo', 'py', 'uy', 'gy', 'sr'];
+  const EUROPE = ['pt', 'es', 'fr', 'gb', 'it', 'de', 'gr', 'pl', 'ro', 'ua', 'no', 'se', 'fi', 'ie', 'is', 'at', 'ch', 'be', 'nl', 'dk', 'cz', 'sk', 'hu', 'hr', 'ba', 'me', 'rs', 'mk', 'al', 'bg', 'md', 'ee', 'lv', 'lt', 'by'];
+  const AFRICA = ['eg', 'za', 'ma', 'ng', 'ke', 'et', 'dz', 'ly', 'sd', 'cd', 'ao', 'mz', 'na', 'bw', 'zw', 'zm', 'tz', 'ug', 'rw', 'bi', 'so', 'dj', 'er', 'td', 'ne', 'ml', 'mr', 'sn', 'gm', 'gw', 'gn', 'sl', 'lr', 'ci', 'gh', 'tg', 'bj', 'bf', 'cm', 'cf', 'gq', 'ga', 'cg', 'ls', 'sz', 'mw', 'mg'];
+  const ASIA = ['jp', 'cn', 'in', 'ru', 'kr', 'kp', 'tw', 'mn', 'kz', 'uz', 'tm', 'tj', 'kg', 'af', 'pk', 'ir', 'iq', 'sy', 'jo', 'il', 'lb', 'sa', 'ye', 'om', 'ae', 'qa', 'kw', 'tr', 'ge', 'az', 'am', 'np', 'bt', 'bd', 'lk', 'mm', 'th', 'la', 'kh', 'vn', 'my', 'sg', 'id', 'ph', 'bn', 'tl'];
+  const OCEANIA = ['au', 'nz', 'pg', 'fj', 'sb', 'vu', 'nc', 'pf'];
+  const ANTARCTICA = ['aq'];
+
+  if (S_AMERICA.includes(id)) return '#4ade80'; // Verde vibrante
+  if (N_AMERICA.includes(id)) return '#fbbf24'; // Amarelo/Laranja pastel
+  if (EUROPE.includes(id)) return '#a78bfa'; // Roxo/Lilás
+  if (AFRICA.includes(id)) return '#fcd34d'; // Amarelo/Ocre quente
+  if (ASIA.includes(id)) return '#fb923c'; // Laranja/Rosa
+  if (OCEANIA.includes(id)) return '#22d3ee'; // Azul-turquesa
+  if (ANTARCTICA.includes(id)) return '#f0f9ff'; // Branco/Gelo suave
+  
+  return '#e2e8f0'; // Cor padrão para países não categorizados
+};
+
 interface WorldMapProps {
   paises: Pais[];
   carimbados: string[];
@@ -23,7 +47,7 @@ interface WorldMapProps {
 }
 
 export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) => {
-  const [hoveredCountry, setHoveredCountry] = useState<any>(null);
+  const [hoveredCountryPin, setHoveredCountryPin] = useState<any>(null);
   const [selectedCountry, setSelectedCountry] = useState<any>(null);
   const [isFlying, setIsFlying] = useState(false);
 
@@ -34,7 +58,6 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
     setSelectedCountry(country);
     setIsFlying(true);
     
-    // Simula a animação de voo e navega após 1.5s
     setTimeout(() => {
       setIsFlying(false);
       onSelecionar(pais);
@@ -44,70 +67,85 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
   return (
     <div className="w-full max-w-6xl mx-auto p-4 flex flex-col items-center">
       {/* Container do Mapa com Proporção Fixa 16:9 */}
-      <div className="relative w-full aspect-[16/9] bg-sky-100 rounded-3xl border-4 border-sky-300 shadow-xl overflow-hidden">
+      <div className="relative w-full aspect-[16/9] bg-sky-200 rounded-3xl border-4 border-sky-300 shadow-xl overflow-hidden">
         
-        {/* Imagem de Fundo 2D Ilustrada */}
-        <img 
-          src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=1600&q=80" 
-          alt="Mapa Mundi Ilustrado"
-          className="w-full h-full object-cover opacity-90"
-        />
+        {/* Camada Vetorial do Mapa Mundi (Background Colorido) */}
+        <svg
+          viewBox={WORLD_VIEWBOX}
+          className="absolute inset-0 w-full h-full"
+          style={{ backgroundColor: '#bae6fd' }} // bg-sky-200 aproximado
+        >
+          {/* Desenha todos os países do atlas */}
+          {WORLD_COUNTRIES.map((pais) => (
+            <path
+              key={pais.id}
+              d={pais.d}
+              fill={getCountryColor(pais.id)}
+              stroke="#ffffff"
+              strokeWidth="0.5"
+              className="transition-opacity duration-300"
+              style={{ opacity: 0.9 }}
+            />
+          ))}
+        </svg>
 
-        {/* Pins dos Países */}
-        {COUNTRIES.map((country) => {
-          const isVisited = carimbados.includes(country.id);
-          return (
-            <div
-              key={country.id}
-              className="absolute cursor-pointer transition-transform hover:scale-125 z-20"
-              style={{ top: country.top, left: country.left }}
-              onMouseEnter={() => setHoveredCountry(country)}
-              onMouseLeave={() => setHoveredCountry(null)}
-              onClick={() => handleCountryClick(country)}
-            >
-              <div className="relative flex flex-col items-center">
-                {/* Pin Animado */}
-                <div className={`p-2 rounded-full shadow-lg transition-colors ${
-                  isVisited ? 'bg-sun text-white' : 'bg-white text-sky-600'
-                }`}>
-                  <MapPin className="w-5 h-5" />
+        {/* Camada de Pins Interativos */}
+        <div className="absolute inset-0 w-full h-full pointer-events-none">
+          {COUNTRIES.map((country) => {
+            const isVisited = carimbados.includes(country.id);
+            return (
+              <div
+                key={country.id}
+                className="absolute cursor-pointer transition-transform hover:scale-125 z-20 pointer-events-auto"
+                style={{ top: country.top, left: country.left }}
+                onMouseEnter={() => setHoveredCountryPin(country)}
+                onMouseLeave={() => setHoveredCountryPin(null)}
+                onClick={() => handleCountryClick(country)}
+              >
+                <div className="relative flex flex-col items-center">
+                  {/* Pin Animado */}
+                  <div className={`p-2 rounded-full shadow-lg transition-colors ${
+                    isVisited ? 'bg-yellow-400 text-white' : 'bg-white text-sky-600'
+                  }`}>
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  
+                  {/* Estrela de Visitado */}
+                  {isVisited && (
+                    <div className="absolute -top-2 -right-2 bg-yellow-400 rounded-full p-1 shadow-sm border border-white">
+                      <span className="text-[10px]">⭐</span>
+                    </div>
+                  )}
                 </div>
-                
-                {/* Estrela de Visitado */}
-                {isVisited && (
-                  <div className="absolute -top-2 -right-2 bg-yellow-400 rounded-full p-1 shadow-sm border border-white">
-                    <span className="text-[10px]">⭐</span>
+
+                {/* Tooltip Hover */}
+                {hoveredCountryPin?.id === country.id && (
+                  <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-sm p-3 rounded-2xl shadow-2xl border-2 border-sky-200 min-w-[160px] z-50 animate-in fade-in zoom-in duration-200">
+                    <div className="flex flex-col items-center gap-1">
+                      <span className="text-3xl">{country.flag}</span>
+                      <span className="font-bold text-sky-900 whitespace-nowrap">{country.name}</span>
+                      <span className={`text-[10px] px-2 py-0.5 rounded-full text-white uppercase font-bold ${
+                        country.type === 'Imersivo' ? 'bg-sky-500' : 'bg-amber-500'
+                      }`}>
+                        {country.type === 'Imersivo' ? 'Expedição Imersiva' : 'Diário de Bordo'}
+                      </span>
+                    </div>
+                    {/* Seta do Tooltip */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 -mt-1.5 border-r-2 border-b-2 border-sky-200" />
                   </div>
                 )}
               </div>
-
-              {/* Tooltip Hover */}
-              {hoveredCountry?.id === country.id && (
-                <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-sm p-3 rounded-2xl shadow-2xl border-2 border-sky-200 min-w-[160px] z-50 animate-in fade-in zoom-in duration-200">
-                  <div className="flex flex-col items-center gap-1">
-                    <span className="text-3xl">{country.flag}</span>
-                    <span className="font-bold text-sky-900 whitespace-nowrap">{country.name}</span>
-                    <span className={`text-[10px] px-2 py-0.5 rounded-full text-white uppercase font-bold ${
-                      country.type === 'Imersivo' ? 'bg-sky-500' : 'bg-amber-500'
-                    }`}>
-                      {country.type === 'Imersivo' ? 'Expedição Imersiva' : 'Diário de Bordo'}
-                    </span>
-                  </div>
-                  {/* Seta do Tooltip */}
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 -mt-1.5 border-r-2 border-b-2 border-sky-200" />
-                </div>
-              )}
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
 
         {/* Animação do Avião Rosa */}
         {isFlying && selectedCountry && (
           <div className="absolute inset-0 pointer-events-none z-40">
-            <svg className="w-full h-full">
+            <svg className="w-full h-full" viewBox="0 0 1600 900">
               <path
                 id="flightPath"
-                d={`M 330 650 Q 400 300 ${parseInt(selectedCountry.left) * 16} ${parseInt(selectedCountry.top) * 9}`}
+                d={`M 528 585 Q 640 270 ${parseFloat(selectedCountry.left) * 16} ${parseFloat(selectedCountry.top) * 9}`}
                 fill="none"
                 stroke="#F472B6"
                 strokeWidth="4"
@@ -126,7 +164,7 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
         )}
 
         {/* Rosa dos Ventos Ilustrada */}
-        <div className="absolute bottom-6 right-6 w-24 h-24 opacity-80 pointer-events-none">
+        <div className="absolute bottom-6 right-6 w-24 h-24 opacity-80 pointer-events-none z-30">
           <div className="relative w-full h-full flex items-center justify-center">
             <Compass className="w-full h-full text-sky-800 animate-spin-slow" />
             <div className="absolute font-bold text-sky-900 text-xs">
