@@ -23,7 +23,6 @@ interface WorldMapProps {
 }
 
 export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) => {
-  const navigate = useNavigate();
   const [hoveredCountry, setHoveredCountry] = useState<any>(null);
   const [selectedCountry, setSelectedCountry] = useState<any>(null);
   const [isFlying, setIsFlying] = useState(false);
@@ -44,8 +43,6 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
 
   return (
     <div className="w-full max-w-6xl mx-auto p-4 flex flex-col items-center">
-      {/* Título do Mapa removido daqui pois agora está no index.tsx conforme layout solicitado */}
-      
       {/* Container do Mapa com Proporção Fixa 16:9 */}
       <div className="relative w-full aspect-[16/9] bg-sky-100 rounded-3xl border-4 border-sky-300 shadow-xl overflow-hidden">
         
@@ -123,7 +120,7 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
                     <Plane className="w-10 h-10 fill-current" />
                   </div>
                 </foreignObject>
-              </svg>
+              </g>
             </svg>
           </div>
         )}
