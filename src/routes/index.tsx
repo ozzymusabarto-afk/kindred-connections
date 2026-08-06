@@ -94,26 +94,26 @@ function MapaMundi() {
               Hoje seu passaporte abre as portas para uma aventura incrível.
             </p>
             
-            <div className="mt-8 max-w-2xl mx-auto bg-white/60 backdrop-blur-md p-8 rounded-[2.5rem] border-2 border-sky-100 shadow-xl shadow-sky-900/5">
-              <p className="text-lg sm:text-xl text-sky-800 leading-relaxed font-rounded italic">
+            <div className="mt-10 max-w-2xl mx-auto premium-card p-10 shadow-sky-900/5 hover:shadow-sky-900/10 transition-all duration-500">
+              <p className="text-xl sm:text-2xl text-sky-800/90 leading-relaxed font-rounded italic">
                 Cada país tem histórias, animais, pessoas, tradições, monumentos, comidas e curiosidades incríveis esperando para serem descobertos.
               </p>
-              <p className="mt-4 text-lg sm:text-xl text-sky-800 leading-relaxed font-rounded">
+              <p className="mt-6 text-lg sm:text-xl text-sky-700/80 leading-relaxed font-rounded font-medium">
                 Escolha um destino no mapa e comece sua jornada pelo mundo.
                 Cada lugar visitado se torna mais uma página no seu diário de explorador.
               </p>
               
-              <div className="mt-6 flex flex-col items-center gap-4">
-                <p className="text-xl font-bold text-sky-900 font-rounded">
+              <div className="mt-10 flex flex-col items-center gap-6">
+                <p className="text-2xl font-bold text-sky-900 font-rounded tracking-tight">
                   Você está pronto? A aventura espera por você!
                 </p>
                 
                 <button
                   onClick={() => document.getElementById('mapa')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="mt-4 group relative inline-flex items-center justify-center px-10 py-5 font-rounded text-2xl font-bold text-white transition-all duration-300 bg-sky-500 rounded-full hover:bg-sky-600 hover:scale-105 hover:shadow-2xl hover:shadow-sky-500/30 active:scale-95"
+                  className="mt-4 group relative inline-flex items-center justify-center px-12 py-6 font-rounded text-2xl font-bold text-white transition-all duration-500 bg-sky-500 rounded-full hover:bg-sky-600 hover:scale-105 hover:shadow-[0_20px_40px_-10px_rgba(14,165,233,0.4)] active:scale-95 shadow-xl shadow-sky-500/20"
                 >
                   Começar a Jornada
-                  <span className="ml-3 group-hover:translate-x-1 transition-transform">→</span>
+                  <span className="ml-3 group-hover:translate-x-2 transition-transform duration-500">→</span>
                 </button>
               </div>
             </div>
@@ -142,8 +142,8 @@ function MapaMundi() {
           )}
         </div>
 
-        <section id="escolha" className="mt-20 px-5 max-w-6xl mx-auto">
-          <div className="bg-white/70 backdrop-blur-md p-10 rounded-[3rem] border-2 border-sky-100 shadow-xl shadow-sky-900/5">
+        <section id="escolha" className="mt-28 px-5 max-w-7xl mx-auto">
+          <div className="premium-card p-12 shadow-sky-900/5 border-sky-100/50">
             <h2 className="text-3xl font-rounded font-bold text-sky-900 mb-8 text-center italic">
               Para onde vamos explorar hoje?
             </h2>
@@ -175,7 +175,7 @@ function MapaMundi() {
           </div>
         </section>
 
-        <section id="diarios" className="mt-20 px-5 pb-20 max-w-6xl mx-auto grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        <section id="diarios" className="mt-24 px-5 pb-32 max-w-7xl mx-auto grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
           {paisesVisiveis.map((pais: any) => (
             <button
               key={pais.id}
@@ -185,7 +185,7 @@ function MapaMundi() {
               onClick={() =>
                 navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
               }
-              className="group relative overflow-hidden rounded-[2.5rem] border-4 border-white bg-white/80 text-left transition-all hover:scale-[1.03] hover:shadow-2xl hover:shadow-sky-900/10 focus:outline-none focus:ring-4 focus:ring-sky-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+              className="group relative overflow-hidden premium-card text-left transition-all hover:scale-[1.03] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] focus:outline-none focus:ring-4 focus:ring-sky-200/50 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {visitados.has(pais.id) && (
                 <span className="absolute right-4 top-4 z-10 drop-shadow-lg">
