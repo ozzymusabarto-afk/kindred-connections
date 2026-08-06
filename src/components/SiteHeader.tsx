@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
 interface SiteHeaderProps {
-  ativo?: "mapa" | "passaporte" | "comparar" | "album";
+  ativo?: "mapa" | "passaporte" | "comparar" | "album" | "cadastro";
 }
 
 
