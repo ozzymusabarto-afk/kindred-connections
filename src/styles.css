@@ -67,58 +67,58 @@
 }
 
 :root {
-  --radius: 0.9rem;
+  --radius: 1.25rem;
   /* Caderno do Explorador Ilustrado Vivo: céu claro + papel iluminado. */
-  --background: #eaf4fb;
-  --foreground: #1f2b1c;
-  --card: #f9f6f0;
-  --card-foreground: #1f2b1c;
-  --popover: #f9f6f0;
-  --popover-foreground: #1f2b1c;
-  --primary: #1e8a5f;
-  --primary-foreground: #f9f6f0;
-  --secondary: #d9ecf8;
-  --secondary-foreground: #1c5d99;
-  --muted: #dfeef8;
-  --muted-foreground: #4a5f52;
-  --accent: #ffe3c4;
-  --accent-foreground: #b34a12;
-  --destructive: #d84a3a;
-  --destructive-foreground: #f9f6f0;
-  --border: #9fc9e4;
-  --input: #9fc9e4;
-  --ring: #d96b27;
-  --brass: #d96b27;
-  --ocean: #1c5d99;
-  --land: #d9ecf8;
-  --sun: #f7c548;
-  --emerald: #1e8a5f;
-  --map-ocean: #7fd0f5;
-  --map-ocean-deep: #1c5d99;
-  --map-1: #4caf50;
-  --map-2: #f7c548;
-  --map-3: #f08a3c;
-  --map-4: #ef6461;
-  --map-5: #b07ad6;
-  --map-6: #3fc1c9;
-  --map-7: #8bc34a;
-  --map-8: #ffb26b;
-  --map-9: #7aa8e8;
-  --map-brasil: #16a34a;
-  --map-star: #f7c548;
-  --chart-1: #1e8a5f;
-  --chart-2: #d96b27;
-  --chart-3: #1c5d99;
-  --chart-4: #f7c548;
-  --chart-5: #b07ad6;
-  --sidebar: #d9ecf8;
-  --sidebar-foreground: #1f2b1c;
-  --sidebar-primary: #1e8a5f;
-  --sidebar-primary-foreground: #f9f6f0;
-  --sidebar-accent: #ffe3c4;
-  --sidebar-accent-foreground: #b34a12;
-  --sidebar-border: #9fc9e4;
-  --sidebar-ring: #d96b27;
+  --background: #fdfcf8;
+  --foreground: #1c3d5a;
+  --card: #ffffff;
+  --card-foreground: #1c3d5a;
+  --popover: #ffffff;
+  --popover-foreground: #1c3d5a;
+  --primary: #2e8b57;
+  --primary-foreground: #ffffff;
+  --secondary: #e8f4fd;
+  --secondary-foreground: #2b6cb0;
+  --muted: #f7fafc;
+  --muted-foreground: #718096;
+  --accent: #fff9db;
+  --accent-foreground: #d97706;
+  --destructive: #e53e3e;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #3182ce;
+  --brass: #c08d46;
+  --ocean: #4299e1;
+  --land: #ebf8ff;
+  --sun: #f6ad55;
+  --emerald: #38a169;
+  --map-ocean: #a5d8ff;
+  --map-ocean-deep: #2b6cb0;
+  --map-1: #68d391;
+  --map-2: #f6e05e;
+  --map-3: #f6ad55;
+  --map-4: #fc8181;
+  --map-5: #b794f4;
+  --map-6: #4fd1c5;
+  --map-7: #9ae6b4;
+  --map-8: #fbd38d;
+  --map-9: #90cdf4;
+  --map-brasil: #48bb78;
+  --map-star: #f6e05e;
+  --chart-1: #38a169;
+  --chart-2: #ed8936;
+  --chart-3: #3182ce;
+  --chart-4: #f6e05e;
+  --chart-5: #b794f4;
+  --sidebar: #f7fafc;
+  --sidebar-foreground: #1c3d5a;
+  --sidebar-primary: #3182ce;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #edf2f7;
+  --sidebar-accent-foreground: #2d3748;
+  --sidebar-border: #e2e8f0;
+  --sidebar-ring: #3182ce;
 }
 
 
@@ -181,6 +181,8 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    background-image: linear-gradient(to bottom, #fdfcf8, #f5f9fc);
+    background-attachment: fixed;
   }
 
   h1,
@@ -198,10 +200,11 @@
 
 @utility paper-grain {
   background-image: radial-gradient(
-      color-mix(in oklab, var(--foreground) 5%, transparent) 0.5px,
+      color-mix(in oklab, var(--foreground) 3%, transparent) 0.5px,
       transparent 0.5px
     );
-  background-size: 4px 4px;
+  background-size: 8px 8px;
+  background-attachment: fixed;
 }
 
 @utility fade-up {
