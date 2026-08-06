@@ -172,15 +172,17 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
           </div>
         )}
 
-        {/* Rosa dos Ventos de Aventura */}
-        <div className="absolute bottom-10 left-10 w-32 h-32 opacity-90 pointer-events-none z-30 drop-shadow-xl">
+        {/* Rosa dos Ventos - Estilo Clássico e Compacto */}
+        <div className="absolute bottom-6 left-6 w-20 h-20 opacity-80 pointer-events-none z-30 drop-shadow-lg">
           <div className="relative w-full h-full flex items-center justify-center">
-            <Compass className="w-full h-full text-sky-900 animate-spin-slow" />
-            <div className="absolute font-display font-black text-sky-900 text-lg">
-              <span className="absolute -top-6 left-1/2 -translate-x-1/2">N</span>
-              <span className="absolute -bottom-6 left-1/2 -translate-x-1/2">S</span>
-              <span className="absolute top-1/2 -left-6 -translate-y-1/2">O</span>
-              <span className="absolute top-1/2 -right-6 -translate-y-1/2">L</span>
+            {/* Círculo decorativo clássico */}
+            <div className="absolute inset-0 rounded-full border border-sky-900/20" />
+            <Compass className="w-full h-full text-sky-900 animate-spin-slow" strokeWidth={1} />
+            <div className="absolute font-display font-black text-sky-900 text-[10px]">
+              <span className="absolute -top-4 left-1/2 -translate-x-1/2">N</span>
+              <span className="absolute -bottom-4 left-1/2 -translate-x-1/2">S</span>
+              <span className="absolute top-1/2 -left-4 -translate-y-1/2">O</span>
+              <span className="absolute top-1/2 -right-4 -translate-y-1/2">L</span>
             </div>
           </div>
         </div>
