@@ -58,9 +58,9 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto p-4 flex flex-col items-center">
-      {/* Container do Mapa com Proporção Tradicional (Mercator/Equiretangular 2:1 approx) */}
-      <div className="relative w-full aspect-[2/1] bg-[#e0f2fe] rounded-[2.5rem] border-[12px] border-white shadow-2xl overflow-hidden group">
+    <div className="w-full max-w-[1400px] mx-auto p-4 flex flex-col items-center">
+      {/* Container do Mapa com Proporção Tradicional para não achatar */}
+      <div className="relative w-full aspect-[21/9] bg-[#e0f2fe] rounded-[2.5rem] border-[12px] border-white shadow-2xl overflow-hidden group">
         
         {/* Camada de Papel / Textura Suave */}
         <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-multiply bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]" />
