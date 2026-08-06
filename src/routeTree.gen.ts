@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PassaporteRouteImport } from './routes/passaporte'
 import { Route as CompararRouteImport } from './routes/comparar'
+import { Route as CadastroRouteImport } from './routes/cadastro'
 import { Route as AlbumRouteImport } from './routes/album'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PaisIdRouteImport } from './routes/pais.$id'
@@ -23,6 +24,11 @@ const PassaporteRoute = PassaporteRouteImport.update({
 const CompararRoute = CompararRouteImport.update({
   id: '/comparar',
   path: '/comparar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CadastroRoute = CadastroRouteImport.update({
+  id: '/cadastro',
+  path: '/cadastro',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AlbumRoute = AlbumRouteImport.update({
@@ -44,6 +50,7 @@ const PaisIdRoute = PaisIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/album': typeof AlbumRoute
+  '/cadastro': typeof CadastroRoute
   '/comparar': typeof CompararRoute
   '/passaporte': typeof PassaporteRoute
   '/pais/$id': typeof PaisIdRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/album': typeof AlbumRoute
+  '/cadastro': typeof CadastroRoute
   '/comparar': typeof CompararRoute
   '/passaporte': typeof PassaporteRoute
   '/pais/$id': typeof PaisIdRoute
@@ -59,21 +67,36 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/album': typeof AlbumRoute
+  '/cadastro': typeof CadastroRoute
   '/comparar': typeof CompararRoute
   '/passaporte': typeof PassaporteRoute
   '/pais/$id': typeof PaisIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/album' | '/comparar' | '/passaporte' | '/pais/$id'
+  fullPaths:
+    | '/'
+    | '/album'
+    | '/cadastro'
+    | '/comparar'
+    | '/passaporte'
+    | '/pais/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/album' | '/comparar' | '/passaporte' | '/pais/$id'
-  id: '__root__' | '/' | '/album' | '/comparar' | '/passaporte' | '/pais/$id'
+  to: '/' | '/album' | '/cadastro' | '/comparar' | '/passaporte' | '/pais/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/album'
+    | '/cadastro'
+    | '/comparar'
+    | '/passaporte'
+    | '/pais/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AlbumRoute: typeof AlbumRoute
+  CadastroRoute: typeof CadastroRoute
   CompararRoute: typeof CompararRoute
   PassaporteRoute: typeof PassaporteRoute
   PaisIdRoute: typeof PaisIdRoute
@@ -93,6 +116,13 @@ declare module '@tanstack/react-router' {
       path: '/comparar'
       fullPath: '/comparar'
       preLoaderRoute: typeof CompararRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cadastro': {
+      id: '/cadastro'
+      path: '/cadastro'
+      fullPath: '/cadastro'
+      preLoaderRoute: typeof CadastroRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/album': {
@@ -122,6 +152,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AlbumRoute: AlbumRoute,
+  CadastroRoute: CadastroRoute,
   CompararRoute: CompararRoute,
   PassaporteRoute: PassaporteRoute,
   PaisIdRoute: PaisIdRoute,
@@ -129,13 +160,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
