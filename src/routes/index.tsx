@@ -86,8 +86,11 @@ function MapaMundi() {
           <h1 className="mt-4 text-5xl leading-tight text-sky-900 sm:text-6xl font-rounded font-bold">
             Mapa do Explorador
           </h1>
-          <p className="mt-6 font-rounded text-2xl leading-snug text-sky-700 max-w-2xl mx-auto">
-            Sua Grande Jornada Começa Agora! Explore os mistérios e maravilhas do nosso planeta.
+          <div className="mt-8 max-w-xl mx-auto">
+            <FichaExplorador />
+          </div>
+          <p className="mt-8 font-rounded text-2xl leading-snug text-sky-700 max-w-2xl mx-auto italic">
+            "Sua Grande Jornada Começa Agora! Explore os mistérios e maravilhas do nosso planeta."
           </p>
         </section>
 
@@ -209,7 +212,6 @@ function MapaMundi() {
         </section>
       </main>
 
-      <FichaExplorador />
       <CompassButton />
     </div>
   );

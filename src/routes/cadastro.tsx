@@ -1,34 +1,42 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, useEffect } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { User, ShieldCheck } from "lucide-react";
+import { User, ShieldCheck, Trash2 } from "lucide-react";
 import { toast } from "sonner";
+import { useExplorador } from "@/hooks/useExplorador";
+import { useState, useEffect } from "react";
 
 export const Route = createFileRoute("/cadastro")({
   component: Cadastro,
 });
 
 function Cadastro() {
-  const [nome, setNome] = useState("");
-  const [idade, setIdade] = useState("");
+  const { nome, salvar, limpar, pronto } = useExplorador();
+  const [rascunho, setRascunho] = useState("");
 
   useEffect(() => {
-    const saved = localStorage.getItem("diario:explorador-dados");
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      setNome(parsed.nome || "");
-      setIdade(parsed.idade || "");
-    }
-  }, []);
+    if (pronto) setRascunho(nome);
+  }, [pronto, nome]);
 
   const handleSalvar = (e: React.FormEvent) => {
     e.preventDefault();
-    localStorage.setItem("diario:explorador-dados", JSON.stringify({ nome, idade }));
+    if (!rascunho.trim()) {
+      toast.error("Por favor, escreva seu nome!");
+      return;
+    }
+    salvar(rascunho);
     toast.success("Dados do explorador salvos com sucesso!");
   };
+
+  const handleLimpar = () => {
+    limpar();
+    setRascunho("");
+    toast.info("Dados removidos.");
+  };
+
+  if (!pronto) return null;
 
   return (
     <div className="min-h-screen bg-sky-50">
@@ -52,25 +60,29 @@ function Cadastro() {
                 <label className="text-sm font-bold text-sky-700 ml-1">NOME DO EXPLORADOR</label>
                 <Input 
                   placeholder="Como você se chama?" 
-                  value={nome}
-                  onChange={(e) => setNome(e.target.value)}
+                  value={rascunho}
+                  onChange={(e) => setRascunho(e.target.value)}
+                  maxLength={24}
                   className="rounded-xl border-2 border-sky-100 focus:border-sky-500 transition-all h-12"
                 />
               </div>
-              <div className="space-y-2">
-                <label className="text-sm font-bold text-sky-700 ml-1">IDADE</label>
-                <Input 
-                  type="number" 
-                  placeholder="Quantos anos você tem?" 
-                  value={idade}
-                  onChange={(e) => setIdade(e.target.value)}
-                  className="rounded-xl border-2 border-sky-100 focus:border-sky-500 transition-all h-12"
-                />
+              
+              <div className="flex gap-3">
+                <Button type="submit" className="flex-1 bg-sky-600 hover:bg-sky-700 text-white rounded-xl h-12 font-bold shadow-lg transition-all hover:scale-[1.02]">
+                  <ShieldCheck className="mr-2 h-5 w-5" />
+                  Salvar
+                </Button>
+                {nome && (
+                  <Button 
+                    type="button" 
+                    variant="outline"
+                    onClick={handleLimpar}
+                    className="rounded-xl h-12 border-2 border-red-100 text-red-500 hover:bg-red-50"
+                  >
+                    <Trash2 className="h-5 w-5" />
+                  </Button>
+                )}
               </div>
-              <Button type="submit" className="w-full bg-sky-600 hover:bg-sky-700 text-white rounded-xl h-12 font-bold text-lg shadow-lg transition-all hover:scale-[1.02]">
-                <ShieldCheck className="mr-2 h-5 w-5" />
-                Salvar Dados
-              </Button>
             </form>
           </CardContent>
         </Card>
@@ -78,3 +90,4 @@ function Cadastro() {
     </div>
   );
 }
+
