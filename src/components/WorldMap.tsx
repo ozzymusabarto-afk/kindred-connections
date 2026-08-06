@@ -13,7 +13,7 @@ const REGISTERED_COUNTRY_IDS = [
 ];
 
 // Mapeamento de Cores Vibrantes e Agradáveis para crianças
-const getCountryColor = (pais: any) => {
+const getCountryColor = (country: any) => {
   const continentColors: Record<number, string> = {
     1: '#a8d5ba', // Verde Suave (América do Sul / Brasil)
     2: '#fef08a', // Amarelo Pastel (América do Norte)
@@ -25,7 +25,7 @@ const getCountryColor = (pais: any) => {
     8: '#86efac', // Verde Água
     9: '#f8fafc'  // Gelo/Branco
   };
-  return continentColors[pais.cor] || '#f3f4f6';
+  return continentColors[country.cor] || '#f3f4f6';
 };
 
 interface WorldMapProps {
