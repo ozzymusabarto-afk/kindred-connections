@@ -138,13 +138,7 @@ function MapaMundi() {
               </p>
             </div>
           ) : (
-            <WorldMap
-              paises={paisesVisiveis}
-              carimbados={carimbos.map((c) => c.paisId)}
-              onSelecionar={(pais: any) =>
-                navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
-              }
-            />
+            <WorldMap />
           )}
         </div>
 
