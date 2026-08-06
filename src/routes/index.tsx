@@ -9,13 +9,10 @@ import { continentes, paises } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
 import type { ContinenteId } from "@/data/types";
 
-
-
 export const Route = createFileRoute("/")({
   head: () => {
-    const title = "Sua Grande Jornada Começa Agora! | Diário de Bordo";
-    const description = "Explore o mundo em uma experiência imersiva para crianças. Descubra geografia, fauna, sons e sabores reais de cada país.";
-    const url = "https://diariodebordo.exploradores.com"; // URL fictícia para SEO
+    const title = "Diário de Bordo: Exploradores do Mundo | Mapa Interativo";
+    const description = "Uma jornada educativa imersiva para crianças explorarem a geografia, fauna e cultura do mundo através de um atlas ilustrado interativo.";
     
     return {
       meta: [
@@ -23,31 +20,9 @@ export const Route = createFileRoute("/")({
         { name: "description", content: description },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
-        { property: "og:url", content: url },
-        { property: "og:site_name", content: "Diário de Bordo: Exploradores do Mundo" },
-        { property: "og:locale", content: "pt_BR" },
-        { name: "twitter:card", content: "summary_large_image" },
         { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
-      links: [
-        { rel: "canonical", href: url },
-      ],
-      scripts: [
-        {
-          type: "application/ld+json",
-          children: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "EducationalOrganization",
-            "name": "Diário de Bordo: Exploradores do Mundo",
-            "description": description,
-            "url": url,
-            "audience": {
-              "@type": "Audience",
-              "audienceType": "Children"
-            }
-          })
-        }
-      ]
     };
   },
   component: MapaMundi,
