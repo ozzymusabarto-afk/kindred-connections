@@ -6,47 +6,33 @@ interface MiniWorldMapProps {
 }
 
 export const MiniWorldMap: React.FC<MiniWorldMapProps> = ({ highlightedContinent }) => {
-  // Coordenadas simplificadas para um mapa-múndi decorativo
-  // viewBox="0 0 800 400"
-  
-  const paths: Record<ContinenteId, string> = {
-    "america-do-norte": "M60,40 C100,20 180,30 240,60 L240,160 C200,180 140,190 60,140 Z",
-    "america-do-sul": "M160,180 C200,180 240,180 240,180 L280,340 C240,380 200,380 180,380 C140,300 140,240 160,180",
-    "europa": "M340,50 C380,40 420,40 450,60 L450,130 C400,140 360,140 340,130 Z",
-    "africa": "M330,140 C400,120 450,130 460,150 L500,280 C460,340 400,360 350,340 C310,300 310,200 330,140",
-    "asia": "M450,50 C550,30 700,40 760,80 L780,240 C700,270 600,280 500,260 L450,150 Z",
-    "oceania": "M620,280 C680,270 740,270 780,280 L780,370 C720,390 660,390 620,370 Z",
-    "america-central": "M160,160 L200,180 L180,200 Z"
+  const images: Record<ContinenteId, string> = {
+    "america-do-norte": "https://images.unsplash.com/photo-1581404476143-fb31d742929f?auto=format&fit=crop&q=80&w=800",
+    "america-do-sul": "https://images.unsplash.com/photo-1589519160732-57fc498494f8?auto=format&fit=crop&q=80&w=800",
+    "europa": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=800",
+    "africa": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=800",
+    "asia": "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&q=80&w=800",
+    "oceania": "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&q=80&w=800",
+    "america-central": "https://images.unsplash.com/photo-1512403734033-040213aa0721?auto=format&fit=crop&q=80&w=800"
   };
+
+  const imageSrc = images[highlightedContinent] || images["america-do-norte"];
 
   return (
     <div className="flex flex-col items-center mb-12 animate-fade-in group">
-      <div className="w-full max-w-[500px] aspect-[2/1] bg-sky-50/30 rounded-[2.5rem] p-6 border-2 border-sky-100/50 shadow-inner relative overflow-hidden backdrop-blur-sm">
-        {/* Oceano Grid */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-             style={{ backgroundImage: 'radial-gradient(#0ea5e9 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
-        
-        <svg
-          viewBox="0 0 800 400"
-          className="w-full h-full drop-shadow-xl"
-        >
-          {Object.entries(paths).map(([id, path]) => (
-            <path
-              key={id}
-              d={path}
-              className={`transition-all duration-1000 ease-in-out ${
-                highlightedContinent === id 
-                  ? "fill-sky-400 stroke-sky-500 stroke-[3] opacity-100 scale-[1.02]" 
-                  : "fill-gray-200 stroke-gray-300 stroke-1 opacity-40"
-              }`}
-              style={{ transformOrigin: 'center', transformBox: 'fill-box' }}
-            />
-          ))}
-        </svg>
+      <div className="w-full max-w-[600px] aspect-[16/9] bg-sky-50/30 rounded-[2rem] overflow-hidden border-4 border-white shadow-premium relative group-hover:scale-[1.02] transition-transform duration-500">
+        <img 
+          src={imageSrc} 
+          alt={`Mapa de ${highlightedContinent.replace(/-/g, ' ')}`}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-sky-900/40 to-transparent pointer-events-none" />
+        <div className="absolute bottom-4 left-6 right-6">
+          <p className="text-white font-display text-xl drop-shadow-md">
+            Você está explorando esta região do nosso planeta.
+          </p>
+        </div>
       </div>
-      <p className="mt-6 text-sky-600/80 font-rounded text-lg font-bold italic tracking-wide animate-pulse-slow text-center px-4">
-        "Explore as maravilhas da região selecionada no mapa!"
-      </p>
     </div>
   );
 };
