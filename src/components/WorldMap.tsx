@@ -149,8 +149,8 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
               </g>
             </svg>
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       <style>{`
         @keyframes dash {
