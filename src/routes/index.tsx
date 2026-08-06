@@ -183,17 +183,20 @@ function MapaMundi() {
                 )}
               </div>
 
-              <div className="p-4">
-                <p className="font-display text-lg text-foreground">
-                  {pais.nome}
-                </p>
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="font-display text-2xl text-foreground group-hover:text-brass transition-colors">
+                    {pais.nome}
+                  </p>
+                  {visitados.has(pais.id) && <span className="text-sun text-2xl animate-bounce">⭐</span>}
+                </div>
                 {pais.capital && (
-                  <p className="mt-0.5 text-xs italic tracking-wide text-muted-foreground">
-                    ★ Capital: {pais.capital}
+                  <p className="mb-3 text-sm font-medium tracking-wide text-brass/60">
+                    📍 {pais.capital}
                   </p>
                 )}
-                <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                  {pais.resumo_geografico}
+                <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground italic">
+                  "{pais.resumo_geografico}"
                 </p>
               </div>
             </button>
