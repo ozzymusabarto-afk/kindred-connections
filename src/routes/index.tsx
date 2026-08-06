@@ -209,6 +209,7 @@ function MapaMundi() {
         </section>
       </main>
 
+      <FichaExplorador />
       <CompassButton />
     </div>
   );
