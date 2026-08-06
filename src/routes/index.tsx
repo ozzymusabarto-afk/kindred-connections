@@ -80,14 +80,14 @@ function MapaMundi() {
 
       <main className="mx-auto max-w-6xl px-5 py-10">
         <section className="max-w-4xl text-center mx-auto mb-12">
-          <p className="text-xs uppercase tracking-[0.28em] text-brass/70 font-bold">
+          <p className="text-xs uppercase tracking-[0.28em] text-sky-600/70 font-bold">
             Expedição: Exploradores do Mundo
           </p>
-          <h1 className="mt-4 text-5xl leading-tight text-foreground sm:text-6xl font-display">
-            Sua Grande Jornada Começa Agora!
+          <h1 className="mt-4 text-5xl leading-tight text-sky-900 sm:text-6xl font-rounded font-bold">
+            Mapa do Explorador
           </h1>
-          <p className="mt-6 font-display text-2xl leading-snug text-brass max-w-2xl mx-auto">
-            Abra seu atlas e escolha um destino para começar a aventura!
+          <p className="mt-6 font-rounded text-2xl leading-snug text-sky-700 max-w-2xl mx-auto">
+            Uma jornada educativa imersiva para crianças explorarem o mundo!
           </p>
         </section>
 
