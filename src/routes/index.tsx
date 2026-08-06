@@ -9,13 +9,10 @@ import { continentes, paises } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
 import type { ContinenteId } from "@/data/types";
 
-
-
 export const Route = createFileRoute("/")({
   head: () => {
-    const title = "Sua Grande Jornada Começa Agora! | Diário de Bordo";
-    const description = "Explore o mundo em uma experiência imersiva para crianças. Descubra geografia, fauna, sons e sabores reais de cada país.";
-    const url = "https://diariodebordo.exploradores.com"; // URL fictícia para SEO
+    const title = "Diário de Bordo: Exploradores do Mundo | Mapa Interativo";
+    const description = "Uma jornada educativa imersiva para crianças explorarem a geografia, fauna e cultura do mundo através de um atlas ilustrado interativo.";
     
     return {
       meta: [
@@ -23,31 +20,9 @@ export const Route = createFileRoute("/")({
         { name: "description", content: description },
         { property: "og:title", content: title },
         { property: "og:description", content: description },
-        { property: "og:url", content: url },
-        { property: "og:site_name", content: "Diário de Bordo: Exploradores do Mundo" },
-        { property: "og:locale", content: "pt_BR" },
-        { name: "twitter:card", content: "summary_large_image" },
         { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
-      links: [
-        { rel: "canonical", href: url },
-      ],
-      scripts: [
-        {
-          type: "application/ld+json",
-          children: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "EducationalOrganization",
-            "name": "Diário de Bordo: Exploradores do Mundo",
-            "description": description,
-            "url": url,
-            "audience": {
-              "@type": "Audience",
-              "audienceType": "Children"
-            }
-          })
-        }
-      ]
     };
   },
   component: MapaMundi,
@@ -104,40 +79,16 @@ function MapaMundi() {
       <SiteHeader ativo="mapa" />
 
       <main className="mx-auto max-w-6xl px-5 py-10">
-        <section className="max-w-3xl">
-          <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
-            Diário de bordo do explorador
+        <section className="max-w-4xl text-center mx-auto mb-12">
+          <p className="text-xs uppercase tracking-[0.28em] text-brass/70 font-bold">
+            Expedição: Exploradores do Mundo
           </p>
-          <h1 className="mt-3 text-4xl leading-tight text-foreground sm:text-5xl">
+          <h1 className="mt-4 text-5xl leading-tight text-foreground sm:text-6xl font-display">
             Sua Grande Jornada Começa Agora!
           </h1>
-          <p className="mt-3 font-display text-xl leading-snug text-brass">
-            Preparado para explorar o nosso planeta? Aqui, cada país reserva uma descoberta única:
+          <p className="mt-6 font-display text-2xl leading-snug text-brass max-w-2xl mx-auto">
+            Abra seu atlas e escolha um destino para começar a aventura!
           </p>
-          <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
-            <p>
-              ✈️ <strong>Viagens ao Vivo:</strong> Entre nos Países Imersivos para sentir a experiência completa de um viajante — com fotos, sons reais, rotas de transporte e refeições típicas!
-            </p>
-            <p>
-              📑 <strong>Cadernos de Campo:</strong> Abra os Diários de Bordo para investigar os segredos dos demais países através de histórias curtas, fotos marcantes e registros de viagem!
-            </p>
-          </div>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a 
-              href="#mapa" 
-              className="inline-flex items-center gap-2 rounded-full border-2 border-brass bg-brass px-6 py-3 font-display text-lg text-white shadow-md transition-transform hover:scale-105"
-            >
-              <span aria-hidden>🧭</span>
-              Ir para o Mapa
-            </a>
-            <a 
-              href="#diarios" 
-              className="inline-flex items-center gap-2 rounded-full border-2 border-brass/40 bg-card px-6 py-3 font-display text-lg text-foreground shadow-sm transition-transform hover:scale-105"
-            >
-              <span aria-hidden>📑</span>
-              Ver Diários
-            </a>
-          </div>
         </section>
 
         <div 
@@ -164,15 +115,15 @@ function MapaMundi() {
           )}
         </div>
 
-        <section id="escolha" className="mt-12 scroll-mt-24">
-          <h2 className="text-2xl font-display text-brass mb-6">Para onde vamos hoje?</h2>
-          <div className="flex flex-wrap gap-3">
+        <section id="escolha" className="mt-16 scroll-mt-24 bg-white/50 p-8 rounded-[2rem] border-2 border-brass/10 backdrop-blur-sm">
+          <h2 className="text-3xl font-display text-brass mb-8 text-center italic">Para onde vamos explorar hoje?</h2>
+          <div className="flex flex-wrap gap-4 justify-center">
             <button
               onClick={() => setContinenteAtivo("todos")}
-              className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
+              className={`rounded-full px-8 py-3 text-lg font-display transition-all shadow-sm ${
                 continenteAtivo === "todos"
-                  ? "bg-brass text-white shadow-md scale-105"
-                  : "bg-card border border-brass/20 text-foreground hover:bg-brass/5"
+                  ? "bg-brass text-white shadow-brass/20 scale-105"
+                  : "bg-white border-2 border-brass/20 text-foreground hover:border-brass hover:bg-brass/5"
               }`}
             >
               🌎 Todos
@@ -181,10 +132,10 @@ function MapaMundi() {
               <button
                 key={c.id}
                 onClick={() => setContinenteAtivo(c.id)}
-                className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all ${
+                className={`rounded-full px-8 py-3 text-lg font-display transition-all shadow-sm ${
                   continenteAtivo === c.id
-                    ? "bg-brass text-white shadow-md scale-105"
-                    : "bg-card border border-brass/20 text-foreground hover:bg-brass/5"
+                    ? "bg-brass text-white shadow-brass/20 scale-105"
+                    : "bg-white border-2 border-brass/20 text-foreground hover:border-brass hover:bg-brass/5"
                 }`}
               >
                 {c.nome}
@@ -193,7 +144,7 @@ function MapaMundi() {
           </div>
         </section>
 
-        <section id="diarios" className="mt-10 grid gap-4 scroll-mt-24 sm:grid-cols-2 lg:grid-cols-3">
+        <section id="diarios" className="mt-16 grid gap-8 scroll-mt-24 sm:grid-cols-2 lg:grid-cols-3">
           {paisesVisiveis.map((pais: any) => (
             <button
               key={pais.id}
@@ -203,7 +154,7 @@ function MapaMundi() {
               onClick={() =>
                 navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
               }
-              className="group relative overflow-hidden rounded-md border border-border bg-card text-left transition-all hover:border-brass hover:shadow-md focus:outline-none focus:ring-4 focus:ring-brass/40 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group relative overflow-hidden rounded-[2rem] border-4 border-white bg-white/70 text-left transition-all hover:border-brass hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-brass/40 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
             >
               {visitados.has(pais.id) && (
                 <span className="absolute right-3 top-3 z-10 drop-shadow">
@@ -232,17 +183,20 @@ function MapaMundi() {
                 )}
               </div>
 
-              <div className="p-4">
-                <p className="font-display text-lg text-foreground">
-                  {pais.nome}
-                </p>
+              <div className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="font-display text-2xl text-foreground group-hover:text-brass transition-colors">
+                    {pais.nome}
+                  </p>
+                  {visitados.has(pais.id) && <span className="text-sun text-2xl animate-bounce">⭐</span>}
+                </div>
                 {pais.capital && (
-                  <p className="mt-0.5 text-xs italic tracking-wide text-muted-foreground">
-                    ★ Capital: {pais.capital}
+                  <p className="mb-3 text-sm font-medium tracking-wide text-brass/60">
+                    📍 {pais.capital}
                   </p>
                 )}
-                <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-muted-foreground">
-                  {pais.resumo_geografico}
+                <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground italic">
+                  "{pais.resumo_geografico}"
                 </p>
               </div>
             </button>
