@@ -7,7 +7,7 @@ import { WORLD_COUNTRIES, WORLD_VIEWBOX } from '@/data/worldMap';
 // Lista de Países Cadastrados no App - IDs que possuem conteúdo imersivo
 const REGISTERED_COUNTRY_IDS = [
   'canada', 'usa', 'mexico', 'brazil', 'argentina', 'chile', 
-  'portugal', 'italy', 'scotland', 'egypt', 'morocco', 'south-africa', 
+  'portugal', 'italy', 'gb', 'egypt', 'morocco', 'south-africa', 
   'japan', 'china', 'thailand', 'australia', 'new-zealand', 'fiji', 
   'costa-rica', 'panama', 'guatemala'
 ];
@@ -15,15 +15,15 @@ const REGISTERED_COUNTRY_IDS = [
 // Mapeamento de Cores Vibrantes e Agradáveis para crianças
 const getCountryColor = (pais: any) => {
   const continentColors: Record<number, string> = {
-    1: '#86efac', // Verde vibrante (América do Sul)
-    2: '#fde047', // Amarelo (América do Norte)
-    3: '#f43f5e', // Vermelho/Rosa (Europa)
-    4: '#60a5fa', // Azul (Ásia)
-    5: '#fb923c', // Laranja (África)
-    6: '#a8a29e', // Cinza/Pedra
-    7: '#c084fc', // Roxo
-    8: '#4ade80', // Verde
-    9: '#f8fafc'  // Gelo
+    1: '#a8d5ba', // Verde Suave (América do Sul / Brasil)
+    2: '#fef08a', // Amarelo Pastel (América do Norte)
+    3: '#fca5a5', // Vermelho Pastel (Europa)
+    4: '#93c5fd', // Azul Pastel (Ásia)
+    5: '#fdba74', // Laranja Pastel (África)
+    6: '#cbd5e1', // Cinza Azulado (Oceania / Antártida)
+    7: '#d8b4fe', // Roxo Pastel
+    8: '#86efac', // Verde Água
+    9: '#f8fafc'  // Gelo/Branco
   };
   return continentColors[pais.cor] || '#f3f4f6';
 };
@@ -40,7 +40,7 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
   const [isFlying, setIsFlying] = useState(false);
 
   const handleCountryClick = (country: any) => {
-    const pais = paises.find(p => p.id === country.id);
+    const pais = paises.find(p => p.id === country.id || (country.id === 'gb' && p.id === 'scotland'));
     if (!pais) return;
 
     setSelectedCountry(country);
@@ -78,13 +78,13 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
           <text x="1300" y="650" className="fill-sky-800/30 text-[24px] font-display italic tracking-widest font-bold">OCEANO ÍNDICO</text>
 
           {/* Países */}
-          {WORLD_COUNTRIES.map((pais) => (
+          {WORLD_COUNTRIES.map((country) => (
             <path
-              key={pais.id}
-              d={pais.d}
-              fill={getCountryColor(pais)}
-              stroke="#ffffff"
-              strokeWidth="0.8"
+              key={country.id}
+              d={country.d}
+                fill={country.id === 'br' ? '#4ade80' : getCountryColor(country)}
+                stroke="#ffffff"
+                strokeWidth="1.2"
               className="transition-all duration-300 hover:brightness-105"
             />
           ))}
