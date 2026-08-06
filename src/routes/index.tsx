@@ -78,20 +78,50 @@ function MapaMundi() {
     <div className="min-h-screen">
       <SiteHeader ativo="mapa" />
 
-      <main className="mx-auto max-w-6xl px-5 py-10">
-        <section className="max-w-4xl text-center mx-auto mb-12">
-          <p className="text-xs uppercase tracking-[0.28em] text-sky-600/70 font-bold">
-            Expedição: Exploradores do Mundo
-          </p>
-          <h1 className="mt-4 text-5xl leading-tight text-sky-900 sm:text-6xl font-rounded font-bold">
-            Mapa do Explorador
-          </h1>
-          <div className="mt-8 max-w-xl mx-auto">
-            <FichaExplorador />
+      <main>
+        {/* Seção Hero - Introdução Mágica */}
+        <section className="relative overflow-hidden pt-20 pb-12 sm:pt-32 sm:pb-16 bg-gradient-to-b from-sky-50 to-white">
+          <div className="mx-auto max-w-6xl px-5 text-center">
+            <div className="inline-block animate-bounce-slow mb-6">
+              <span className="text-6xl sm:text-7xl drop-shadow-lg">🌍</span>
+            </div>
+            
+            <h1 className="text-4xl sm:text-6xl font-rounded font-bold text-sky-900 leading-tight tracking-tight">
+              Bem-vindo, Jovem Explorador!
+            </h1>
+            
+            <p className="mt-6 text-xl sm:text-2xl font-rounded font-medium text-sky-700 max-w-3xl mx-auto leading-relaxed">
+              Hoje seu passaporte abre as portas para uma aventura incrível.
+            </p>
+            
+            <div className="mt-8 max-w-2xl mx-auto bg-white/60 backdrop-blur-md p-8 rounded-[2.5rem] border-2 border-sky-100 shadow-xl shadow-sky-900/5">
+              <p className="text-lg sm:text-xl text-sky-800 leading-relaxed font-rounded italic">
+                Cada país tem histórias, animais, pessoas, tradições, monumentos, comidas e curiosidades incríveis esperando para serem descobertos.
+              </p>
+              <p className="mt-4 text-lg sm:text-xl text-sky-800 leading-relaxed font-rounded">
+                Escolha um destino no mapa e comece sua jornada pelo mundo.
+                Cada lugar visitado se torna mais uma página no seu diário de explorador.
+              </p>
+              
+              <div className="mt-6 flex flex-col items-center gap-4">
+                <p className="text-xl font-bold text-sky-900 font-rounded">
+                  Você está pronto? A aventura espera por você!
+                </p>
+                
+                <button
+                  onClick={() => document.getElementById('mapa')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="mt-4 group relative inline-flex items-center justify-center px-10 py-5 font-rounded text-2xl font-bold text-white transition-all duration-300 bg-sky-500 rounded-full hover:bg-sky-600 hover:scale-105 hover:shadow-2xl hover:shadow-sky-500/30 active:scale-95"
+                >
+                  Começar a Jornada
+                  <span className="ml-3 group-hover:translate-x-1 transition-transform">→</span>
+                </button>
+              </div>
+            </div>
+            
+            <div className="mt-12 max-w-xl mx-auto">
+              <FichaExplorador />
+            </div>
           </div>
-          <p className="mt-8 font-rounded text-2xl leading-snug text-sky-700 max-w-2xl mx-auto italic">
-            "Sua Grande Jornada Começa Agora! Explore os mistérios e maravilhas do nosso planeta."
-          </p>
         </section>
 
         <div 
