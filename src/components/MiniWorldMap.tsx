@@ -44,8 +44,8 @@ export const MiniWorldMap: React.FC<MiniWorldMapProps> = ({ highlightedContinent
           ))}
         </svg>
       </div>
-      <p className="mt-6 text-sky-600/80 font-rounded text-lg font-bold italic tracking-wide animate-pulse-slow">
-        "Você está explorando esta região do nosso planeta."
+      <p className="mt-6 text-sky-600/80 font-rounded text-lg font-bold italic tracking-wide animate-pulse-slow text-center px-4">
+        "Explore as maravilhas da região selecionada no mapa!"
       </p>
     </div>
   );
