@@ -12,25 +12,39 @@ const COUNTRIES = [
   { id: 'brazil', name: 'Brasil', type: 'Imersivo', flag: '🇧🇷', top: '65%', left: '33%' },
   { id: 'argentina', name: 'Argentina', type: 'Imersivo', flag: '🇦🇷', top: '80%', left: '30%' },
   { id: 'peru', name: 'Peru', type: 'Imersivo', flag: '🇵🇪', top: '62%', left: '26%' },
-  { id: 'portugal', name: 'Portugal', type: 'Imersivo', flag: '🇵🇹', top: '34%', left: '46%' },
-  { id: 'japan', name: 'Japão', type: 'Imersivo', flag: '🇯🇵', top: '36%', left: '85%' },
+  { id: 'chile', name: 'Chile', type: 'Imersivo', flag: '🇨🇱', top: '78%', left: '27%' },
+  { id: 'portugal', name: 'Portugal', type: 'Imersivo', flag: '🇵🇹', top: '34.5%', left: '46.5%' },
+  { id: 'italy', name: 'Itália', type: 'Imersivo', flag: '🇮🇹', top: '35.5%', left: '52.5%' },
+  { id: 'scotland', name: 'Escócia', type: 'Imersivo', flag: '🏴󠁧󠁢󠁳󠁣󠁴󠁿', top: '24%', left: '48.2%' },
   { id: 'egypt', name: 'Egito', type: 'Imersivo', flag: '🇪🇬', top: '42%', left: '56%' },
+  { id: 'morocco', name: 'Marrocos', type: 'Imersivo', flag: '🇲🇦', top: '41%', left: '47%' },
+  { id: 'south-africa', name: 'África do Sul', type: 'Imersivo', flag: '🇿🇦', top: '72%', left: '58%' },
+  { id: 'japan', name: 'Japão', type: 'Imersivo', flag: '🇯🇵', top: '36%', left: '85%' },
+  { id: 'china', name: 'China', type: 'Imersivo', flag: '🇨🇳', top: '38%', left: '78%' },
+  { id: 'thailand', name: 'Tailândia', type: 'Imersivo', flag: '🇹🇭', top: '52%', left: '79%' },
+  { id: 'australia', name: 'Austrália', type: 'Imersivo', flag: '🇦🇺', top: '75%', left: '85%' },
+  { id: 'new-zealand', name: 'Nova Zelândia', type: 'Imersivo', flag: '🇳🇿', top: '85%', left: '92%' },
+  { id: 'fiji', name: 'Fiji', type: 'Imersivo', flag: '🇫🇯', top: '68%', left: '95%' },
+  { id: 'costa-rica', name: 'Costa Rica', type: 'Imersivo', flag: '🇨🇷', top: '51%', left: '23%' },
+  { id: 'panama', name: 'Panamá', type: 'Imersivo', flag: '🇵🇦', top: '53%', left: '24%' },
+  { id: 'guatemala', name: 'Guatemala', type: 'Imersivo', flag: '🇬🇹', top: '47%', left: '21%' },
 ];
 
 // Mapeamento de Cores Vibrantes e Agradáveis para crianças
 const getCountryColor = (pais: any) => {
-  const colors = [
-    '#FF6B6B', // Red
-    '#4ECDC4', // Teal
-    '#FFD93D', // Yellow
-    '#6BCB77', // Green
-    '#4D96FF', // Blue
-    '#FF9F43', // Orange
-    '#A29BFE', // Purple
-    '#FAB1A0'  // Peach
-  ];
-  // Usa o índice de cor do dado original ou o ID para manter consistência
-  return colors[(pais.cor || pais.id.charCodeAt(0)) % colors.length];
+  // Cores Clássicas de Atlas para Continentes
+  const continentColors: Record<number, string> = {
+    1: '#9ED2C6', // Verde Água
+    2: '#F9D923', // Amarelo
+    3: '#EB4747', // Vermelho
+    4: '#ABC9FF', // Azul
+    5: '#FFD384', // Laranja
+    6: '#D67D3E', // Marrom
+    7: '#B1B2FF', // Roxo
+    8: '#A0D995', // Verde
+    9: '#EAEAEA'  // Cinza/Gelo
+  };
+  return continentColors[pais.cor] || '#f3f4f6';
 };
 
 interface WorldMapProps {
@@ -58,9 +72,9 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
   };
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto p-4 flex flex-col items-center">
-      {/* Container do Mapa com Proporção Tradicional para não achatar */}
-      <div className="relative w-full aspect-[21/9] bg-[#e0f2fe] rounded-[2.5rem] border-[12px] border-white shadow-2xl overflow-hidden group">
+    <div className="w-full max-w-[1600px] mx-auto p-4 flex flex-col items-center">
+      {/* Container do Mapa com Proporção Tradicional - Aumentado para melhor visibilidade */}
+      <div className="relative w-full aspect-video bg-[#e0f2fe] rounded-[2.5rem] border-[12px] border-white shadow-2xl overflow-hidden group">
         
         {/* Camada de Papel / Textura Suave */}
         <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-multiply bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]" />
@@ -109,9 +123,9 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
                 onClick={() => handleCountryClick(country)}
               >
                 <div className="relative flex flex-col items-center">
-                  {/* Pin Minimalista (Substitui o Pin grande anterior) */}
-                  <div className={`w-3 h-3 rounded-full border-2 border-white shadow-md transition-all ${
-                    isVisited ? 'bg-yellow-400 scale-125' : 'bg-white/80'
+                  {/* Pin Clássico Refinado */}
+                  <div className={`w-4 h-4 rounded-full border-2 border-white shadow-md transition-all ${
+                    isVisited ? 'bg-yellow-400 scale-125' : 'bg-red-500 shadow-red-200'
                   }`} />
                   
                   {/* Estrela de Conquista Pequena */}
@@ -162,8 +176,8 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
           </div>
         )}
 
-        {/* Rosa dos Ventos - Estilo Clássico e Compacto */}
-        <div className="absolute bottom-6 left-6 w-20 h-20 opacity-80 pointer-events-none z-30 drop-shadow-lg">
+        {/* Rosa dos Ventos - Estilo Clássico Refinado */}
+        <div className="absolute bottom-10 right-10 w-28 h-28 opacity-90 pointer-events-none z-30 drop-shadow-xl">
           <div className="relative w-full h-full flex items-center justify-center">
             {/* Círculo decorativo clássico */}
             <div className="absolute inset-0 rounded-full border border-sky-900/20" />
