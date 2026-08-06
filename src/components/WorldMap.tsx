@@ -40,7 +40,17 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
   const [isFlying, setIsFlying] = useState(false);
 
   const handleCountryClick = (country: any) => {
-    const pais = paises.find(p => p.id === country.id || (country.id === 'gb' && p.id === 'scotland') || (country.id === 'us' && p.id === 'usa') || (country.id === 'br' && p.id === 'brazil') || (country.id === 'ca' && p.id === 'canada') || (country.id === 'mx' && p.id === 'mexico') || (country.id === 'ar' && p.id === 'argentina') || (country.id === 'cl' && p.id === 'chile') || (country.id === 'pt' && p.id === 'portugal') || (country.id === 'it' && p.id === 'italy') || (country.id === 'eg' && p.id === 'egypt') || (country.id === 'ma' && p.id === 'morocco') || (country.id === 'za' && p.id === 'south-africa') || (country.id === 'jp' && p.id === 'japan') || (country.id === 'cn' && p.id === 'china') || (country.id === 'th' && p.id === 'thailand') || (country.id === 'au' && p.id === 'australia') || (country.id === 'nz' && p.id === 'new-zealand') || (country.id === 'fj' && p.id === 'fiji') || (country.id === 'cr' && p.id === 'costa-rica') || (country.id === 'pa' && p.id === 'panama') || (country.id === 'gt' && p.id === 'guatemala'));
+    const idMap: Record<string, string> = {
+      'ca': 'canada', 'us': 'usa', 'mx': 'mexico', 'br': 'brazil', 
+      'ar': 'argentina', 'cl': 'chile', 'pt': 'portugal', 'it': 'italy', 
+      'gb': 'scotland', 'eg': 'egypt', 'ma': 'morocco', 'za': 'south-africa', 
+      'jp': 'japan', 'cn': 'china', 'th': 'thailand', 'au': 'australia', 
+      'nz': 'new-zealand', 'fj': 'fiji', 'cr': 'costa-rica', 'pa': 'panama', 
+      'gt': 'guatemala'
+    };
+    
+    const targetId = idMap[country.id] || country.id;
+    const pais = paises.find(p => p.id === targetId);
     
     if (!pais) return;
 
