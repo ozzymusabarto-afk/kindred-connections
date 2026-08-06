@@ -95,52 +95,42 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
           ))}
         </svg>
 
-        {/* Camada de Interação (Pins) */}
-        <div className="absolute inset-0">
+        {/* Camada de Interação (Pins Simplificados) */}
+        <div className="absolute inset-0 pointer-events-none">
           {COUNTRIES.map((country) => {
             const isVisited = carimbados.includes(country.id);
             return (
               <div
                 key={country.id}
-                className="absolute cursor-pointer transition-all hover:scale-125 z-20 group/pin"
+                className="absolute cursor-pointer transition-all hover:scale-110 z-20 group/pin pointer-events-auto"
                 style={{ top: country.top, left: country.left }}
                 onMouseEnter={() => setHoveredCountryPin(country)}
                 onMouseLeave={() => setHoveredCountryPin(null)}
                 onClick={() => handleCountryClick(country)}
               >
                 <div className="relative flex flex-col items-center">
-                  {/* Sombra do Pin */}
-                  <div className="absolute w-2 h-1 bg-black/20 rounded-full blur-[1px] bottom-0" />
+                  {/* Pin Minimalista (Substitui o Pin grande anterior) */}
+                  <div className={`w-3 h-3 rounded-full border-2 border-white shadow-md transition-all ${
+                    isVisited ? 'bg-yellow-400 scale-125' : 'bg-white/80'
+                  }`} />
                   
-                  {/* Pin Ilustrado */}
-                  <div className={`p-2 rounded-full shadow-lg transition-all transform hover:-translate-y-1 ${
-                    isVisited ? 'bg-yellow-400 text-white' : 'bg-white text-sky-600'
-                  } border-2 border-white`}>
-                    <MapPin className="w-5 h-5 fill-current" />
-                  </div>
-                  
-                  {/* Estrela de Conquista */}
+                  {/* Estrela de Conquista Pequena */}
                   {isVisited && (
-                    <div className="absolute -top-3 -right-3 bg-white rounded-full p-1 shadow-md border-2 border-yellow-400 animate-bounce">
-                      <span className="text-[12px]">⭐</span>
+                    <div className="absolute -top-4 bg-white rounded-full p-0.5 shadow-sm border border-yellow-400">
+                      <span className="text-[8px]">⭐</span>
                     </div>
                   )}
                 </div>
 
                 {/* Tooltip Estilizado */}
                 {hoveredCountryPin?.id === country.id && (
-                  <div className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md p-4 rounded-[1.5rem] shadow-2xl border-4 border-sky-100 min-w-[180px] z-50 animate-in fade-in slide-in-from-bottom-2 duration-300">
-                    <div className="flex flex-col items-center gap-2">
-                      <div className="text-4xl drop-shadow-sm">{country.flag}</div>
-                      <div className="font-display text-xl font-bold text-sky-900">{country.name}</div>
-                      <div className={`text-[10px] px-3 py-1 rounded-full text-white font-black tracking-wider ${
-                        country.type === 'Imersivo' ? 'bg-sky-500' : 'bg-orange-500'
-                      }`}>
-                        {country.type === 'Imersivo' ? 'MISSÃO ESPECIAL' : 'DIÁRIO DE BORDO'}
-                      </div>
+                  <div className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md p-3 rounded-2xl shadow-2xl border-2 border-sky-100 min-w-[140px] z-50 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                    <div className="flex flex-col items-center gap-1">
+                      <div className="text-2xl">{country.flag}</div>
+                      <div className="font-display text-sm font-bold text-sky-900">{country.name}</div>
                     </div>
                     {/* Seta do Tooltip */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45 -mt-2 border-r-4 border-b-4 border-sky-100" />
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-3 h-3 bg-white rotate-45 -mt-1.5 border-r-2 border-b-2 border-sky-100" />
                   </div>
                 )}
               </div>
