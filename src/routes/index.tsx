@@ -87,7 +87,7 @@ function MapaMundi() {
             Mapa do Explorador
           </h1>
           <p className="mt-6 font-rounded text-2xl leading-snug text-sky-700 max-w-2xl mx-auto">
-            Uma jornada educativa imersiva para crianças explorarem o mundo!
+            Sua Grande Jornada Começa Agora! Explore os mistérios e maravilhas do nosso planeta.
           </p>
         </section>
 
