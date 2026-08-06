@@ -6,7 +6,7 @@ import { WORLD_COUNTRIES, WORLD_VIEWBOX } from '@/data/worldMap';
 
 // Lista de Países Cadastrados no App - IDs que possuem conteúdo imersivo
 const REGISTERED_COUNTRY_IDS = [
-  'canada', 'usa', 'mexico', 'brazil', 'argentina', 'peru', 'chile', 
+  'canada', 'usa', 'mexico', 'brazil', 'argentina', 'chile', 
   'portugal', 'italy', 'scotland', 'egypt', 'morocco', 'south-africa', 
   'japan', 'china', 'thailand', 'australia', 'new-zealand', 'fiji', 
   'costa-rica', 'panama', 'guatemala'
