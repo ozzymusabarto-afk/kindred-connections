@@ -83,9 +83,9 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
               <path
                 key={country.id}
                 d={country.d}
-                fill={isHovered ? '#D8EEFF' : (isVisited ? '#F0F9FF' : '#F9FBFF')}
-                stroke={isHovered ? '#38BDF8' : '#E2E8F0'}
-                strokeWidth={isHovered ? '2' : '1'}
+                fill={isHovered ? '#D1E9FF' : (isRegistered ? '#F0F9FF' : '#F9FBFF')}
+                stroke={isHovered ? '#38BDF8' : (isRegistered ? '#BAE6FD' : '#E2E8F0')}
+                strokeWidth={isHovered ? '2' : '1.5'}
                 className={`transition-all duration-300 ${isRegistered ? 'cursor-pointer' : ''}`}
                 onMouseEnter={() => isRegistered && setHoveredCountryPin(country)}
                 onMouseLeave={() => isRegistered && setHoveredCountryPin(null)}
