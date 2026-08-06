@@ -78,20 +78,50 @@ function MapaMundi() {
     <div className="min-h-screen">
       <SiteHeader ativo="mapa" />
 
-      <main className="mx-auto max-w-6xl px-5 py-10">
-        <section className="max-w-4xl text-center mx-auto mb-12">
-          <p className="text-xs uppercase tracking-[0.28em] text-sky-600/70 font-bold">
-            Expedição: Exploradores do Mundo
-          </p>
-          <h1 className="mt-4 text-5xl leading-tight text-sky-900 sm:text-6xl font-rounded font-bold">
-            Mapa do Explorador
-          </h1>
-          <div className="mt-8 max-w-xl mx-auto">
-            <FichaExplorador />
+      <main>
+        {/* Seção Hero - Introdução Mágica */}
+        <section className="relative overflow-hidden pt-20 pb-12 sm:pt-32 sm:pb-16 bg-gradient-to-b from-sky-50 to-white">
+          <div className="mx-auto max-w-6xl px-5 text-center">
+            <div className="inline-block animate-bounce-slow mb-6">
+              <span className="text-6xl sm:text-7xl drop-shadow-lg">🌍</span>
+            </div>
+            
+            <h1 className="text-4xl sm:text-6xl font-rounded font-bold text-sky-900 leading-tight tracking-tight">
+              Bem-vindo, Jovem Explorador!
+            </h1>
+            
+            <p className="mt-6 text-xl sm:text-2xl font-rounded font-medium text-sky-700 max-w-3xl mx-auto leading-relaxed">
+              Hoje seu passaporte abre as portas para uma aventura incrível.
+            </p>
+            
+            <div className="mt-8 max-w-2xl mx-auto bg-white/60 backdrop-blur-md p-8 rounded-[2.5rem] border-2 border-sky-100 shadow-xl shadow-sky-900/5">
+              <p className="text-lg sm:text-xl text-sky-800 leading-relaxed font-rounded italic">
+                Cada país tem histórias, animais, pessoas, tradições, monumentos, comidas e curiosidades incríveis esperando para serem descobertos.
+              </p>
+              <p className="mt-4 text-lg sm:text-xl text-sky-800 leading-relaxed font-rounded">
+                Escolha um destino no mapa e comece sua jornada pelo mundo.
+                Cada lugar visitado se torna mais uma página no seu diário de explorador.
+              </p>
+              
+              <div className="mt-6 flex flex-col items-center gap-4">
+                <p className="text-xl font-bold text-sky-900 font-rounded">
+                  Você está pronto? A aventura espera por você!
+                </p>
+                
+                <button
+                  onClick={() => document.getElementById('mapa')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="mt-4 group relative inline-flex items-center justify-center px-10 py-5 font-rounded text-2xl font-bold text-white transition-all duration-300 bg-sky-500 rounded-full hover:bg-sky-600 hover:scale-105 hover:shadow-2xl hover:shadow-sky-500/30 active:scale-95"
+                >
+                  Começar a Jornada
+                  <span className="ml-3 group-hover:translate-x-1 transition-transform">→</span>
+                </button>
+              </div>
+            </div>
+            
+            <div className="mt-12 max-w-xl mx-auto">
+              <FichaExplorador />
+            </div>
           </div>
-          <p className="mt-8 font-rounded text-2xl leading-snug text-sky-700 max-w-2xl mx-auto italic">
-            "Sua Grande Jornada Começa Agora! Explore os mistérios e maravilhas do nosso planeta."
-          </p>
         </section>
 
         <div 
@@ -118,36 +148,40 @@ function MapaMundi() {
           )}
         </div>
 
-        <section id="escolha" className="mt-16 scroll-mt-24 bg-white/50 p-8 rounded-[2rem] border-2 border-brass/10 backdrop-blur-sm">
-          <h2 className="text-3xl font-display text-brass mb-8 text-center italic">Para onde vamos explorar hoje?</h2>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button
-              onClick={() => setContinenteAtivo("todos")}
-              className={`rounded-full px-8 py-3 text-lg font-display transition-all shadow-sm ${
-                continenteAtivo === "todos"
-                  ? "bg-brass text-white shadow-brass/20 scale-105"
-                  : "bg-white border-2 border-brass/20 text-foreground hover:border-brass hover:bg-brass/5"
-              }`}
-            >
-              🌎 Todos
-            </button>
-            {continentes.map((c) => (
+        <section id="escolha" className="mt-20 px-5 max-w-6xl mx-auto">
+          <div className="bg-white/70 backdrop-blur-md p-10 rounded-[3rem] border-2 border-sky-100 shadow-xl shadow-sky-900/5">
+            <h2 className="text-3xl font-rounded font-bold text-sky-900 mb-8 text-center italic">
+              Para onde vamos explorar hoje?
+            </h2>
+            <div className="flex flex-wrap gap-4 justify-center">
               <button
-                key={c.id}
-                onClick={() => setContinenteAtivo(c.id)}
-                className={`rounded-full px-8 py-3 text-lg font-display transition-all shadow-sm ${
-                  continenteAtivo === c.id
-                    ? "bg-brass text-white shadow-brass/20 scale-105"
-                    : "bg-white border-2 border-brass/20 text-foreground hover:border-brass hover:bg-brass/5"
+                onClick={() => setContinenteAtivo("todos")}
+                className={`rounded-full px-10 py-4 text-xl font-rounded font-bold transition-all shadow-sm ${
+                  continenteAtivo === "todos"
+                    ? "bg-sky-500 text-white shadow-sky-200 scale-105"
+                    : "bg-white border-2 border-sky-100 text-sky-700 hover:border-sky-300 hover:bg-sky-50"
                 }`}
               >
-                {c.nome}
+                🌎 Todos
               </button>
-            ))}
+              {continentes.map((c) => (
+                <button
+                  key={c.id}
+                  onClick={() => setContinenteAtivo(c.id)}
+                  className={`rounded-full px-10 py-4 text-xl font-rounded font-bold transition-all shadow-sm ${
+                    continenteAtivo === c.id
+                      ? "bg-sky-500 text-white shadow-sky-200 scale-105"
+                      : "bg-white border-2 border-sky-100 text-sky-700 hover:border-sky-300 hover:bg-sky-50"
+                  }`}
+                >
+                  {c.nome}
+                </button>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section id="diarios" className="mt-16 grid gap-8 scroll-mt-24 sm:grid-cols-2 lg:grid-cols-3">
+        <section id="diarios" className="mt-20 px-5 pb-20 max-w-6xl mx-auto grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {paisesVisiveis.map((pais: any) => (
             <button
               key={pais.id}
@@ -157,57 +191,64 @@ function MapaMundi() {
               onClick={() =>
                 navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
               }
-              className="group relative overflow-hidden rounded-[2rem] border-4 border-white bg-white/70 text-left transition-all hover:border-brass hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-brass/40 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+              className="group relative overflow-hidden rounded-[2.5rem] border-4 border-white bg-white/80 text-left transition-all hover:scale-[1.03] hover:shadow-2xl hover:shadow-sky-900/10 focus:outline-none focus:ring-4 focus:ring-sky-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
             >
               {visitados.has(pais.id) && (
-                <span className="absolute right-3 top-3 z-10 drop-shadow">
+                <span className="absolute right-4 top-4 z-10 drop-shadow-lg">
                   <StarStamp
                     bandeira={pais.bandeira}
-                    tamanho={46}
+                    tamanho={54}
                     titulo={`${pais.nome} já explorado`}
                   />
                 </span>
               )}
-              <div className="h-44 w-full overflow-hidden bg-accent/60">
+              <div className="h-56 w-full overflow-hidden bg-sky-50">
                 {pais.bandeira_url ? (
                   <img
                     src={pais.bandeira_url}
                     alt={`Bandeira do ${pais.nome}`}
                     loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                 ) : (
                   <span
                     aria-hidden
-                    className="flex h-full w-full items-center justify-center text-6xl"
+                    className="flex h-full w-full items-center justify-center text-7xl"
                   >
                     {pais.bandeira}
                   </span>
                 )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-2">
-                  <p className="font-display text-2xl text-foreground group-hover:text-brass transition-colors">
+              <div className="p-8">
+                <div className="flex items-center justify-between mb-3">
+                  <p className="font-rounded text-3xl font-bold text-sky-900 group-hover:text-sky-500 transition-colors">
                     {pais.nome}
                   </p>
-                  {visitados.has(pais.id) && <span className="text-sun text-2xl animate-bounce">⭐</span>}
+                  {visitados.has(pais.id) && <span className="text-3xl animate-bounce">⭐</span>}
                 </div>
                 {pais.capital && (
-                  <p className="mb-3 text-sm font-medium tracking-wide text-brass/60">
+                  <p className="mb-4 text-base font-bold tracking-wide text-sky-400 uppercase">
                     📍 {pais.capital}
                   </p>
                 )}
-                <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground italic">
+                <p className="line-clamp-2 text-lg leading-relaxed text-sky-700/80 font-rounded italic">
                   "{pais.resumo_geografico}"
                 </p>
+                <div className="mt-6 flex items-center text-sky-500 font-bold font-rounded">
+                  <span>Ver Diário</span>
+                  <span className="ml-2 group-hover:translate-x-2 transition-transform">→</span>
+                </div>
               </div>
             </button>
           ))}
           {paisesVisiveis.length === 0 && (
-            <p className="text-sm text-muted-foreground">
-              Este continente ainda está sendo mapeado.
-            </p>
+            <div className="col-span-full py-20 text-center">
+              <p className="text-2xl font-rounded text-sky-400 italic">
+                Este continente ainda está sendo mapeado pelos nossos exploradores...
+              </p>
+            </div>
           )}
         </section>
       </main>
