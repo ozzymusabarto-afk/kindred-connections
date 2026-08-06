@@ -6,10 +6,10 @@ import { WORLD_COUNTRIES, WORLD_VIEWBOX } from '@/data/worldMap';
 
 // Lista de Países Cadastrados no App - IDs que possuem conteúdo imersivo
 const REGISTERED_COUNTRY_IDS = [
-  'canada', 'usa', 'mexico', 'brazil', 'argentina', 'chile', 
-  'portugal', 'italy', 'gb', 'egypt', 'morocco', 'south-africa', 
-  'japan', 'china', 'thailand', 'australia', 'new-zealand', 'fiji', 
-  'costa-rica', 'panama', 'guatemala'
+  'ca', 'us', 'mx', 'br', 'ar', 'cl', 
+  'pt', 'it', 'gb', 'eg', 'ma', 'za', 
+  'jp', 'cn', 'th', 'au', 'nz', 'fj', 
+  'cr', 'pa', 'gt'
 ];
 
 // Mapeamento de Cores Vibrantes e Agradáveis para crianças
@@ -40,7 +40,7 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
   const [isFlying, setIsFlying] = useState(false);
 
   const handleCountryClick = (country: any) => {
-    const pais = paises.find(p => p.id === country.id || (country.id === 'gb' && p.id === 'scotland'));
+    const isVisited = carimbados.includes(country.id) || (country.id === 'gb' && carimbados.includes('scotland'));
     if (!pais) return;
 
     setSelectedCountry(country);
@@ -147,7 +147,7 @@ export const WorldMap = ({ paises, carimbados, onSelecionar }: WorldMapProps) =>
             >
               <div className="flex flex-col items-center gap-1">
                 <div className="text-2xl">
-                  {paises.find(p => p.id === hoveredCountryPin.id)?.bandeira || "📍"}
+                  {paises.find(p => p.id === hoveredCountryPin.id || (hoveredCountryPin.id === 'gb' && p.id === 'scotland'))?.bandeira || "📍"}
                 </div>
                 <div className="font-display text-sm font-bold text-sky-900">{hoveredCountryPin.nome}</div>
               </div>
