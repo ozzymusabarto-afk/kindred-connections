@@ -79,40 +79,16 @@ function MapaMundi() {
       <SiteHeader ativo="mapa" />
 
       <main className="mx-auto max-w-6xl px-5 py-10">
-        <section className="max-w-3xl">
-          <p className="text-xs uppercase tracking-[0.28em] text-muted-foreground">
-            Diário de bordo do explorador
+        <section className="max-w-4xl text-center mx-auto mb-12">
+          <p className="text-xs uppercase tracking-[0.28em] text-brass/70 font-bold">
+            Expedição: Exploradores do Mundo
           </p>
-          <h1 className="mt-3 text-4xl leading-tight text-foreground sm:text-5xl">
+          <h1 className="mt-4 text-5xl leading-tight text-foreground sm:text-6xl font-display">
             Sua Grande Jornada Começa Agora!
           </h1>
-          <p className="mt-3 font-display text-xl leading-snug text-brass">
-            Preparado para explorar o nosso planeta? Aqui, cada país reserva uma descoberta única:
+          <p className="mt-6 font-display text-2xl leading-snug text-brass max-w-2xl mx-auto">
+            Abra seu atlas e escolha um destino para começar a aventura!
           </p>
-          <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
-            <p>
-              ✈️ <strong>Viagens ao Vivo:</strong> Entre nos Países Imersivos para sentir a experiência completa de um viajante — com fotos, sons reais, rotas de transporte e refeições típicas!
-            </p>
-            <p>
-              📑 <strong>Cadernos de Campo:</strong> Abra os Diários de Bordo para investigar os segredos dos demais países através de histórias curtas, fotos marcantes e registros de viagem!
-            </p>
-          </div>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a 
-              href="#mapa" 
-              className="inline-flex items-center gap-2 rounded-full border-2 border-brass bg-brass px-6 py-3 font-display text-lg text-white shadow-md transition-transform hover:scale-105"
-            >
-              <span aria-hidden>🧭</span>
-              Ir para o Mapa
-            </a>
-            <a 
-              href="#diarios" 
-              className="inline-flex items-center gap-2 rounded-full border-2 border-brass/40 bg-card px-6 py-3 font-display text-lg text-foreground shadow-sm transition-transform hover:scale-105"
-            >
-              <span aria-hidden>📑</span>
-              Ver Diários
-            </a>
-          </div>
         </section>
 
         <div 
