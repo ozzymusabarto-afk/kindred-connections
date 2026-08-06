@@ -144,7 +144,7 @@ function MapaMundi() {
           </div>
         </section>
 
-        <section id="diarios" className="mt-10 grid gap-4 scroll-mt-24 sm:grid-cols-2 lg:grid-cols-3">
+        <section id="diarios" className="mt-16 grid gap-8 scroll-mt-24 sm:grid-cols-2 lg:grid-cols-3">
           {paisesVisiveis.map((pais: any) => (
             <button
               key={pais.id}
@@ -154,7 +154,7 @@ function MapaMundi() {
               onClick={() =>
                 navigate({ to: "/pais/$id", params: { id: pais.id }, search: { tela: undefined, dia: undefined } })
               }
-              className="group relative overflow-hidden rounded-md border border-border bg-card text-left transition-all hover:border-brass hover:shadow-md focus:outline-none focus:ring-4 focus:ring-brass/40 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group relative overflow-hidden rounded-[2rem] border-4 border-white bg-white/70 text-left transition-all hover:border-brass hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-brass/40 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
             >
               {visitados.has(pais.id) && (
                 <span className="absolute right-3 top-3 z-10 drop-shadow">
