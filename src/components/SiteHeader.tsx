@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 
 interface SiteHeaderProps {
-  ativo?: "mapa" | "passaporte" | "comparar" | "album";
+  ativo?: "mapa" | "passaporte" | "comparar" | "album" | "cadastro";
 }
 
 
@@ -37,7 +37,9 @@ export function SiteHeader({ ativo }: SiteHeaderProps) {
           <Link to="/passaporte" className={link("passaporte")} aria-current={ativo === "passaporte" ? "page" : undefined}>
             Passaporte
           </Link>
-
+          <Link to="/cadastro" className={link("cadastro")} aria-current={ativo === "cadastro" ? "page" : undefined}>
+            Cadastro
+          </Link>
         </nav>
       </div>
     </header>
