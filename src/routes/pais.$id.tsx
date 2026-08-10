@@ -145,6 +145,8 @@ function SimuladorViagem() {
   }, [dia.dia, pronto]);
 
   const ir = (proxima: TelaId, novoDia = dia.dia) => {
+    // Removido som de avião das páginas individuais conforme solicitado.
+    // O som de decolagem agora ocorre apenas na Home.
     tocar(proxima === "carimbo" ? "carimbo" : "passo");
     void navigate({
       params: { id: pais.id },
