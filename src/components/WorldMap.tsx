@@ -208,65 +208,60 @@ export const WorldMap = () => {
         
         /* Pintura direta dos caminhos do SVG */
         .world-svg-container path {
-          fill: #2A9D8F; /* Cor padrão terra viva */
+          fill: #E0F2FE; /* Cor de base neutra para países sem ID específico */
           stroke: #ffffff;
           stroke-width: 0.5px;
-          transition: fill 0.3s ease;
+          transition: all 0.3s ease;
         }
 
-        /* Cores vibrantes por continente via IDs conhecidos do SVG da Wikimedia */
+        /* 
+           Intercalação de Cores (Paleta Infantil de 5 cores)
+           Aplicada via seletores de atributo para abranger o máximo de países do SVG da Wikimedia
+        */
         
-        /* América do Norte */
-        .world-svg-container path[id*="canada"],
-        .world-svg-container path[id*="usa"],
-        .world-svg-container path[id*="mexico"],
-        .world-svg-container path[id*="greenland"],
-        .world-svg-container path[id*="cuba"] { fill: #FFB703 !important; }
+        /* Grupo Amarelo (#FFD166) */
+        .world-svg-container path[id^="a"], .world-svg-container path[id^="f"], .world-svg-container path[id^="k"], .world-svg-container path[id^="p"] { fill: #FFD166; }
+        
+        /* Grupo Laranja (#F4A261) */
+        .world-svg-container path[id^="b"], .world-svg-container path[id^="g"], .world-svg-container path[id^="l"], .world-svg-container path[id^="q"] { fill: #F4A261; }
+        
+        /* Grupo Coral/Rosa (#E76F51) */
+        .world-svg-container path[id^="c"], .world-svg-container path[id^="h"], .world-svg-container path[id^="m"], .world-svg-container path[id^="r"] { fill: #E76F51; }
+        
+        /* Grupo Verde-Turquesa (#2A9D8F) */
+        .world-svg-container path[id^="d"], .world-svg-container path[id^="i"], .world-svg-container path[id^="n"], .world-svg-container path[id^="s"] { fill: #2A9D8F; }
+        
+        /* Grupo Azul-Céu (#4EA8DE) */
+        .world-svg-container path[id^="e"], .world-svg-container path[id^="j"], .world-svg-container path[id^="o"], .world-svg-container path[id^="t"], .world-svg-container path[id^="z"] { fill: #4EA8DE; }
 
-        /* América do Sul */
-        .world-svg-container path[id*="brazil"],
-        .world-svg-container path[id*="argentina"],
-        .world-svg-container path[id*="chile"],
-        .world-svg-container path[id*="peru"],
-        .world-svg-container path[id*="colombia"] { fill: #2A9D8F !important; }
+        /* Destaque Visual nos Países Cadastrados (Glow e Cores Vibrantes) */
+        .world-svg-container path[id*="brazil"] { fill: #4EA8DE !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="usa"] { fill: #4EA8DE !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="canada"] { fill: #FFD166 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="mexico"] { fill: #FFD166 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="portugal"] { fill: #2A9D8F !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="italy"] { fill: #E76F51 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="united kingdom"] { fill: #F4A261 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="argentina"] { fill: #2A9D8F !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="chile"] { fill: #E76F51 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="egypt"] { fill: #2A9D8F !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="morocco"] { fill: #4EA8DE !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="south africa"] { fill: #4EA8DE !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="japan"] { fill: #E76F51 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="china"] { fill: #FFD166 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="thailand"] { fill: #E76F51 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="australia"] { fill: #F4A261 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="new zealand"] { fill: #E76F51 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="fiji"] { fill: #2A9D8F !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="costa rica"] { fill: #FFD166 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="panama"] { fill: #E76F51 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="guatemala"] { fill: #FFD166 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
 
-        /* Europa */
-        .world-svg-container path[id*="france"],
-        .world-svg-container path[id*="germany"],
-        .world-svg-container path[id*="italy"],
-        .world-svg-container path[id*="spain"],
-        .world-svg-container path[id*="portugal"],
-        .world-svg-container path[id*="united kingdom"],
-        .world-svg-container path[id*="norway"] { fill: #E76F51 !important; }
-
-        /* África */
-        .world-svg-container path[id*="algeria"],
-        .world-svg-container path[id*="egypt"],
-        .world-svg-container path[id*="libya"],
-        .world-svg-container path[id*="nigeria"],
-        .world-svg-container path[id*="south africa"],
-        .world-svg-container path[id*="morocco"] { fill: #F4A261 !important; }
-
-        /* Ásia */
-        .world-svg-container path[id*="china"],
-        .world-svg-container path[id*="russia"],
-        .world-svg-container path[id*="india"],
-        .world-svg-container path[id*="kazakhstan"],
-        .world-svg-container path[id*="japan"],
-        .world-svg-container path[id*="thailand"] { fill: #E07A5F !important; }
-
-        /* Oceania */
-        .world-svg-container path[id*="australia"],
-        .world-svg-container path[id*="new zealand"],
-        .world-svg-container path[id*="papua new guinea"],
-        .world-svg-container path[id*="fiji"] { fill: #4EA8DE !important; }
-
-        /* Antártida */
         .world-svg-container path[id*="antarctica"] { fill: #E0E1DD !important; }
 
         .world-svg-container path:hover {
           fill: #FFD166 !important;
-          filter: brightness(1.1);
+          filter: brightness(1.2) drop-shadow(0 0 5px rgba(255,255,255,0.5)) !important;
         }
 
         .animate-spin-slow {
