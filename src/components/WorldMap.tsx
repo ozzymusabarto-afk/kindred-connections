@@ -238,7 +238,7 @@ export const WorldMap = () => {
 
         /* Destaque Visual nos Países Cadastrados (Glow e Cores Vibrantes) */
         .world-svg-container path[id*="brazil"] { fill: #4EA8DE !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
-        .world-svg-container path[id*="usa"] { fill: #4EA8DE !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="usa"], .world-svg-container path[id*="united states"] { fill: #4EA8DE !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
         .world-svg-container path[id*="canada"] { fill: #FFD166 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
         .world-svg-container path[id*="mexico"] { fill: #FFD166 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
         .world-svg-container path[id*="portugal"] { fill: #2A9D8F !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
