@@ -76,9 +76,31 @@ export function tocar(efeito: EfeitoSonoro) {
       break;
     case "decolagem":
       try {
-        const audio = new Audio('https://actions.google.com/sounds/v1/transportation/airplane_takeoff.ogg');
-        audio.volume = 0.3;
-        audio.play().catch(() => {});
+        const takeoff = new Audio('https://actions.google.com/sounds/v1/transportation/airplane_takeoff.ogg');
+        takeoff.volume = 0.3;
+        void takeoff.play().catch(() => {});
+        
+        // Som de voo contínuo (loop) após um pequeno delay para a decolagem
+        setTimeout(() => {
+          if (somLigado()) {
+            const flight = new Audio('https://actions.google.com/sounds/v1/transportation/airplane_cabin_hum.ogg');
+            flight.volume = 0.15;
+            flight.loop = true;
+            void flight.play().catch(() => {});
+            
+            // Para o som de voo após 5 segundos (tempo da transição/animação)
+            setTimeout(() => {
+              const fadeOut = setInterval(() => {
+                if (flight.volume > 0.02) {
+                  flight.volume -= 0.02;
+                } else {
+                  flight.pause();
+                  clearInterval(fadeOut);
+                }
+              }, 50);
+            }, 5000);
+          }
+        }, 1500);
       } catch(e) {}
       break;
   }
