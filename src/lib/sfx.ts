@@ -54,7 +54,7 @@ function tocarNota(freq: number, inicio: number, duracao: number, volume = 0.06)
   osc.stop(t + duracao + 0.05);
 }
 
-export type EfeitoSonoro = "passo" | "lupa" | "carimbo" | "dia";
+export type EfeitoSonoro = "passo" | "lupa" | "carimbo" | "dia" | "decolagem";
 
 export function tocar(efeito: EfeitoSonoro) {
   if (!somLigado()) return;
@@ -73,6 +73,13 @@ export function tocar(efeito: EfeitoSonoro) {
       [523.25, 659.25, 783.99].forEach((f, i) =>
         tocarNota(f, i * 0.11, 0.5, 0.05),
       );
+      break;
+    case "decolagem":
+      try {
+        const audio = new Audio('https://actions.google.com/sounds/v1/transportation/airplane_takeoff.ogg');
+        audio.volume = 0.3;
+        audio.play().catch(() => {});
+      } catch(e) {}
       break;
   }
 }

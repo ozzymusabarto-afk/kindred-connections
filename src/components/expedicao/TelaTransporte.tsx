@@ -59,7 +59,7 @@ export function TelaTransporte({ dia, onAvancar, onVoltar }: Props) {
       {transporte?.descricao && (
         <p className="text-sm leading-relaxed text-muted-foreground">{transporte.descricao}</p>
       )}
-      <BotaoSom som={transporte?.som} rotulo="Ouça o som da viagem" />
+      
 
       <NotaComparativaBrasil nota={dia.notas_brasil?.transporte} />
 

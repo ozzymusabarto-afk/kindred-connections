@@ -5,6 +5,7 @@ import { CompassButton } from "@/components/CompassButton";
 import { SiteHeader } from "@/components/SiteHeader";
 import { StarStamp } from "@/components/StarStamp";
 import { FichaExplorador } from "@/components/FichaExplorador";
+import { Volume2, VolumeX } from "lucide-react";
 import { continentes, paises } from "@/data/countries";
 import { usePassport } from "@/hooks/usePassport";
 import type { ContinenteId } from "@/data/types";
@@ -36,6 +37,21 @@ function MapaMundi() {
     }
     return "todos";
   });
+  const [somAtivo, setSomAtivo] = useState(true);
+  
+  useEffect(() => {
+    import('@/lib/sfx').then(m => setSomAtivo(m.somLigado()));
+  }, []);
+
+  const toggleSom = () => {
+    const novoEstado = !somAtivo;
+    setSomAtivo(novoEstado);
+    import('@/lib/sfx').then(m => m.definirSom(novoEstado));
+    if (!novoEstado) {
+      import('@/lib/ambiente').then(m => m.pararAmbiente());
+    }
+  };
+
   const { carimbos } = usePassport();
   const mapaRef = useRef<HTMLDivElement>(null);
   
@@ -82,6 +98,21 @@ function MapaMundi() {
       <main>
         {/* Seção Hero - Introdução Mágica */}
         <section className="relative overflow-hidden pt-20 pb-12 sm:pt-32 sm:pb-16 bg-gradient-to-b from-sky-50 to-white">
+          {/* Botão de Som em Destaque */}
+          <div className="absolute top-8 right-8 z-10">
+            <button
+              onClick={toggleSom}
+              className={`flex items-center gap-3 px-6 py-3 rounded-full font-rounded font-bold text-lg shadow-lg transition-all hover:scale-105 ${
+                somAtivo 
+                  ? "bg-sky-500 text-white" 
+                  : "bg-white text-sky-500 border-2 border-sky-500"
+              }`}
+            >
+              {somAtivo ? <Volume2 className="w-6 h-6" /> : <VolumeX className="w-6 h-6" />}
+              <span>🔊 Som da Viagem: {somAtivo ? "LIGADO" : "DESLIGADO"}</span>
+            </button>
+          </div>
+
           <div className="mx-auto max-w-6xl px-5 text-center">
             <div className="inline-block animate-bounce-slow mb-6">
               <span className="text-6xl sm:text-7xl drop-shadow-lg">🌍</span>
@@ -110,7 +141,10 @@ function MapaMundi() {
                 </p>
                 
                 <button
-                  onClick={() => mapaRef.current?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => {
+                    import('@/lib/sfx').then(m => m.tocar('decolagem'));
+                    mapaRef.current?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className="mt-4 group relative inline-flex items-center justify-center px-12 py-6 font-rounded text-2xl font-bold text-white transition-all duration-500 bg-sky-500 rounded-full hover:bg-sky-600 hover:scale-105 hover:shadow-[0_20px_40px_-10px_rgba(14,165,233,0.4)] active:scale-95 shadow-xl shadow-sky-500/20"
                 >
                   Começar a Jornada
