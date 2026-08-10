@@ -27,8 +27,8 @@ export function BoxPedagogico({ pais, dia }: Props) {
             <span className="text-sm font-bold uppercase tracking-wider">Como se diz Olá</span>
           </div>
           <p className="text-sm text-sky-900/80 leading-relaxed">
-            Neste país, as pessoas falam <span className="font-bold text-sky-700">{pais.chegada.idioma}</span>. 
-            Uma forma divertida de cumprimentar é dizendo "{pais.chegada.fala_piloto_original ? pais.chegada.fala_piloto_original.split('!')[0] : 'Olá'}!".
+            Neste país, as pessoas falam <span className="font-bold text-sky-700">{pais.chegada?.idioma ?? "a língua local"}</span>. 
+            Uma forma divertida de cumprimentar é dizendo "{pais.chegada?.fala_piloto_original ? pais.chegada.fala_piloto_original.split('!')[0] : 'Olá'}!".
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export function BoxPedagogico({ pais, dia }: Props) {
             <span className="text-sm font-bold uppercase tracking-wider">Curiosidade</span>
           </div>
           <p className="text-sm text-sky-900/80 leading-relaxed">
-            {pais.resumo_geografico.split('.')[0]}. Você sabia que o fuso horário aqui é {pais.chegada.fuso_horario}?
+            {pais.resumo_geografico.split('.')[0]}. Você sabia que o fuso horário aqui é {pais.chegada?.fuso_horario ?? "diferente do nosso"}?
           </p>
         </div>
 
@@ -62,10 +62,11 @@ export function BoxPedagogico({ pais, dia }: Props) {
             <span className="text-sm font-bold uppercase tracking-wider">Som do País</span>
           </div>
           <div className="pt-1">
-            <BotaoSom 
-              som={pais.chegada.som} 
-              rotulo="O Som do País" 
-            />
+            {pais.chegada?.som ? (
+              <BotaoSom som={pais.chegada.som} rotulo="O Som do País" />
+            ) : (
+              <p className="text-sm text-sky-900/60">Som em breve!</p>
+            )}
           </div>
         </div>
       </div>
