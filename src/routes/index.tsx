@@ -130,13 +130,7 @@ function MapaMundi() {
           className="mt-6 scroll-mt-24 focus-within:ring-4 focus-within:ring-brass/30 rounded-3xl transition-all relative"
           aria-label="Mapa do mundo para escolher um destino"
         >
-          {/* Dica de Acessibilidade */}
-          <div className="absolute top-4 left-4 z-20 pointer-events-none">
-            <div className="bg-white/90 backdrop-blur-sm border border-sky-100 rounded-lg px-4 py-2 shadow-sm text-sky-800 text-sm font-medium animate-fade-in sm:flex items-center gap-2 hidden">
-              <span className="text-lg">⌨️</span>
-              Dica: Use <kbd className="bg-sky-50 px-1.5 py-0.5 rounded border border-sky-200 text-xs font-mono">Tab</kbd> para navegar e <kbd className="bg-sky-50 px-1.5 py-0.5 rounded border border-sky-200 text-xs font-mono">Enter</kbd> para viajar!
-            </div>
-          </div>
+          {/* Dica de Acessibilidade removida conforme solicitado */}
 
           {bloqueado ? (
             <div className="flex flex-col items-center justify-center rounded-3xl border-4 border-dashed border-destructive/30 bg-destructive/5 p-12 text-center">
