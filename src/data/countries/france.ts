@@ -14,12 +14,12 @@ export const france: Pais = {
   bandeira: "🇫🇷",
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1280px-Flag_of_France.svg.png",
   capital: "Paris",
-  coordenadas: { x: 650, y: 390 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques.jpg/1280px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques.jpg",
+  coordenadas: { x: 48, y: 32 },
+  imagem_capa: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=1280",
   resumo_geografico: "A terra da arte, da moda e da gastronomia. Da luz de Paris aos vinhedos de Bordeaux, a França é um ícone de sofisticação e história.",
   
   chegada: {
-    imagem_url: "https://images.unsplash.com/photo-1431274172761-fca41d93e114?auto=format&fit=crop&q=80&w=1280",
+    imagem_url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=1280",
     som: {
       url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
       legenda: "Pouso no Aeroporto Charles de Gaulle, Paris",

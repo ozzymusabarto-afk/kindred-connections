@@ -15,7 +15,7 @@ export const brasil: Pais = {
   bandeira: "🇧🇷",
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/1280px-Flag_of_Brazil.svg.png",
   capital: "Brasília",
-  coordenadas: { x: 380, y: 550 },
+  coordenadas: { x: 31, y: 65 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Corcovado_Christ_the_Redeemer_Rio_de_Janeiro_Brazil.jpg/1280px-Corcovado_Christ_the_Redeemer_Rio_de_Janeiro_Brazil.jpg",
   credito: "Wikimedia Commons",
   resumo_geografico: "O maior país da América Latina, ocupando quase metade do continente. O Brasil é um gigante tropical, berço da maior floresta e do maior rio do mundo (o Amazonas). Suas paisagens vão das praias paradisíacas às serras frias do sul, passando por pantanais e cerrados. É um país de povo alegre, cores vibrantes e uma mistura cultural única que se reflete na música, na comida e na hospitalidade.",

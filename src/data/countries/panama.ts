@@ -9,7 +9,7 @@ export const panama: Pais = {
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/1280px-Flag_of_Panama.svg.png",
   capital: "Cidade do Panamá",
   coordenadas: { x: 300, y: 480 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Panama_Canal_Miraflores_Locks.jpg/1280px-Panama_Canal_Miraflores_Locks.jpg",
+  imagem_capa: "https://images.unsplash.com/photo-1549466601-52467d16560b?auto=format&fit=crop&q=80&w=1280",
   credito: "Wikimedia Commons",
   resumo_geografico: "Onde dois oceanos se encontram! O Panamá é famoso pelo seu Canal, que conecta o Pacífico ao Atlântico, mudando a história da navegação mundial. Além disso, é um país com cidades modernas, ilhas paradisíacas e uma rica herança de povos indígenas.",
 

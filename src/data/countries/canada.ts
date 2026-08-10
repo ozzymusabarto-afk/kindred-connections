@@ -19,7 +19,7 @@ export const canada: Pais = {
   bandeira_url:
     "/__l5e/assets-v1/b161b340-948a-4ca5-9284-d5ed693dabc1/bandeira-ca.png",
   capital: "Ottawa",
-  coordenadas: { x: 770, y: 203 },
+  coordenadas: { x: 18, y: 22 },
   imagem_capa:
     "/__l5e/assets-v1/25771909-b984-4cc7-8286-1e8a74061b4f/ca-d4-obs.jpg",
   credito: "Adam Bishop / CC BY-SA 4.0",

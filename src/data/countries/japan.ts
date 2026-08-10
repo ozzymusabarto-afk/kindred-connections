@@ -14,8 +14,8 @@ export const japao: Pais = {
   bandeira: "🇯🇵",
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/1000px-Flag_of_Japan.svg.png",
   capital: "Tóquio",
-  coordenadas: { x: 880, y: 395 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Tokyo_Tower_and_Tokyo_Skyline.jpg/1920px-Tokyo_Tower_and_Tokyo_Skyline.jpg",
+  coordenadas: { x: 88, y: 38 },
+  imagem_capa: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1280",
   resumo_geografico: "Um arquipélago formado por mais de 6.000 ilhas, onde o futuro e o passado caminham lado a lado. Das luzes de neon de Tóquio aos templos silenciosos de Quioto, o Japão é uma terra de montanhas vulcânicas, florestas de bambu e uma cultura baseada no respeito, na tecnologia e na harmonia com as estações do ano.",
   
   chegada: {

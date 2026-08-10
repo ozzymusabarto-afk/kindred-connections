@@ -8,7 +8,7 @@ export const egito: Pais = {
   bandeira: "🇪🇬",
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/1000px-Flag_of_Egypt.svg.png",
   capital: "Cairo",
-  coordenadas: { x: 575, y: 440 },
+  coordenadas: { x: 55, y: 45 },
   imagem_capa: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&q=80&w=1280",
   resumo_geografico: "Uma dádiva do Rio Nilo no meio do maior deserto do mundo, o Saara. O Egito é o berço de uma das civilizações mais antigas da Terra, onde pirâmides monumentais guardam segredos de faraós e o Rio Nilo traz vida a uma faixa verde de terra que corta as areias escaldantes.",
   chegada: {
