@@ -281,19 +281,6 @@ export const WorldMap = () => {
           background-size: 20px 1px;
           background-repeat: repeat-x;
         }
-        
-        .continent {
-          transition: fill 0.3s ease;
-          cursor: pointer;
-        }
-        
-        .animate-spin-slow {
-          animation: spin 20s linear infinite;
-        }
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
       `}</style>
     </div>
   );
