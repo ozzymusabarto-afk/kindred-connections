@@ -95,8 +95,17 @@ export const WorldMap = () => {
           {Object.entries(COUNTRY_COORDS).map(([id, pos]) => (
             <g 
               key={id} 
-              className="pointer-events-auto cursor-pointer group/country"
+              role="button"
+              tabIndex={0}
+              aria-label={`Viajar para ${pos.label}`}
+              className="pointer-events-auto cursor-pointer group/country focus:outline-none"
               onClick={() => handleCountryClick(id)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleCountryClick(id);
+                }
+              }}
             >
               {/* Área de clique invisível/glow */}
               <circle 
@@ -105,12 +114,12 @@ export const WorldMap = () => {
                 r="1.5" 
                 fill="white" 
                 fillOpacity="0"
-                className="group-hover/country:fill-yellow-400/30 group-hover/country:stroke-yellow-400 group-hover/country:stroke-[0.2] transition-all"
+                className="group-hover/country:fill-yellow-400/30 group-hover/country:stroke-yellow-400 group-hover/country:stroke-[0.2] group-focus/country:fill-yellow-400/40 group-focus/country:stroke-yellow-400 group-focus/country:stroke-[0.3] transition-all"
                 style={{ filter: 'url(#glow)' }}
               />
               
               {/* Etiqueta Flutuante (Tooltip) no Hover */}
-              <g className="opacity-0 group-hover/country:opacity-100 transition-opacity">
+              <g className="opacity-0 group-hover/country:opacity-100 group-focus/country:opacity-100 transition-opacity pointer-events-none">
                 <rect 
                   x={pos.x - 4} 
                   y={pos.y - 6} 
