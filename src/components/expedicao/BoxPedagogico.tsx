@@ -27,8 +27,8 @@ export function BoxPedagogico({ pais, dia }: Props) {
             <span className="text-sm font-bold uppercase tracking-wider">Como se diz Olá</span>
           </div>
           <p className="text-sm text-sky-900/80 leading-relaxed">
-            Neste país, as pessoas falam <span className="font-bold text-sky-700">{pais.chegada.idioma}</span>. 
-            Uma forma divertida de cumprimentar é dizendo "{pais.chegada.fala_piloto_original ? pais.chegada.fala_piloto_original.split('!')[0] : 'Olá'}!".
+            Neste país, as pessoas falam <span className="font-bold text-sky-700">{pais.chegada?.idioma ?? "a língua local"}</span>. 
+            Uma forma divertida de cumprimentar é dizendo "{pais.chegada?.fala_piloto_original ? pais.chegada.fala_piloto_original.split('!')[0] : 'Olá'}!".
           </p>
         </div>
 
