@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-ro
 import { useEffect, useMemo, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { CompassButton } from "@/components/CompassButton";
+import { BoxPedagogico } from "@/components/expedicao/BoxPedagogico";
 import { ExpedicaoHeader } from "@/components/expedicao/ExpedicaoHeader";
 import { TelaChegada } from "@/components/expedicao/TelaChegada";
 import { TelaCheckin } from "@/components/expedicao/TelaCheckin";
@@ -201,142 +202,160 @@ function SimuladorViagem() {
       />
 
       <main className="mx-auto max-w-7xl px-5 py-6">
-        <div className="flex justify-center w-full">
-          <MiniWorldMap pais={pais} />
-        </div>
-        {indiceDia >= 0 && (
-          <div className="mb-8">
-            <div className="flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.24em] text-muted-foreground">
-                  Sua Expedição em {pais.nome}
-                </p>
-                <h2 className="mt-1 text-lg font-display text-foreground">
-                  Dia {dia.dia} de {dias.length} · Estação {indiceDia + 1} de {TELAS_DO_DIA.length}
-                </h2>
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:gap-10">
+          <div className="w-full lg:w-1/3 xl:w-1/4">
+            <div className="sticky top-24 space-y-6">
+              <div className="flex flex-col items-center overflow-hidden rounded-2xl border-2 border-sky-100 bg-white p-6 shadow-sm">
+                <span className="text-6xl mb-4 drop-shadow-sm">{pais.bandeira}</span>
+                <h1 className="text-center font-display text-2xl text-sky-950">{pais.nome}</h1>
+                <p className="text-sm font-bold uppercase tracking-widest text-sky-600/60">{pais.capital}</p>
               </div>
-              <div className="flex items-center gap-3 premium-card px-5 py-2.5 shadow-sm border-sky-100/30">
-                <span className="text-2xl">✈️</span>
-                <p className="text-sm font-bold text-sky-700 font-rounded">
-                  {totalConcluidos} de {dias.length} dias concluídos
-                </p>
+              <div className="overflow-hidden rounded-2xl border-2 border-sky-100 bg-white shadow-sm">
+                <MiniWorldMap pais={pais} />
               </div>
-            </div>
-            
-            <div className="mt-6 relative h-4 w-full overflow-hidden rounded-full bg-sky-100/50 p-1">
-              <div 
-                className="h-full bg-gradient-to-r from-sky-400 to-sky-500 rounded-full shadow-[0_0_15px_rgba(14,165,233,0.3)] transition-all duration-1000 ease-out" 
-                style={{ width: `${((indiceDia + 1) / TELAS_DO_DIA.length) * 100}%` }}
-              />
-            </div>
-            
-            <div className="mt-3 flex justify-between px-1">
-              {TELAS_DO_DIA.map((t, i) => (
-                <div key={t} className="flex flex-col items-center gap-1.5">
-                  <div 
-                    className={`h-2.5 w-2.5 rounded-full transition-all duration-500 ${
-                      i <= indiceDia ? "bg-brass scale-125" : "bg-muted-foreground/30"
-                    }`} 
-                  />
-                  <span className={`text-[9px] uppercase tracking-tighter transition-colors ${
-                    i === indiceDia ? "font-bold text-brass" : "text-muted-foreground/60"
-                  }`}>
-                    {t === "transporte" ? "Transporte" : 
-                     t === "observacao" ? "Observação" : 
-                     t === "fauna" ? "Natureza" : 
-                     t === "sabor" ? "Sabores" : "Carimbo"}
-                  </span>
-                </div>
-              ))}
             </div>
           </div>
-        )}
+          
+          <div className="flex-1">
+            <BoxPedagogico pais={pais} dia={dia} />
+            
+            {indiceDia >= 0 && (
+              <div className="mt-8 mb-8">
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-[0.24em] text-muted-foreground">
+                      Sua Expedição em {pais.nome}
+                    </p>
+                    <h2 className="mt-1 text-lg font-display text-foreground">
+                      Dia {dia.dia} de {dias.length} · Estação {indiceDia + 1} de {TELAS_DO_DIA.length}
+                    </h2>
+                  </div>
+                  <div className="flex items-center gap-3 premium-card px-5 py-2.5 shadow-sm border-sky-100/30">
+                    <span className="text-2xl">✈️</span>
+                    <p className="text-sm font-bold text-sky-700 font-rounded">
+                      {totalConcluidos} de {dias.length} dias concluídos
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="mt-6 relative h-4 w-full overflow-hidden rounded-full bg-sky-100/50 p-1">
+                  <div 
+                    className="h-full bg-gradient-to-r from-sky-400 to-sky-500 rounded-full shadow-[0_0_15px_rgba(14,165,233,0.3)] transition-all duration-1000 ease-out" 
+                    style={{ width: `${((indiceDia + 1) / TELAS_DO_DIA.length) * 100}%` }}
+                  />
+                </div>
+                
+                <div className="mt-3 flex justify-between px-1">
+                  {TELAS_DO_DIA.map((t, i) => (
+                    <div key={t} className="flex flex-col items-center gap-1.5">
+                      <div 
+                        className={`h-2.5 w-2.5 rounded-full transition-all duration-500 ${
+                          i <= indiceDia ? "bg-brass scale-125" : "bg-muted-foreground/30"
+                        }`} 
+                      />
+                      <span className={`text-[9px] uppercase tracking-tighter transition-colors ${
+                        i === indiceDia ? "font-bold text-brass" : "text-muted-foreground/60"
+                      }`}>
+                        {t === "transporte" ? "Transporte" : 
+                         t === "observacao" ? "Observação" : 
+                         t === "fauna" ? "Natureza" : 
+                         t === "sabor" ? "Sabores" : "Carimbo"}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+        
+        <div className="mt-12 space-y-12">
+          {tela === "chegada" && (
+            <TelaChegada
+              pais={pais}
+              onAvancar={() => {
+                marcarAbertura();
+                ir("checkin");
+              }}
+            />
+          )}
 
-        {tela === "chegada" && (
-          <TelaChegada
-            pais={pais}
-            onAvancar={() => {
-              marcarAbertura();
-              ir("checkin");
-            }}
-          />
-        )}
+          {tela === "checkin" && (
+            <TelaCheckin
+              pais={pais}
+              dia={dia}
+              onAvancar={() => ir("transporte")}
+              onVoltar={() => ir("chegada")}
+            />
+          )}
 
-        {tela === "checkin" && (
-          <TelaCheckin
-            pais={pais}
-            dia={dia}
-            onAvancar={() => ir("transporte")}
-            onVoltar={() => ir("chegada")}
-          />
-        )}
+          {tela === "transporte" && (
+            <TelaTransporte
+              dia={dia}
+              onAvancar={() => ir("observacao")}
+              onVoltar={() => ir("checkin")}
+            />
+          )}
 
-        {tela === "transporte" && (
-          <TelaTransporte
-            dia={dia}
-            onAvancar={() => ir("observacao")}
-            onVoltar={() => ir("checkin")}
-          />
-        )}
+          {tela === "observacao" && (
+            <TelaObservacao
+              dia={dia}
+              progresso={progresso}
+              respostas={respostas}
+              onResponder={responder}
+              onAbrirHotspot={(id) => marcarHotspot(dia.dia, id)}
+              onAvancar={() => {
+                salvarRespostas(dia.dia, respostas);
+                ir("fauna");
+              }}
+              onVoltar={() => ir("transporte")}
+            />
+          )}
 
-        {tela === "observacao" && (
-          <TelaObservacao
-            dia={dia}
-            progresso={progresso}
-            respostas={respostas}
-            onResponder={responder}
-            onAbrirHotspot={(id) => marcarHotspot(dia.dia, id)}
-            onAvancar={() => {
-              salvarRespostas(dia.dia, respostas);
-              ir("fauna");
-            }}
-            onVoltar={() => ir("transporte")}
-          />
-        )}
+          {tela === "fauna" && (
+            <TelaFauna
+              pais={pais}
+              dia={dia}
+              respostas={respostas}
+              onResponder={responder}
+              onAvancar={() => {
+                salvarRespostas(dia.dia, respostas);
+                ir("sabor");
+              }}
+              onVoltar={() => ir("observacao")}
+            />
+          )}
 
-        {tela === "fauna" && (
-          <TelaFauna
-            pais={pais}
-            dia={dia}
-            respostas={respostas}
-            onResponder={responder}
-            onAvancar={() => {
-              salvarRespostas(dia.dia, respostas);
-              ir("sabor");
-            }}
-            onVoltar={() => ir("observacao")}
-          />
-        )}
+          {tela === "sabor" && (
+            <TelaSabor
+              pais={pais}
+              dia={dia}
+              respostas={respostas}
+              onResponder={responder}
+              onAvancar={carimbar}
+              onVoltar={() => ir("fauna")}
+            />
+          )}
 
-        {tela === "sabor" && (
-          <TelaSabor
-            pais={pais}
-            dia={dia}
-            respostas={respostas}
-            onResponder={responder}
-            onAvancar={carimbar}
-            onVoltar={() => ir("fauna")}
-          />
-        )}
+          {tela === "carimbo" && (
+            <TelaCarimbo
+              pais={pais}
+              dia={dia}
+              diasTotal={dias.length}
+              concluidos={totalConcluidos}
+              proximoDia={proximoDia}
+              onProximoDia={(d) => ir("transporte", d)}
+              onRefazer={() => ir("transporte")}
+              onEncerrar={() => ir("despedida")}
+            />
+          )}
 
-        {tela === "carimbo" && (
-          <TelaCarimbo
-            pais={pais}
-            dia={dia}
-            diasTotal={dias.length}
-            concluidos={totalConcluidos}
-            proximoDia={proximoDia}
-            onProximoDia={(d) => ir("transporte", d)}
-            onRefazer={() => ir("transporte")}
-            onEncerrar={() => ir("despedida")}
-          />
-        )}
+          {tela === "despedida" && (
+            <TelaDespedida pais={pais} onVoltar={() => ir("carimbo")} />
+          )}
+        </div>
 
-        {tela === "despedida" && (
-          <TelaDespedida pais={pais} onVoltar={() => ir("carimbo")} />
-        )}
-
-        <p className="mt-12 text-sm text-muted-foreground">
+        <p className="mt-16 text-sm text-muted-foreground text-center">
           <Link to="/passaporte" className="underline underline-offset-4">
             Ver passaporte
           </Link>{" "}
