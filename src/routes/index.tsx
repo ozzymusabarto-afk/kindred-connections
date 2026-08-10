@@ -109,7 +109,7 @@ function MapaMundi() {
               }`}
             >
               {somAtivo ? <Volume2 className="w-6 h-6" /> : <VolumeX className="w-6 h-6" />}
-              <span>🔊 Som da Viagem: {somAtivo ? "LIGADO" : "DESLIGADO"}</span>
+              <span>Som da Viagem: {somAtivo ? "LIGADO" : "DESLIGADO"}</span>
             </button>
           </div>
 
