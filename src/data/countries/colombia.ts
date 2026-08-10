@@ -27,7 +27,12 @@ export const colombia: Pais = {
   },
   base: {
     nome: "Hacienda de Café em Quindío",
-    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Cartagena_de_Indias.jpg/1280px-Cartagena_de_Indias.jpg",
+    imagem_url: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=1280",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/23/Colombia_Rainforest_Ambience.mp3",
+      legenda: "O som da biodiversidade colombiana",
+      credito: "Wikimedia Commons"
+    },
     descricao: "“¡Hola! Sou Juan, seu guia. Bem-vindos ao Eixo Cafeeiro!”",
     galeria: []
   },

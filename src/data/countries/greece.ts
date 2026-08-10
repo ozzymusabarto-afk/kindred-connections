@@ -27,7 +27,12 @@ export const greece: Pais = {
   },
   base: {
     nome: "Casa Tradicional em Plaka, Atenas",
-    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Santorini_Oia.jpg/1280px-Santorini_Oia.jpg",
+    imagem_url: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=1280",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/23/Athens_Plaka_Street_Ambience.mp3",
+      legenda: "O som calmo das vielas de Plaka",
+      credito: "Wikimedia Commons"
+    },
     descricao: "“Yassas! Sou Nikos, seu guia. Bem-vindos ao berço da civilização!”",
     galeria: []
   },

@@ -81,7 +81,7 @@ export const WorldMap = () => {
       >
         {/* Renderizamos o mapa usando SVG injetado para controle total de cores */}
         <div 
-          className="absolute inset-0 w-full h-full flex items-center justify-center p-4 world-svg-container"
+          className="absolute inset-0 w-full h-full flex items-center justify-center p-4 world-svg-container pointer-events-none"
           dangerouslySetInnerHTML={svgContent ? { __html: svgContent } : undefined}
         />
 
@@ -129,7 +129,7 @@ export const WorldMap = () => {
                 r="3" 
                 fill="white" 
                 fillOpacity="0"
-                className="group-hover/country:fill-yellow-400/30 group-hover/country:stroke-yellow-400 group-hover/country:stroke-[0.2] group-focus/country:fill-yellow-400/40 group-focus/country:stroke-yellow-400 group-focus/country:stroke-[0.3] transition-all"
+                className="group-hover/country:fill-yellow-400/30 group-hover/country:stroke-yellow-400 group-hover/country:stroke-[0.3] group-focus/country:fill-yellow-400/40 group-focus/country:stroke-yellow-400 group-focus/country:stroke-[0.4] transition-all"
                 style={{ filter: 'url(#glow)' }}
               />
               
@@ -278,6 +278,12 @@ export const WorldMap = () => {
           fill: #FFD166 !important;
           filter: brightness(1.2) drop-shadow(0 0 5px rgba(255,255,255,0.5)) !important;
         }
+
+        /* Garantir que o nome apareça mesmo sem clicar, apenas com o hover */
+        .group\/country:hover rect, .group\/country:hover text {
+          opacity: 1 !important;
+        }
+
 
         .animate-spin-slow {
           animation: spin 20s linear infinite;

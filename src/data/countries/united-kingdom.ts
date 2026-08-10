@@ -27,7 +27,12 @@ export const unitedKingdom: Pais = {
   },
   base: {
     nome: "Hotel em Kensington, Londres",
-    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Big_Ben_and_Houses_of_Parliament.jpg/1280px-Big_Ben_and_Houses_of_Parliament.jpg",
+    imagem_url: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&q=80&w=1280",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/23/London_Street_Atmosphere.mp3",
+      legenda: "Sons urbanos de Londres",
+      credito: "Wikimedia Commons"
+    },
     descricao: "“Hello! Sou James, seu guia. Bem-vindos ao Reino Unido!”",
     galeria: []
   },

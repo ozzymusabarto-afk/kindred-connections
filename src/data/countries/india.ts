@@ -27,7 +27,12 @@ export const india: Pais = {
   },
   base: {
     nome: "Hospedaria em Jaipur",
-    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Taj-Mahal.jpg/1280px-Taj-Mahal.jpg",
+    imagem_url: "https://images.unsplash.com/photo-1524492707947-54b036573c05?auto=format&fit=crop&q=80&w=1280",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/23/Delhi_Street_Market_Ambience.mp3",
+      legenda: "A energia vibrante dos mercados de Nova Délhi",
+      credito: "Wikimedia Commons"
+    },
     descricao: "“Namastê! Eu sou Ravi, seu guia. Bem-vindos a esta terra sagrada!”",
     galeria: []
   },
