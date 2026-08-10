@@ -283,12 +283,16 @@ export const WorldMap = () => {
         }
         
         .continent {
-          transition: fill 0.2s ease;
+          transition: fill 0.3s ease;
           cursor: pointer;
         }
         
-        .continent:hover {
-          fill: #FFD166 !important;
+        .animate-spin-slow {
+          animation: spin 20s linear infinite;
+        }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
       `}</style>
     </div>
