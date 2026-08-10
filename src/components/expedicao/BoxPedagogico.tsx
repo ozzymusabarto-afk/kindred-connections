@@ -51,7 +51,7 @@ export function BoxPedagogico({ pais, dia }: Props) {
             <span className="text-sm font-bold uppercase tracking-wider">Curiosidade</span>
           </div>
           <p className="text-sm text-sky-900/80 leading-relaxed">
-            {pais.resumo_geografico.split('.')[0]}. Você sabia que o fuso horário aqui é {pais.chegada.fuso_horario}?
+            {pais.resumo_geografico.split('.')[0]}. Você sabia que o fuso horário aqui é {pais.chegada?.fuso_horario ?? "diferente do nosso"}?
           </p>
         </div>
 
