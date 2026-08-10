@@ -3,8 +3,8 @@ import { useNavigate } from '@tanstack/react-router';
 import { Compass } from 'lucide-react';
 import { paises } from '@/data/countries';
 
-// Coordenadas aproximadas para o mapa Unsplash (photo-1526778548025-fa2f459cd5c1)
-// O mapa é um 16:9 recortado de um mapa mundi físico.
+// Mapa-múndi vetorial limpo e educativo.
+const MAP_URL = "https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg";
 const COUNTRY_COORDS: Record<string, { x: number, y: number, label: string }> = {
   "brasil": { x: 31, y: 65, label: "Brasil" },
   "usa": { x: 18, y: 35, label: "EUA" },
@@ -60,17 +60,20 @@ export const WorldMap = () => {
       {/* Container do Mapa com Proporção 16:9 Fixa */}
       <div 
         ref={containerRef}
-        className="relative w-full aspect-video bg-[#0B2447] rounded-[2rem] border-8 border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden group"
-      >
-        
-        {/* Imagem de Fundo do Mapa Físico HD */}
-        <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center"
-          style={{ 
-            backgroundImage: 'url("https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=2000&q=80")',
-            objectFit: 'contain'
-          }}
-        />
+      className="relative w-full aspect-video bg-sky-100 rounded-[2rem] border-8 border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden group"
+    >
+      {/* Container do Mapa com Divisões Visíveis e Linha do Equador */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-contain bg-center bg-no-repeat transition-all duration-700"
+        style={{ 
+          backgroundImage: `url("${MAP_URL}")`,
+          filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
+        }}
+      />
+
+      {/* Linha do Equador (Decorativa) */}
+      <div className="absolute top-1/2 left-0 w-full h-[1px] bg-red-400/30 dash-equator z-0 pointer-events-none" />
+
         
         {/* Camada de Interação (SVG) */}
         <svg 
@@ -202,6 +205,11 @@ export const WorldMap = () => {
         }
         @keyframes dash {
           to { stroke-dashoffset: 0; }
+        }
+        .dash-equator {
+          background-image: linear-gradient(to right, rgba(248, 113, 113, 0.4) 50%, transparent 50%);
+          background-size: 20px 1px;
+          background-repeat: repeat-x;
         }
       `}</style>
     </div>

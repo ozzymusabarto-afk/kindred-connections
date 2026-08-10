@@ -1,37 +1,48 @@
 import React from "react";
 import type { ContinenteId } from "@/data/types";
+import { ContinentMap } from "./ContinentMaps";
 
 interface MiniWorldMapProps {
   highlightedContinent: ContinenteId;
 }
 
 export const MiniWorldMap: React.FC<MiniWorldMapProps> = ({ highlightedContinent }) => {
-  const images: Record<ContinenteId, string> = {
-    "america-do-norte": "https://images.unsplash.com/photo-1502011497943-71f124713c2d?auto=format&fit=crop&q=80&w=800",
-    "america-do-sul": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&q=80&w=800",
-    "europa": "https://images.unsplash.com/photo-1491557345352-5929e343eb89?auto=format&fit=crop&q=80&w=800",
-    "africa": "https://images.unsplash.com/photo-1523805081372-f39bbbb13006?auto=format&fit=crop&q=80&w=800",
-    "asia": "https://images.unsplash.com/photo-1464817739973-0128fe77a1b7?auto=format&fit=crop&q=80&w=800",
-    "oceania": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&q=80&w=800",
-    "america-central": "https://images.unsplash.com/photo-1589405709105-cdfa89abc479?auto=format&fit=crop&q=80&w=800"
+  const continentColors: Record<ContinenteId, string> = {
+    "america-do-sul": "#4ade80", // verde
+    "america-do-norte": "#facc15", // amarelo
+    "europa": "#60a5fa", // azul
+    "africa": "#fbbf24", // ocre/laranja
+    "asia": "#f87171", // vermelho
+    "oceania": "#c084fc", // roxo
+    "america-central": "#fb923c", // laranja
   };
 
-  const imageSrc = images[highlightedContinent] || images["america-do-norte"];
+  const continentName = highlightedContinent.replace(/-/g, ' ');
+  const color = continentColors[highlightedContinent] || "#94a3b8";
 
   return (
     <div className="flex flex-col items-center mb-12 animate-fade-in group">
-      <div className="w-full max-w-[600px] aspect-[16/9] bg-sky-50/30 rounded-[2rem] overflow-hidden border-4 border-white shadow-premium relative group-hover:scale-[1.02] transition-transform duration-500">
-        <img 
-          src={imageSrc} 
-          alt={`Mapa de ${highlightedContinent.replace(/-/g, ' ')}`}
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-sky-900/40 to-transparent pointer-events-none" />
-        <div className="absolute bottom-4 left-6 right-6">
-          <p className="text-white font-display text-xl drop-shadow-md">
-            Você está explorando esta região do nosso planeta.
-          </p>
+      <div className="w-full max-w-[400px] aspect-square bg-sky-50/50 rounded-full overflow-hidden border-8 border-white shadow-premium relative group-hover:scale-[1.05] transition-all duration-500 flex items-center justify-center p-8">
+        <div className="w-full h-full flex items-center justify-center relative">
+          <ContinentMap id={highlightedContinent} color={color} />
+          
+          {/* Indicador piscante no país (Simulado no centro do continente para este mini mapa) */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-4 h-4 bg-white rounded-full animate-ping opacity-75" />
+            <div className="w-2 h-2 bg-white rounded-full shadow-lg" />
+          </div>
         </div>
+
+        <div className="absolute inset-0 bg-gradient-to-t from-sky-900/10 to-transparent pointer-events-none" />
+      </div>
+      
+      <div className="mt-6 text-center">
+        <p className="text-sky-900 font-display text-2xl font-bold capitalize drop-shadow-sm">
+          {continentName}
+        </p>
+        <p className="text-sky-600 font-rounded text-lg mt-1">
+          Você está explorando esta região do nosso planeta.
+        </p>
       </div>
     </div>
   );
