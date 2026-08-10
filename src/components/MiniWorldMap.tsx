@@ -30,6 +30,13 @@ const COUNTRY_COORDS: Record<string, { x: number, y: number }> = {
   "costa-rica": { x: 22, y: 55 },
   "panama": { x: 24, y: 57 },
   "guatemala": { x: 19, y: 53 },
+  "france": { x: 48, y: 32 },
+  "spain": { x: 46, y: 37 },
+  "india": { x: 74, y: 48 },
+  "united-kingdom": { x: 47, y: 28 },
+  "peru": { x: 25, y: 63 },
+  "colombia": { x: 26, y: 56 },
+  "greece": { x: 53, y: 38 },
 };
 
 export const MiniWorldMap: React.FC<MiniWorldMapProps> = ({ pais }) => {
@@ -118,7 +125,13 @@ export const MiniWorldMap: React.FC<MiniWorldMapProps> = ({ pais }) => {
         .mini-world-svg path[id*="fiji"],
         .mini-world-svg path[id*="costa rica"],
         .mini-world-svg path[id*="panama"],
-        .mini-world-svg path[id*="guatemala"] {
+         .mini-world-svg path[id*="guatemala"],
+         .mini-world-svg path[id*="france"],
+         .mini-world-svg path[id*="spain"],
+         .mini-world-svg path[id*="india"],
+         .mini-world-svg path[id*="peru"],
+         .mini-world-svg path[id*="colombia"],
+         .mini-world-svg path[id*="greece"] {
           fill: #cbd5e1; /* Cor padrão para todos os países da expedição no mini mapa */
         }
 
@@ -127,7 +140,14 @@ export const MiniWorldMap: React.FC<MiniWorldMapProps> = ({ pais }) => {
                                   pais.id === 'italia' ? 'italy' : 
                                   pais.id === 'japao' ? 'japan' : 
                                   pais.id === 'egito' ? 'egypt' : 
-                                  pais.id === 'escocia' ? 'united kingdom' :
+                                   pais.id === 'escocia' ? 'united kingdom' :
+                                   pais.id === 'france' ? 'france' :
+                                   pais.id === 'spain' ? 'spain' :
+                                   pais.id === 'india' ? 'india' :
+                                   pais.id === 'united-kingdom' ? 'united kingdom' :
+                                   pais.id === 'peru' ? 'peru' :
+                                   pais.id === 'colombia' ? 'colombia' :
+                                   pais.id === 'greece' ? 'greece' :
                                   pais.id.replace(/-/g, ' ')}"] {
           fill: #FFB703 !important;
           stroke-width: 0.6px !important;
