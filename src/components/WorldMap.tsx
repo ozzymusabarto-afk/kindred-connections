@@ -10,30 +10,24 @@ const COUNTRY_COORDS: Record<string, { x: number, y: number, label: string }> = 
   "estados-unidos": { x: 18, y: 35, label: "EUA" },
   "canada": { x: 18, y: 22, label: "Canadá" },
   "mexico": { x: 17, y: 46, label: "México" },
-  "portugal": { x: 45, y: 35, label: "Portugal" },
-  "italia": { x: 50, y: 35, label: "Itália" },
-  "escocia": { x: 47, y: 25, label: "Escócia" },
+  "costa-rica": { x: 22, y: 53, label: "Costa Rica" },
   "argentina": { x: 29, y: 80, label: "Argentina" },
   "chile": { x: 27, y: 78, label: "Chile" },
+  "peru": { x: 25, y: 63, label: "Peru" },
+  "colombia": { x: 26, y: 56, label: "Colômbia" },
+  "portugal": { x: 45, y: 35, label: "Portugal" },
+  "spain": { x: 46, y: 37, label: "Espanha" },
+  "france": { x: 48, y: 32, label: "França" },
+  "italia": { x: 50, y: 35, label: "Itália" },
+  "united-kingdom": { x: 47, y: 28, label: "Reino Unido" },
+  "greece": { x: 53, y: 38, label: "Grécia" },
   "egito": { x: 55, y: 45, label: "Egito" },
   "marrocos": { x: 46, y: 43, label: "Marrocos" },
   "africa-do-sul": { x: 55, y: 80, label: "África do Sul" },
   "japao": { x: 88, y: 38, label: "Japão" },
-  "china": { x: 80, y: 40, label: "China" },
-  "tailandia": { x: 82, y: 55, label: "Tailândia" },
-  "australia": { x: 88, y: 78, label: "Austrália" },
-  "nova-zelandia": { x: 95, y: 88, label: "Nova Zelândia" },
-  "fiji": { x: 97, y: 70, label: "Fiji" },
-  "costa-rica": { x: 22, y: 55, label: "Costa Rica" },
-  "panama": { x: 24, y: 57, label: "Panamá" },
-  "guatemala": { x: 19, y: 53, label: "Guatemala" },
-  "france": { x: 48, y: 32, label: "França" },
-  "spain": { x: 46, y: 37, label: "Espanha" },
+  "china": { x: 80, y: 30, label: "China" },
   "india": { x: 74, y: 48, label: "Índia" },
-  "united-kingdom": { x: 47, y: 28, label: "Reino Unido" },
-  "peru": { x: 25, y: 63, label: "Peru" },
-  "colombia": { x: 26, y: 56, label: "Colômbia" },
-  "greece": { x: 53, y: 38, label: "Grécia" },
+  "australia": { x: 88, y: 78, label: "Austrália" },
 };
 
 export const WorldMap = () => {
@@ -129,7 +123,7 @@ export const WorldMap = () => {
                 r="3" 
                 fill="white" 
                 fillOpacity="0"
-                className="group-hover/country:fill-yellow-400/30 group-hover/country:stroke-yellow-400 group-hover/country:stroke-[0.3] group-focus/country:fill-yellow-400/40 group-focus/country:stroke-yellow-400 group-focus/country:stroke-[0.4] transition-all"
+                className="group-hover/country:fill-yellow-300/40 group-hover/country:stroke-yellow-200 group-hover/country:stroke-[0.3] group-focus/country:fill-yellow-200/50 group-focus/country:stroke-yellow-100 group-focus/country:stroke-[0.4] transition-all"
                 style={{ filter: 'url(#glow)' }}
               />
               

@@ -4,7 +4,7 @@ import { canada } from "./countries/canada";
 import { portugal } from "./countries/portugal";
 import { mexico } from "./countries/mexico";
 import { italia } from "./countries/italy";
-import { escocia } from "./countries/scotland";
+import { spain } from "./countries/spain";
 import { brasil } from "./countries/brazil";
 import { argentina } from "./countries/argentina";
 import { chile } from "./countries/chile";
@@ -12,16 +12,10 @@ import { japao } from "./countries/japan";
 import { egito } from "./countries/egypt";
 import { australia } from "./countries/australia";
 import { china } from "./countries/china";
-import { tailandia } from "./countries/thailand";
 import { marrocos } from "./countries/morocco";
 import { africaDoSul } from "./countries/south-africa";
-import { novaZelandia } from "./countries/new-zealand";
-import { fiji } from "./countries/fiji";
 import { costaRica } from "./countries/costa-rica";
-import { panama } from "./countries/panama";
-import { guatemala } from "./countries/guatemala";
 import { france } from "./countries/france";
-import { spain } from "./countries/spain";
 import { india } from "./countries/india";
 import { unitedKingdom } from "./countries/united-kingdom";
 import { peru } from "./countries/peru";
@@ -31,44 +25,35 @@ import type { CountriesData, Continente, Pais } from "./types";
 
 const data = raw as CountriesData;
 
-/** Países vindos do arquivo por país (um módulo dedicado para cada). */
+/** Países da expedição original (21 destinos). */
 const paisesDedicados: Pais[] = [
   estadosUnidos, 
   canada, 
-  portugal, 
   mexico, 
-  italia, 
-  escocia,
+  costaRica,
   brasil,
   argentina,
   chile,
-  japao,
-  egito,
-  australia,
-  china,
-  tailandia,
-  marrocos,
-  africaDoSul,
-  novaZelandia,
-  fiji,
-  costaRica,
-  panama,
-  guatemala,
-  france,
-  spain,
-  india,
-  unitedKingdom,
   peru,
   colombia,
-  greece
+  portugal, 
+  spain,
+  france,
+  italia, 
+  unitedKingdom,
+  greece,
+  egito,
+  marrocos,
+  africaDoSul,
+  japao,
+  china,
+  india,
+  australia
 ];
 const idsDedicados = new Set(paisesDedicados.map((p) => p.id));
 
 export const continentes: Continente[] = data.continentes;
-export const paises: Pais[] = [
-  ...data.paises.filter((p) => !idsDedicados.has(p.id)),
-  ...paisesDedicados,
-];
+export const paises: Pais[] = paisesDedicados;
 
 
 export function getPais(id: string): Pais | undefined {

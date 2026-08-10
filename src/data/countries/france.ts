@@ -19,7 +19,7 @@ export const france: Pais = {
   resumo_geografico: "A terra da arte, da moda e da gastronomia. Da luz de Paris aos vinhedos de Bordeaux, a França é um ícone de sofisticação e história.",
   
   chegada: {
-    imagem_url: "https://images.unsplash.com/photo-1431274172761-fca41d93e114?auto=format&fit=crop&q=80&w=1280",
+    imagem_url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=1280",
     som: {
       url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
       legenda: "Pouso no Aeroporto Charles de Gaulle, Paris",
