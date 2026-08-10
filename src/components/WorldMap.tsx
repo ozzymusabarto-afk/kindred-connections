@@ -60,21 +60,44 @@ export const WorldMap = () => {
       {/* Container do Mapa com Proporção 16:9 Fixa */}
       <div 
         ref={containerRef}
-      className="relative w-full aspect-video bg-sky-100 rounded-[2rem] border-8 border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden group"
-    >
-      {/* Container do Mapa com Divisões Visíveis e Linha do Equador */}
-      <div 
-        className="absolute inset-0 w-full h-full bg-contain bg-center bg-no-repeat transition-all duration-700"
-        style={{ 
-          backgroundImage: `url("${MAP_URL}")`,
-          filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
-        }}
-      />
+        className="relative w-full aspect-video bg-[#E0F2FE] rounded-[2rem] border-8 border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden group"
+      >
+        {/* Renderizamos o mapa usando SVG inline para controle total de cores */}
+        <div className="absolute inset-0 w-full h-full flex items-center justify-center p-4">
+          <svg 
+            viewBox="0 0 1000 500" 
+            className="w-full h-full drop-shadow-2xl world-svg"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            {/* América do Norte: #FFB703 */}
+            <path d="M100,50 L300,50 L350,150 L250,250 L100,200 Z" className="continent na" fill="#FFB703" stroke="#ffffff" strokeWidth="1" />
+            {/* América do Sul: #2A9D8F */}
+            <path d="M250,250 L350,250 L320,450 L220,350 Z" className="continent sa" fill="#2A9D8F" stroke="#ffffff" strokeWidth="1" />
+            {/* Europa: #E76F51 */}
+            <path d="M450,50 L550,50 L580,150 L480,180 Z" className="continent eu" fill="#E76F51" stroke="#ffffff" strokeWidth="1" />
+            {/* África: #F4A261 */}
+            <path d="M480,180 L580,150 L650,300 L550,450 L450,350 Z" className="continent af" fill="#F4A261" stroke="#ffffff" strokeWidth="1" />
+            {/* Ásia: #E07A5F */}
+            <path d="M550,50 L900,50 L950,250 L750,350 L580,150 Z" className="continent as" fill="#E07A5F" stroke="#ffffff" strokeWidth="1" />
+            {/* Oceania: #4EA8DE */}
+            <path d="M800,350 L950,350 L900,450 L750,450 Z" className="continent oc" fill="#4EA8DE" stroke="#ffffff" strokeWidth="1" />
+            {/* Antártida: #E0E1DD */}
+            <path d="M100,480 L900,480 L850,500 L150,500 Z" className="continent an" fill="#E0E1DD" stroke="#ffffff" strokeWidth="1" />
+            
+            {/* Camada de suporte visual com a imagem real */}
+            <image 
+              href={MAP_URL} 
+              width="1000" 
+              height="500"
+              className="opacity-20 pointer-events-none"
+              style={{ mixBlendMode: 'multiply' }}
+            />
+          </svg>
+        </div>
 
-      {/* Linha do Equador (Decorativa) */}
-      <div className="absolute top-1/2 left-0 w-full h-[1px] bg-red-400/30 dash-equator z-0 pointer-events-none" />
+        {/* Linha do Equador (Decorativa) */}
+        <div className="absolute top-1/2 left-0 w-full h-[1px] dash-equator z-0 pointer-events-none" />
 
-        
         {/* Camada de Interação (SVG) */}
         <svg 
           viewBox="0 0 100 56.25" 
@@ -219,6 +242,15 @@ export const WorldMap = () => {
           background-image: linear-gradient(to right, rgba(248, 113, 113, 0.4) 50%, transparent 50%);
           background-size: 20px 1px;
           background-repeat: repeat-x;
+        }
+        
+        .continent {
+          transition: fill 0.2s ease;
+          cursor: pointer;
+        }
+        
+        .continent:hover {
+          fill: #FFD166 !important;
         }
       `}</style>
     </div>
