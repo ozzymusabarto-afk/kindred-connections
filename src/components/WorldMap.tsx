@@ -119,7 +119,7 @@ export const WorldMap = () => {
               <circle 
                 cx={pos.x} 
                 cy={pos.y} 
-                r="1.5" 
+                r="3" 
                 fill="white" 
                 fillOpacity="0"
                 className="group-hover/country:fill-yellow-400/30 group-hover/country:stroke-yellow-400 group-hover/country:stroke-[0.2] group-focus/country:fill-yellow-400/40 group-focus/country:stroke-yellow-400 group-focus/country:stroke-[0.3] transition-all"

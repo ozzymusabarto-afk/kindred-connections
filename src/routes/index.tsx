@@ -102,13 +102,13 @@ function MapaMundi() {
           <div className="absolute top-8 right-8 z-10">
             <button
               onClick={toggleSom}
-              className={`flex items-center gap-3 px-6 py-3 rounded-full font-rounded font-bold text-lg shadow-lg transition-all hover:scale-105 ${
+              className={`flex items-center gap-3 px-8 py-4 rounded-full font-rounded font-bold text-xl shadow-lg transition-all hover:scale-105 active:scale-95 min-h-[56px] min-w-[56px] ${
                 somAtivo 
                   ? "bg-sky-500 text-white" 
                   : "bg-white text-sky-500 border-2 border-sky-500"
               }`}
             >
-              {somAtivo ? <Volume2 className="w-6 h-6" /> : <VolumeX className="w-6 h-6" />}
+              {somAtivo ? <Volume2 className="w-8 h-8" /> : <VolumeX className="w-8 h-8" />}
               <span>Som da Viagem: {somAtivo ? "LIGADO" : "DESLIGADO"}</span>
             </button>
           </div>
@@ -187,7 +187,7 @@ function MapaMundi() {
             <div className="flex flex-wrap gap-4 justify-center">
               <button
                 onClick={() => setContinenteAtivo("todos")}
-                className={`rounded-full px-10 py-4 text-xl font-rounded font-bold transition-all shadow-sm ${
+                className={`rounded-full px-12 py-5 text-2xl font-rounded font-bold transition-all shadow-sm min-h-[60px] ${
                   continenteAtivo === "todos"
                     ? "bg-sky-500 text-white shadow-sky-200 scale-105"
                     : "bg-white border-2 border-sky-100 text-sky-700 hover:border-sky-300 hover:bg-sky-50"
@@ -199,7 +199,7 @@ function MapaMundi() {
                 <button
                   key={c.id}
                   onClick={() => setContinenteAtivo(c.id)}
-                  className={`rounded-full px-10 py-4 text-xl font-rounded font-bold transition-all shadow-sm ${
+                  className={`rounded-full px-12 py-5 text-2xl font-rounded font-bold transition-all shadow-sm min-h-[60px] ${
                     continenteAtivo === c.id
                       ? "bg-sky-500 text-white shadow-sky-200 scale-105"
                       : "bg-white border-2 border-sky-100 text-sky-700 hover:border-sky-300 hover:bg-sky-50"
