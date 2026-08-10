@@ -235,13 +235,17 @@ function MapaMundi() {
               )}
               <div className="h-56 w-full overflow-hidden bg-sky-50">
                 <div className="relative h-full w-full">
-                  {pais.imagem_capa && (
+                  {pais.imagem_capa ? (
                     <img
                       src={pais.imagem_capa}
                       alt={`Paisagem de ${pais.nome}`}
                       loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-60"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70"
                     />
+                  ) : (
+                    <div className="h-full w-full bg-sky-200/30 flex items-center justify-center">
+                       <span className="text-sky-400/50 font-rounded italic">Explorando paisagens...</span>
+                    </div>
                   )}
                   <div className="absolute inset-0 flex items-center justify-center p-4">
                     {pais.bandeira_url ? (
@@ -251,7 +255,9 @@ function MapaMundi() {
                         className="h-32 w-auto object-contain shadow-2xl rounded-md border-4 border-white"
                       />
                     ) : (
-                      <span className="text-8xl drop-shadow-2xl">{pais.bandeira}</span>
+                      <div className="h-24 w-32 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border-2 border-white/20 shadow-xl">
+                        <span className="text-7xl drop-shadow-2xl">{pais.bandeira}</span>
+                      </div>
                     )}
                   </div>
                 </div>

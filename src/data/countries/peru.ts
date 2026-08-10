@@ -27,7 +27,12 @@ export const peru: Pais = {
   },
   base: {
     nome: "Pousada em Cusco",
-    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Machu_Picchu_Peru.jpg/1280px-Machu_Picchu_Peru.jpg",
+    imagem_url: "https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&q=80&w=1280",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Cusco_Market_Ambience.mp3",
+      legenda: "Sons do mercado tradicional em Cusco",
+      credito: "Wikimedia Commons"
+    },
     descricao: "“¡Hola! Sou Elena, sua guia. Bem-vindos ao coração dos Andes!”",
     galeria: []
   },

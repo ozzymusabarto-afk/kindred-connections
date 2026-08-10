@@ -19,7 +19,7 @@ export const france: Pais = {
   resumo_geografico: "A terra da arte, da moda e da gastronomia. Da luz de Paris aos vinhedos de Bordeaux, a França é um ícone de sofisticação e história.",
   
   chegada: {
-    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/View_of_Nile_river_and_Cairo_city_at_sunset.jpg/1920px-View_of_Nile_river_and_Cairo_city_at_sunset.jpg",
+    imagem_url: "https://images.unsplash.com/photo-1431274172761-fca41d93e114?auto=format&fit=crop&q=80&w=1280",
     som: {
       url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
       legenda: "Pouso no Aeroporto Charles de Gaulle, Paris",
@@ -43,7 +43,7 @@ export const france: Pais = {
 
   base: {
     nome: "Hotel Boutique em Le Marais, Paris",
-    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Place_des_Vosges_Paris.jpg/1280px-Place_des_Vosges_Paris.jpg",
+    imagem_url: "https://images.unsplash.com/photo-1549466601-52467d16560b?auto=format&fit=crop&q=80&w=1280",
     som: {
       url: "https://upload.wikimedia.org/wikipedia/commons/2/23/Paris_Street_Ambience.mp3",
       legenda: "Sons das ruas de Paris: conversas e passos",

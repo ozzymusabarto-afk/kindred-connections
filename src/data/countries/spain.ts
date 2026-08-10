@@ -27,7 +27,12 @@ export const spain: Pais = {
   },
   base: {
     nome: "Hostal em Madri",
-    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Alfama_Lisbon.jpg/1280px-Alfama_Lisbon.jpg",
+    imagem_url: "https://images.unsplash.com/photo-1543783230-278358a7ecef?auto=format&fit=crop&q=80&w=1280",
+    som: {
+      url: "https://upload.wikimedia.org/wikipedia/commons/2/23/Madrid_Plaza_Mayor_Ambience.mp3",
+      legenda: "O som vibrante das ruas de Madri",
+      credito: "Wikimedia Commons"
+    },
     descricao: "“¡Hola! Sou Carlos, seu guia. Bem-vindos à Espanha!”",
     galeria: []
   },
