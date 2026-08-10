@@ -62,41 +62,75 @@ export const WorldMap = () => {
         ref={containerRef}
         className="relative w-full aspect-video bg-[#E0F2FE] rounded-[2rem] border-8 border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden group"
       >
-        {/* Renderizamos o mapa usando SVG inline para controle total de cores */}
         <div className="absolute inset-0 w-full h-full flex items-center justify-center p-4">
           <svg 
-            viewBox="0 0 1000 500" 
+            viewBox="0 0 950 620" 
             className="w-full h-full drop-shadow-2xl world-svg"
             preserveAspectRatio="xMidYMid meet"
           >
-            {/* América do Norte: #FFB703 */}
-            <path d="M100,50 L300,50 L350,150 L250,250 L100,200 Z" className="continent na" fill="#FFB703" stroke="#ffffff" strokeWidth="1" />
-            {/* América do Sul: #2A9D8F */}
-            <path d="M250,250 L350,250 L320,450 L220,350 Z" className="continent sa" fill="#2A9D8F" stroke="#ffffff" strokeWidth="1" />
-            {/* Europa: #E76F51 */}
-            <path d="M450,50 L550,50 L580,150 L480,180 Z" className="continent eu" fill="#E76F51" stroke="#ffffff" strokeWidth="1" />
-            {/* África: #F4A261 */}
-            <path d="M480,180 L580,150 L650,300 L550,450 L450,350 Z" className="continent af" fill="#F4A261" stroke="#ffffff" strokeWidth="1" />
-            {/* Ásia: #E07A5F */}
-            <path d="M550,50 L900,50 L950,250 L750,350 L580,150 Z" className="continent as" fill="#E07A5F" stroke="#ffffff" strokeWidth="1" />
-            {/* Oceania: #4EA8DE */}
-            <path d="M800,350 L950,350 L900,450 L750,450 Z" className="continent oc" fill="#4EA8DE" stroke="#ffffff" strokeWidth="1" />
-            {/* Antártida: #E0E1DD */}
-            <path d="M100,480 L900,480 L850,500 L150,500 Z" className="continent an" fill="#E0E1DD" stroke="#ffffff" strokeWidth="1" />
+            <style>{`
+              .world-svg path {
+                fill: #2A9D8F;
+                stroke: #ffffff;
+                stroke-width: 0.5px;
+                transition: fill 0.3s ease, filter 0.3s ease;
+              }
+              .world-svg path:hover {
+                fill: #FFD166 !important;
+                filter: brightness(1.1);
+              }
+              .continente-na { fill: #FFB703 !important; }
+              .continente-sa { fill: #2A9D8F !important; }
+              .continente-eu { fill: #E76F51 !important; }
+              .continente-af { fill: #F4A261 !important; }
+              .continente-as { fill: #E07A5F !important; }
+              .continente-oc { fill: #4EA8DE !important; }
+              .continente-an { fill: #E0E1DD !important; }
+            `}</style>
             
-            {/* Camada de suporte visual com a imagem real */}
+            {/* O SVG será injetado dinamicamente ou mantido via image com mix-blend se preferir, 
+                mas a instrução pede para pintar o SVG diretamente. 
+                Vou usar a tag <image> mas garantir que os estilos acima se apliquem se carregarmos inline,
+                porém como é um recurso externo, precisamos dele inline para CSS funcionar.
+                Vou fornecer uma versão simplificada mas funcional dos paths dos continentes para garantir cores. */}
+            
+            <g className="continente-na">
+              <path d="M150,100 L350,80 L400,200 L300,350 L100,300 Z" />
+              <path d="M50,50 L200,30 L250,100 Z" />
+            </g>
+            <g className="continente-sa">
+              <path d="M300,350 L420,350 L380,580 L280,480 Z" />
+            </g>
+            <g className="continente-eu">
+              <path d="M450,100 L580,80 L620,200 L500,220 Z" />
+            </g>
+            <g className="continente-af">
+              <path d="M500,220 L620,200 L700,400 L600,580 L480,450 Z" />
+            </g>
+            <g className="continente-as">
+              <path d="M580,80 L900,100 L930,350 L700,450 L620,200 Z" />
+            </g>
+            <g className="continente-oc">
+              <path d="M780,420 L930,420 L880,550 L730,550 Z" />
+            </g>
+            <g className="continente-an">
+              <path d="M50,600 L900,600 L850,620 L100,620 Z" />
+            </g>
+
+            {/* Fundo do mapa original para detalhes, com opacidade baixa */}
             <image 
               href={MAP_URL} 
-              width="1000" 
-              height="500"
-              className="opacity-20 pointer-events-none"
+              width="950" 
+              height="620"
+              className="opacity-30 pointer-events-none"
               style={{ mixBlendMode: 'multiply' }}
             />
           </svg>
         </div>
 
         {/* Linha do Equador (Decorativa) */}
-        <div className="absolute top-1/2 left-0 w-full h-[1px] dash-equator z-0 pointer-events-none" />
+        <div className="absolute top-[55%] left-0 w-full h-[1px] dash-equator z-0 pointer-events-none" />
+
 
         {/* Camada de Interação (SVG) */}
         <svg 
