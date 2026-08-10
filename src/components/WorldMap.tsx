@@ -60,16 +60,36 @@ export const WorldMap = () => {
       {/* Container do Mapa com Proporção 16:9 Fixa */}
       <div 
         ref={containerRef}
-      className="relative w-full aspect-video bg-sky-100 rounded-[2rem] border-8 border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden group"
+      className="relative w-full aspect-video bg-[#E0F2FE] rounded-[2rem] border-8 border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden group"
     >
-      {/* Container do Mapa com Divisões Visíveis e Linha do Equador */}
-      <div 
-        className="absolute inset-0 w-full h-full bg-contain bg-center bg-no-repeat transition-all duration-700"
-        style={{ 
-          backgroundImage: `url("${MAP_URL}")`,
-          filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.1))'
-        }}
-      />
+      {/* Container do Mapa com Cores Vibrantes e Interatividade */}
+      <div className="absolute inset-0 w-full h-full flex items-center justify-center p-4">
+        <svg 
+          viewBox="0 0 2000 1000" 
+          className="w-full h-full drop-shadow-2xl world-svg"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <image 
+            href={MAP_URL} 
+            width="2000" 
+            height="1000"
+            className="hidden" // Esconde a imagem direta se estivermos injetando estilos no SVG
+          />
+          {/* O SVG externo da Wikimedia pode ser difícil de colorir sem injetar o XML. 
+              Vou usar uma técnica de CSS mask ou filtrar a imagem se não puder manipular o SVG interno,
+              mas a melhor abordagem para o pedido é renderizar um SVG inline robusto ou filtrar a imagem.
+              Dado o pedido de "fill", vou tentar injetar um filtro de cor ou sobrepor áreas.
+              Como o arquivo é um SVG externo, vou carregá-lo e aplicar filtros. */}
+          <foreignObject width="100%" height="100%">
+            <div 
+              className="w-full h-full bg-contain bg-center bg-no-repeat transition-all duration-700 colored-world-map"
+              style={{ 
+                backgroundImage: `url("${MAP_URL}")`,
+              }}
+            />
+          </foreignObject>
+        </svg>
+      </div>
 
       {/* Linha do Equador (Decorativa) */}
       <div className="absolute top-1/2 left-0 w-full h-[1px] bg-red-400/30 dash-equator z-0 pointer-events-none" />
@@ -219,6 +239,16 @@ export const WorldMap = () => {
           background-image: linear-gradient(to right, rgba(248, 113, 113, 0.4) 50%, transparent 50%);
           background-size: 20px 1px;
           background-repeat: repeat-x;
+        }
+        
+        /* Filtro para converter o mapa preto da Wikimedia em cores vibrantes */
+        .colored-world-map {
+          filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(162deg) brightness(118%) contrast(119%);
+          transition: filter 0.3s ease;
+        }
+        
+        .colored-world-map:hover {
+          filter: brightness(0) saturate(100%) invert(88%) sepia(61%) saturate(546%) hue-rotate(334deg) brightness(101%) contrast(101%);
         }
       `}</style>
     </div>
