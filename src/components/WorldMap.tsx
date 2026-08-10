@@ -33,14 +33,24 @@ export const WorldMap = () => {
   const navigate = useNavigate();
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [animating, setAnimating] = useState(false);
+  const [svgContent, setSvgContent] = useState<string | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    fetch(MAP_URL)
+      .then(res => res.text())
+      .then(text => {
+        // Basic cleanup for integration
+        setSvgContent(text);
+      })
+      .catch(err => console.error("Failed to load map SVG", err));
+  }, []);
 
   const handleCountryClick = (id: string) => {
     if (animating) return;
     setSelectedCountry(id);
     setAnimating(true);
     
-    // SFX for flight
     try {
       const audio = new Audio('/sfx/plane-takeoff.mp3');
       audio.volume = 0.3;
@@ -57,87 +67,24 @@ export const WorldMap = () => {
 
   return (
     <div className="w-full max-w-[1400px] mx-auto p-4 flex flex-col items-center">
-      {/* Container do Mapa com Proporção 16:9 Fixa */}
       <div 
         ref={containerRef}
         className="relative w-full aspect-video bg-[#E0F2FE] rounded-[2rem] border-8 border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden group"
       >
-        <div className="absolute inset-0 w-full h-full flex items-center justify-center p-4">
-          <svg 
-            viewBox="0 0 950 620" 
-            className="w-full h-full drop-shadow-2xl world-svg"
-            preserveAspectRatio="xMidYMid meet"
-          >
-            <style>{`
-              .world-svg path {
-                fill: #2A9D8F;
-                stroke: #ffffff;
-                stroke-width: 0.5px;
-                transition: fill 0.3s ease, filter 0.3s ease;
-              }
-              .world-svg path:hover {
-                fill: #FFD166 !important;
-                filter: brightness(1.1);
-              }
-              .continente-na { fill: #FFB703 !important; }
-              .continente-sa { fill: #2A9D8F !important; }
-              .continente-eu { fill: #E76F51 !important; }
-              .continente-af { fill: #F4A261 !important; }
-              .continente-as { fill: #E07A5F !important; }
-              .continente-oc { fill: #4EA8DE !important; }
-              .continente-an { fill: #E0E1DD !important; }
-            `}</style>
-            
-            {/* O SVG será injetado dinamicamente ou mantido via image com mix-blend se preferir, 
-                mas a instrução pede para pintar o SVG diretamente. 
-                Vou usar a tag <image> mas garantir que os estilos acima se apliquem se carregarmos inline,
-                porém como é um recurso externo, precisamos dele inline para CSS funcionar.
-                Vou fornecer uma versão simplificada mas funcional dos paths dos continentes para garantir cores. */}
-            
-            <g className="continente-na">
-              <path d="M150,100 L350,80 L400,200 L300,350 L100,300 Z" />
-              <path d="M50,50 L200,30 L250,100 Z" />
-            </g>
-            <g className="continente-sa">
-              <path d="M300,350 L420,350 L380,580 L280,480 Z" />
-            </g>
-            <g className="continente-eu">
-              <path d="M450,100 L580,80 L620,200 L500,220 Z" />
-            </g>
-            <g className="continente-af">
-              <path d="M500,220 L620,200 L700,400 L600,580 L480,450 Z" />
-            </g>
-            <g className="continente-as">
-              <path d="M580,80 L900,100 L930,350 L700,450 L620,200 Z" />
-            </g>
-            <g className="continente-oc">
-              <path d="M780,420 L930,420 L880,550 L730,550 Z" />
-            </g>
-            <g className="continente-an">
-              <path d="M50,600 L900,600 L850,620 L100,620 Z" />
-            </g>
-
-            {/* Fundo do mapa original para detalhes, com opacidade baixa */}
-            <image 
-              href={MAP_URL} 
-              width="950" 
-              height="620"
-              className="opacity-30 pointer-events-none"
-              style={{ mixBlendMode: 'multiply' }}
-            />
-          </svg>
-        </div>
+        {/* Renderizamos o mapa usando SVG injetado para controle total de cores */}
+        <div 
+          className="absolute inset-0 w-full h-full flex items-center justify-center p-4 world-svg-container"
+          dangerouslySetInnerHTML={svgContent ? { __html: svgContent } : undefined}
+        />
 
         {/* Linha do Equador (Decorativa) */}
         <div className="absolute top-[55%] left-0 w-full h-[1px] dash-equator z-0 pointer-events-none" />
 
-
         {/* Camada de Interação (SVG) */}
         <svg 
           viewBox="0 0 100 56.25" 
-          className="absolute inset-0 w-full h-full pointer-events-none select-none"
+          className="absolute inset-0 w-full h-full pointer-events-none select-none z-10"
         >
-          {/* Definições para animação de traço */}
           <defs>
             <filter id="glow">
               <feGaussianBlur stdDeviation="0.8" result="coloredBlur"/>
@@ -148,7 +95,6 @@ export const WorldMap = () => {
             </filter>
           </defs>
 
-          {/* Países Clicáveis */}
           {Object.entries(COUNTRY_COORDS).map(([id, pos]) => (
             <g 
               key={id} 
@@ -168,7 +114,6 @@ export const WorldMap = () => {
                 }
               }}
             >
-              {/* Área de clique invisível/glow */}
               <circle 
                 cx={pos.x} 
                 cy={pos.y} 
@@ -179,7 +124,6 @@ export const WorldMap = () => {
                 style={{ filter: 'url(#glow)' }}
               />
               
-              {/* Etiqueta Flutuante (Tooltip) no Hover */}
               <g className="opacity-0 group-hover/country:opacity-100 group-focus/country:opacity-100 transition-opacity pointer-events-none">
                 <rect 
                   x={pos.x - 4} 
@@ -204,10 +148,8 @@ export const WorldMap = () => {
             </g>
           ))}
 
-          {/* Rota de Voo Animada */}
           {animating && targetPos && (
             <>
-              {/* Linha Tracejada Amarela Vibrante */}
               <path
                 d={`M ${brasilPos.x} ${brasilPos.y} Q ${(brasilPos.x + targetPos.x) / 2} ${Math.min(brasilPos.y, targetPos.y) - 10} ${targetPos.x} ${targetPos.y}`}
                 fill="none"
@@ -218,7 +160,6 @@ export const WorldMap = () => {
                 style={{ filter: 'drop-shadow(0 0 2px #FACC15)' }}
               />
 
-              {/* Aviãozinho Rosa Deslizando */}
               <g className="animate-plane-follow">
                 <path
                   d={`M ${brasilPos.x} ${brasilPos.y} Q ${(brasilPos.x + targetPos.x) / 2} ${Math.min(brasilPos.y, targetPos.y) - 10} ${targetPos.x} ${targetPos.y}`}
@@ -242,8 +183,7 @@ export const WorldMap = () => {
           )}
         </svg>
 
-        {/* Rosa dos Ventos Clássica (Decorativa) */}
-        <div className="absolute bottom-6 right-8 pointer-events-none opacity-80 scale-75 sm:scale-100">
+        <div className="absolute bottom-6 right-8 pointer-events-none opacity-80 scale-75 sm:scale-100 z-10">
           <div className="relative flex items-center justify-center">
             <div className="absolute w-24 h-24 border border-white/20 rounded-full animate-spin-slow" />
             <Compass className="w-12 h-12 text-white/90 drop-shadow-lg" strokeWidth={1.5} />
@@ -253,7 +193,6 @@ export const WorldMap = () => {
         </div>
       </div>
 
-      {/* Legenda do Mapa */}
       <div className="mt-6 text-center">
         <p className="text-sky-700/80 font-rounded text-lg sm:text-xl italic flex items-center justify-center gap-2">
           <span>🌍</span> Nosso lindo planeta está cheio de lugares incríveis esperando para serem explorados.
@@ -261,6 +200,75 @@ export const WorldMap = () => {
       </div>
 
       <style>{`
+        .world-svg-container svg {
+          width: 100%;
+          height: 100%;
+          filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+        }
+        
+        /* Pintura direta dos caminhos do SVG */
+        .world-svg-container path {
+          fill: #2A9D8F; /* Cor padrão terra viva */
+          stroke: #ffffff;
+          stroke-width: 0.5px;
+          transition: fill 0.3s ease;
+        }
+
+        /* Cores vibrantes por continente via IDs conhecidos do SVG da Wikimedia */
+        
+        /* América do Norte */
+        .world-svg-container path[id*="canada"],
+        .world-svg-container path[id*="usa"],
+        .world-svg-container path[id*="mexico"],
+        .world-svg-container path[id*="greenland"],
+        .world-svg-container path[id*="cuba"] { fill: #FFB703 !important; }
+
+        /* América do Sul */
+        .world-svg-container path[id*="brazil"],
+        .world-svg-container path[id*="argentina"],
+        .world-svg-container path[id*="chile"],
+        .world-svg-container path[id*="peru"],
+        .world-svg-container path[id*="colombia"] { fill: #2A9D8F !important; }
+
+        /* Europa */
+        .world-svg-container path[id*="france"],
+        .world-svg-container path[id*="germany"],
+        .world-svg-container path[id*="italy"],
+        .world-svg-container path[id*="spain"],
+        .world-svg-container path[id*="portugal"],
+        .world-svg-container path[id*="united kingdom"],
+        .world-svg-container path[id*="norway"] { fill: #E76F51 !important; }
+
+        /* África */
+        .world-svg-container path[id*="algeria"],
+        .world-svg-container path[id*="egypt"],
+        .world-svg-container path[id*="libya"],
+        .world-svg-container path[id*="nigeria"],
+        .world-svg-container path[id*="south africa"],
+        .world-svg-container path[id*="morocco"] { fill: #F4A261 !important; }
+
+        /* Ásia */
+        .world-svg-container path[id*="china"],
+        .world-svg-container path[id*="russia"],
+        .world-svg-container path[id*="india"],
+        .world-svg-container path[id*="kazakhstan"],
+        .world-svg-container path[id*="japan"],
+        .world-svg-container path[id*="thailand"] { fill: #E07A5F !important; }
+
+        /* Oceania */
+        .world-svg-container path[id*="australia"],
+        .world-svg-container path[id*="new zealand"],
+        .world-svg-container path[id*="papua new guinea"],
+        .world-svg-container path[id*="fiji"] { fill: #4EA8DE !important; }
+
+        /* Antártida */
+        .world-svg-container path[id*="antarctica"] { fill: #E0E1DD !important; }
+
+        .world-svg-container path:hover {
+          fill: #FFD166 !important;
+          filter: brightness(1.1);
+        }
+
         .animate-spin-slow {
           animation: spin 20s linear infinite;
         }
