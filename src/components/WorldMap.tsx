@@ -241,14 +241,13 @@ export const WorldMap = () => {
           background-repeat: repeat-x;
         }
         
-        /* Filtro para converter o mapa preto da Wikimedia em cores vibrantes */
-        .colored-world-map {
-          filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(2476%) hue-rotate(162deg) brightness(118%) contrast(119%);
-          transition: filter 0.3s ease;
+        .continent {
+          transition: fill 0.2s ease;
+          cursor: pointer;
         }
         
-        .colored-world-map:hover {
-          filter: brightness(0) saturate(100%) invert(88%) sepia(61%) saturate(546%) hue-rotate(334deg) brightness(101%) contrast(101%);
+        .continent:hover {
+          fill: #FFD166 !important;
         }
       `}</style>
     </div>
