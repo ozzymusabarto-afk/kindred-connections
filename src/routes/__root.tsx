@@ -85,6 +85,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       
+      { name: "twitter:title", content: "Diário de Bordo: Exploradores do Mundo" },
+      { name: "twitter:description", content: "Uma expedição visual pela geografia, história, natureza e sabores dos países." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/83f3ff9ff7b775112dba10ec2ffe6473/id-preview-3e2913ec--29a5ae21-19bd-4175-ab3c-2ed60f0a55b5.lovable.app-1786393109245.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/83f3ff9ff7b775112dba10ec2ffe6473/id-preview-3e2913ec--29a5ae21-19bd-4175-ab3c-2ed60f0a55b5.lovable.app-1786393109245.png" },
     ],
     links: [
       {
