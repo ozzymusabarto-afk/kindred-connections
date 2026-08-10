@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from '@tanstack/react-router';
-import { Compass } from 'lucide-react';
+import { Compass, Volume2, VolumeX } from 'lucide-react';
 import { paises } from '@/data/countries';
 
 // Mapa-múndi vetorial limpo e educativo.
@@ -34,7 +34,19 @@ export const WorldMap = () => {
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [animating, setAnimating] = useState(false);
   const [svgContent, setSvgContent] = useState<string | null>(null);
+  const [isMuted, setIsMuted] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.localStorage.getItem('diario:muted') === 'true';
+    }
+    return false;
+  });
   const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem('diario:muted', isMuted.toString());
+    }
+  }, [isMuted]);
 
   useEffect(() => {
     fetch(MAP_URL)
@@ -51,11 +63,13 @@ export const WorldMap = () => {
     setSelectedCountry(id);
     setAnimating(true);
     
-    try {
-      const audio = new Audio('/sfx/plane-takeoff.mp3');
-      audio.volume = 0.3;
-      audio.play().catch(() => {});
-    } catch(e) {}
+    if (!isMuted) {
+      try {
+        const audio = new Audio('https://actions.google.com/sounds/v1/transportation/airplane_takeoff.ogg');
+        audio.volume = 0.3;
+        audio.play().catch(() => {});
+      } catch(e) {}
+    }
 
     setTimeout(() => {
       navigate({ to: "/pais/$id", params: { id }, search: { tela: undefined, dia: undefined } });
@@ -76,6 +90,18 @@ export const WorldMap = () => {
           className="absolute inset-0 w-full h-full flex items-center justify-center p-4 world-svg-container"
           dangerouslySetInnerHTML={svgContent ? { __html: svgContent } : undefined}
         />
+
+        {/* Controle de Áudio */}
+        <button 
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsMuted(!isMuted);
+          }}
+          className="absolute top-6 right-6 z-20 p-3 bg-white/80 backdrop-blur-sm border border-sky-100 rounded-full text-sky-600 hover:bg-white hover:scale-110 transition-all shadow-sm group-hover:opacity-100 opacity-80"
+          aria-label={isMuted ? "Ativar som" : "Desativar som"}
+        >
+          {isMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
+        </button>
 
         {/* Linha do Equador (Decorativa) */}
         <div className="absolute top-[55%] left-0 w-full h-[1px] dash-equator z-0 pointer-events-none" />
