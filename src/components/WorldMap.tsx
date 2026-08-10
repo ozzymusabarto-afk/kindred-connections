@@ -122,10 +122,14 @@ export const WorldMap = () => {
               tabIndex={0}
               aria-label={`Viajar para ${pos.label}`}
               className="pointer-events-auto cursor-pointer group/country focus:outline-none"
-              onClick={() => handleCountryClick(id)}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleCountryClick(id);
+              }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
+                  e.stopPropagation();
                   handleCountryClick(id);
                 }
               }}
