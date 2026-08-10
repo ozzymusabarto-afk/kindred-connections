@@ -97,8 +97,38 @@ export const MiniWorldMap: React.FC<MiniWorldMapProps> = ({ pais }) => {
           stroke-width: 0.3px;
         }
         /* Destaque do país escolhido */
-        .mini-world-svg path[id*="${pais.id.replace(/-/g, ' ')}"],
-        .mini-world-svg path[id*="${pais.codigo_mapa}"] {
+        .mini-world-svg path[id*="brazil"],
+        .mini-world-svg path[id*="usa"],
+        .mini-world-svg path[id*="united states"],
+        .mini-world-svg path[id*="canada"],
+        .mini-world-svg path[id*="mexico"],
+        .mini-world-svg path[id*="portugal"],
+        .mini-world-svg path[id*="italy"],
+        .mini-world-svg path[id*="united kingdom"],
+        .mini-world-svg path[id*="argentina"],
+        .mini-world-svg path[id*="chile"],
+        .mini-world-svg path[id*="egypt"],
+        .mini-world-svg path[id*="morocco"],
+        .mini-world-svg path[id*="south africa"],
+        .mini-world-svg path[id*="japan"],
+        .mini-world-svg path[id*="china"],
+        .mini-world-svg path[id*="thailand"],
+        .mini-world-svg path[id*="australia"],
+        .mini-world-svg path[id*="new zealand"],
+        .mini-world-svg path[id*="fiji"],
+        .mini-world-svg path[id*="costa rica"],
+        .mini-world-svg path[id*="panama"],
+        .mini-world-svg path[id*="guatemala"] {
+          fill: #cbd5e1; /* Cor padrão para todos os países da expedição no mini mapa */
+        }
+
+        .mini-world-svg path[id*="${pais.id === 'brasil' ? 'brazil' : 
+                                  pais.id === 'estados-unidos' ? 'usa' : 
+                                  pais.id === 'italia' ? 'italy' : 
+                                  pais.id === 'japao' ? 'japan' : 
+                                  pais.id === 'egito' ? 'egypt' : 
+                                  pais.id === 'escocia' ? 'united kingdom' :
+                                  pais.id.replace(/-/g, ' ')}"] {
           fill: #FFB703 !important;
           stroke-width: 0.6px !important;
         }
