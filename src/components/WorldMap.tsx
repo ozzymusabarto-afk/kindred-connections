@@ -7,7 +7,7 @@ import { paises } from '@/data/countries';
 const MAP_URL = "https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg";
 const COUNTRY_COORDS: Record<string, { x: number, y: number, label: string }> = {
   "brasil": { x: 31, y: 65, label: "Brasil" },
-  "usa": { x: 18, y: 35, label: "EUA" },
+  "estados-unidos": { x: 18, y: 35, label: "EUA" },
   "canada": { x: 18, y: 22, label: "Canadá" },
   "mexico": { x: 17, y: 46, label: "México" },
   "portugal": { x: 45, y: 35, label: "Portugal" },
