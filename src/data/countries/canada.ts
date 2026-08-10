@@ -135,7 +135,7 @@ export const canada: Pais = {
     {
       id: "poutine",
       nome: "Poutine",
-      foto_url: "https://images.unsplash.com/photo-1586816001966-79b736744398?auto=format&fit=crop&w=800&q=80",
+      foto_url: "/__l5e/assets-v1/a075e0d7-e25a-4fbd-b00a-538dfbbaffe0/central-park-during-peak-fall-foliage.jpg",
       adjetivo: "Crocante e Quente",
       historia: "Originário de Quebec, é o prato de conforto número um dos canadenses."
     }
