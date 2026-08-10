@@ -9,7 +9,7 @@ export const novaZelandia: Pais = {
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/1000px-Flag_of_New_Zealand.svg.png",
   capital: "Wellington",
   coordenadas: { x: 960, y: 840 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Milford_Sound%2C_New_Zealand.jpg/1200px-Milford_Sound%2C_New_Zealand.jpg",
+  imagem_capa: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&q=80&w=1280",
   resumo_geografico: "Um país de duas ilhas principais no sul do Pacífico, a Nova Zelândia é o cenário de filmes de fantasia na vida real. De vulcões ativos e gêiseres a fiordes profundos esculpidos por geleiras, o país é o lar do povo Maori e do pássaro Kiwi, um lugar onde a natureza é intocada e poderosa.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Auckland_Skyline_from_Bayswater.jpg/1200px-Auckland_Skyline_from_Bayswater.jpg",

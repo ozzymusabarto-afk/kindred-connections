@@ -9,7 +9,7 @@ export const fiji: Pais = {
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Fiji.svg/1000px-Flag_of_Fiji.svg.png",
   capital: "Suva",
   coordenadas: { x: 1000, y: 700 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Fiji_Islands_Aerial.jpg/1200px-Fiji_Islands_Aerial.jpg",
+  imagem_capa: "https://images.unsplash.com/photo-1440778303588-435521a205bc?auto=format&fit=crop&q=80&w=1280",
   resumo_geografico: "Fiji é um paraíso tropical formado por mais de 300 ilhas no coração do Pacífico Sul. Famoso por suas águas azul-turquesa, recifes de coral vibrantes e a hospitalidade calorosa de seu povo. É um lugar onde o ritmo é lento e a natureza marinha é a verdadeira protagonista.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Mamanuca_Islands_Fiji.jpg/1200px-Mamanuca_Islands_Fiji.jpg",

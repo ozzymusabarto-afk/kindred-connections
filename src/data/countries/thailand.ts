@@ -9,7 +9,7 @@ export const tailandia: Pais = {
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/1000px-Flag_of_Thailand.svg.png",
   capital: "Bangkok",
   coordenadas: { x: 820, y: 530 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/The_Grand_Palace_Bangkok.jpg/1200px-The_Grand_Palace_Bangkok.jpg",
+  imagem_capa: "https://images.unsplash.com/photo-1504609770354-9717ff222f74?auto=format&fit=crop&q=80&w=1280",
   resumo_geografico: "Conhecida como a 'Terra dos Sorrisos', a Tailândia é um país tropical do sudeste asiático famoso por seus templos budistas dourados, praias de águas cristalinas e uma culinária de rua vibrante. É um lugar onde a espiritualidade profunda se mistura com a energia das metrópoles modernas.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Wat_Arun_Bangkok_Sunset.jpg/1200px-Wat_Arun_Bangkok_Sunset.jpg",
