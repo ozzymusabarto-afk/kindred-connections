@@ -62,10 +62,11 @@ export function BoxPedagogico({ pais, dia }: Props) {
             <span className="text-sm font-bold uppercase tracking-wider">Som do País</span>
           </div>
           <div className="pt-1">
-            <BotaoSom 
-              som={pais.chegada.som} 
-              rotulo="O Som do País" 
-            />
+            {pais.chegada?.som ? (
+              <BotaoSom som={pais.chegada.som} rotulo="O Som do País" />
+            ) : (
+              <p className="text-sm text-sky-900/60">Som em breve!</p>
+            )}
           </div>
         </div>
       </div>
