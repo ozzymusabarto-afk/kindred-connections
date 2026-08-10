@@ -7,13 +7,13 @@ interface MiniWorldMapProps {
 
 export const MiniWorldMap: React.FC<MiniWorldMapProps> = ({ highlightedContinent }) => {
   const images: Record<ContinenteId, string> = {
-    "america-do-norte": "/mapas/continente-norte.png",
-    "america-do-sul": "/mapas/continente-sul.png",
-    "europa": "/mapas/continente-europa.png",
-    "africa": "/mapas/continente-africa.png",
-    "asia": "/mapas/continente-asia.png",
-    "oceania": "/mapas/continente-oceania.png",
-    "america-central": "/mapas/continente-central.png"
+    "america-do-norte": "https://images.unsplash.com/photo-1502011497943-71f124713c2d?auto=format&fit=crop&q=80&w=800",
+    "america-do-sul": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&q=80&w=800",
+    "europa": "https://images.unsplash.com/photo-1491557345352-5929e343eb89?auto=format&fit=crop&q=80&w=800",
+    "africa": "https://images.unsplash.com/photo-1523805081372-f39bbbb13006?auto=format&fit=crop&q=80&w=800",
+    "asia": "https://images.unsplash.com/photo-1464817739973-0128fe77a1b7?auto=format&fit=crop&q=80&w=800",
+    "oceania": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&q=80&w=800",
+    "america-central": "https://images.unsplash.com/photo-1589405709105-cdfa89abc479?auto=format&fit=crop&q=80&w=800"
   };
 
   const imageSrc = images[highlightedContinent] || images["america-do-norte"];
