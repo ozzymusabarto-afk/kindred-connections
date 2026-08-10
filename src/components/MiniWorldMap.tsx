@@ -7,13 +7,13 @@ interface MiniWorldMapProps {
 
 export const MiniWorldMap: React.FC<MiniWorldMapProps> = ({ highlightedContinent }) => {
   const images: Record<ContinenteId, string> = {
-    "america-do-norte": "https://images.unsplash.com/photo-1581404476143-fb31d742929f?auto=format&fit=crop&q=80&w=800",
-    "america-do-sul": "https://images.unsplash.com/photo-1589519160732-57fc498494f8?auto=format&fit=crop&q=80&w=800",
-    "europa": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&q=80&w=800",
-    "africa": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&q=80&w=800",
-    "asia": "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&q=80&w=800",
-    "oceania": "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&q=80&w=800",
-    "america-central": "https://images.unsplash.com/photo-1512403734033-040213aa0721?auto=format&fit=crop&q=80&w=800"
+    "america-do-norte": "https://images.unsplash.com/photo-1502011497943-71f124713c2d?auto=format&fit=crop&q=80&w=800",
+    "america-do-sul": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&q=80&w=800",
+    "europa": "https://images.unsplash.com/photo-1491557345352-5929e343eb89?auto=format&fit=crop&q=80&w=800",
+    "africa": "https://images.unsplash.com/photo-1523805081372-f39bbbb13006?auto=format&fit=crop&q=80&w=800",
+    "asia": "https://images.unsplash.com/photo-1464817739973-0128fe77a1b7?auto=format&fit=crop&q=80&w=800",
+    "oceania": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&q=80&w=800",
+    "america-central": "https://images.unsplash.com/photo-1589405709105-cdfa89abc479?auto=format&fit=crop&q=80&w=800"
   };
 
   const imageSrc = images[highlightedContinent] || images["america-do-norte"];
