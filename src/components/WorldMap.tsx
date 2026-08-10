@@ -7,7 +7,7 @@ import { paises } from '@/data/countries';
 const MAP_URL = "https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg";
 const COUNTRY_COORDS: Record<string, { x: number, y: number, label: string }> = {
   "brasil": { x: 31, y: 65, label: "Brasil" },
-  "usa": { x: 18, y: 35, label: "EUA" },
+  "estados-unidos": { x: 18, y: 35, label: "EUA" },
   "canada": { x: 18, y: 22, label: "Canadá" },
   "mexico": { x: 17, y: 46, label: "México" },
   "portugal": { x: 45, y: 35, label: "Portugal" },
@@ -238,7 +238,7 @@ export const WorldMap = () => {
 
         /* Destaque Visual nos Países Cadastrados (Glow e Cores Vibrantes) */
         .world-svg-container path[id*="brazil"] { fill: #4EA8DE !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
-        .world-svg-container path[id*="usa"] { fill: #4EA8DE !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="usa"], .world-svg-container path[id*="united states"] { fill: #4EA8DE !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
         .world-svg-container path[id*="canada"] { fill: #FFD166 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
         .world-svg-container path[id*="mexico"] { fill: #FFD166 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
         .world-svg-container path[id*="portugal"] { fill: #2A9D8F !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
