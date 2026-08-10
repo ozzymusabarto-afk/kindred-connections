@@ -38,8 +38,10 @@ const continents = {
   ),
 };
 
-export const ContinentMap = ({ id, color = 'currentColor' }: { id: string, color?: string }) => {
+export const ContinentMap = React.memo(({ id, color = 'currentColor' }: { id: string, color?: string }) => {
   const draw = continents[id as keyof typeof continents];
   if (!draw) return null;
   return draw(color);
-};
+});
+
+ContinentMap.displayName = 'ContinentMap';
