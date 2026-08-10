@@ -8,7 +8,7 @@ export const italia: Pais = {
   bandeira: "🇮🇹",
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/1280px-Flag_of_Italy.svg.png",
   capital: "Roma",
-  coordenadas: { x: 675, y: 405 },
+  coordenadas: { x: 50, y: 35 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/1280px-Colosseo_2020.jpg",
   credito: "Wikimedia Commons",
   resumo_geografico: "Uma península em forma de bota que respira arte, história e gastronomia. A Itália é o berço do Império Romano e do Renascimento, onde cada cidade parece um museu ao ar livre. Das montanhas nevadas dos Alpes ao sol do Mediterrâneo, é um país de paisagens deslumbrantes e de um povo que celebra a vida ao redor de uma mesa farta.",

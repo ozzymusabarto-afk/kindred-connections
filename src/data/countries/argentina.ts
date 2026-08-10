@@ -15,7 +15,7 @@ export const argentina: Pais = {
   bandeira: "🇦🇷",
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1280px-Flag_of_Argentina.svg.png",
   capital: "Buenos Aires",
-  coordenadas: { x: 345, y: 750 },
+  coordenadas: { x: 29, y: 80 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Perito_Moreno_Glacier_Patagonia_Argentina.jpg/1280px-Perito_Moreno_Glacier_Patagonia_Argentina.jpg",
   credito: "Wikimedia Commons",
   resumo_geografico: "O país mais ao sul da América Latina, estendendo-se desde as selvas do norte até as geleiras da Antártida. A Argentina é famosa pelas suas vastas planícies (os Pampas), pela cordilheira dos Andes e pela sua vibrante capital. É a terra dos gaúchos, do churrasco (asado) e de uma paixão sem limites pelo futebol.",

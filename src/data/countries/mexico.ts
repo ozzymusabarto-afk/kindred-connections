@@ -8,7 +8,7 @@ export const mexico: Pais = {
   bandeira: "🇲🇽",
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/1280px-Flag_of_Mexico.svg.png",
   capital: "Cidade do México",
-  coordenadas: { x: 260, y: 440 },
+  coordenadas: { x: 17, y: 46 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Chichen_Itza_3.jpg/1280px-Chichen_Itza_3.jpg",
   credito: "Wikimedia Commons",
   resumo_geografico: "Uma terra de civilizações antigas, cores vibrantes e sabores intensos. O México une desertos, selvas tropicais e montanhas vulcânicas, sendo o berço de povos como os Maias e Astecas. É um país onde a história está gravada em pirâmides de pedra e celebrada em festas cheias de música e alegria.",

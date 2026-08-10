@@ -8,7 +8,7 @@ export const china: Pais = {
   bandeira: "🇨🇳",
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1000px-Flag_of_the_People%27s_Republic_of_China.svg.png",
   capital: "Pequim",
-  coordenadas: { x: 800, y: 420 },
+  coordenadas: { x: 80, y: 40 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/The_Great_Wall_of_China_at_Jinshanling-edit.jpg/1200px-The_Great_Wall_of_China_at_Jinshanling-edit.jpg",
   resumo_geografico: "Uma das civilizações mais antigas do mundo, a China é um país de proporções gigantescas. Da Grande Muralha que serpenteia as montanhas às cidades futuristas como Xangai, o país oferece um contraste fascinante entre tradições milenares e inovação tecnológica de ponta.",
   chegada: {

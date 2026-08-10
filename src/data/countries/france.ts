@@ -14,7 +14,7 @@ export const france: Pais = {
   bandeira: "🇫🇷",
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1280px-Flag_of_France.svg.png",
   capital: "Paris",
-  coordenadas: { x: 650, y: 390 },
+  coordenadas: { x: 48, y: 32 },
   imagem_capa: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=1280",
   resumo_geografico: "A terra da arte, da moda e da gastronomia. Da luz de Paris aos vinhedos de Bordeaux, a França é um ícone de sofisticação e história.",
   

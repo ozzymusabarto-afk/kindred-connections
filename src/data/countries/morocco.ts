@@ -8,7 +8,7 @@ export const marrocos: Pais = {
   bandeira: "🇲🇦",
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/1000px-Flag_of_Morocco.svg.png",
   capital: "Rabat",
-  coordenadas: { x: 470, y: 410 },
+  coordenadas: { x: 46, y: 43 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Yacine_Petit-moulin_Marrakech_Place_Jemaa_el-Fna_Night.jpg/1200px-Yacine_Petit-moulin_Marrakech_Place_Jemaa_el-Fna_Night.jpg",
   resumo_geografico: "Marrocos é o portão de entrada para a África, um país de montanhas nevadas (o Atlas), desertos de dunas douradas e cidades imperiais com labirintos de mercados. É um lugar onde o aroma do chá de hortelã e das especiarias preenche o ar e a arquitetura é uma joia de mosaicos coloridos.",
   chegada: {

@@ -19,7 +19,7 @@ export const estadosUnidos: Pais = {
   bandeira_url:
     "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-us.png",
   capital: "Washington, D.C.",
-  coordenadas: { x: 675, y: 370 },
+  coordenadas: { x: 18, y: 35 },
   imagem_capa:
     "/__l5e/assets-v1/b3acabd4-e1ab-4379-94bf-1f4cb0e96b42/grand-canyon-view-with-colorado-river.jpg",
   credito: "Wikimedia Commons",
