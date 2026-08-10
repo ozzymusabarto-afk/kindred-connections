@@ -27,6 +27,13 @@ const COUNTRY_COORDS: Record<string, { x: number, y: number, label: string }> = 
   "costa-rica": { x: 22, y: 55, label: "Costa Rica" },
   "panama": { x: 24, y: 57, label: "Panamá" },
   "guatemala": { x: 19, y: 53, label: "Guatemala" },
+  "france": { x: 48, y: 32, label: "França" },
+  "spain": { x: 46, y: 37, label: "Espanha" },
+  "india": { x: 74, y: 48, label: "Índia" },
+  "united-kingdom": { x: 47, y: 28, label: "Reino Unido" },
+  "peru": { x: 25, y: 63, label: "Peru" },
+  "colombia": { x: 26, y: 56, label: "Colômbia" },
+  "greece": { x: 53, y: 38, label: "Grécia" },
 };
 
 export const WorldMap = () => {
@@ -258,6 +265,12 @@ export const WorldMap = () => {
         .world-svg-container path[id*="costa rica"] { fill: #FFD166 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
         .world-svg-container path[id*="panama"] { fill: #E76F51 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
         .world-svg-container path[id*="guatemala"] { fill: #FFD166 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="france"] { fill: #4EA8DE !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="spain"] { fill: #F4A261 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="india"] { fill: #F4A261 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="peru"] { fill: #E76F51 !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="colombia"] { fill: #2A9D8F !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
+        .world-svg-container path[id*="greece"] { fill: #4EA8DE !important; stroke-width: 1px !important; filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8)) !important; }
 
         .world-svg-container path[id*="antarctica"] { fill: #E0E1DD !important; }
 

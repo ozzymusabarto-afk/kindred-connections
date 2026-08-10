@@ -20,6 +20,13 @@ import { fiji } from "./countries/fiji";
 import { costaRica } from "./countries/costa-rica";
 import { panama } from "./countries/panama";
 import { guatemala } from "./countries/guatemala";
+import { france } from "./countries/france";
+import { spain } from "./countries/spain";
+import { india } from "./countries/india";
+import { unitedKingdom } from "./countries/united-kingdom";
+import { peru } from "./countries/peru";
+import { colombia } from "./countries/colombia";
+import { greece } from "./countries/greece";
 import type { CountriesData, Continente, Pais } from "./types";
 
 const data = raw as CountriesData;
@@ -46,7 +53,14 @@ const paisesDedicados: Pais[] = [
   fiji,
   costaRica,
   panama,
-  guatemala
+  guatemala,
+  france,
+  spain,
+  india,
+  unitedKingdom,
+  peru,
+  colombia,
+  greece
 ];
 const idsDedicados = new Set(paisesDedicados.map((p) => p.id));
 

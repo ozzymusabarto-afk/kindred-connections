@@ -61,7 +61,7 @@ function MapaMundi() {
     : paises.filter(p => p.continente === continenteAtivo);
 
   const totalExplorados = carimbos.length;
-  const totalPaises = 21; 
+  const totalPaises = paises.length; 
   const visitados = new Set(carimbos.map((c) => c.paisId));
 
   // Validação rigorosa de integridade
@@ -234,21 +234,27 @@ function MapaMundi() {
                 </span>
               )}
               <div className="h-56 w-full overflow-hidden bg-sky-50">
-                {pais.bandeira_url ? (
-                  <img
-                    src={pais.bandeira_url}
-                    alt={`Bandeira do ${pais.nome}`}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                ) : (
-                  <span
-                    aria-hidden
-                    className="flex h-full w-full items-center justify-center text-7xl"
-                  >
-                    {pais.bandeira}
-                  </span>
-                )}
+                <div className="relative h-full w-full">
+                  {pais.imagem_capa && (
+                    <img
+                      src={pais.imagem_capa}
+                      alt={`Paisagem de ${pais.nome}`}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-60"
+                    />
+                  )}
+                  <div className="absolute inset-0 flex items-center justify-center p-4">
+                    {pais.bandeira_url ? (
+                      <img
+                        src={pais.bandeira_url}
+                        alt={`Bandeira de ${pais.nome}`}
+                        className="h-32 w-auto object-contain shadow-2xl rounded-md border-4 border-white"
+                      />
+                    ) : (
+                      <span className="text-8xl drop-shadow-2xl">{pais.bandeira}</span>
+                    )}
+                  </div>
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
 
