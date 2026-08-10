@@ -1,5 +1,5 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { WorldMap } from "@/components/WorldMap";
 import { CompassButton } from "@/components/CompassButton";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -37,6 +37,7 @@ function MapaMundi() {
     return "todos";
   });
   const { carimbos } = usePassport();
+  const mapaRef = useRef<HTMLDivElement>(null);
   
   // Filtrar países com base no continente selecionado
   const paisesVisiveis = continenteAtivo === "todos" 
@@ -109,7 +110,7 @@ function MapaMundi() {
                 </p>
                 
                 <button
-                  onClick={() => document.getElementById('mapa')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => mapaRef.current?.scrollIntoView({ behavior: 'smooth' })}
                   className="mt-4 group relative inline-flex items-center justify-center px-12 py-6 font-rounded text-2xl font-bold text-white transition-all duration-500 bg-sky-500 rounded-full hover:bg-sky-600 hover:scale-105 hover:shadow-[0_20px_40px_-10px_rgba(14,165,233,0.4)] active:scale-95 shadow-xl shadow-sky-500/20"
                 >
                   Começar a Jornada
@@ -125,7 +126,7 @@ function MapaMundi() {
         </section>
 
         <div 
-          id="mapa" 
+          ref={mapaRef}
           className="mt-6 scroll-mt-24 focus-within:ring-4 focus-within:ring-brass/30 rounded-3xl transition-all"
           aria-label="Mapa do mundo para escolher um destino"
         >
@@ -142,7 +143,7 @@ function MapaMundi() {
           )}
         </div>
 
-        <section id="escolha" className="mt-28 px-5 max-w-7xl mx-auto">
+        <section className="mt-28 px-5 max-w-7xl mx-auto">
           <div className="premium-card p-12 shadow-sky-900/5 border-sky-100/50">
             <h2 className="text-3xl font-rounded font-bold text-sky-900 mb-8 text-center italic">
               Para onde vamos explorar hoje?
@@ -175,7 +176,7 @@ function MapaMundi() {
           </div>
         </section>
 
-        <section id="diarios" className="mt-24 px-5 pb-32 max-w-7xl mx-auto grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
+        <section className="mt-24 px-5 pb-32 max-w-7xl mx-auto grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
           {paisesVisiveis.map((pais: any) => (
             <button
               key={pais.id}
