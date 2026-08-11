@@ -213,7 +213,13 @@ function MapaMundi() {
         </section>
 
         <section className="mt-24 px-5 pb-32 max-w-7xl mx-auto grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-          {paisesVisiveis.map((pais: any) => (
+          {paisesVisiveis.map((pais: any) => {
+            const paisIngles = pais.id.replace(/-/g, ' ');
+            const bgImage = (pais.imagem_capa && !pais.imagem_capa.includes('unsplash.com')) 
+              ? pais.imagem_capa 
+              : `https://source.unsplash.com/featured/800x600/?landscape,${encodeURIComponent(paisIngles)}`;
+            
+            return (
             <button
               key={pais.id}
               type="button"
@@ -235,14 +241,14 @@ function MapaMundi() {
               )}
               <div className="h-56 w-full overflow-hidden bg-sky-50 relative">
                 <img
-                  src={pais.imagem_capa || `https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80&sig=${pais.id}`}
+                  src={bgImage}
                   alt={`Paisagem de ${pais.nome}`}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70"
                   onError={(e) => {
                     const target = e.currentTarget;
-                    if (!target.src.includes('unsplash.com')) {
-                       target.src = `https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80&sig=${pais.id}`;
+                    if (!target.src.includes('sig=fallback')) {
+                      target.src = `https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80&sig=fallback-${pais.id}`;
                     }
                   }}
                 />
@@ -292,7 +298,8 @@ function MapaMundi() {
                 </div>
               </div>
             </button>
-          ))}
+          );
+          })}
           {paisesVisiveis.length === 0 && (
             <div className="col-span-full py-20 text-center">
               <p className="text-2xl font-rounded text-sky-400 italic">
