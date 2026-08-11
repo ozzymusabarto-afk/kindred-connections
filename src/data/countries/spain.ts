@@ -8,7 +8,7 @@ export const spain: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-es.png",
   capital: "Madri",
   coordenadas: { x: 46, y: 37 },
-  imagem_capa: "/__l5e/assets-v1/c8e30a00-b270-4580-8a27-90dcc62ebfca/spain-capa.jpg",
+  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sagrada_Familia_Barcelona.jpg/1280px-Sagrada_Familia_Barcelona.jpg",
   resumo_geografico: "País de sol, paixão e arquitetura única. A Espanha é famosa por suas festas vibrantes, artes icônicas e uma culinária que encanta o mundo.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Sagrada_Familia_Barcelona.jpg/1280px-Sagrada_Familia_Barcelona.jpg",

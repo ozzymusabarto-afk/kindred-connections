@@ -8,7 +8,7 @@ export const greece: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-gr.png",
   capital: "Atenas",
   coordenadas: { x: 53, y: 38 },
-  imagem_capa: "/__l5e/assets-v1/fa78983f-e760-4665-a965-a62775671ea7/greece-capa.jpg",
+  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Santorini_Oia.jpg/1280px-Santorini_Oia.jpg",
   resumo_geografico: "O berço da filosofia, da democracia e dos Jogos Olímpicos. A Grécia é um mosaico de ilhas brancas e azuis sobre o Mediterrâneo, repletas de templos antigos e mitologias fascinantes.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Santorini_Oia.jpg/1280px-Santorini_Oia.jpg",
