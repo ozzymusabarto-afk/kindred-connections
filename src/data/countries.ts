@@ -13,7 +13,7 @@ import { egito } from "./countries/egito";
 import { australia } from "./countries/australia";
 import { china } from "./countries/china";
 import { marrocos } from "./countries/marrocos";
-import { africaDoSul } from "./countries/south-africa";
+import { africa_do_sul } from "./countries/africa_do_sul";
 import { costaRica } from "./countries/costa-rica";
 import { france } from "./countries/france";
 import { india } from "./countries/india";
@@ -44,7 +44,7 @@ const paisesDedicados: Pais[] = [
   grecia,
   egito,
   marrocos,
-  africaDoSul,
+  africa_do_sul,
   japao,
   china,
   india,
