@@ -249,7 +249,16 @@ function MapaMundi() {
               "co": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80",
               "co-sur": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80"
             };
-            const bgImage = pais.imagem_capa || countryImages[pais.id];
+            const getCardImage = (countryId: string, originalImage: string) => {
+              if (countryId === 'colombia' || countryId === 'colômbia' || countryId === 'co') {
+                return "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80";
+              }
+              if (countryId === 'costa-rica' || countryId === 'costa_rica' || countryId === 'costarica' || countryId === 'cr') {
+                return "https://images.unsplash.com/photo-1599026417551-78c66e2c342f?w=800&q=80";
+              }
+              return originalImage || countryImages[countryId];
+            };
+            const bgImage = getCardImage(pais.id, pais.imagem_capa);
             
             return (
             <button
