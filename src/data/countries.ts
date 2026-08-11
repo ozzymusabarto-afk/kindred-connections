@@ -8,7 +8,7 @@ import { spain } from "./countries/spain";
 import { brasil } from "./countries/brazil";
 import { argentina } from "./countries/argentina";
 import { chile } from "./countries/chile";
-import { japao } from "./countries/japan";
+import { japao } from "./countries/japao";
 import { egito } from "./countries/egito";
 import { australia } from "./countries/australia";
 import { china } from "./countries/china";
