@@ -76,7 +76,8 @@ export function TelaChegada({ pais, onAvancar }: Props) {
             <img 
               src={pais.bandeira_url} 
               alt="" 
-              className="inline-block h-6 w-auto object-contain rounded-sm shadow-sm align-text-bottom mr-1"
+              className="inline-block h-6 w-10 object-contain rounded-sm shadow-sm align-text-bottom mr-1 border border-white/20 bg-white/5"
+              style={{ minHeight: '24px', minWidth: '40px' }}
               onError={(e) => {
                 const target = e.currentTarget;
                 target.style.display = 'none';

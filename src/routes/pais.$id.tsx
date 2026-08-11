@@ -210,7 +210,8 @@ function SimuladorViagem() {
                   <img 
                     src={pais.bandeira_url} 
                     alt={`Bandeira de ${pais.nome}`} 
-                    className="h-20 w-auto mb-4 object-contain shadow-lg rounded-sm"
+                    className="h-20 w-32 mb-4 object-contain shadow-lg rounded-sm border border-white/40 bg-white/5"
+                    style={{ minHeight: '80px', minWidth: '128px' }}
                     onError={(e) => {
                       const target = e.currentTarget;
                       target.style.display = 'none';
