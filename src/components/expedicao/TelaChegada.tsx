@@ -75,7 +75,7 @@ export function TelaChegada({ pais, onAvancar }: Props) {
           <img 
             src={`https://flagcdn.com/w160/${pais.codigo_mapa.toLowerCase()}.png`} 
             alt="" 
-            className="inline-block h-6 w-10 object-contain rounded-sm shadow-sm align-text-bottom mr-1 border border-white/20 bg-white/5"
+            className="inline-block h-6 w-10 object-cover w-full h-full rounded-sm shadow-sm align-text-bottom mr-1 border border-white/20 bg-white/5"
             style={{ minHeight: '24px', minWidth: '40px' }}
             onError={(e) => {
               const target = e.currentTarget;
