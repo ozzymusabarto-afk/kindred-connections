@@ -1,163 +1,203 @@
-import { Pais } from "../types";
+import type { Pais } from "../types";
 
 export const mexico: Pais = {
+
   id: "mexico",
+
   nome: "México",
+
   continente: "america-do-norte",
+
   codigo_mapa: "mx",
+
   bandeira: "🇲🇽",
+
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-mx.png",
+
   capital: "Cidade do México",
-  coordenadas: { x: 17, y: 46 },
-  imagem_capa: "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=800&q=80",
-  credito: "Wikimedia Commons",
-  resumo_geografico: "Uma terra de civilizações antigas, cores vibrantes e sabores intensos. O México une desertos, selvas tropicais e montanhas vulcânicas, sendo o berço de povos como os Maias e Astecas. É um país onde a história está gravada em pirâmides de pedra e celebrada em festas cheias de música e alegria.",
+
+  coordenadas: { x: 20, y: 48 },
+
+  imagem_capa: "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&w=1200&q=80",
+
+  credito: "Unsplash",
+
+  resumo_geografico: "Uma terra de história milenar, famosa por suas pirâmides monumentais, florestas tropicais, desertos marcantes e uma cultura viva cheia de cores, arte e tradições.",
+
   
+
+  // ==========================================
+
+  // 1. CHEGADA (O Voo e as Boas-vindas)
+
+  // ==========================================
+
   chegada: {
-    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Mexico_City_Zocalo_Skyline.jpg/1280px-Mexico_City_Zocalo_Skyline.jpg",
-    credito: "Wikimedia Commons",
+
+    imagem_url: "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=1200&q=80",
+
     som: {
-      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
-      legenda: "Pouso no Aeroporto Internacional da Cidade do México",
-      credito: "Wikimedia Commons"
+
+      url: "https://assets.mixkit.co/active_storage/sfx/2874/2874-preview.mp3",
+
+      legenda: "Gravação real de pouso: ronco dos motores e anúncio do piloto",
+
     },
+
     idioma: "Espanhol",
-    fuso_horario: "09h00 no horário local — 3 horas a menos que Brasília",
-    temperatura: "22 °C, ensolarado e ar seco da altitude",
-    fala_piloto_original: "¡Bienvenidos a México! Estamos sobrevolando la Ciudad de México. A su derecha pueden ver los volcanes Popocatépetl e Iztaccíhuatl. Prepárense para el aterrizaje en el Aeropuerto Internacional Benito Juárez.",
-    fala_piloto_traducao: "Bem-vindos ao México! Estamos sobrevoando a Cidade do México. À sua direita podem ver os vulcões Popocatépetl e Iztaccíhuatl. Preparem-se para o pouso no Aeroporto Internacional Benito Juárez.",
-    texto: "Olhe pela janela! A Cidade do México é uma das maiores do mundo e foi construída sobre um antigo lago. Veja como as montanhas cercam todo o vale. Ao longe, se o céu estiver limpo, conseguimos ver os picos nevados dos vulcões Popocatépetl e Iztaccíhuatl. Eles parecem gigantes guardiões da cidade!",
+
+    fuso_horario: "17h00 no horário local — 2 horas a menos que Brasília",
+
+    temperatura: "22 °C, clima ameno nas montanhas do vale",
+
+    fala_piloto_original: "¡Bienvenidos a México! Preparen su equipaje para el aterrizaje...",
+
+    fala_piloto_traducao: "Bem-vindos ao México! Preparem suas bagagens para o pouso no grande vale...",
+
+    texto: "Olhe pela janela! A Cidade do México se estende por um vale gigantesco, que no passado abrigava um grande lago e uma das maiores civilizações do mundo antigo.",
+
     galeria: [
-      {
-        id: "mx-chegada-1",
-        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Mexico_City_from_Above.jpg/1280px-Mexico_City_from_Above.jpg",
-        legenda: "A imensidão da Cidade do México vista de cima",
-        credito: "Wikimedia Commons"
-      }
+
+      "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&w=800&q=80",
+
+      "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=800&q=80"
+
     ]
+
   },
+
+  // ==========================================
+
+  // 2. CHECK-IN (Base de Operações)
+
+  // ==========================================
 
   base: {
-    nome: "Hotel Boutique no Centro Histórico",
-    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Interior_del_Gran_Hotel_Ciudad_de_M%C3%A9xico.jpg/1280px-Interior_del_Gran_Hotel_Ciudad_de_M%C3%A9xico.jpg",
-    credito: "Wikimedia Commons",
-    descricao: "“¡Hola, exploradores! Me llamo Diego e serei o vosso guia por esta terra mágica. Estamos no coração do México, rodeados por prédios de pedra vulcânica vermelha e praças cheias de história. Aqui, cada esquina tem um segredo: de ruínas de templos astecas a igrejas coloniais. Deixem as mochilas e preparem o apetite, pois o México se conhece pelo olhar e pelo paladar!”"
+
+    nome: "Hacienda Colonial no Centro Histórico",
+
+    imagem_url: "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=1200&q=80",
+
+    som: {
+
+      url: "https://assets.mixkit.co/active_storage/sfx/2874/2874-preview.mp3",
+
+      legenda: "Eco das fontes de água no pátio interno da hacienda"
+
+    },
+
+    descricao: "“¡Bienvenidos, exploradores! O México é um país que honra a memória de seus antepassados e a beleza de sua história.”",
+
+    galeria: [
+
+      "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=800&q=80"
+
+    ]
+
   },
 
+  // ==========================================
+
+  // 3. ROTEIRO (As 5 Estações)
+
+  // ==========================================
+
   roteiro_viagem: [
+
     {
+
       dia: 1,
-      titulo: "Dia 1: Teotihuacán — A Cidade dos Deuses",
-      descricao: "Hoje visitaremos as gigantescas pirâmides construídas há quase 2 mil anos. É um lugar de mistérios e construções que parecem tocar o céu.",
-      imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Pir%C3%A1mide_del_Sol_Teotihuacan.jpg/1280px-Pir%C3%A1mide_del_Sol_Teotihuacan.jpg",
-      credito: "Wikimedia Commons",
-      guia_nome: "Diego",
-      guia_local: "Diego, arqueólogo",
-      clima_do_dia: "24 °C, sol forte e céu azul",
+
+      titulo: "Dia 1: Teotihuacán e a Arquitetura Milenar",
+
+      clima_do_dia: "22 °C, ensolarado e clima seco",
+
+      
+
+      // ESTAÇÃO 1: TRANSPORTE
+
       transporte: {
-        nome: "Turibús (Ônibus Panorâmico)",
-        icone: "🚌",
-        descricao: "Para sair da cidade e chegar às pirâmides, usamos um ônibus de dois andares. Lá de cima, vemos as cores das casas e os jardins cheios de cactos.",
-        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Turibus_Mexico_City.jpg/1280px-Turibus_Mexico_City.jpg",
-        credito: "Wikimedia Commons"
+
+        nome: "Trajinera em Xochimilco (Barco Tradicional)",
+
+        icone: "🛶",
+
+        descricao: "Barcos de madeira coloridos decorados com flores que navegam pelos antigos canais construídos pelos povos nativos.",
+
+        imagem_url: "https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&w=1200&q=80",
+
+        som: { url: "https://assets.mixkit.co/active_storage/sfx/2874/2874-preview.mp3", legenda: "Remos deslizando suavemente pelas águas dos canais" }
+
       },
+
+      // ESTAÇÃO 2: OBSERVAÇÃO
+
       observacao: {
-        titulo: "Pirâmide do Sol",
-        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Pir%C3%A1mide_del_Sol_Teotihuacan.jpg/1280px-Pir%C3%A1mide_del_Sol_Teotihuacan.jpg",
-        credito: "Wikimedia Commons",
+
+        titulo: "Pirâmide do Sol em Teotihuacán",
+
+        imagem_url: "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=1200&q=80",
+
         hotspots: [
-          {
-            id: "degraus",
-            x: 50,
-            y: 60,
-            titulo: "Degraus de Pedra",
-            texto: "As pirâmides mexicanas não são pontiagudas como as do Egito; elas têm o topo plano onde ficavam os templos."
-          },
-          {
-            id: "calcada",
-            x: 50,
-            y: 90,
-            titulo: "Calçada dos Mortos",
-            texto: "Esta rua principal tem mais de 2 quilômetros de comprimento! Imagine os sacerdotes caminhando por aqui há mil anos."
-          }
+
+          { id: "degraus", x: 50, y: 50, titulo: "Escadaria Monumental", texto: "Construída há quase 2 mil anos, alinhada com grande precisão matemática e astronômica." },
+
+          { id: "pedra", x: 30, y: 70, titulo: "Blocos de Rocha Vulcânica", texto: "Os construtores usaram rochas vulcânicas locais para erguer estruturas duradouras." }
+
         ]
+
       },
+
+      // ESTAÇÃO 3: NATUREZA
+
       fauna_do_dia: {
-        id: "axolote",
-        contexto: "Nas águas de Xochimilco, vive um bichinho que parece um dragão sorridente.",
-        galeria: [
-          {
-            id: "mx-fauna-1",
-            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Axolotl_san_francisco.jpg/1280px-Axolotl_san_francisco.jpg",
-            legenda: "Axolote em seu habitat aquático",
-            credito: "Wikimedia Commons"
-          }
-        ]
+
+        id: "borboleta-monarca",
+
+        contexto: "Observe a vegetação ao redor e a floresta de pinheiros!",
+
+        texto_guia: "Milhões de borboletas-monarcas viajam milhares de quilômetros do Canadá até o México todos os anos em uma das migrações mais espetaculares e organizadas da natureza."
+
       },
+
+      // ESTAÇÃO 4: SABORES
+
       sabor_do_dia: {
-        id: "taco",
-        contexto: "Hora de experimentar a tortilha de milho feita na hora, a base de toda a comida mexicana.",
-        galeria: [
-          {
-            id: "mx-sabor-1",
-            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_Mi_Pueblo%2C_Puebla.jpg/1280px-001_Tacos_de_carnitas%2C_Mi_Pueblo%2C_Puebla.jpg",
-            legenda: "Tacos mexicanos tradicionais",
-            credito: "Wikimedia Commons"
-          }
-        ]
+
+        id: "guacamole-e-tacos",
+
+        contexto: "Hora de conhecer os ingredientes originais que o México deu ao mundo!",
+
+        texto_guia: "Aproveite a Guacamole (pasta feita com abacate fresco, tomate e coentro) acompanhada de tortilhas de milho. Sabia que o milho e o cacau (chocolate) nasceram aqui?"
+
       },
-      perguntas: [
-        {
-          id: "mx-d1-obs",
-          tipo: "observacao",
-          etapa: "observacao",
-          texto: "A Pirâmide do Sol é imensa. Como você acha que as pessoas carregavam pedras tão pesadas há tanto tempo, sem caminhões?"
-        }
-      ],
-      notas_brasil: {
-        transporte: {
-          texto: "O Turibús é parecido com os ônibus de turismo de Curitiba ou Gramado, onde você pode ver a cidade do alto!"
-        }
-      },
+
+      // ESTAÇÃO 5: CARIMBO
+
       desafio: {
-        pergunta: "Qual o nome da principal rua de Teotihuacán?",
-        opcoes: ["Avenida das Flores", "Calçada dos Mortos", "Rua do Sol"],
+
+        pergunta: "Qual símbolo importante aparece bem no centro da bandeira mexicana?",
+
+        opcoes: ["Uma borboleta sobre uma flor", "Uma águia em cima de um cacto segurando uma serpente", "Um sol sorridente"],
+
         correta: 1,
-        explicacao: "A Calçada dos Mortos é a espinha dorsal da cidade antiga, ligando as pirâmides e templos."
+
+        explicacao: "A águia sobre o cacto com a serpente representa a lenda da fundação da antiga capital dos Astecas, Tenochtitlán."
+
+      },
+
+      // CONEXÃO PEDAGÓGICA
+
+      notas_brasil: {
+
+        transporte: { texto: "Assim como as trajineras navegam pelos canais de Xochimilco, no Brasil temos as rabetas e voadeiras navegando pelos igarapés da Amazônia." },
+
+        observacao: { texto: "Enquanto o México preserva construções milenares de pedra como as pirâmides, o Brasil guarda sítios arqueológicos com pinturas rupestres antiquíssimas na Serra da Capivara (Piauí)." }
+
       }
-    }
-  ],
 
-  fauna_flora: [
-    {
-      id: "axolote",
-      nome: "Axolote",
-      nome_cientifico: "Ambystoma mexicanum",
-      foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Axolotl_san_francisco.jpg/1280px-Axolotl_san_francisco.jpg",
-      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Water_Ambience.mp3",
-      curiosidade: "É uma salamandra que nunca cresce: ela passa a vida inteira 'jovem' e dentro da água. O mais incrível é que ela pode regenerar partes do corpo!",
-      habitat: "Canais de água doce de Xochimilco.",
-      credito: "Wikimedia Commons"
     }
-  ],
 
-  gastronomia: [
-    {
-      id: "taco",
-      nome: "Tacos",
-      foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/001_Tacos_de_carnitas%2C_Mi_Pueblo%2C_Puebla.jpg/1280px-001_Tacos_de_carnitas%2C_Mi_Pueblo%2C_Puebla.jpg",
-      adjetivo: "picante",
-      historia: "O segredo do taco é a tortilha de milho, que os mexicanos comem há milhares de anos. Pode ser recheado com quase tudo!",
-      credito: "Wikimedia Commons"
-    }
-  ],
+  ]
 
-  comparativo: {
-    clima_predominante: "Variado: quente e seco no norte, tropical e úmido no sul",
-    bioma_principal: "Desertos, selvas e montanhas vulcânicas",
-    elemento_marcante: "O artesanato colorido (Alebrijes) e as festas de rua",
-    agricultura_construcoes: "Milho, feijão, pimenta e abacate. Casas coloridas com pátios internos e fontes de água.",
-    roupas_modo_de_vida: "Vida vibrante nas praças (Zócalos). Uso de chapéus de aba larga (Sombreros) para proteção do sol forte.",
-    fauna_alimentacao: "Muitas frutas tropicais, tortilhas de milho e cacau (a origem do chocolate!)."
-  }
 };
