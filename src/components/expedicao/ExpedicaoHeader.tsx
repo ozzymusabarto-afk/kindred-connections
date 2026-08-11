@@ -23,7 +23,7 @@ export function ExpedicaoHeader({ pais, guia, clima }: Props) {
             <img 
               src={`https://flagcdn.com/w160/${pais.codigo_mapa.toLowerCase()}.png`} 
               alt={`Bandeira de ${pais.nome}`}
-              className="h-14 w-20 object-cover w-full h-full rounded-md shadow-sm border border-sky-100 bg-white/5"
+              className="h-14 w-20 object-cover rounded-md shadow-sm border border-sky-100 bg-white/5"
               style={{ minHeight: '56px', minWidth: '80px' }}
               onError={(e) => {
                 const target = e.currentTarget;
