@@ -252,7 +252,7 @@ function MapaMundi() {
                     <img
                       src={`https://flagcdn.com/w160/${pais.codigo_mapa.toLowerCase()}.png`}
                       alt={`Bandeira de ${pais.nome}`}
-                      className="h-20 w-32 object-cover w-full h-full shadow-2xl rounded-md border-2 border-white bg-white/40 backdrop-blur-[2px]"
+                      className="h-20 w-32 object-cover shadow-2xl rounded-md border-2 border-white bg-white/40 backdrop-blur-[2px]"
                       style={{ minHeight: '80px', minWidth: '128px' }}
                       onError={(e) => {
                         const target = e.currentTarget;
