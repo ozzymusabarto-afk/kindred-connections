@@ -8,7 +8,7 @@ export const colombia: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-co.png",
   capital: "Bogotá",
   coordenadas: { x: 26, y: 56 },
-  imagem_capa: "https://images.unsplash.com/photo-1583531352515-888413146a05?w=800&q=80",
+  imagem_capa: "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80",
   resumo_geografico: "O país com a maior biodiversidade do mundo. Da costa caribenha às montanhas andinas, a Colômbia é um país de ritmos latinos, café de alta qualidade e uma cultura vibrante e acolhedora.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Cartagena_de_Indias.jpg/1280px-Cartagena_de_Indias.jpg",
