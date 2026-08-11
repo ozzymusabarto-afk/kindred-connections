@@ -20,7 +20,7 @@ import { india } from "./countries/india";
 import { reino_unido } from "./countries/reino_unido";
 import { peru } from "./countries/peru";
 import { colombia } from "./countries/colombia";
-import { greece } from "./countries/greece";
+import { grecia } from "./countries/grecia";
 import type { CountriesData, Continente, Pais } from "./types";
 
 const data = raw as CountriesData;
@@ -41,7 +41,7 @@ const paisesDedicados: Pais[] = [
   france,
   italia, 
   reino_unido,
-  greece,
+  grecia,
   egito,
   marrocos,
   africaDoSul,
