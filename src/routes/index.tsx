@@ -215,9 +215,7 @@ function MapaMundi() {
         <section className="mt-24 px-5 pb-32 max-w-7xl mx-auto grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
           {paisesVisiveis.map((pais: any) => {
             const paisIngles = pais.id.replace(/-/g, ' ');
-            const bgImage = (pais.imagem_capa && !pais.imagem_capa.includes('unsplash.com')) 
-              ? pais.imagem_capa 
-              : `https://source.unsplash.com/featured/800x600/?landscape,${encodeURIComponent(paisIngles)}`;
+            const bgImage = pais.imagem_capa || `https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?sig=fallback-${pais.id}`;
             
             return (
             <button

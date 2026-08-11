@@ -8,7 +8,7 @@ export const india: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-in.png",
   capital: "Nova Délhi",
   coordenadas: { x: 74, y: 48 },
-  imagem_capa: "/__l5e/assets-v1/4c7d8f83-36ef-4636-b10e-c774de123856/india-capa.jpg",
+  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Taj-Mahal.jpg/1280px-Taj-Mahal.jpg",
   resumo_geografico: "Uma explosão de cores, tradições e espiritualidade. A Índia é um continente de diversidade infinita, onde templos antigos convivem com a vida urbana moderna.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Taj-Mahal.jpg/1280px-Taj-Mahal.jpg",
