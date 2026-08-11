@@ -44,7 +44,7 @@ const paisesDedicados: Pais[] = [
   grecia,
   egito,
   marrocos,
-  africaDoSul,
+  africa_do_sul,
   japao,
   china,
   india,
