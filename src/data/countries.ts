@@ -12,7 +12,7 @@ import { japao } from "./countries/japan";
 import { egito } from "./countries/egito";
 import { australia } from "./countries/australia";
 import { china } from "./countries/china";
-import { marrocos } from "./countries/morocco";
+import { marrocos } from "./countries/marrocos";
 import { africaDoSul } from "./countries/south-africa";
 import { costaRica } from "./countries/costa-rica";
 import { france } from "./countries/france";
