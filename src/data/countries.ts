@@ -9,7 +9,7 @@ import { brasil } from "./countries/brazil";
 import { argentina } from "./countries/argentina";
 import { chile } from "./countries/chile";
 import { japao } from "./countries/japan";
-import { egito } from "./countries/egypt";
+import { egito } from "./countries/egito";
 import { australia } from "./countries/australia";
 import { china } from "./countries/china";
 import { marrocos } from "./countries/morocco";
