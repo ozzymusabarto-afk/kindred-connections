@@ -215,22 +215,21 @@ function AlbumPage() {
               }`}
             >
               <span aria-hidden className="inline-flex items-center">
-                {p.bandeira_url ? (
-                  <img 
-                    src={p.bandeira_url} 
-                    alt="" 
-                    className="h-4 w-auto object-contain rounded-sm shadow-sm"
-                    onError={(e) => {
-                      const target = e.currentTarget;
-                      target.style.display = 'none';
+                <img 
+                  src={`https://flagcdn.com/w160/${p.codigo_mapa.toLowerCase()}.png`} 
+                  alt="" 
+                  className="h-4 w-auto object-contain rounded-sm shadow-sm"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    target.style.display = 'none';
+                    if (target.parentElement && !target.parentElement.querySelector('.flag-fallback')) {
                       const span = document.createElement('span');
-                      span.textContent = p.bandeira;
-                      target.parentElement?.appendChild(span);
-                    }}
-                  />
-                ) : (
-                  p.bandeira
-                )}
+                      span.className = "flag-fallback";
+                      span.textContent = p.bandeira || '🏳️';
+                      target.parentElement.appendChild(span);
+                    }
+                  }}
+                />
               </span>
               {p.nome}
             </button>

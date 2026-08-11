@@ -233,48 +233,39 @@ function MapaMundi() {
                   />
                 </span>
               )}
-              <div className="h-56 w-full overflow-hidden bg-sky-50">
-                <div className="relative h-full w-full">
-                  {pais.imagem_capa ? (
+              <div className="h-56 w-full overflow-hidden bg-sky-50 relative">
+                <img
+                  src={pais.imagem_capa || `https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80&sig=${pais.id}`}
+                  alt={`Paisagem de ${pais.nome}`}
+                  loading="lazy"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (!target.src.includes('unsplash.com')) {
+                       target.src = `https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80&sig=${pais.id}`;
+                    }
+                  }}
+                />
+                
+                <div className="absolute inset-0 flex items-center justify-center p-4">
+                  <div className="relative group/flag">
                     <img
-                      src={pais.imagem_capa}
-                      alt={`Paisagem de ${pais.nome}`}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70"
+                      src={`https://flagcdn.com/w160/${pais.codigo_mapa.toLowerCase()}.png`}
+                      alt={`Bandeira de ${pais.nome}`}
+                      className="h-20 w-32 object-contain shadow-2xl rounded-md border-2 border-white bg-white/40 backdrop-blur-[2px]"
+                      style={{ minHeight: '80px', minWidth: '128px' }}
+                      onError={(e) => {
+                        const target = e.currentTarget;
+                        target.style.display = 'none';
+                        const parent = target.parentElement;
+                        if (parent && !parent.querySelector('.flag-fallback')) {
+                          const fallback = document.createElement('div');
+                          fallback.className = "flag-fallback h-20 w-32 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border-2 border-white/20 shadow-xl";
+                          fallback.innerHTML = `<span class="text-6xl drop-shadow-2xl">${pais.bandeira || '🏳️'}</span>`;
+                          parent.appendChild(fallback);
+                        }
+                      }}
                     />
-                  ) : (
-                    <img
-                      src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1280"
-                      alt="Paisagem padrão"
-                      className="h-full w-full object-cover opacity-50"
-                    />
-                  )}
-                  <div className="absolute inset-0 flex items-center justify-center p-4">
-                    {pais.bandeira_url ? (
-                      <div className="relative group/flag">
-                        <img
-                          src={pais.bandeira_url}
-                          alt={`Bandeira de ${pais.nome}`}
-                          className="h-20 w-32 object-contain shadow-2xl rounded-md border-2 border-white bg-white/40 backdrop-blur-[2px]"
-                          style={{ minHeight: '80px', minWidth: '128px' }}
-                          onError={(e) => {
-                            const target = e.currentTarget;
-                            target.style.display = 'none';
-                            const parent = target.parentElement;
-                            if (parent) {
-                              const fallback = document.createElement('div');
-                              fallback.className = "h-20 w-32 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border-2 border-white/20 shadow-xl";
-                              fallback.innerHTML = `<span class="text-6xl drop-shadow-2xl">${pais.bandeira}</span>`;
-                              parent.appendChild(fallback);
-                            }
-                          }}
-                        />
-                      </div>
-                    ) : (
-                      <div className="h-20 w-32 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border-2 border-white/20 shadow-xl">
-                        <span className="text-6xl drop-shadow-2xl">{pais.bandeira}</span>
-                      </div>
-                    )}
                   </div>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
