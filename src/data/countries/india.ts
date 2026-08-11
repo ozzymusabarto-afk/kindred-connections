@@ -5,7 +5,7 @@ export const india: Pais = {
   continente: "asia",
   codigo_mapa: "in",
   bandeira: "🇮🇳",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/1280px-Flag_of_India.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-in.png",
   capital: "Nova Délhi",
   coordenadas: { x: 74, y: 48 },
   imagem_capa: "https://images.unsplash.com/photo-1524492707947-54b036573c05?auto=format&fit=crop&q=80&w=1280",
