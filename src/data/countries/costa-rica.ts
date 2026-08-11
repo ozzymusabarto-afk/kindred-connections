@@ -9,7 +9,7 @@ export const costaRica: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-cr.png",
   capital: "San José",
   coordenadas: { x: 22, y: 55 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Arenal_Volcano_Costa_Rica.jpg/1280px-Arenal_Volcano_Costa_Rica.jpg",
+  imagem_capa: "/__l5e/assets-v1/b1bbf58f-6366-40bf-8d48-93e7ffee3ebd/costa-rica-capa.jpg",
   credito: "Wikimedia Commons",
   resumo_geografico: "O paraíso da biodiversidade! Com uma natureza exuberante que cobre boa parte do território, a Costa Rica é famosa por suas florestas tropicais, vulcões ativos e praias paradisíacas. Aqui, o lema é 'Pura Vida', celebrando a conexão profunda com a floresta e o respeito a todos os seres vivos.",
 
