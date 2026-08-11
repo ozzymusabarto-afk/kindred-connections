@@ -15,7 +15,7 @@ export const japao: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-jp.png",
   capital: "Tóquio",
   coordenadas: { x: 88, y: 38 },
-  imagem_capa: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1280",
+  imagem_capa: "/__l5e/assets-v1/9f0d4526-6b9c-4e8e-b124-91e0901e4b3c/japan-capa.jpg",
   resumo_geografico: "Um arquipélago formado por mais de 6.000 ilhas, onde o futuro e o passado caminham lado a lado. Das luzes de neon de Tóquio aos templos silenciosos de Quioto, o Japão é uma terra de montanhas vulcânicas, florestas de bambu e uma cultura baseada no respeito, na tecnologia e na harmonia com as estações do ano.",
   
   chegada: {
