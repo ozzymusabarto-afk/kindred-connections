@@ -32,11 +32,13 @@ export const Route = createFileRoute("/")({
 function MapaMundi() {
   const navigate = useNavigate();
   const [continenteAtivo, setContinenteAtivo] = useState<ContinenteId | "todos">("todos");
+  
+  useEffect(() => {
     if (typeof window !== "undefined") {
-      return (window.localStorage.getItem("diario:continente-ativo") as ContinenteId | "todos") || "todos";
+      const salvo = window.localStorage.getItem("diario:continente-ativo") as ContinenteId | "todos";
+      if (salvo) setContinenteAtivo(salvo);
     }
-    return "todos";
-  });
+  }, []);
   const [somAtivo, setSomAtivo] = useState(true);
   
   useEffect(() => {
