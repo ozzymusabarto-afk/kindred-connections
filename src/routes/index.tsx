@@ -256,6 +256,7 @@ function MapaMundi() {
                           src={pais.bandeira_url}
                           alt={`Bandeira de ${pais.nome}`}
                           className="h-20 w-32 object-contain shadow-2xl rounded-md border-2 border-white/80 bg-white/10"
+                          style={{ minHeight: '80px', minWidth: '128px' }}
                           onError={(e) => {
                             const target = e.currentTarget;
                             target.style.display = 'none';
