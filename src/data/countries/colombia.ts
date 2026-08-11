@@ -5,7 +5,7 @@ export const colombia: Pais = {
   continente: "america-do-sul",
   codigo_mapa: "co",
   bandeira: "🇨🇴",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/1280px-Flag_of_Colombia.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-co.png",
   capital: "Bogotá",
   coordenadas: { x: 26, y: 56 },
   imagem_capa: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=1280",

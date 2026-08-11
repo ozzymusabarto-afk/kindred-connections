@@ -6,7 +6,7 @@ export const costaRica: Pais = {
   continente: "america-central",
   codigo_mapa: "cr",
   bandeira: "🇨🇷",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/1280px-Flag_of_Costa_Rica.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-cr.png",
   capital: "San José",
   coordenadas: { x: 22, y: 55 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Arenal_Volcano_Costa_Rica.jpg/1280px-Arenal_Volcano_Costa_Rica.jpg",

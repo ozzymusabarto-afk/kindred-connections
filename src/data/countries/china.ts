@@ -6,7 +6,7 @@ export const china: Pais = {
   continente: "asia",
   codigo_mapa: "cn",
   bandeira: "🇨🇳",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1000px-Flag_of_the_People%27s_Republic_of_China.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-cn.png",
   capital: "Pequim",
   coordenadas: { x: 80, y: 40 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/The_Great_Wall_of_China_at_Jinshanling-edit.jpg/1200px-The_Great_Wall_of_China_at_Jinshanling-edit.jpg",

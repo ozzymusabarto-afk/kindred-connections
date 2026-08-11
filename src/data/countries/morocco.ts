@@ -6,7 +6,7 @@ export const marrocos: Pais = {
   continente: "africa",
   codigo_mapa: "ma",
   bandeira: "🇲🇦",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/1000px-Flag_of_Morocco.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-ma.png",
   capital: "Rabat",
   coordenadas: { x: 46, y: 43 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Yacine_Petit-moulin_Marrakech_Place_Jemaa_el-Fna_Night.jpg/1200px-Yacine_Petit-moulin_Marrakech_Place_Jemaa_el-Fna_Night.jpg",

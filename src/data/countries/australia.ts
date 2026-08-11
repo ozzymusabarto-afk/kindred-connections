@@ -6,7 +6,7 @@ export const australia: Pais = {
   continente: "oceania",
   codigo_mapa: "au",
   bandeira: "🇦🇺",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia.svg/1000px-Flag_of_Australia.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-au.png",
   capital: "Camberra",
   coordenadas: { x: 88, y: 78 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Sydney_Opera_House_-_Dec_2008.jpg/1920px-Sydney_Opera_House_-_Dec_2008.jpg",

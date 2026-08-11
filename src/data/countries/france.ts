@@ -12,7 +12,7 @@ export const france: Pais = {
   continente: "europa",
   codigo_mapa: "fr",
   bandeira: "🇫🇷",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1280px-Flag_of_France.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-fr.png",
   capital: "Paris",
   coordenadas: { x: 48, y: 32 },
   imagem_capa: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=1280",

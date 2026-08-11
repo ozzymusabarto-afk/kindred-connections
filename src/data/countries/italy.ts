@@ -6,7 +6,7 @@ export const italia: Pais = {
   continente: "europa",
   codigo_mapa: "it",
   bandeira: "🇮🇹",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/1280px-Flag_of_Italy.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-it.png",
   capital: "Roma",
   coordenadas: { x: 50, y: 35 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/1280px-Colosseo_2020.jpg",

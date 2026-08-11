@@ -13,7 +13,7 @@ export const argentina: Pais = {
   continente: "america-do-sul",
   codigo_mapa: "ar",
   bandeira: "🇦🇷",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1280px-Flag_of_Argentina.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-ar.png",
   capital: "Buenos Aires",
   coordenadas: { x: 29, y: 80 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Perito_Moreno_Glacier_Patagonia_Argentina.jpg/1280px-Perito_Moreno_Glacier_Patagonia_Argentina.jpg",
