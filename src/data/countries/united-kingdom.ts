@@ -8,7 +8,7 @@ export const unitedKingdom: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-gb.png",
   capital: "Londres",
   coordenadas: { x: 47, y: 28 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Big_Ben_and_Houses_of_Parliament.jpg/1280px-Big_Ben_and_Houses_of_Parliament.jpg",
+  imagem_capa: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
   resumo_geografico: "Uma terra de monarquia, história literária e paisagens verdes. O Reino Unido é um centro de tradições milenares e cultura global influente.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Big_Ben_and_Houses_of_Parliament.jpg/1280px-Big_Ben_and_Houses_of_Parliament.jpg",

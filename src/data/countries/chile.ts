@@ -16,7 +16,7 @@ export const chile: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-cl.png",
   capital: "Santiago",
   coordenadas: { x: 27, y: 78 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Santiago_de_Chile_view.jpg/1280px-Santiago_de_Chile_view.jpg",
+  imagem_capa: "https://images.unsplash.com/photo-1490782300182-697b80ad4293?w=800&q=80",
   credito: "Wikimedia Commons",
   resumo_geografico: "O país mais comprido e estreito do mundo, espremido entre a Cordilheira dos Andes e o Oceano Pacífico. O Chile é uma terra de extremos: ao norte, o deserto mais seco do planeta; ao sul, campos de gelo milenares; e no centro, vales férteis e montanhas gigantescas que vigiam as cidades.",
   
