@@ -240,13 +240,13 @@ function MapaMundi() {
                       src={pais.imagem_capa}
                       alt={`Paisagem de ${pais.nome}`}
                       loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-60 mix-blend-multiply"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-70"
                     />
                   ) : (
                     <img
                       src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1280"
                       alt="Paisagem padrão"
-                      className="h-full w-full object-cover opacity-40 mix-blend-multiply"
+                      className="h-full w-full object-cover opacity-50"
                     />
                   )}
                   <div className="absolute inset-0 flex items-center justify-center p-4">
@@ -255,7 +255,7 @@ function MapaMundi() {
                         <img
                           src={pais.bandeira_url}
                           alt={`Bandeira de ${pais.nome}`}
-                          className="h-20 w-32 object-contain shadow-2xl rounded-md border-2 border-white/80 bg-white/10"
+                          className="h-20 w-32 object-contain shadow-2xl rounded-md border-2 border-white bg-white/40 backdrop-blur-[2px]"
                           style={{ minHeight: '80px', minWidth: '128px' }}
                           onError={(e) => {
                             const target = e.currentTarget;
