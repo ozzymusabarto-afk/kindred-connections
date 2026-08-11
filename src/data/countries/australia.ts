@@ -13,9 +13,6 @@ export const australia: Pais = {
   credito: "Unsplash",
   resumo_geografico: "Um gigante insular no hemisfério sul! A Austrália une a espetacular Grande Barreira de Corais, o místico e avermelhado Outback no interior do continente, cidades litorâneas vibrantes e espécies de animais únicas no mundo.",
   
-  // ==========================================
-  // 1. CHEGADA (O Voo e as Boas-vindas)
-  // ==========================================
   chegada: {
     imagem_url: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=1200&q=80",
     som: {
@@ -42,9 +39,6 @@ export const australia: Pais = {
     ]
   },
 
-  // ==========================================
-  // 2. CHECK-IN (Base de Operações)
-  // ==========================================
   base: {
     nome: "Hospedagem à beira da Baía de Sydney / Eco-Lodge perto da Grande Barreira de Corais",
     imagem_url: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=1200&q=80",
@@ -62,9 +56,6 @@ export const australia: Pais = {
     ]
   },
 
-  // ==========================================
-  // 3. ROTEIRO (As 5 Estações)
-  // ==========================================
   roteiro_viagem: [
     {
       dia: 1,
@@ -73,7 +64,6 @@ export const australia: Pais = {
       imagem_url: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=1200&q=80",
       clima_do_dia: "24 °C, ensolarado e clima agradável",
       
-      // ESTAÇÃO 1: TRANSPORTE
       transporte: {
         nome: "Barcas de Sydney (Ferry) e Trem Cênico de Kuranda",
         icone: "⛴️",
@@ -81,35 +71,42 @@ export const australia: Pais = {
         imagem_url: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=1200&q=80",
         som: { url: "https://assets.mixkit.co/active_storage/sfx/2874/2874-preview.mp3", legenda: "Som das ondas no casco da barca e apito suave na baía de Sydney" }
       },
-      // ESTAÇÃO 2: OBSERVAÇÃO
       observacao: {
         titulo: "Ópera de Sydney (Sydney Opera House) e Grande Barreira de Corais",
         imagem_url: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?auto=format&fit=crop&w=1200&q=80",
         hotspots: [
-          { id: \"velas-opera\", x: 50, y: 40, titulo: \"Arquitetura das Velas Cerâmicas\", texto: \"Design revolucionário inspirado em conchas e velas de barco cobertas por mais de 1 milhão de azulejos autolimpantes de cerâmica.\" },
-          { id: \"barreira-corais\", x: 75, y: 65, titulo: \"A Grande Barreira de Corais\", texto: \"A maior estrutura viva do planeta, tão gigante que pode ser vista do espaço, abrigando milhares de espécies de peixes e tartarugas.\" }
+          { 
+            id: "velas-opera", 
+            x: 50, 
+            y: 40, 
+            titulo: "Arquitetura das Velas Cerâmicas", 
+            texto: "Design revolucionário inspirado em conchas e velas de barco cobertas por mais de 1 milhão de azulejos autolimpantes de cerâmica." 
+          },
+          { 
+            id: "barreira-corais", 
+            x: 75, 
+            y: 65, 
+            titulo: "A Grande Barreira de Corais", 
+            texto: "A maior estrutura viva do planeta, tão gigante que pode ser vista do espaço, abrigando milhares de espécies de peixes e tartarugas." 
+          }
         ]
       },
-      // ESTAÇÃO 3: NATUREZA
       fauna_do_dia: {
         id: "canguru-coala-e-ornitorrinco",
         contexto: "Observe os parques nacionais e as florestas de eucalipto!",
         texto_guia: "A Austrália é famosa pelos seus animais marsupiais: o Canguru (que salta usando a cauda forte) e o fofo Coala (que vive no alto dos eucaliptos), além do fascinante Ornitorrinco (mamífero que põe ovos e tem bico de pato)."
       },
-      // ESTAÇÃO 4: SABORES
       sabor_do_dia: {
         id: "meat-pie-e-lamington",
         contexto: "Hora de experimentar os lanches e sobremesas tradicionais da Austrália!",
         texto_guia: "Saboreie a *Meat Pie* (tortinha individual recheada com carne moída bem temperada e molho escurinho) e, de sobremesa, o famoso *Lamington* (cubo de bolo fofinho banhado em chocolate e coberto com coco ralado)."
       },
-      // ESTAÇÃO 5: CARIMBO
       desafio: {
         pergunta: "Qual é o famoso animal marsupial australiano conhecido por se locomover aos pulos e carregar seus filhotes na bolsa (bolsa marsupial)?",
         opcoes: ["Urso Panda", "Canguru", "Pinguim"],
         correta: 1,
         explicacao: "O canguru é o maior marsupial do mundo e símbolo nacional da Austrália, utilizando suas patas traseiras fortes para saltar grandes distâncias."
       },
-      // CONEXÃO PEDAGÓGICA
       notas_brasil: {
         transporte: { texto: "Tanto o Brasil quanto a Austrália possuem litorais gigantescos e uma enorme paixão pelo surfe e por esportes náuticos nas praias do Oceano Atlântico e do Oceano Pacífico!" }
       }
