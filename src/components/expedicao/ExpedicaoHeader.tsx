@@ -25,6 +25,18 @@ export function ExpedicaoHeader({ pais, guia, clima }: Props) {
                 src={pais.bandeira_url} 
                 alt={`Bandeira de ${pais.nome}`}
                 className="h-14 w-20 object-cover rounded-md shadow-sm border border-sky-100"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  target.style.display = 'none';
+                  const parent = target.parentElement;
+                  if (parent) {
+                    const fallback = document.createElement('span');
+                    fallback.className = "text-5xl";
+                    fallback.setAttribute('aria-hidden', 'true');
+                    fallback.textContent = pais.bandeira;
+                    parent.prepend(fallback);
+                  }
+                }}
               />
             ) : (
               <span aria-hidden className="text-5xl">
