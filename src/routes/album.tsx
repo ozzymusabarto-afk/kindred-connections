@@ -218,7 +218,7 @@ function AlbumPage() {
                 <img 
                   src={`https://flagcdn.com/w160/${p.codigo_mapa.toLowerCase()}.png`} 
                   alt="" 
-                  className="h-4 w-auto object-contain rounded-sm shadow-sm"
+                  className="h-4 w-6 object-cover rounded-sm shadow-sm"
                   onError={(e) => {
                     const target = e.currentTarget;
                     target.style.display = 'none';
