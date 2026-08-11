@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
 
 function MapaMundi() {
   const navigate = useNavigate();
-  const [continenteAtivo, setContinenteAtivo] = useState<ContinenteId | "todos">(() => {
+  const [continenteAtivo, setContinenteAtivo] = useState<ContinenteId | "todos">("todos");
     if (typeof window !== "undefined") {
       return (window.localStorage.getItem("diario:continente-ativo") as ContinenteId | "todos") || "todos";
     }
@@ -225,17 +225,18 @@ function MapaMundi() {
               "canada": "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&q=80",
               "mexico": "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=800&q=80",
               "portugal": "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80",
-              "spain": "https://images.unsplash.com/photo-1543783230-278358a7ecef?w=800&q=80",
+              "spain": "https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&q=80",
               "united-kingdom": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
               "australia": "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800&q=80",
               "china": "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&q=80",
               "india": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80",
               "marrocos": "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800&q=80",
               "africa-do-sul": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80",
-              "costa-rica": "https://images.unsplash.com/photo-1519301149455-8d91ec0b73c4?w=800&q=80",
+              "costa-rica": "https://images.unsplash.com/photo-1599026417551-78c66e2c342f?w=800&q=80",
               "peru": "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=800&q=80",
               "chile": "https://images.unsplash.com/photo-1490782300182-697b80ad4293?w=800&q=80",
-              "greece": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80"
+              "greece": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80",
+              "colombia": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80"
             };
             const bgImage = countryImages[pais.id] || pais.imagem_capa;
             
