@@ -9,7 +9,7 @@ export const portugal: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-pt.png",
   capital: "Lisboa",
   coordenadas: { x: 45, y: 35 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Lisboa_Aerial_View.jpg/1280px-Lisboa_Aerial_View.jpg",
+  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Lisboa_-_Torre_de_Bel%C3%A9m.jpg/1280px-Lisboa_-_Torre_de_Bel%C3%A9m.jpg",
   credito: "Wikimedia Commons",
   resumo_geografico: "A porta de entrada da Europa e um pedaço fundamental da história do Brasil. Portugal é um país de navegadores, com castelos medievais, bondes amarelos que sobem colinas íngremes e um litoral banhado pelo Atlântico de onde partiram as caravelas que chegaram ao solo brasileiro há séculos. É uma terra onde o antigo e o moderno caminham juntos pelas ruas de pedra.",
   
