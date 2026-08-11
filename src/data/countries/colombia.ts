@@ -27,7 +27,7 @@ export const colombia: Pais = {
   },
   base: {
     nome: "Hacienda de Café em Quindío",
-    imagem_url: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&q=80&w=1280",
+    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Salento_Quindio_Colombia.jpg/1280px-Salento_Quindio_Colombia.jpg",
     som: {
       url: "https://upload.wikimedia.org/wikipedia/commons/2/23/Colombia_Rainforest_Ambience.mp3",
       legenda: "O som da biodiversidade colombiana",

@@ -27,7 +27,7 @@ export const india: Pais = {
   },
   base: {
     nome: "Hospedaria em Jaipur",
-    imagem_url: "https://images.unsplash.com/photo-1524492707947-54b036573c05?auto=format&fit=crop&q=80&w=1280",
+    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hawa_Mahal_2011.jpg/1280px-Hawa_Mahal_2011.jpg",
     som: {
       url: "https://upload.wikimedia.org/wikipedia/commons/2/23/Delhi_Street_Market_Ambience.mp3",
       legenda: "A energia vibrante dos mercados de Nova Délhi",
