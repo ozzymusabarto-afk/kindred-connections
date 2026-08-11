@@ -255,15 +255,15 @@ function MapaMundi() {
                         <img
                           src={pais.bandeira_url}
                           alt={`Bandeira de ${pais.nome}`}
-                          className="h-24 w-auto object-contain shadow-2xl rounded-md border-2 border-white/80"
+                          className="h-20 w-32 object-contain shadow-2xl rounded-md border-2 border-white/80 bg-white/10"
+                          style={{ minHeight: '80px', minWidth: '128px' }}
                           onError={(e) => {
-                            // Fallback para o emoji se a imagem falhar
                             const target = e.currentTarget;
                             target.style.display = 'none';
                             const parent = target.parentElement;
                             if (parent) {
                               const fallback = document.createElement('div');
-                              fallback.className = "h-24 w-32 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border-2 border-white/20 shadow-xl";
+                              fallback.className = "h-20 w-32 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border-2 border-white/20 shadow-xl";
                               fallback.innerHTML = `<span class="text-6xl drop-shadow-2xl">${pais.bandeira}</span>`;
                               parent.appendChild(fallback);
                             }
@@ -271,7 +271,7 @@ function MapaMundi() {
                         />
                       </div>
                     ) : (
-                      <div className="h-24 w-32 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border-2 border-white/20 shadow-xl">
+                      <div className="h-20 w-32 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border-2 border-white/20 shadow-xl">
                         <span className="text-6xl drop-shadow-2xl">{pais.bandeira}</span>
                       </div>
                     )}

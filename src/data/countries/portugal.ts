@@ -6,7 +6,7 @@ export const portugal: Pais = {
   continente: "europa",
   codigo_mapa: "pt",
   bandeira: "🇵🇹",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/1280px-Flag_of_Portugal.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-pt.png",
   capital: "Lisboa",
   coordenadas: { x: 45, y: 35 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Pra%C3%A7a_do_Com%C3%A9rcio_Lisbon_July_2011.jpg/1280px-Pra%C3%A7a_do_Com%C3%A9rcio_Lisbon_July_2011.jpg",

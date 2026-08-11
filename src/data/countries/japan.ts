@@ -12,7 +12,7 @@ export const japao: Pais = {
   continente: "asia",
   codigo_mapa: "jp",
   bandeira: "🇯🇵",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/1000px-Flag_of_Japan.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-jp.png",
   capital: "Tóquio",
   coordenadas: { x: 88, y: 38 },
   imagem_capa: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&q=80&w=1280",

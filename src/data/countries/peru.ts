@@ -5,7 +5,7 @@ export const peru: Pais = {
   continente: "america-do-sul",
   codigo_mapa: "pe",
   bandeira: "🇵🇪",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/1280px-Flag_of_Peru.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-pe.png",
   capital: "Lima",
   coordenadas: { x: 25, y: 63 },
   imagem_capa: "https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&q=80&w=1280",

@@ -13,7 +13,7 @@ export const chile: Pais = {
   continente: "america-do-sul",
   codigo_mapa: "cl",
   bandeira: "🇨🇱",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Flag_of_Chile.svg/1280px-Flag_of_Chile.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-cl.png",
   capital: "Santiago",
   coordenadas: { x: 27, y: 78 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Torres_del_Paine_National_Park_Chile.jpg/1280px-Torres_del_Paine_National_Park_Chile.jpg",

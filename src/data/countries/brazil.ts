@@ -13,7 +13,7 @@ export const brasil: Pais = {
   continente: "america-do-sul",
   codigo_mapa: "br",
   bandeira: "🇧🇷",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/1280px-Flag_of_Brazil.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-br.png",
   capital: "Brasília",
   coordenadas: { x: 31, y: 65 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Corcovado_Christ_the_Redeemer_Rio_de_Janeiro_Brazil.jpg/1280px-Corcovado_Christ_the_Redeemer_Rio_de_Janeiro_Brazil.jpg",

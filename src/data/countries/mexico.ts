@@ -6,7 +6,7 @@ export const mexico: Pais = {
   continente: "america-do-norte",
   codigo_mapa: "mx",
   bandeira: "🇲🇽",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/1280px-Flag_of_Mexico.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-mx.png",
   capital: "Cidade do México",
   coordenadas: { x: 17, y: 46 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Chichen_Itza_3.jpg/1280px-Chichen_Itza_3.jpg",

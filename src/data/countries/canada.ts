@@ -9,7 +9,7 @@ export const canada: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-ca.png",
   capital: "Ottawa",
   coordenadas: { x: 22, y: 25 },
-  imagem_capa: "/__l5e/assets-v1/b3acabd4-e1ab-4379-94bf-1f4cb0e96b42/grand-canyon-view-with-colorado-river.jpg",
+  imagem_capa: "/__l5e/assets-v1/daca442e-dddd-4e17-8f8c-1433c46d76ed/canada-capa.jpg",
   credito: "Wikimedia Commons",
   resumo_geografico: "O segundo maior país do mundo em área territorial, famoso por suas florestas infinitas, lagos de água cristalina em tom turquesa e montanhas cobertas de neve.",
   

@@ -6,7 +6,7 @@ export const africaDoSul: Pais = {
   continente: "africa",
   codigo_mapa: "za",
   bandeira: "🇿🇦",
-  bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/1000px-Flag_of_South_Africa.svg.png",
+  bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-za.png",
   capital: "Pretória",
   coordenadas: { x: 55, y: 80 },
   imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Table_Mountain_Cape_Town.jpg/1200px-Table_Mountain_Cape_Town.jpg",
