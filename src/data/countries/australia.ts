@@ -9,7 +9,7 @@ export const australia: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-au.png",
   capital: "Camberra",
   coordenadas: { x: 88, y: 78 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Sydney_Opera_House_-_front_view.jpg/1280px-Sydney_Opera_House_-_front_view.jpg",
+  imagem_capa: "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800&q=80",
   resumo_geografico: "A maior ilha do mundo e um continente inteiro. A Austrália é uma terra de contrastes, onde cidades ultra-modernas na costa dão lugar ao imenso 'Outback' — um deserto vermelho e selvagem no interior. É o lar de animais que não existem em nenhum outro lugar do planeta e da maior estrutura viva da Terra: a Grande Barreira de Corais.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Sydney_Opera_House_and_Harbour_Bridge_from_Air.jpg/1920px-Sydney_Opera_House_and_Harbour_Bridge_from_Air.jpg",

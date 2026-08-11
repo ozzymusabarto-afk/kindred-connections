@@ -16,7 +16,7 @@ export const brasil: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-br.png",
   capital: "Brasília",
   coordenadas: { x: 31, y: 65 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Cristo_Redentor_Rio_de_Janeiro_4.jpg/1280px-Cristo_Redentor_Rio_de_Janeiro_4.jpg",
+  imagem_capa: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800&q=80",
   credito: "Wikimedia Commons",
   resumo_geografico: "O maior país da América Latina, ocupando quase metade do continente. O Brasil é um gigante tropical, berço da maior floresta e do maior rio do mundo (o Amazonas). Suas paisagens vão das praias paradisíacas às serras frias do sul, passando por pantanais e cerrados. É um país de povo alegre, cores vibrantes e uma mistura cultural única que se reflete na música, na comida e na hospitalidade.",
   
