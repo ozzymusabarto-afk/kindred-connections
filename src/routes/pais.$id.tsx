@@ -209,7 +209,7 @@ function SimuladorViagem() {
                 <img 
                   src={`https://flagcdn.com/w160/${pais.codigo_mapa.toLowerCase()}.png`} 
                   alt={`Bandeira de ${pais.nome}`} 
-                  className="h-20 w-32 mb-4 object-contain shadow-lg rounded-sm border border-white/40 bg-white/5"
+                  className="h-20 w-32 mb-4 object-cover w-full h-full shadow-lg rounded-sm border border-white/40 bg-white/5"
                   style={{ minHeight: '80px', minWidth: '128px' }}
                   onError={(e) => {
                     const target = e.currentTarget;
