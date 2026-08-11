@@ -251,11 +251,25 @@ function MapaMundi() {
                   )}
                   <div className="absolute inset-0 flex items-center justify-center p-4">
                     {pais.bandeira_url ? (
-                      <img
-                        src={pais.bandeira_url}
-                        alt={`Bandeira de ${pais.nome}`}
-                        className="h-24 w-auto object-contain shadow-2xl rounded-md border-2 border-white/80"
-                      />
+                      <div className="relative group/flag">
+                        <img
+                          src={pais.bandeira_url}
+                          alt={`Bandeira de ${pais.nome}`}
+                          className="h-24 w-auto object-contain shadow-2xl rounded-md border-2 border-white/80"
+                          onError={(e) => {
+                            // Fallback para o emoji se a imagem falhar
+                            const target = e.currentTarget;
+                            target.style.display = 'none';
+                            const parent = target.parentElement;
+                            if (parent) {
+                              const fallback = document.createElement('div');
+                              fallback.className = "h-24 w-32 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border-2 border-white/20 shadow-xl";
+                              fallback.innerHTML = `<span class="text-6xl drop-shadow-2xl">${pais.bandeira}</span>`;
+                              parent.appendChild(fallback);
+                            }
+                          }}
+                        />
+                      </div>
                     ) : (
                       <div className="h-24 w-32 bg-white/10 backdrop-blur-sm rounded-lg flex items-center justify-center border-2 border-white/20 shadow-xl">
                         <span className="text-6xl drop-shadow-2xl">{pais.bandeira}</span>

@@ -71,8 +71,23 @@ export function TelaChegada({ pais, onAvancar }: Props) {
       </p>
       <p className="text-sm leading-relaxed text-muted-foreground">{pais.resumo_geografico}</p>
       <p className="text-sm text-muted-foreground">
-        <span aria-hidden className="mr-2 text-xl">
-          {pais.bandeira}
+        <span aria-hidden className="mr-2 text-xl align-middle">
+          {pais.bandeira_url ? (
+            <img 
+              src={pais.bandeira_url} 
+              alt="" 
+              className="inline-block h-6 w-auto object-contain rounded-sm shadow-sm align-text-bottom mr-1"
+              onError={(e) => {
+                const target = e.currentTarget;
+                target.style.display = 'none';
+                const span = document.createElement('span');
+                span.textContent = pais.bandeira + ' ';
+                target.parentElement?.prepend(span);
+              }}
+            />
+          ) : (
+            pais.bandeira
+          )}
         </span>
         Sua expedição tem {pais.roteiro_viagem.length} dias de viagem.
       </p>

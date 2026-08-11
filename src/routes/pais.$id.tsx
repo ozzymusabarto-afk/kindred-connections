@@ -206,7 +206,26 @@ function SimuladorViagem() {
           <div className="w-full lg:w-1/3 xl:w-1/4">
             <div className="sticky top-24 space-y-6">
               <div className="flex flex-col items-center overflow-hidden rounded-2xl border-2 border-sky-100 bg-white p-6 shadow-sm">
-                <span className="text-6xl mb-4 drop-shadow-sm">{pais.bandeira}</span>
+                {pais.bandeira_url ? (
+                  <img 
+                    src={pais.bandeira_url} 
+                    alt={`Bandeira de ${pais.nome}`} 
+                    className="h-20 w-auto mb-4 object-contain shadow-lg rounded-sm"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.style.display = 'none';
+                      const parent = target.parentElement;
+                      if (parent) {
+                        const fallback = document.createElement('span');
+                        fallback.className = "text-6xl mb-4 drop-shadow-sm";
+                        fallback.textContent = pais.bandeira;
+                        parent.prepend(fallback);
+                      }
+                    }}
+                  />
+                ) : (
+                  <span className="text-6xl mb-4 drop-shadow-sm">{pais.bandeira}</span>
+                )}
                 <h1 className="text-center font-display text-2xl text-sky-950">{pais.nome}</h1>
                 <p className="text-sm font-bold uppercase tracking-widest text-sky-600/60">{pais.capital}</p>
               </div>

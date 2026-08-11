@@ -214,7 +214,24 @@ function AlbumPage() {
                   : "border-border bg-card text-muted-foreground hover:bg-accent"
               }`}
             >
-              <span aria-hidden>{p.bandeira}</span>
+              <span aria-hidden className="inline-flex items-center">
+                {p.bandeira_url ? (
+                  <img 
+                    src={p.bandeira_url} 
+                    alt="" 
+                    className="h-4 w-auto object-contain rounded-sm shadow-sm"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      target.style.display = 'none';
+                      const span = document.createElement('span');
+                      span.textContent = p.bandeira;
+                      target.parentElement?.appendChild(span);
+                    }}
+                  />
+                ) : (
+                  p.bandeira
+                )}
+              </span>
               {p.nome}
             </button>
           ))}
