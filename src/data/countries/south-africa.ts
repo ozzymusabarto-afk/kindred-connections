@@ -9,7 +9,7 @@ export const africaDoSul: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-za.png",
   capital: "Pretória",
   coordenadas: { x: 55, y: 80 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Table_Mountain_Cape_Town.jpg/1200px-Table_Mountain_Cape_Town.jpg",
+  imagem_capa: "/__l5e/assets-v1/9f0d4526-6b9c-4e8e-b124-91e0901e4b3c/south-africa-capa.jpg",
   resumo_geografico: "Conhecida como a 'Nação Arco-Íris' por sua diversidade de povos, a África do Sul fica na ponta extrema do continente. É uma terra de safáris incríveis com os 'Big Five', montanhas que parecem mesas e o encontro épico de dois oceanos: o Atlântico e o Índico.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Cape_Town_Aerial_View.jpg/1200px-Cape_Town_Aerial_View.jpg",

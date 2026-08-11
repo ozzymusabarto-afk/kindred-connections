@@ -9,7 +9,7 @@ export const egito: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-eg.png",
   capital: "Cairo",
   coordenadas: { x: 55, y: 45 },
-  imagem_capa: "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&q=80&w=1280",
+  imagem_capa: "/__l5e/assets-v1/23caacea-48d0-4e94-b9e5-fe6a556b8230/egypt-capa.jpg",
   resumo_geografico: "Uma dádiva do Rio Nilo no meio do maior deserto do mundo, o Saara. O Egito é o berço de uma das civilizações mais antigas da Terra, onde pirâmides monumentais guardam segredos de faraós e o Rio Nilo traz vida a uma faixa verde de terra que corta as areias escaldantes.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/View_of_Nile_river_and_Cairo_city_at_sunset.jpg/1920px-View_of_Nile_river_and_Cairo_city_at_sunset.jpg",

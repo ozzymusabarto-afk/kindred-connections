@@ -15,7 +15,7 @@ export const france: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-fr.png",
   capital: "Paris",
   coordenadas: { x: 48, y: 32 },
-  imagem_capa: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=80&w=1280",
+  imagem_capa: "/__l5e/assets-v1/daca442e-dddd-4e17-8f8c-1433c46d76ed/france-capa.jpg",
   resumo_geografico: "A terra da arte, da moda e da gastronomia. Da luz de Paris aos vinhedos de Bordeaux, a França é um ícone de sofisticação e história.",
   
   chegada: {
