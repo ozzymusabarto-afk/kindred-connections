@@ -20,30 +20,24 @@ export function ExpedicaoHeader({ pais, guia, clima }: Props) {
       <div className="mx-auto grid max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-6 px-6 py-5 sm:flex sm:flex-wrap sm:justify-between">
         <div className="flex min-w-0 items-center gap-4">
           <div className="relative shrink-0">
-            {pais.bandeira_url ? (
-              <img 
-                src={pais.bandeira_url} 
-                alt={`Bandeira de ${pais.nome}`}
-                className="h-14 w-20 object-contain rounded-md shadow-sm border border-sky-100 bg-white/5"
-                style={{ minHeight: '56px', minWidth: '80px' }}
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  target.style.display = 'none';
-                  const parent = target.parentElement;
-                  if (parent) {
-                    const fallback = document.createElement('span');
-                    fallback.className = "text-5xl";
-                    fallback.setAttribute('aria-hidden', 'true');
-                    fallback.textContent = pais.bandeira;
-                    parent.prepend(fallback);
-                  }
-                }}
-              />
-            ) : (
-              <span aria-hidden className="text-5xl">
-                {pais.bandeira}
-              </span>
-            )}
+            <img 
+              src={`https://flagcdn.com/w160/${pais.codigo_mapa.toLowerCase()}.png`} 
+              alt={`Bandeira de ${pais.nome}`}
+              className="h-14 w-20 object-contain rounded-md shadow-sm border border-sky-100 bg-white/5"
+              style={{ minHeight: '56px', minWidth: '80px' }}
+              onError={(e) => {
+                const target = e.currentTarget;
+                target.style.display = 'none';
+                const parent = target.parentElement;
+                if (parent && !parent.querySelector('.flag-fallback')) {
+                  const fallback = document.createElement('span');
+                  fallback.className = "flag-fallback text-5xl";
+                  fallback.setAttribute('aria-hidden', 'true');
+                  fallback.textContent = pais.bandeira || '🏳️';
+                  parent.prepend(fallback);
+                }
+              }}
+            />
             <div className="absolute -bottom-2 -right-2 bg-yellow-400 text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm uppercase tracking-tighter text-sky-900 border border-white">
               Explorador
             </div>

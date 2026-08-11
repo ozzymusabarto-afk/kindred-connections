@@ -72,23 +72,22 @@ export function TelaChegada({ pais, onAvancar }: Props) {
       <p className="text-sm leading-relaxed text-muted-foreground">{pais.resumo_geografico}</p>
       <p className="text-sm text-muted-foreground">
         <span aria-hidden className="mr-2 text-xl align-middle">
-          {pais.bandeira_url ? (
-            <img 
-              src={pais.bandeira_url} 
-              alt="" 
-              className="inline-block h-6 w-10 object-contain rounded-sm shadow-sm align-text-bottom mr-1 border border-white/20 bg-white/5"
-              style={{ minHeight: '24px', minWidth: '40px' }}
-              onError={(e) => {
-                const target = e.currentTarget;
-                target.style.display = 'none';
+          <img 
+            src={`https://flagcdn.com/w160/${pais.codigo_mapa.toLowerCase()}.png`} 
+            alt="" 
+            className="inline-block h-6 w-10 object-contain rounded-sm shadow-sm align-text-bottom mr-1 border border-white/20 bg-white/5"
+            style={{ minHeight: '24px', minWidth: '40px' }}
+            onError={(e) => {
+              const target = e.currentTarget;
+              target.style.display = 'none';
+              if (target.parentElement && !target.parentElement.querySelector('.flag-fallback')) {
                 const span = document.createElement('span');
-                span.textContent = pais.bandeira + ' ';
-                target.parentElement?.prepend(span);
-              }}
-            />
-          ) : (
-            pais.bandeira
-          )}
+                span.className = "flag-fallback";
+                span.textContent = (pais.bandeira || '🏳️') + ' ';
+                target.parentElement.prepend(span);
+              }
+            }}
+          />
         </span>
         Sua expedição tem {pais.roteiro_viagem.length} dias de viagem.
       </p>
