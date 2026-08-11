@@ -246,7 +246,8 @@ function MapaMundi() {
               "greece": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80",
               "colombia": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80",
               "colômbia": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80",
-              "co": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80"
+              "co": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80",
+              "co-sur": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80"
             };
             const bgImage = countryImages[pais.id] || pais.imagem_capa;
             
