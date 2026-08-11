@@ -233,17 +233,21 @@ function MapaMundi() {
               "china": "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&q=80",
               "india": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80",
               "marrocos": "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800&q=80",
+              "morocco": "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800&q=80",
               "africa-do-sul": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80",
+              "south-africa": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80",
               "costa-rica": "https://images.unsplash.com/photo-1599026417551-78c66e2c342f?w=800&q=80",
               "costa_rica": "https://images.unsplash.com/photo-1599026417551-78c66e2c342f?w=800&q=80",
               "costarica": "https://images.unsplash.com/photo-1599026417551-78c66e2c342f?w=800&q=80",
               "cr": "https://images.unsplash.com/photo-1599026417551-78c66e2c342f?w=800&q=80",
+              "cr-central": "https://images.unsplash.com/photo-1599026417551-78c66e2c342f?w=800&q=80",
               "peru": "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=800&q=80",
               "chile": "https://images.unsplash.com/photo-1490782300182-697b80ad4293?w=800&q=80",
               "greece": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80",
               "colombia": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80",
               "colômbia": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80",
-              "co": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80"
+              "co": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80",
+              "co-sur": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80"
             };
             const bgImage = countryImages[pais.id] || pais.imagem_capa;
             
