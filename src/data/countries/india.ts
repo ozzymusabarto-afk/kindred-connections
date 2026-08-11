@@ -13,9 +13,6 @@ export const india: Pais = {
   credito: "Unsplash",
   resumo_geografico: "Uma terra de cores, sons e tradições milenares! Do Himalaia no norte às praias tropicais do sul, a Índia encanta com o monumental Taj Mahal, reservas de vida selvagem e uma cultura vibrante que celebra a diversidade.",
   
-  // ==========================================
-  // 1. CHEGADA (O Voo e as Boas-vindas)
-  // ==========================================
   chegada: {
     imagem_url: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=80",
     som: {
@@ -29,14 +26,19 @@ export const india: Pais = {
     fala_piloto_traducao: "Bem-vindos à Índia! Namaste! Preparem suas bagagens para pousar em Nova Deli...",
     texto: "Olhe pela janela! Do alto, avistamos as curvas dos rios sagrados, os cúpulas brancas reluzentes dos monumentos históricos e a vibrante agitação das cidades indianas.",
     galeria: [
-      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80"
+      {
+        id: "chegada-1",
+        imagem_url: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80",
+        legenda: "Vista aérea de Nova Deli"
+      },
+      {
+        id: "chegada-2",
+        imagem_url: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80",
+        legenda: "O vibrante movimento das ruas indianas"
+      }
     ]
   },
 
-  // ==========================================
-  // 2. CHECK-IN (Base de Operações)
-  // ==========================================
   base: {
     nome: "Hospedagem em Agra / Lodges na Reserva de Ranthambore",
     imagem_url: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=80",
@@ -46,20 +48,22 @@ export const india: Pais = {
     },
     descricao: "“Namaste, exploradores! Na Índia, celebramos a união entre a natureza, a arte, a ciência e a espiritualidade, aprendendo o respeito por todas as formas de vida.”",
     galeria: [
-      "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80"
+      {
+        id: "base-1",
+        imagem_url: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=800&q=80",
+        legenda: "Um refúgio tranquilo para nossos exploradores"
+      }
     ]
   },
 
-  // ==========================================
-  // 3. ROTEIRO (As 5 Estações)
-  // ==========================================
   roteiro_viagem: [
     {
       dia: 1,
       titulo: "Dia 1: O Taj Mahal, os Trens Expressos e os Tigres de Ranthambore",
+      descricao: "Uma jornada inesquecível pelo coração da Índia, do mármore branco à vida selvagem.",
+      imagem_url: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=80",
       clima_do_dia: "27 °C, dia quente e ensolarado",
       
-      // ESTAÇÃO 1: TRANSPORTE
       transporte: {
         nome: "Trens Expressos de Alta Velocidade (Vande Bharat e Gatimaan Express)",
         icone: "🚆",
@@ -67,7 +71,6 @@ export const india: Pais = {
         imagem_url: "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1200&q=80",
         som: { url: "https://assets.mixkit.co/active_storage/sfx/2874/2874-preview.mp3", legenda: "Apito suave e trilho do trem expresso cortando o interior da Índia" }
       },
-      // ESTAÇÃO 2: OBSERVAÇÃO
       observacao: {
         titulo: "Taj Mahal (Monumento ao Amor na Cidade de Agra)",
         imagem_url: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=80",
@@ -76,30 +79,56 @@ export const india: Pais = {
           { id: "espelho-agua", x: 50, y: 80, titulo: "Jardins e Espelho D'Água", texto: "Jardins simétricos divididos em quatro partes com um longo canal d'água central que reflete a imagem perfeita do monumento." }
         ]
       },
-      // ESTAÇÃO 3: NATUREZA
       fauna_do_dia: {
         id: "tigre-de-bengala-e-elefante-asiatico",
         contexto: "Observe os Parques Nacionais de Ranthambore e Jim Corbett!",
         texto_guia: "A Índia é o lar do majestoso Tigre-de-Bengala e do amado Elefante-Asiático. O país lidera grandes esforços internacionais para salvar e proteger esses incríveis animais em seus habitats naturais."
       },
-      // ESTAÇÃO 4: SABORES
       sabor_do_dia: {
         id: "tikka-masala-e-samosa",
         contexto: "Hora de explorar a alquimia das ervas e especiarias aromáticas!",
         texto_guia: "Experimente o delicioso *Chicken Tikka Masala* (ou opção vegetariana com queijo Paneer) rico em especiarias como açafrão, gengibre e cominho, e a *Samosa* (pastelzinho crocante recheado com batatas e ervilhas temperadas)."
       },
-      // ESTAÇÃO 5: CARIMBO
       desafio: {
         pergunta: "De que material nobre é feito o icônico Taj Mahal, conhecido por mudar de tom com a luz do sol?",
         opcoes: ["Mármore Branco", "Granito Vermelho", "Arenito Amarelo"],
         correta: 0,
         explicacao: "O Taj Mahal foi construído inteiramente em mármore branco translúcido trazido de pedreiras distantes, decorado com raras pedras semipreciosas."
       },
-      // CONEXÃO PEDAGÓGICA
       notas_brasil: {
         transporte: { texto: "O Brasil e a Índia compartilham parcerias em tecnologia e ciência!" },
         observacao: { texto: "A prática do Yoga e da Ayurveda, milenares tradições indianas de bem-estar, respiração e equilíbrio entre corpo e mente, são imensamente populares em todo o Brasil." }
       }
     }
-  ]
+  ],
+  
+  fauna_flora: [
+    {
+      id: "tigre-bengala",
+      nome: "Tigre de Bengala",
+      foto_url: "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=800&q=80",
+      som_url: "https://assets.mixkit.co/active_storage/sfx/2874/2874-preview.mp3",
+      curiosidade: "O tigre de bengala é o animal nacional da Índia e pode rugir tão alto que é ouvido a quilômetros de distância!",
+      habitat: "Florestas e reservas nacionais como Ranthambore."
+    }
+  ],
+  
+  gastronomia: [
+    {
+      id: "tikka-masala",
+      nome: "Chicken Tikka Masala",
+      foto_url: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=800&q=80",
+      adjetivo: "aromático",
+      historia: "Um prato que conquistou o mundo, unindo frango grelhado a um molho cremoso de tomate e especiarias indianas."
+    }
+  ],
+  
+  comparativo: {
+    clima_predominante: "Tropical e Monções",
+    bioma_principal: "Florestas Tropicais e Himalaia",
+    elemento_marcante: "Tradições milenares e espiritualidade",
+    agricultura_construcoes: "Produção de especiarias e templos de mármore",
+    roupas_modo_de_vida: "Saris e turbantes vibrantes",
+    fauna_alimentacao: "Tigres e culinária rica em especiarias"
+  }
 };
