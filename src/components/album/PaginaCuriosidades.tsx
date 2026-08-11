@@ -20,6 +20,18 @@ export function PaginaCuriosidades({ pais, colecionadas, total }: Props) {
             src={pais.bandeira_url}
             alt={`Bandeira do país ${pais.nome}`}
             className="h-20 w-32 rounded-lg border-2 border-border object-cover shadow-md sm:h-24 sm:w-40"
+            onError={(e) => {
+              const target = e.currentTarget;
+              target.style.display = 'none';
+              const parent = target.parentElement;
+              if (parent) {
+                const fallback = document.createElement('span');
+                fallback.className = "text-6xl";
+                fallback.setAttribute('aria-hidden', 'true');
+                fallback.textContent = pais.bandeira;
+                parent.prepend(fallback);
+              }
+            }}
           />
         ) : (
           <span aria-hidden className="text-6xl">
