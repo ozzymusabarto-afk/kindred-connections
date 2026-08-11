@@ -249,7 +249,7 @@ function MapaMundi() {
               "co": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80",
               "co-sur": "https://images.unsplash.com/photo-1534051033608-726243b71569?w=800&q=80"
             };
-            const bgImage = countryImages[pais.id] || pais.imagem_capa;
+            const bgImage = pais.imagem_capa || countryImages[pais.id];
             
             return (
             <button
