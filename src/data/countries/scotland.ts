@@ -9,7 +9,7 @@ export const scotland: Pais = {
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/1280px-Flag_of_Scotland.svg.png",
   capital: "Edimburgo",
   coordenadas: { x: 46, y: 24 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Eilean_Donan_Castle%2C_Scotland_-_Jan_2011.jpg/1280px-Eilean_Donan_Castle%2C_Scotland_-_Jan_2011.jpg",
+  imagem_capa: "https://images.unsplash.com/photo-1549918830-11ec3d403bbc?w=800&q=80",
   resumo_geografico: "Uma terra de lendas, castelos de pedra e montanhas envoltas em névoa. A Escócia é famosa por suas 'Highlands', seus lagos profundos (Lochs) e uma cultura rica em tradições, do som das gaitas de fole aos padrões coloridos dos tartãs.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Edinburgh_Castle_from_Princes_Street_Gardens.jpg/1280px-Edinburgh_Castle_from_Princes_Street_Gardens.jpg",
