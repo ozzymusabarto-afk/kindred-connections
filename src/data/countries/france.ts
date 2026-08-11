@@ -1,11 +1,5 @@
-import { Pais } from "../types";
+import type { Pais } from "../types";
 
-/**
- * Roteiro completo da França — 3 dias de expedição imersiva.
- * Dia 1: Paris (A Torre Eiffel e o Rio Sena)
- * Dia 2: Vale do Loire (Castelos medievais e história real)
- * Dia 3: Provença (Campos de lavanda e o clima mediterrâneo)
- */
 export const france: Pais = {
   id: "france",
   nome: "França",
@@ -14,139 +8,109 @@ export const france: Pais = {
   bandeira: "🇫🇷",
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-fr.png",
   capital: "Paris",
-  coordenadas: { x: 48, y: 32 },
-  imagem_capa: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80",
-  resumo_geografico: "A terra da arte, da moda e da gastronomia. Da luz de Paris aos vinhedos de Bordeaux, a França é um ícone de sofisticação e história.",
+  coordenadas: { x: 50, y: 35 },
+  imagem_capa: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
+  credito: "Unsplash",
+  resumo_geografico: "O coração cultural da Europa Ocidental! A França une o charme urbano de Paris às praias da Riviera Francesa, aos campos de lavanda da Provença, aos vinhedos históricos e aos picos nevados dos Alpes.",
   
   chegada: {
-    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Paris_Aerial_View.jpg/1280px-Paris_Aerial_View.jpg",
+    imagem_url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
     som: {
-      url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Airplane_Landing_Sound.mp3",
-      legenda: "Pouso no Aeroporto Charles de Gaulle, Paris",
-      credito: "Wikimedia Commons"
+      url: "https://assets.mixkit.co/active_storage/sfx/2874/2874-preview.mp3",
+      legenda: "Gravação real de pouso: ronco dos motores e anúncio do piloto",
     },
     idioma: "Francês",
-    fuso_horario: "4 horas à frente de Brasília",
-    temperatura: "15 °C, brisa fresca",
-    fala_piloto_original: "Bonjour, mesdames et messieurs! Welcome to Paris Charles de Gaulle Airport. The temperature is 15 degrees Celsius.",
-    fala_piloto_traducao: "Bom dia, senhoras e senhores passageiros! Bem-vindos ao Aeroporto Charles de Gaulle, em Paris. A temperatura é de 15 graus Celsius.",
-    texto: "Estamos sobrevoando Paris, a Cidade Luz! Veja lá embaixo a Torre Eiffel brilhando ao sol e o Rio Sena serpenteando entre os prédios históricos. Prepare-se para explorar museus, padarias e muita história!",
+    fuso_horario: "15h00 no horário local — 4 horas a mais que Brasília",
+    temperatura: "19 °C, clima temperado agradável ao longo do Rio Sena",
+    fala_piloto_original: "Bienvenue en France! Préparez vos bagages pour atterrir à Paris...",
+    fala_piloto_traducao: "Bem-vindos à França! Preparem suas bagagens para pousar em Paris...",
+    texto: "Olhe pela janela! Do alto, vemos o Rio Sena cortando Paris em curvas suaves, as grandes avenidas planejadas e a silhueta inconfundível da Torre Eiffel.",
     galeria: [
-      {
-        id: "fr-chegada-1",
-        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques.jpg/1280px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques.jpg",
-        legenda: "Torre Eiffel vista do alto",
-        credito: "Wikimedia Commons"
-      }
+      { id: "f1", imagem_url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80", legenda: "Paris e a Torre Eiffel" },
+      { id: "f2", imagem_url: "https://images.unsplash.com/photo-1543783207-ec64e4d95325?auto=format&fit=crop&w=800&q=80", legenda: "Arco do Triunfo" }
     ]
   },
-
   base: {
-    nome: "Hotel Boutique em Le Marais, Paris",
-    imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Place_des_Vosges_Paris.jpg/1280px-Place_des_Vosges_Paris.jpg",
+    nome: "Hotel de Charme no Bairro de Montmartre / Castelo do Vale do Loire",
+    imagem_url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
     som: {
-      url: "https://upload.wikimedia.org/wikipedia/commons/2/23/Paris_Street_Ambience.mp3",
-      legenda: "Sons das ruas de Paris: conversas e passos",
-      credito: "Wikimedia Commons"
+      url: "https://assets.mixkit.co/active_storage/sfx/2874/2874-preview.mp3",
+      legenda: "Acordeão francês (accordéon) tocando valsa suave em uma praça de café"
     },
-    descricao: "“Bonjour! Eu sou Pierre, seu guia. Estamos em Le Marais, um bairro medieval charmoso em Paris. Sinta o cheiro dos croissants frescos vindo da padaria da esquina! A França é o país dos detalhes e do bom gosto.”",
-    galeria: []
+    descricao: "“Bienvenue, explorateurs! Na França, celebramos a arte, a ciência, a filosofia e a beleza de pensar e construir grandes monumentos.”",
+    galeria: [
+      { id: "b1", imagem_url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80", legenda: "Interior charmoso" }
+    ]
   },
-
   roteiro_viagem: [
     {
       dia: 1,
-      titulo: "Dia 1: A Torre e o Sena",
-      descricao: "Um passeio pela Torre Eiffel e um cruzeiro pelo Rio Sena.",
-      imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques.jpg/1280px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques.jpg",
-      credito: "Wikimedia Commons",
-      guia_nome: "Pierre",
-      guia_local: "Pierre, guia de Paris",
-      clima_do_dia: "15 °C, nublado",
+      titulo: "Dia 1: A Torre Eiffel, o Rio Sena e a Arquitetura em Aço",
+      descricao: "Explorando a Dama de Ferro e as margens do Rio Sena.",
+      imagem_url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
+      clima_do_dia: "20 °C, ensolarado com brisa leve",
       transporte: {
-        nome: "Metrô de Paris",
-        icone: "🚇",
-        descricao: "O metrô parisiense é um dos mais antigos e eficientes do mundo, com entradas decoradas em estilo Art Nouveau.",
-        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Metropolitain_Paris_Station_Abbesses.jpg/1280px-Metropolitain_Paris_Station_Abbesses.jpg",
-        credito: "Wikimedia Commons"
+        nome: "TGV (Train à Grande Vitesse / Trem de Alta Velocidade)",
+        icone: "🚄",
+        descricao: "Pioneiro dos trens velozes na Europa, alcança velocidades superiores a 320 km/h conectando o centro de Paris a todas as regiões francesas.",
+        imagem_url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
+        som: { url: "https://assets.mixkit.co/active_storage/sfx/2874/2874-preview.mp3", legenda: "Zumbido da alta velocidade ao passar pelos trilhos rurais" }
       },
       observacao: {
-        titulo: "Torre Eiffel",
-        imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_2014.jpg/1280px-Tour_Eiffel_2014.jpg",
-        credito: "Wikimedia Commons",
+        titulo: "Torre Eiffel e o Champ de Mars",
+        imagem_url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80",
         hotspots: [
-          {
-            id: "ferro",
-            x: 50,
-            y: 40,
-            titulo: "Dama de Ferro",
-            texto: "Feita de ferro forjado, foi construída para uma grande feira e deveria ter sido desmontada, mas os parisienses se apaixonaram por ela!"
-          }
+          { id: "estrutura-ferro", x: 50, y: 40, titulo: "Treliças de Ferro Forjado", texto: "Erguida em 1889 pelo engenheiro Gustave Eiffel com mais de 18 mil peças de ferro unidas por mais de 2,5 milhões de rebites." },
+          { id: "topo-farol", x: 50, y: 15, titulo: "Farol de Navegação e Antenas", texto: "Com 330 metros de altura, além de marco turístico, a torre foi fundamental para o desenvolvimento das primeiras transmissões de rádio da história." }
         ]
       },
       fauna_do_dia: {
-        id: "pombo-paris",
-        contexto: "Nas praças de Paris, as pombas são parte constante da paisagem urbana.",
-        galeria: [
-          {
-            id: "fr-fauna-1",
-            imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pigeons_in_Plaza_de_Mayo.jpg/1280px-Pigeons_in_Plaza_de_Mayo.jpg",
-            legenda: "Pombas em uma praça parisiense",
-            credito: "Wikimedia Commons"
-          }
-        ]
+        id: "marmota-dos-alpes-e-urso",
+        contexto: "Observe as montanhas dos Alpes e a floresta de Fontainebleau!",
+        texto_guia: "A Marmota-dos-Alpes habita os prados de alta altitude emitindo assobios para alertar sua família, enquanto no Parque do Mercantour vivem Lobos e Cervos protegidos."
       },
       sabor_do_dia: {
-        id: "croissant",
-        contexto: "O clássico croissant francês: amanteigado, crocante por fora e macio por dentro."
+        id: "croissant-e-queijos-artesanais",
+        contexto: "Hora de experimentar a panificação e a gastronomia clássica!",
+        texto_guia: "Prove um Croissant quentinho e crocante (feito com massa folhada delicada) e conheça os mais de 400 tipos de Queijos artesanais (como o Camembert e o Brie)."
       },
-      perguntas: [
-        {
-          id: "fr1",
-          tipo: "observacao",
-          etapa: "observacao",
-          texto: "A Torre Eiffel é feita inteiramente de metal. Por que você acha que ela brilha tanto quando as luzes se acendem à noite?"
-        }
-      ],
       desafio: {
-        pergunta: "Qual o apelido famoso da Torre Eiffel?",
-        opcoes: ["Dama de Ouro", "Dama de Ferro", "Gigante de Paris"],
+        pergunta: "Em qual cidade francesa fica localizada a famosa Torre Eiffel e o Museu do Louvre?",
+        opcoes: ["Nice", "Paris", "Lyon"],
         correta: 1,
-        explicacao: "A Torre Eiffel é conhecida como a 'Dama de Ferro' por causa de sua estrutura metálica imensa."
+        explicacao: "Paris é a capital da França e abriga alguns dos monumentos e museus mais visitados de todo o planeta."
+      },
+      notas_brasil: {
+        transporte: { texto: "O engenheiro francês Gustave Eiffel desenhou não apenas a Torre Eiffel, mas também estruturas de ferro que vieram para o Brasil no século XIX, como pontes e mercados de ferro em Manaus (AM) e Belém (PA)." },
+        observacao: { texto: "O inventor brasileiro Santos Dumont viveu em Paris e foi o primeiro homem a contornar a Torre Eiffel dirigindo um dirigível inventado por ele mesmo!" }
       }
     }
   ],
-
   fauna_flora: [
     {
-      id: "pombo-paris",
-      nome: "Pombo",
-      nome_cientifico: "Columba livia",
-      foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Pigeons_in_Plaza_de_Mayo.jpg/1280px-Pigeons_in_Plaza_de_Mayo.jpg",
-      som_url: "https://upload.wikimedia.org/wikipedia/commons/1/1a/Pigeon_Sound.mp3",
-      curiosidade: "São aves muito adaptadas às cidades europeias e conseguem reconhecer rostos humanos!",
-      habitat: "Zonas urbanas e parques.",
-      credito: "Wikimedia Commons"
+      id: "marmota-dos-alpes-e-urso",
+      nome: "Marmota e Urso",
+      foto_url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
+      som_url: "https://assets.mixkit.co/active_storage/sfx/2874/2874-preview.mp3",
+      curiosidade: "A marmota assobia para avisar os amigos quando vê perigo!",
+      habitat: "Alpes e florestas francesas"
     }
   ],
-
   gastronomia: [
     {
-      id: "croissant",
-      nome: "Croissant",
-      foto_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Croissants_at_Paris_bakery.jpg/1280px-Croissants_at_Paris_bakery.jpg",
-      adjetivo: "crocante",
-      historia: "Dizem que o croissant foi inspirado em um pão austríaco, mas foram os padeiros franceses que o tornaram essa maravilha folhada.",
-      credito: "Wikimedia Commons"
+      id: "croissant-e-queijos-artesanais",
+      nome: "Croissant e Queijos",
+      foto_url: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80",
+      adjetivo: "clássico e amanteigado",
+      historia: "O croissant é um ícone da padaria francesa, amado em todo o mundo por sua leveza."
     }
   ],
-
   comparativo: {
-    clima_predominante: "Temperado",
-    bioma_principal: "Florestas temperadas e campos agrícolas",
-    elemento_marcante: "A arte, a história e o prazer de comer bem",
-    agricultura_construcoes: "Vinhos e construções históricas de pedra. Cidades com arquitetura clássica preservada.",
-    roupas_modo_de_vida: "Moda e elegância no dia a dia. Valorização do tempo nas refeições.",
-    fauna_alimentacao: "Queijos, vinhos, pães e patisseries maravilhosas."
+    clima_predominante: "Temperado Oceânico e Mediterrâneo",
+    bioma_principal: "Florestas Temperadas e Alpes",
+    elemento_marcante: "Torre Eiffel, Louvre e Arte",
+    agricultura_construcoes: "Vinhedos, Queijos e Arquitetura Haussmanniana",
+    roupas_modo_de_vida: "Elegância parisiense e vida nos cafés",
+    fauna_alimentacao: "Marmotas e Alta Gastronomia"
   }
 };
