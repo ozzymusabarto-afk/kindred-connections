@@ -8,7 +8,7 @@ export const marrocos: Pais = {
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/1280px-Flag_of_Morocco.svg.png",
   capital: "Rabat",
   coordenadas: { x: 550, y: 400 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Koutoubia_Marrakech_2010.jpg/1280px-Koutoubia_Marrakech_2010.jpg",
+  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Fes_Medina_Streets.jpg/1280px-Fes_Medina_Streets.jpg",
   resumo_geografico: "Uma ponte entre a África e a Europa. Marrocos é um reino de desertos dourados, montanhas nevadas e cidades medievais chamadas Medinas, onde as ruas são labirintos de aromas, cores e tapetes feitos à mão.",
   roteiro_viagem: [
     {

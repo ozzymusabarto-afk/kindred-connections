@@ -8,7 +8,7 @@ export const peru: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-pe.png",
   capital: "Lima",
   coordenadas: { x: 25, y: 63 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Machu_Picchu_Peru.jpg/1280px-Machu_Picchu_Peru.jpg",
+  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Machu_Picchu%2C_Peru.jpg/1280px-Machu_Picchu%2C_Peru.jpg",
   resumo_geografico: "O berço do império Inca. O Peru é uma terra de montanhas andinas íngremes, ruínas arqueológicas misteriosas e uma gastronomia que é uma das melhores do mundo.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Machu_Picchu_Peru.jpg/1280px-Machu_Picchu_Peru.jpg",

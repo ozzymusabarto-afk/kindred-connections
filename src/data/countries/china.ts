@@ -9,7 +9,7 @@ export const china: Pais = {
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-cn.png",
   capital: "Pequim",
   coordenadas: { x: 80, y: 40 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/The_Great_Wall_of_China_at_Jinshanling-edit.jpg/1280px-The_Great_Wall_of_China_at_Jinshanling-edit.jpg",
+  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/The_Great_Wall_of_China_at_Mutianyu.jpg/1280px-The_Great_Wall_of_China_at_Mutianyu.jpg",
   resumo_geografico: "Uma das civilizações mais antigas do mundo, a China é um país de proporções gigantescas. Da Grande Muralha que serpenteia as montanhas às cidades futuristas como Xangai, o país oferece um contraste fascinante entre tradições milenares e inovação tecnológica de ponta.",
   chegada: {
     imagem_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Forbidden_City_Beijing_Aerial_View.jpg/1200px-Forbidden_City_Beijing_Aerial_View.jpg",
