@@ -3,7 +3,7 @@ import type { Pais } from "../types";
 export const costaRica: Pais = {
   id: "costa-rica",
   nome: "Costa Rica",
-  continente: "america-do-norte", // Américas (Central)
+  continente: "america-central", // Américas (Central)
   codigo_mapa: "cr",
   bandeira: "🇨🇷",
   bandeira_url: "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-cr.png",
@@ -70,6 +70,8 @@ export const costaRica: Pais = {
     {
       dia: 1,
       titulo: "Dia 1: Vulcões, Pontes Suspensas e Biodiversidade",
+      descricao: "Exploraremos as pontes suspensas na copa das árvores e o majestoso Vulcão Arenal.",
+      imagem_url: "https://images.unsplash.com/photo-1599026417551-78c66e2c342f?auto=format&fit=crop&w=1200&q=80",
       clima_do_dia: "25 °C, tropical com pancadas rápidas de chuva de floresta",
       
       // ESTAÇÃO 1: TRANSPORTE
@@ -114,5 +116,32 @@ export const costaRica: Pais = {
         observacao: { texto: "Enquanto a Costa Rica abriga vulcões e florestas tropicais densas, o Brasil possui o Parque Nacional da Tijuca (RJ) e a Reserva Caxiuanã (PA) com plataformas de pesquisa científica no topo das árvores." }
       }
     }
-  ]
+  ],
+  fauna_flora: [
+    {
+      id: "bicho-preguica",
+      nome: "Bicho-Preguiça",
+      foto_url: "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=800&q=80",
+      som_url: "https://assets.mixkit.co/active_storage/sfx/2874/2874-preview.mp3",
+      curiosidade: "A Costa Rica é um dos melhores lugares do mundo para ver preguiças em seu habitat natural.",
+      habitat: "Florestas tropicais."
+    }
+  ],
+  gastronomia: [
+    {
+      id: "gallo-pinto",
+      nome: "Gallo Pinto",
+      foto_url: "https://images.unsplash.com/photo-1534051033608-726243b71569?auto=format&fit=crop&w=800&q=80",
+      adjetivo: "Nutritivo",
+      historia: "O prato base da culinária costarriquenha, essencial para começar o dia com energia."
+    }
+  ],
+  comparativo: {
+    clima_predominante: "Tropical úmido",
+    bioma_principal: "Floresta Tropical",
+    elemento_marcante: "Biodiversidade e Ecoturismo",
+    agricultura_construcoes: "Café e Ecopousadas",
+    roupas_modo_de_vida: "Leve, explorador e sustentável",
+    fauna_alimentacao: "Frutas tropicais, arroz e feijão"
+  }
 };
