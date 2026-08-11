@@ -20,7 +20,7 @@ export const estadosUnidos: Pais = {
     "/__l5e/assets-v1/604585e3-9784-4ac3-869f-5969dbadaba6/bandeira-us.png",
   capital: "Washington, D.C.",
   coordenadas: { x: 18, y: 35 },
-  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Lady_Liberty_under_a_blue_sky_%28cropped%29.jpg/1280px-Lady_Liberty_under_a_blue_sky_%28cropped%29.jpg",
+  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Statue_of_Liberty_NY.jpg/1280px-Statue_of_Liberty_NY.jpg",
   credito: "Wikimedia Commons",
   resumo_geografico:
     "Um país continental de 50 estados e paisagens completamente diferentes: metrópoles verticais no leste, desertos alaranjados no Arizona, montanhas nevadas no Alasca, vulcões no Havaí e a costa fria do Pacífico no oeste. Aqui as quatro estações são muito marcadas — o inverno traz neve de verdade, o outono pinta as árvores de vermelho e dourado e a primavera floresce com força. Essa variedade explica por que o modo de vida muda tanto de um estado para outro.",
