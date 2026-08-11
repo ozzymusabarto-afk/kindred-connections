@@ -3,7 +3,7 @@ import { estadosUnidos } from "./countries/usa";
 import { canada } from "./countries/canada";
 import { portugal } from "./countries/portugal";
 import { mexico } from "./countries/mexico";
-import { italia } from "./countries/italy";
+import { italia } from "./countries/italia";
 import { spain } from "./countries/spain";
 import { brasil } from "./countries/brazil";
 import { argentina } from "./countries/argentina";
