@@ -86,8 +86,8 @@ export const chile: Pais = {
         titulo: "Vale da Lua no Deserto do Atacama",
         imagem_url: "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=1200&q=80",
         hotspots: [
-          { id: \"formacoes-sal\", x: 45, y: 60, titulo: \"Esculturas de Sal e Rocha\", texto: \"Formatas pelo vento e pela ausência quase total de chuva ao longo de milhares de anos.\" },
-          { id: \"observatorio\", x: 75, y: 30, titulo: \"Céu Mais Limpo do Planeta\", texto: \"Devido à altitude e à falta de umidade, o Atacama abriga os telescópios científicos mais avançados do mundo.\" }
+          { id: "formacoes-sal", x: 45, y: 60, titulo: "Esculturas de Sal e Rocha", texto: "Formatas pelo vento e pela ausência quase total de chuva ao longo de milhares de anos." },
+          { id: "observatorio", x: 75, y: 30, titulo: "Céu Mais Limpo do Planeta", texto: "Devido à altitude e à falta de umidade, o Atacama abriga os telescópios científicos mais avançados do mundo." }
         ]
       },
       // ESTAÇÃO 3: NATUREZA
