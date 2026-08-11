@@ -240,6 +240,7 @@ function MapaMundi() {
               "costa_rica": "https://images.unsplash.com/photo-1599026417551-78c66e2c342f?w=800&q=80",
               "costarica": "https://images.unsplash.com/photo-1599026417551-78c66e2c342f?w=800&q=80",
               "cr": "https://images.unsplash.com/photo-1599026417551-78c66e2c342f?w=800&q=80",
+              "cr-central": "https://images.unsplash.com/photo-1599026417551-78c66e2c342f?w=800&q=80",
               "peru": "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=800&q=80",
               "chile": "https://images.unsplash.com/photo-1490782300182-697b80ad4293?w=800&q=80",
               "greece": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80",
