@@ -9,7 +9,7 @@ export const guatemala: Pais = {
   bandeira_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Flag_of_Guatemala.svg/1280px-Flag_of_Guatemala.svg.png",
   capital: "Cidade da Guatemala",
   coordenadas: { x: 270, y: 430 },
-  imagem_capa: "https://images.unsplash.com/photo-1543783230-278358a7ecef?auto=format&fit=crop&q=80&w=1280",
+  imagem_capa: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Tikal_Temple_I.jpg/1280px-Tikal_Temple_I.jpg",
   credito: "Wikimedia Commons",
   resumo_geografico: "O coração do mundo Maia! A Guatemala é um país montanhoso, repleto de templos antigos escondidos na selva e cidades coloniais preservadas. A cultura viva dos povos ancestrais define o dia a dia, com suas roupas coloridas e tradições milenares.",
 
