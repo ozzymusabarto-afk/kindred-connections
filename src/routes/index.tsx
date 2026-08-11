@@ -214,7 +214,30 @@ function MapaMundi() {
 
         <section className="mt-24 px-5 pb-32 max-w-7xl mx-auto grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
           {paisesVisiveis.map((pais: any) => {
-            const bgImage = pais.imagem_capa;
+            const countryImages: Record<string, string> = {
+              "brasil": "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=800&q=80",
+              "france": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800&q=80",
+              "japao": "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800&q=80",
+              "egito": "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?w=800&q=80",
+              "italia": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&q=80",
+              "argentina": "https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800&q=80",
+              "estados-unidos": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=800&q=80",
+              "canada": "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?w=800&q=80",
+              "mexico": "https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=800&q=80",
+              "portugal": "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&q=80",
+              "spain": "https://images.unsplash.com/photo-1543783230-278358a7ecef?w=800&q=80",
+              "united-kingdom": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800&q=80",
+              "australia": "https://images.unsplash.com/photo-1523482580672-f109ba8cb9be?w=800&q=80",
+              "china": "https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=800&q=80",
+              "india": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80",
+              "marrocos": "https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=800&q=80",
+              "africa-do-sul": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=800&q=80",
+              "costa-rica": "https://images.unsplash.com/photo-1519301149455-8d91ec0b73c4?w=800&q=80",
+              "peru": "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=800&q=80",
+              "chile": "https://images.unsplash.com/photo-1490782300182-697b80ad4293?w=800&q=80",
+              "greece": "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80"
+            };
+            const bgImage = countryImages[pais.id] || pais.imagem_capa;
             
             return (
             <button
